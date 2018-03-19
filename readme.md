@@ -9,10 +9,10 @@
 
 ## Installation : 
 
--Run composer install.
--Modify the .env.example to get a .env.
--Run php artisan key:generate.
--Run php artisan serve.
+- Run <b> composer install </b>.
+- Modify the .env.example to get a .env.
+- Run <b>php artisan key:generate</b>.
+- Run <b>php artisan serve</b>.
 +(bdd import)
 
 
