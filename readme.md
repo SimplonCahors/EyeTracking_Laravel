@@ -9,6 +9,7 @@
 
 ## Installation :  
 
+- Run npm install.
 - Run <b> composer install </b>.
 - Import the database from ./extraData.
 - Modify the <b>.env.example</b> into a <b>.env</b> and add your database connection settings.
