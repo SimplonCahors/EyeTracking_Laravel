@@ -14,3 +14,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::get('/ajouter-bd', function () {
+    return view('ajouter-bd');
+}) -> name('ajouter-bd');
+Route::post('ajouter-bd', 'AjouterBdController@test');
