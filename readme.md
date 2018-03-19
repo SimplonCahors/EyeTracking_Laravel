@@ -9,8 +9,8 @@
 
 ## Installation : 
 
--Run composer install
--php artisan serve
+-Run composer install.
+-Run php artisan serve.
 
 
 
