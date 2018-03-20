@@ -9,7 +9,7 @@ use DB;
 
 class AjouterBdController extends Controller
 {
-    public function test()
+    public function add()
         {
             $titre = strip_tags($_POST['titre']);
             $auteur = strip_tags($_POST['auteur']);
@@ -23,7 +23,8 @@ class AjouterBdController extends Controller
                    
             );
             echo 'Base de données mise à jour.';
+
+            header('refresh: 3; url = ajouter-bd');
         }
-    
 }
  
