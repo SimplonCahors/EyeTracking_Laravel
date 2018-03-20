@@ -15,6 +15,6 @@
 
     </head>
     <body>
-        @extends('layout.navbar')
+        @include('layout.navbar')
     </body>
 </html>
