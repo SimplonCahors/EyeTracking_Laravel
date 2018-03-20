@@ -15,4 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/legalmentions', function () {
+    return view('legalmentions');
+})->name('legalmentions');
+
 Route::get('/catalogue', 'ComicsController@show')->name('catalogue');
+
