@@ -10081,12 +10081,17 @@ body {
   margin-bottom: 30px;
 }
 
-.comics ul li {
+.comics_catalog ul li {
   list-style: none;
   color: white;
 }
 
-.containers {
+.comics_catalog ul {
+  padding: 0;
+}
+
+.containers_catalog {
+  margin: 0 5vw;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -10109,7 +10114,7 @@ article {
           justify-content: space-between;
 }
 
-.buttons {
+.read_edit_catalog .buttons {
   background-color: transparent;
   border-radius: 5px;
   border: 1px solid white;
@@ -10125,11 +10130,11 @@ article {
   cursor: pointer;
 }
 
-img {
+.img_catalog {
   width: 40%;
 }
 
-.infos {
+.comics_catalog {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -10142,6 +10147,45 @@ img {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  color: whitesmoke;
-  background-color: rgba(0, 0, 0, 0.8);
 }
+
+.read_edit_catalog {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.infos_catalog {
+  width: 55%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#button_edit_catalog {
+  margin-right: 20px;
+}
+
+.material-icons.catalogue {
+  font-size: 50px;
+}
+
+#ajouter_catalog {
+  margin-top: 50px;
+  margin-left: 92%;
+  position: fixed;
+  color: rgba(0, 0, 0, 0.8);
+}
+
