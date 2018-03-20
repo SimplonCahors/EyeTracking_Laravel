@@ -11,44 +11,26 @@
 <body>
         @include('layout.navbar')
     <section class="containers">
-    <?php    
-    // foreach ($comics as $comic){
-    //     echo {{$comic -> title}};
-    // }
-    ?>
+    @foreach ($comics as $comic)
+
         <article class="comics">
         <div class="infos">
             <img src="/bd.jpg" alt="cover">
             <ul>
-                <li>Titre</li>
-                <li>Auteur</li>
-                <li>Edition</li>
+                <li>{{$comic->com_title}}</li>
+                <li>{{$comic->com_author}}</li>
+                <li>{{$comic->com_publisher}}</li> 
+                <li>{{$comic->com_timestamp}}</li>             
             </ul>
+
             </div>
-            <button>Lire</button>
+            <button class="buttons">Lire</button>
         </article>
-        <article class="comics">
-        <div class="infos">
-            <img src="/bd.jpg" alt="cover">
-            <ul>
-                <li>Titre</li>
-                <li>Auteur</li>
-                <li>Edition</li>
-            </ul>
-            </div>
-            <button>Lire</button>
-        </article>
-        <article class="comics">
-        <div class="infos">
-            <img src="/bd.jpg" alt="cover">
-            <ul>
-                <li>Titre</li>
-                <li>Auteur</li>
-                <li>Edition</li>
-            </ul>
-            </div>
-            <button>Lire</button>
-        </article>
-        </section>  
+    @endforeach
+</section>  
+<div class="nav_catalog">
+<a><button class="buttons_catalog">Previous</button></a>
+<a><button class="buttons_catalog">Next</button></a>      
+</div>
 </body>
 </html>

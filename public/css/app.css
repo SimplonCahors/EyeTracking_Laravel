@@ -10006,7 +10006,7 @@ a.text-dark:focus {
   background-color: rgba(0, 0, 0, 0.1);
 }
 
-a {
+#navbar a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -10017,7 +10017,7 @@ a {
   color: rgba(0, 0, 0, 0.8);
 }
 
-a:hover {
+#navbar a:hover {
   text-decoration: none;
   color: whitesmoke;
   background-color: rgba(0, 0, 0, 0.8);
@@ -10109,13 +10109,20 @@ article {
           justify-content: space-between;
 }
 
-button {
+.buttons {
   background-color: transparent;
   border-radius: 5px;
   border: 1px solid white;
   color: white;
   cursor: pointer;
   height: 30px;
+}
+
+.buttons_catalog {
+  color: black;
+  margin: 30px;
+  border: none;
+  cursor: pointer;
 }
 
 img {
@@ -10126,5 +10133,14 @@ img {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+.nav_catalog {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 

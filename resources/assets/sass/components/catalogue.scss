@@ -69,7 +69,7 @@ article{
     justify-content: space-between;
 }
 
-button {
+.buttons {
     background-color: transparent;
     border-radius: 5px;
     border:1px solid white;
@@ -78,10 +78,23 @@ button {
     height: 30px;
 }
 
+.buttons_catalog{
+    color:black;
+    margin: 30px;
+    border: none;
+    cursor: pointer;
+}
+
 img {
     width:40%;
 }
 
 .infos {
     display: flex;
+}
+
+.nav_catalog{
+    // width: 100vw;
+    display: flex;
+    justify-content: center;
 }
