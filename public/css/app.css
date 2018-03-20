@@ -10142,5 +10142,6 @@ img {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  color: whitesmoke;
+  background-color: rgba(0, 0, 0, 0.8);
 }
-
