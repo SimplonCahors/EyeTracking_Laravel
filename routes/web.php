@@ -14,3 +14,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/add/page/{idBD}', function ($idBD) {
+    return view('page', ['idBD' => $idBD]);
+}) -> name('page');
+
+Route::post('/add/page/{idBD}', 'PageController@ajoutPage');
