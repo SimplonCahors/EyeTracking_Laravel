@@ -2,10 +2,10 @@
 -- version 4.6.6deb5
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Mar 20, 2018 at 09:10 AM
--- Server version: 5.7.21-0ubuntu0.17.10.1
--- PHP Version: 7.1.11-0ubuntu0.17.10.1
+-- Client :  localhost:3306
+-- Généré le :  Mar 20 Mars 2018 à 10:30
+-- Version du serveur :  5.7.21-0ubuntu0.17.10.1
+-- Version de PHP :  7.1.15-0ubuntu0.17.10.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,13 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `eye_tracking`
+-- Base de données :  `eyetracking`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `areas`
+-- Structure de la table `areas`
 --
 
 CREATE TABLE `areas` (
@@ -36,7 +36,7 @@ CREATE TABLE `areas` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `comics`
+-- Structure de la table `comics`
 --
 
 CREATE TABLE `comics` (
@@ -48,18 +48,10 @@ CREATE TABLE `comics` (
   `fk_use_oid` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `comics`
---
-
-INSERT INTO `comics` (`com_oid`, `com_title`, `com_author`, `com_publisher`, `com_timestamp`, `fk_use_oid`) VALUES
-(1, 'Iron man', 'Tony Stark', 'Marvel', NULL, NULL),
-(2, 'Batman', 'Le  Chauve', 'Pablo', NULL, NULL);
-
 -- --------------------------------------------------------
 
 --
--- Table structure for table `medias`
+-- Structure de la table `medias`
 --
 
 CREATE TABLE `medias` (
@@ -70,17 +62,10 @@ CREATE TABLE `medias` (
   `fk_are_oid` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `medias`
---
-
-INSERT INTO `medias` (`med_oid`, `med_type`, `med_filename`, `med_path`, `fk_are_oid`) VALUES
-(1, 'son', 'test', NULL, NULL);
-
 -- --------------------------------------------------------
 
 --
--- Table structure for table `migrations`
+-- Structure de la table `migrations`
 --
 
 CREATE TABLE `migrations` (
@@ -90,7 +75,7 @@ CREATE TABLE `migrations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `migrations`
+-- Contenu de la table `migrations`
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
@@ -100,7 +85,7 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pages`
+-- Structure de la table `pages`
 --
 
 CREATE TABLE `pages` (
@@ -113,7 +98,7 @@ CREATE TABLE `pages` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `password_resets`
+-- Structure de la table `password_resets`
 --
 
 CREATE TABLE `password_resets` (
@@ -123,7 +108,7 @@ CREATE TABLE `password_resets` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `password_resets`
+-- Contenu de la table `password_resets`
 --
 
 INSERT INTO `password_resets` (`email`, `token`, `created_at`) VALUES
@@ -132,7 +117,7 @@ INSERT INTO `password_resets` (`email`, `token`, `created_at`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `roles`
+-- Structure de la table `roles`
 --
 
 CREATE TABLE `roles` (
@@ -143,7 +128,7 @@ CREATE TABLE `roles` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Structure de la table `users`
 --
 
 CREATE TABLE `users` (
@@ -156,18 +141,10 @@ CREATE TABLE `users` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `users`
---
-
-INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(3, 'heyhey', 'letest@gmail.com', '$2y$10$tqLEDHlPZg4DDIVZI8ixl.2uZ7xYbqz9WIs97vCftD8GVgJZrPlLi', 'u0uAxdwG7mfFSTZO9aITi6MJj3HcsA5Q5SZIymsTWIvRwoq00TlMmctLxous', '2018-03-19 19:26:35', '2018-03-19 19:26:35'),
-(4, 'admin', 'nicocofer@hotmail.com', '$2y$10$7Xw6gyCMwLcsxugz36XMNemHEp8APvXLMsN8n3vnx0hXgPT3vw3Ma', '7NyXF6ftTi9rRxlDO6AMpQZFkZqMOLdLz3Sw03DU6Dh2JXgqMub0hAJoGM5T', '2018-03-19 19:34:56', '2018-03-19 19:34:56');
-
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user_role`
+-- Structure de la table `user_role`
 --
 
 CREATE TABLE `user_role` (
@@ -176,138 +153,138 @@ CREATE TABLE `user_role` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Indexes for dumped tables
+-- Index pour les tables exportées
 --
 
 --
--- Indexes for table `areas`
+-- Index pour la table `areas`
 --
 ALTER TABLE `areas`
   ADD PRIMARY KEY (`are_oid`),
   ADD KEY `fk_pag_oid_idx` (`fk_pag_oid`);
 
 --
--- Indexes for table `comics`
+-- Index pour la table `comics`
 --
 ALTER TABLE `comics`
   ADD PRIMARY KEY (`com_oid`),
   ADD KEY `fk_use_oid_idx` (`fk_use_oid`);
 
 --
--- Indexes for table `medias`
+-- Index pour la table `medias`
 --
 ALTER TABLE `medias`
   ADD PRIMARY KEY (`med_oid`),
   ADD KEY `fk_are_oid_idx` (`fk_are_oid`);
 
 --
--- Indexes for table `migrations`
+-- Index pour la table `migrations`
 --
 ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `pages`
+-- Index pour la table `pages`
 --
 ALTER TABLE `pages`
   ADD PRIMARY KEY (`pag_oid`),
   ADD KEY `fk_com_oid_idx` (`fk_com_oid`);
 
 --
--- Indexes for table `password_resets`
+-- Index pour la table `password_resets`
 --
 ALTER TABLE `password_resets`
   ADD KEY `password_resets_email_index` (`email`);
 
 --
--- Indexes for table `roles`
+-- Index pour la table `roles`
 --
 ALTER TABLE `roles`
   ADD PRIMARY KEY (`rol_oid`);
 
 --
--- Indexes for table `users`
+-- Index pour la table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `users_email_unique` (`email`);
 
 --
--- Indexes for table `user_role`
+-- Index pour la table `user_role`
 --
 ALTER TABLE `user_role`
   ADD PRIMARY KEY (`fk_use_oid`,`fk_rol_oid`),
   ADD KEY `fk_rol_oid_idx` (`fk_rol_oid`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT pour les tables exportées
 --
 
 --
--- AUTO_INCREMENT for table `areas`
+-- AUTO_INCREMENT pour la table `areas`
 --
 ALTER TABLE `areas`
   MODIFY `are_oid` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `comics`
+-- AUTO_INCREMENT pour la table `comics`
 --
 ALTER TABLE `comics`
   MODIFY `com_oid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
--- AUTO_INCREMENT for table `medias`
+-- AUTO_INCREMENT pour la table `medias`
 --
 ALTER TABLE `medias`
   MODIFY `med_oid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT for table `migrations`
+-- AUTO_INCREMENT pour la table `migrations`
 --
 ALTER TABLE `migrations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
--- AUTO_INCREMENT for table `pages`
+-- AUTO_INCREMENT pour la table `pages`
 --
 ALTER TABLE `pages`
   MODIFY `pag_oid` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `roles`
+-- AUTO_INCREMENT pour la table `roles`
 --
 ALTER TABLE `roles`
-  MODIFY `rol_oid` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `rol_oid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
--- Constraints for dumped tables
+-- Contraintes pour les tables exportées
 --
 
 --
--- Constraints for table `areas`
+-- Contraintes pour la table `areas`
 --
 ALTER TABLE `areas`
   ADD CONSTRAINT `fk_pag_oid` FOREIGN KEY (`fk_pag_oid`) REFERENCES `pages` (`pag_oid`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `comics`
+-- Contraintes pour la table `comics`
 --
 ALTER TABLE `comics`
   ADD CONSTRAINT `fk_use_oid` FOREIGN KEY (`fk_use_oid`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `medias`
+-- Contraintes pour la table `medias`
 --
 ALTER TABLE `medias`
   ADD CONSTRAINT `fk_are_oid` FOREIGN KEY (`fk_are_oid`) REFERENCES `areas` (`are_oid`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `pages`
+-- Contraintes pour la table `pages`
 --
 ALTER TABLE `pages`
   ADD CONSTRAINT `fk_com_oid` FOREIGN KEY (`fk_com_oid`) REFERENCES `comics` (`com_oid`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `user_role`
+-- Contraintes pour la table `user_role`
 --
 ALTER TABLE `user_role`
   ADD CONSTRAINT `fk_rol_oid` FOREIGN KEY (`fk_rol_oid`) REFERENCES `roles` (`rol_oid`) ON DELETE NO ACTION ON UPDATE NO ACTION,
