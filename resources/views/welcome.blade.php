@@ -5,5 +5,5 @@ Home
 @endsection
 
 @section('content')
-<p>Home content</p>
+<p id="app">Home content</p>
 @endsection
