@@ -15,4 +15,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+
 Route::get('/catalogue', 'ComicsController@show')->name('catalogue');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
