@@ -10006,7 +10006,7 @@ a.text-dark:focus {
   background-color: rgba(0, 0, 0, 0.1);
 }
 
-a {
+#navbar a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -10017,9 +10017,175 @@ a {
   color: rgba(0, 0, 0, 0.8);
 }
 
-a:hover {
+#navbar a:hover {
   text-decoration: none;
   color: whitesmoke;
   background-color: rgba(0, 0, 0, 0.8);
+}
+
+html,
+body {
+  background-color: #fff;
+  color: #636b6f;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 100;
+  height: 100vh;
+  margin: 0;
+}
+
+.full-height {
+  height: 100vh;
+}
+
+.flex-center {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.position-ref {
+  position: relative;
+}
+
+.top-right {
+  position: absolute;
+  right: 10px;
+  top: 18px;
+}
+
+.content {
+  text-align: center;
+}
+
+.title {
+  font-size: 84px;
+}
+
+.links > a {
+  color: #636b6f;
+  padding: 0 25px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .1rem;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.m-b-md {
+  margin-bottom: 30px;
+}
+
+.comics_catalog ul li {
+  list-style: none;
+  color: white;
+}
+
+.comics_catalog ul {
+  padding: 0;
+}
+
+.containers_catalog {
+  margin: 0 5vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+article {
+  margin-top: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 42%;
+  padding: 25px;
+  background-color: rgba(0, 0, 0, 0.8);
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.read_edit_catalog .buttons {
+  background-color: transparent;
+  border-radius: 5px;
+  border: 1px solid white;
+  color: white;
+  cursor: pointer;
+  height: 30px;
+}
+
+.buttons_catalog {
+  color: black;
+  margin: 30px;
+  border: none;
+  cursor: pointer;
+}
+
+.img_catalog {
+  width: 40%;
+}
+
+.comics_catalog {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.nav_catalog {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.read_edit_catalog {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.infos_catalog {
+  width: 55%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#button_edit_catalog {
+  margin-right: 20px;
+}
+
+.material-icons.catalogue {
+  font-size: 50px;
+}
+
+#ajouter_catalog {
+  margin-top: 50px;
+  margin-left: 92%;
+  position: fixed;
+  color: rgba(0, 0, 0, 0.8);
 }
 

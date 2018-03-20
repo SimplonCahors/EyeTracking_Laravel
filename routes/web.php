@@ -17,9 +17,14 @@ Route::get('/', function () {
 
 
 
+
 Route::get('/catalogue', 'ComicsController@show')->name('catalogue');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+
+Route::get('/legalmentions', function () {
+    return view('legalmentions');
+})->name('legalmentions');
