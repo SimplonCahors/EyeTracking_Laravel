@@ -1,17 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Catalogue</title>
-    <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
-    <link href="css/app.css" rel="stylesheet" type="text/css">
-</head>
-<body>
-@include('layout.navbar')
+@extends('layout.app')
+@section('title')
+Catalogue
+@endsection
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+@section('content')
 
     <section class="containers_catalog">
             <!-- ICI LE IF POUR L'ADMIN + BOUTON AJOUTER -->        
@@ -46,5 +38,4 @@
 <a><button class="buttons_catalog">Previous</button></a>
 <a><button class="buttons_catalog">Next</button></a>      
 </div>
-</body>
-</html>
+@endsection
