@@ -16,3 +16,9 @@ Route::get('/', function () {
 });
 
 Route::get('/catalogue', 'ComicsController@show')->name('catalogue');
+
+Route::post('/upload/save', 'UploadController@update');
+
+Route::get('/upload', function () {
+    return view('upload');
+});
