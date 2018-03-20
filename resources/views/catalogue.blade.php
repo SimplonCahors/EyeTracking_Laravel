@@ -6,21 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Catalogue</title>
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="css/catalogue.css">
+    <link href="css/app.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-    <section class="container">
-        <article class="comics">
-            <div class="infos">
-                <img src="/bd.jpg" alt="cover">
-                <ul>
-                    <li>Tintin au Pays des kangourous</li>
-                    <li>Auteur</li>
-                    <li>Edition</li>
-                </ul>
-                </div>
-            <button>Lire</button>
-        </article>
+        @include('layout.navbar')
+    <section class="containers">
+    <?php    
+    // foreach ($comics as $comic){
+    //     echo {{$comic -> title}};
+    // }
+    ?>
         <article class="comics">
         <div class="infos">
             <img src="/bd.jpg" alt="cover">
@@ -54,6 +49,6 @@
             </div>
             <button>Lire</button>
         </article>
-    </section>
+        </section>  
 </body>
 </html>
