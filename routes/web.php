@@ -16,7 +16,11 @@ Route::get('/', function () {
 });
 
 
+
 Route::get('/ajouter-bd', function () {
     return view('ajouter-bd');
 }) -> name('ajouter-bd');
 Route::post('ajouter-bd', 'AjouterBdController@add');
+
+Route::get('/catalogue', 'ComicsController@show')->name('catalogue');
+
