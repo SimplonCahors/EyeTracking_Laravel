@@ -3,7 +3,7 @@
 	display: flex;
 	justify-content: center;
 
-	.buttonArrow{
+	.buttonArrow {
 		position: fixed;
 		margin-top: 40vh;
 	}
@@ -22,7 +22,18 @@
 }
 .buttonScroll
 {
-	top:0;
+	top:80vh;
+	right: 5vw;
 	position:fixed;
+	display: flex;
+	flex-direction: column;
+}
+
+#scrollUp {
+	padding: 3px;
+}
+
+#scrollDown {
+	padding: 3px;
 }
 

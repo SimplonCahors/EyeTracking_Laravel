@@ -1,15 +1,15 @@
 // var button = document.getElementById("scrollUp");
-document.getElementById("scrollUp").addEventListener("click", function(){
-	scrollWin(0, -50)
+var screen;
+document.getElementById("scrollUp").addEventListener("mouseover", function(){
+	screen = $(window).height();
+	window.scrollBy(0, -screen);
 });
-document.getElementById("scrollDown").addEventListener("click", function(){
-	scrollWin(0, 50)
+document.getElementById("scrollDown").addEventListener("mouseover", function(){
+	screen = $(window).height();
+	window.scrollBy(0, screen);
+
 });		
 
-function scrollWin(x, y) {
-	// console.log('hauteur totale du document : ',$(document).height());
-	// console.log('position actuelle de la page : ',window.pageYOffset);
-	// console.log('hauteur de la page internet : ',$(window).height());
-    window.scrollBy(x, y);
-}
-	
+
+
+    
