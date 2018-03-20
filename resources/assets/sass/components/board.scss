@@ -1,0 +1,28 @@
+#sectionBoard {
+	margin-top: 3vh;
+	display: flex;
+	justify-content: center;
+
+	.buttonArrow{
+		position: fixed;
+		margin-top: 40vh;
+	}
+
+	.boardsBD {
+		width: 75vw;
+	}
+
+	#back {
+		left: 5vw;
+	}
+
+	#next {
+		right: 5vw;
+	}
+}
+.buttonScroll
+{
+	top:0;
+	position:fixed;
+}
+
