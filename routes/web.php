@@ -15,6 +15,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/catalogue', function () {
-    return view('catalogue');
-});
+Route::get('/catalogue', 'ComicsController@show')->name('catalogue');
