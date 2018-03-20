@@ -20,3 +20,8 @@ Route::get('/add/page/{idBD}', function ($idBD) {
 }) -> name('page');
 
 Route::post('/add/page/{idBD}', 'PageController@ajoutPage');
+
+
+Route::get('/deletepage', function () {
+    return view('deletepage');
+});
