@@ -7,26 +7,35 @@ use Illuminate\Http\Request;
 
 class ComicsController extends Controller
 {
-    public function add()
-        {
-            $titre = strip_tags($_POST['titre']);
-            $auteur = strip_tags($_POST['auteur']);
-            $editeur = strip_tags($_POST['editeur']);
+    public function add(Request $request)
+    {
+    
+        //store dans le dossier public, le fichier 'miniature'
+        $pathstart = $request->file('miniature')->store('public/miniatures');
+        //enlève le public devant
+        $path = substr($pathstart, 7);  
+    
+        
+        $titre = $request->input('titre');
+        $auteur = $request->input('auteur');
+        $editeur = $request->input('editeur');
             
-            
-            DB::table('comics')->insert(
-                array('com_title' => $titre,
-                      'com_author' => $auteur,
-                      'com_publisher' => $editeur)
+         DB::table('comics')->insert(
+           array('com_title' => $titre,
+               'com_author' => $auteur,
+                'com_publisher' => $editeur,
+                'com_miniature_url'=> $path)
                    
             );
 
-            echo 'Base de données mise à jour.';
+         echo 'Base de données mise à jour.';
 
-            header('refresh: 3; url = ajouter-bd');
-
+        header('refresh: 3; url = ajouter-bd');
+        
 
         }
+
+
 
         public function fetchUniqueBD($id){
             $comics = DB::table('comics')->where('com_oid', '=', $id)->get();    
