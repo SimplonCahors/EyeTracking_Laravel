@@ -16,12 +16,9 @@ Route::get('/', function () {
 });
 
 Route::get('/add/page/{idBD}', function ($idBD) {
-    return view('page', ['idBD' => $idBD]);
-}) -> name('page');
+    return view('addPage', ['idBD' => $idBD]);
+}) -> name('addPage');
 
-Route::post('/add/page/{idBD}', 'PageController@ajoutPage');
+Route::post('/add/page/{idBD}', 'PageController@create');
 
-
-Route::get('/deletepage', function () {
-    return view('deletepage');
-});
+Route::get('/showdPage', 'PageController@show')->name('showdPage');
