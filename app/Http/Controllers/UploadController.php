@@ -15,12 +15,15 @@ class UploadController extends Controller
      */
     public function update(Request $request)
     {
-        $path = $request->file('filenam')->store('public');
+        $pathstart = $request->file('filename')->store('public');
+        $path = substr($pathstart, 7);  
 
-        $originalName = $request->file('filenam')->getClientOriginalName();
+        $originalName = $request->file('filename')->getClientOriginalName();
         $datatype = $request->input('dataType');
         echo"<pre>";
         var_dump($request->all());
+
+        print_r($path);
         echo"</pre>";
 
         DB::table('medias')->insert(

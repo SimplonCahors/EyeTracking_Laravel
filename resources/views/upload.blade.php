@@ -7,6 +7,6 @@
   <option value="video">Video</option>
 </select>
 
-<input type="file" name="filenam" />
+<input type="file" name="filename" />
 <input type="submit" />
 <form/>

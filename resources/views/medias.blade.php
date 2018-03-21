@@ -6,7 +6,7 @@ foreach ($medias as $media) {
 	<li>
 		<p>{{ $media->med_type }}</p>
 		<p>{{ $media->med_filename }}</p>
-		<img src="{{ $media->med_path }}">
+		<img src="storage/{{ $media->med_path }}">
 	</li>
 	@php
 
