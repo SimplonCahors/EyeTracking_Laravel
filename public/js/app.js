@@ -13683,7 +13683,6 @@ module.exports = __webpack_require__(37);
  */
 //console.log('ok');
 __webpack_require__(12);
-=======
 
 __webpack_require__(48);
 __webpack_require__(13);
@@ -35891,8 +35890,7 @@ module.exports = function spread(callback) {
 
 /***/ }),
 /* 37 */
-<<<<<<< HEAD
-=======
+
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {var apply = Function.prototype.apply;
