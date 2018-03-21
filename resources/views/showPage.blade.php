@@ -6,23 +6,22 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
-<body>
-    <p>page lisible n° : </p>
-    
-    <img src="storage/{{ $showPage }}">
-{{--      
-    @php
-    foreach ($pages as $pages) {
-        @endphp
-            <img src="storage/{{ $pages->pag_image }}">
-        @php
-    }
-    @endphp  --}}
-</body>
+    <body>
+        <p>page lisible n° : {{ $page }}</p>
+
+        {{--  devrait marcher  --}}
+        <img src="storage/{{ $page }}"/>
+
+        <img src="storage/images/page1_comic2.jpg" alt="image en dur"/>
+        
+        {{--  @php
+        foreach ($pages as $page) {
+            @endphp
+                <img src="storage/{{ $page->pag_image }}">
+            @php
+        }
+        @endphp  --}}
+    </body>
 </html>
-
-
-{{--  /comics2/page1  --}}
-
 
 
