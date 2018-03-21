@@ -13,10 +13,10 @@ class UploadController extends Controller
      * @param  Request  $request
      * @return Responsecatalogue
      */
-    public function update(Request $request)
+    public function create(Request $request)
     {
         $pathstart = $request->file('filename')->store('public');
-        $path = substr($pathstart, 7);  
+        $path = substr($pathstart, 7);  // fonction pour enlever le "public/" au path et pouvoir ensuite créer une image avec le bon path
 
         $originalName = $request->file('filename')->getClientOriginalName();
         $datatype = $request->input('dataType');
@@ -30,16 +30,24 @@ class UploadController extends Controller
             array( 'med_type' => $datatype, 'med_filename' => $originalName,'med_path' => $path, 'fk_are_oid' => NULL )
         );
 
-         
+        
         
 
         return $path;
     }
 
 
-     public function read(){
+    public function read(){
         $medias = DB::table('medias')->get();
-    return view('medias',['medias' => $medias]);
+        return view('medias',['medias' => $medias]);
+    }
+
+    public function update(){
+
+    }
+
+    public function delete(){
+        
     }
 }
 
