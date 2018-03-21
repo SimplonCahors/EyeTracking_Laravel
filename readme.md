@@ -5,11 +5,15 @@
 
 - Run npm install.
 - Run <b> composer install </b>.
+
+
+- Run <code> npm install </code> .
+- Run <code> composer install </code>.
 - Import the database from ./extraData.
-- Modify the <b>.env.example</b> into a <b>.env</b> and add your database connection settings.
-- Run <b>php artisan key:generate</b>.
-- Run <b>php artisan serve</b>.
-+(bdd import)
+- Copy the <b>.env.example</b> into a <b>.env</b> and add your database connection settings.
+- Run <code>php artisan key:generate</code>.
+- Run <code> php artisan serve</code>.
+
 
 ## Problem with npm run dev : 
 If you have th problem below : 
