@@ -1,10 +1,9 @@
 # EyeTracking BD
 
-## Installation :  
+## Installation :   
 
-
-- Run <code> npm install </code> .
-- Run <code> composer install </code>.
+- Run npm install.
+- Run <b> composer install </b>.
 - Import the database from ./extraData.
 - Copy the <b>.env.example</b> into a <b>.env</b> and add your database connection settings.
 - Run <code>php artisan key:generate</code>.
