@@ -30,10 +30,17 @@ Route::get('/legalmentions', function () {
 })->name('legalmentions');
 
 
-//FROM FRONT : this route is used to show the sample board
+// FROM FRONT : this route is used to show the sample board
+// Remove this line and board.blade.php
 Route::get('/board', function () {
     return view('board');
 })->name('board');
+
+// FROM FRONT : this route is used to show the sample board with sounds
+// Remove this line and board_mapping.blade.php
+Route::get('/board_mapping', function () {
+    return view('board_mapping');
+})->name('board_mapping');
 
 Route::get('/ajouter-bd', function () {
     return view('ajouter-bd');
