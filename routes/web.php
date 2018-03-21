@@ -13,7 +13,7 @@
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('/');
 
 Route::get('/legalmentions', function () {
     return view('legalmentions');
