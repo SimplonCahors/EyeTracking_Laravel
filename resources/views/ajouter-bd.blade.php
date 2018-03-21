@@ -1,3 +1,5 @@
+<h2>Ajouter</h2>
+
 <form method="POST">
 
     @csrf
@@ -12,6 +14,10 @@
     <input type="text" id="editeur" name="editeur" placeholder="Nom de l'éditeur" required/>
  
     
-
     <input type="submit"  />
 </form>     
+
+
+
+
+
