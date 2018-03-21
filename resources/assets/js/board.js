@@ -17,7 +17,6 @@ document.getElementById("scrollDownBoard").addEventListener("mouseover", functio
 			left:0,
 			behavior:'smooth' 
 		});
-
 });		
 
 

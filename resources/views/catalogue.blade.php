@@ -27,7 +27,7 @@ Catalogue
             <div class="read_edit_catalog">
                 
                 <!-- ICI LE IF POUR L'ADMIN + BOUTON MODIFIER -->
-                <!-- <a><button class="buttons" id="button_edit_catalog">Modifier</button></a> -->
+                <a><button class="buttons" id="button_edit_catalog">Modifier</button></a>
                 <a><button class="buttons">Lire</button></a>
             </div>
             </div>
