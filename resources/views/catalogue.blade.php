@@ -7,7 +7,7 @@ Catalogue
 
     <section class="containers_catalog">
             <!-- ICI LE IF POUR L'ADMIN + BOUTON AJOUTER -->        
-            <!-- <a id="ajouter_catalog" href=""><i class="material-icons catalogue">add_circle_outline</i></a> -->
+            <a id="ajouter_catalog" href=""><i class="material-icons catalogue">add_circle_outline</i></a>
         <!-- REQUÊTE POUR AFFICHER LES BD DÉJÀ LUES CLASSÉES PAR ORDRE CROISSANT -->
 
 
@@ -27,7 +27,7 @@ Catalogue
             <div class="read_edit_catalog">
                 
                 <!-- ICI LE IF POUR L'ADMIN + BOUTON MODIFIER -->
-                <!-- <a><button class="buttons" id="button_edit_catalog">Modifier</button></a> -->
+                <a><button class="buttons" id="button_edit_catalog">Modifier</button></a>
                 <a><button class="buttons">Lire</button></a>
             </div>
             </div>
