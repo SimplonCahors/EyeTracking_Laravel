@@ -14,3 +14,14 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/catalogue', 'ComicsController@show')->name('catalogue');
+
+Route::post('/upload/save', 'MediasController@create');
+
+Route::get('/upload', function () {
+    return view('upload');
+});
+
+
+Route::get('/medias', 'MediasController@read')->name('medias');

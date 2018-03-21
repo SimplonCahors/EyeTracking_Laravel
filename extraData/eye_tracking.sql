@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Mar 19, 2018 at 11:58 AM
+-- Generation Time: Mar 19, 2018 at 02:47 PM
 -- Server version: 5.7.21-0ubuntu0.17.10.1
 -- PHP Version: 7.1.11-0ubuntu0.17.10.1
 
@@ -48,6 +48,14 @@ CREATE TABLE `comics` (
   `fk_use_oid` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `comics`
+--
+
+INSERT INTO `comics` (`com_oid`, `com_title`, `com_author`, `com_publisher`, `com_timestamp`, `fk_use_oid`) VALUES
+(1, 'Iron man', 'Tony Stark', 'Marvel', NULL, NULL),
+(2, 'Batman', 'Le  Chauve', 'Pablo', NULL, NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -61,6 +69,13 @@ CREATE TABLE `medias` (
   `med_path` varchar(45) DEFAULT NULL,
   `fk_are_oid` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `medias`
+--
+
+INSERT INTO `medias` (`med_oid`, `med_type`, `med_filename`, `med_path`, `fk_are_oid`) VALUES
+(1, 'son', 'test', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -97,6 +112,13 @@ CREATE TABLE `users` (
   `use_username` varchar(45) DEFAULT NULL,
   `use_password` varchar(45) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`use_oid`, `use_username`, `use_password`) VALUES
+(1, 'admin', 'admin');
 
 -- --------------------------------------------------------
 
@@ -173,12 +195,12 @@ ALTER TABLE `areas`
 -- AUTO_INCREMENT for table `comics`
 --
 ALTER TABLE `comics`
-  MODIFY `com_oid` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `com_oid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `medias`
 --
 ALTER TABLE `medias`
-  MODIFY `med_oid` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `med_oid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `pages`
 --
@@ -193,7 +215,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `use_oid` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `use_oid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- Constraints for dumped tables
 --
