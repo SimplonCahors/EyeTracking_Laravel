@@ -24,3 +24,7 @@ Home
 </div>
 @endsection
 
+
+@section('additionalJavascript')
+<script src="{{ asset('/assets/js/board.js') }}"></script>
+@endsection

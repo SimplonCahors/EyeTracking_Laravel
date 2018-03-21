@@ -20,6 +20,8 @@
         <div class="content">
             @yield('content')
         </div>
+
+        @yield('additionalJavascript')
         <script src="/js/app.js"></script>
     </body>
 </html>
