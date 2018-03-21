@@ -28,6 +28,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/legalmentions', function () {
     return view('legalmentions');
 })->name('legalmentions');
+
 Route::get('/ajouter-bd', function () {
     return view('ajouter-bd');
 }) -> name('ajouter-bd');
@@ -52,4 +53,3 @@ Route::get('/delete-bd', function () {
     return view('delete-bd');
 }) -> name('delete-bd');
 Route::post('/delete-bd', 'ComicsController@delete');
-
