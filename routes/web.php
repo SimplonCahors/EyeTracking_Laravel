@@ -16,6 +16,8 @@ Route::get('/', function () {
 });
 
 
+// ->update(['com_title' => $request->input('auteur'), 'com_author' => ]);
+
 
 
 Route::get('/catalogue', 'ComicsController@show')->name('catalogue');
