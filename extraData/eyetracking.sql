@@ -2,10 +2,10 @@
 -- version 4.6.6deb5
 -- https://www.phpmyadmin.net/
 --
--- Client :  localhost:3306
--- Généré le :  Mar 20 Mars 2018 à 10:30
--- Version du serveur :  5.7.21-0ubuntu0.17.10.1
--- Version de PHP :  7.1.15-0ubuntu0.17.10.1
+-- Host: localhost:3306
+-- Generation Time: Mar 21, 2018 at 01:43 PM
+-- Server version: 5.7.21-0ubuntu0.17.10.1
+-- PHP Version: 7.1.15-0ubuntu0.17.10.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données :  `eyetracking`
+-- Database: `eye_tracking`
 --
 
 -- --------------------------------------------------------
@@ -44,6 +44,7 @@ CREATE TABLE `comics` (
   `com_title` varchar(255) DEFAULT NULL,
   `com_author` varchar(45) DEFAULT NULL,
   `com_publisher` varchar(45) DEFAULT NULL,
+  `com_miniature_url` varchar(100) NOT NULL,
   `com_timestamp` varchar(45) DEFAULT NULL,
   `fk_use_oid` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -58,14 +59,14 @@ CREATE TABLE `medias` (
   `med_oid` int(11) NOT NULL,
   `med_type` varchar(45) DEFAULT NULL,
   `med_filename` varchar(45) DEFAULT NULL,
-  `med_path` varchar(45) DEFAULT NULL,
+  `med_path` varchar(450) DEFAULT NULL,
   `fk_are_oid` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `migrations`
+-- Table structure for table `migrations`
 --
 
 CREATE TABLE `migrations` (
@@ -75,7 +76,7 @@ CREATE TABLE `migrations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Contenu de la table `migrations`
+-- Dumping data for table `migrations`
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
@@ -98,7 +99,7 @@ CREATE TABLE `pages` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `password_resets`
+-- Table structure for table `password_resets`
 --
 
 CREATE TABLE `password_resets` (
@@ -108,16 +109,17 @@ CREATE TABLE `password_resets` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Contenu de la table `password_resets`
+-- Dumping data for table `password_resets`
 --
 
 INSERT INTO `password_resets` (`email`, `token`, `created_at`) VALUES
-('nicocofer@hotmail.com', '$2y$10$lXKO2zSPykBp4wMFtosbK.3WiAseQ2wvl1OiajM8yw/nyVBHb7yAe', '2018-03-20 06:58:53');
+('nicocofer@hotmail.com', '$2y$10$lXKO2zSPykBp4wMFtosbK.3WiAseQ2wvl1OiajM8yw/nyVBHb7yAe', '2018-03-20 06:58:53'),
+('Ela@ela.fr', '$2y$10$hDpO/TLpgZrB785SyEJVwewMIWqPypcaMS541UyJpfpppj2bgYc7a', '2018-03-20 12:16:48');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `roles`
+-- Table structure for table `roles`
 --
 
 CREATE TABLE `roles` (
@@ -178,26 +180,26 @@ ALTER TABLE `medias`
   ADD KEY `fk_are_oid_idx` (`fk_are_oid`);
 
 --
--- Index pour la table `migrations`
+-- Indexes for table `migrations`
 --
 ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `pages`
+-- Indexes for table `pages`
 --
 ALTER TABLE `pages`
   ADD PRIMARY KEY (`pag_oid`),
   ADD KEY `fk_com_oid_idx` (`fk_com_oid`);
 
 --
--- Index pour la table `password_resets`
+-- Indexes for table `password_resets`
 --
 ALTER TABLE `password_resets`
   ADD KEY `password_resets_email_index` (`email`);
 
 --
--- Index pour la table `roles`
+-- Indexes for table `roles`
 --
 ALTER TABLE `roles`
   ADD PRIMARY KEY (`rol_oid`);
@@ -229,12 +231,17 @@ ALTER TABLE `areas`
 -- AUTO_INCREMENT pour la table `comics`
 --
 ALTER TABLE `comics`
-  MODIFY `com_oid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `com_oid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT pour la table `medias`
 --
 ALTER TABLE `medias`
-  MODIFY `med_oid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `med_oid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+--
+-- AUTO_INCREMENT for table `migrations`
+--
+ALTER TABLE `migrations`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT pour la table `migrations`
 --
@@ -254,7 +261,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- Contraintes pour les tables exportées
 --
