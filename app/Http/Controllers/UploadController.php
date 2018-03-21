@@ -11,11 +11,11 @@ class UploadController extends Controller
      * Upload stuff
      *
      * @param  Request  $request
-     * @return Response
+     * @return Responsecatalogue
      */
     public function update(Request $request)
     {
-        $path = $request->file('filenam')->store('FoldersName');
+        $path = $request->file('filenam')->store('public');
 
         $originalName = $request->file('filenam')->getClientOriginalName();
         $datatype = $request->input('dataType');
@@ -31,6 +31,12 @@ class UploadController extends Controller
         
 
         return $path;
+    }
+
+
+     public function read(){
+        $medias = DB::table('medias')->get();
+    return view('medias',['medias' => $medias]);
     }
 }
 

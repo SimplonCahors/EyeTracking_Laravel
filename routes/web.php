@@ -22,3 +22,6 @@ Route::post('/upload/save', 'UploadController@update');
 Route::get('/upload', function () {
     return view('upload');
 });
+
+
+Route::get('/medias', 'UploadController@read')->name('medias');
