@@ -27,12 +27,6 @@ class PageController extends Controller
     {
         $pages = DB::table('pages')->get();
         // $pages = DB::table('pages')->get();
-        // return view('readPage', ['pages' => $pages]);
+        // return view('showPage', ['pages' => $pages]);
     }
 }
-
-
-//   public function read(){
-//         $medias = DB::table('medias')->get();
-//     return view('medias',['medias' => $medias]);
-//     }
