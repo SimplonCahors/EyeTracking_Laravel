@@ -9,7 +9,6 @@ document.getElementById("scrollUpBoard").addEventListener("mouseover", function(
 			behavior:'smooth' 
 		});
 });
-
 document.getElementById("scrollDownBoard").addEventListener("mouseover", function(){
 	screen = $(window).height();
 	window.scrollBy(
