@@ -1,13 +1,8 @@
 <h2>Modifier</h2>
 
-   <form method="POST">
 
-@csrf
-
- <!-- <input type="submit"> -->
-<!-- // <input type="number" name="delete"  /> -->
-
-<a href="{{ route ('update-bd', 15 ) }} ">bjr</a>
+<p>le "15" dans le href est à modifier avec l'id dynamique de la bd"</p>
 
 
-</form>
+<a href="{{ route ('update-bd',15) }}">modifier bd</a>
+

@@ -31,9 +31,6 @@ class ComicsController extends Controller
         public function fetchUniqueBD($id){
             $comics = DB::table('comics')->where('com_oid', '=', $id)->get();    
             return view('update-bd',['comic' => $comics [0]]);
-           
-            // $id = $request->input('update');
-            // DB::table('comics')
 
         }
 
@@ -44,6 +41,18 @@ class ComicsController extends Controller
         return view('catalogue',['comics' => $comics]);
     }
 
+
+    public function update($id, Request $request){
+        var_dump($request->all());
+        var_dump($id);
+        $titre = $request->input('titre');
+        $auteur = $request->input('auteur');
+        $editeur = $request->input('editeur');
+        DB::table('comics')->where('com_oid', '=', $id)->update(['com_title' => $titre, 'com_author' => $auteur, 'com_publisher' => $editeur]);
+        echo 'la modif à bien été faite';
+        // header('refresh: 1; url = delete-bd');
+
+    }
 
     public function delete(Request $request){
         $id = $request->input('delete');

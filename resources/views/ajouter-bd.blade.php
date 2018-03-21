@@ -14,7 +14,7 @@
     <input type="text" id="editeur" name="editeur" placeholder="Nom de l'éditeur" required/>
  
     
-    <input type="submit"  />
+    <input type="submit" />
 </form>     
 
 

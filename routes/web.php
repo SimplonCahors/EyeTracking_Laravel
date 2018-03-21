@@ -26,18 +26,8 @@ Route::post('ajouter-bd', 'ComicsController@add');
 Route::get('/catalogue', 'ComicsController@show')->name('catalogue');
 
 
-Route::get('/button-update-bd', function(){
-    return view('button-update-bd');
-}) -> name('button-update-bd');
-
-
 Route::get('/update-bd/{id}', 'ComicsController@fetchUniqueBD')->name('update-bd');
-
-
-Route::get('/update-bd', function(){
-    return view('update-bd');
-}) ->name('update-bd');
-Route::post('/update-bd', 'ComicsController@update');
+Route::post('/update-bd/{id}', 'ComicsController@update');
 
 
 Route::get('/delete-bd', function () {

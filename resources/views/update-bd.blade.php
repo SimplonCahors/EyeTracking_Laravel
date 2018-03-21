@@ -1,8 +1,4 @@
 
-
-
-
-
 <h2>Modifier</h2>
 
 <form method="POST">
