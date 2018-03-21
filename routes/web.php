@@ -25,3 +25,5 @@ Route::get('/upload', function () {
 
 
 Route::get('/medias', 'MediasController@read')->name('medias');
+
+Route::get('/medias/delete', 'MediasController@delete')->name('medias/delete');

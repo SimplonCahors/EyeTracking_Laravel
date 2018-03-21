@@ -10,3 +10,6 @@
 <input type="file" name="filename" />
 <input type="submit" />
 <form/>
+
+
+<a href="/medias">Retour à la page Medias</a>
