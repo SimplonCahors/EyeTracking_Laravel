@@ -21,3 +21,7 @@ Route::get('/legalmentions', function () {
 
 Route::get('/catalogue', 'ComicsController@show')->name('catalogue');
 
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+

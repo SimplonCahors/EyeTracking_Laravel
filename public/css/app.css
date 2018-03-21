@@ -4571,6 +4571,7 @@ tbody.collapse.show {
     -webkit-box-pack: start;
         -ms-flex-pack: start;
             justify-content: flex-start;
+    background-color: rgba(0, 0, 0, 0.1)
   }
 
   .navbar-expand-md .navbar-nav {
