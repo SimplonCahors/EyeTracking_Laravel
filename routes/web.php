@@ -21,4 +21,10 @@ Route::get('/add/page/{idBD}', function ($idBD) {
 
 Route::post('/add/page/{idBD}', 'PageController@create');
 
-Route::get('/showdPage', 'PageController@show')->name('showdPage');
+// Route::get('/showPage/{idPage}', 'PageController@show')->name('showPage');
+
+Route::get('/showPage/{idPage}', function ($idPage) {
+    return view('showPage', ['idPage' => $idPage]);
+}) -> name('showPage');
+
+Route::get('/showPage/{idPage}', 'PageController@show');
