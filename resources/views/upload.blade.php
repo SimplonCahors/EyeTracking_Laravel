@@ -1,6 +1,12 @@
 
 <form method="post" action="/upload/save" enctype="multipart/form-data" >
 @csrf
-<input type="file" name="filename" />
+<select name="dataType">
+  <option value="img">Image</option> 
+  <option value="son" >Son</option>
+  <option value="video">Video</option>
+</select>
+
+<input type="file" name="filenam" />
 <input type="submit" />
 <form/>
