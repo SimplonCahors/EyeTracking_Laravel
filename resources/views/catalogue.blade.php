@@ -14,7 +14,7 @@ Catalogue
     @foreach ($comics as $comic)
         <article class="comics_catalog">
             
-                <img class="img_catalog" src="/bd.jpg" alt="cover">
+                <img class="img_catalog" src="{{$comic->com_miniature_url}}" alt="cover">
                 <div class="infos_catalog">
                 <ul>
                     <li>{{$comic->com_title}}</li>
