@@ -29,6 +29,12 @@ Route::get('/legalmentions', function () {
     return view('legalmentions');
 })->name('legalmentions');
 
+
+//FROM FRONT : this route is used to show the sample board
+Route::get('/board', function () {
+    return view('board');
+})->name('board');
+
 Route::get('/ajouter-bd', function () {
     return view('ajouter-bd');
 }) -> name('ajouter-bd');

@@ -15,6 +15,7 @@
 
     <body>
         <header>
+            @include('layout/nav_auth')
             @include('layout/navbar')
         </header>
         <div class="content">
