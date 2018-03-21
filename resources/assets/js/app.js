@@ -6,10 +6,12 @@
  */
 
 require('./board');
+//console.log('ok');
+require('./legal');
 require('./bootstrap');
 require('jquery');
 
-window.Vue = require('vue');
+// window.Vue = require('vue');
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -18,8 +20,13 @@ window.Vue = require('vue');
  */
 
 // Vue.component('example-component', require('./components/ExampleComponent.vue'));
+// Vue.component('legalmentions', require('./components/legalmentions.vue'));
+
+//Vue.component('example-component', require('./components/ExampleComponent.vue'));
 
 // const app = new Vue({
 //     el: '#app'
 // });
+// console.log("ok");
+
 
