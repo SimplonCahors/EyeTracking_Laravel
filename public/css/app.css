@@ -4571,7 +4571,6 @@ tbody.collapse.show {
     -webkit-box-pack: start;
         -ms-flex-pack: start;
             justify-content: flex-start;
-    background-color: rgba(0, 0, 0, 0.1)
   }
 
   .navbar-expand-md .navbar-nav {
@@ -9995,6 +9994,31 @@ a.text-dark:focus {
   }
 }
 
+.container.legal .card {
+  margin-top: 10px;
+}
+
+.container.legal .accordion {
+  font-size: x-large;
+  width: 100% !important;
+  height: auto;
+  border: none !important;
+  border-color: transparent;
+  padding: 20px;
+  background-color: whitesmoke;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.container.legal .accordion:hover {
+  color: grey;
+}
+
+.container.legal .accordion:active,
+.container.legal .accordion:focus {
+  border: none !important;
+  border-color: transparent;
+}
+
 #navbar {
   width: 100%;
   height: auto;
@@ -10022,6 +10046,10 @@ a.text-dark:focus {
   text-decoration: none;
   color: whitesmoke;
   background-color: rgba(0, 0, 0, 0.8);
+}
+
+.navbar-expand-md {
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 html,
@@ -10058,10 +10086,6 @@ body {
   position: absolute;
   right: 10px;
   top: 18px;
-}
-
-.content {
-  text-align: center;
 }
 
 .title {
