@@ -12,10 +12,7 @@
     
     <label for="auteur">Auteur :</label>
     <input type="text" id="auteur" name="auteur" value="{{$comic->com_author}}"/>
-    
-    <!-- <label for="id">ID :</label>
-    <input type="number" id="id" name="id" value="{{$comic->com_oid}}" /> -->
-    
+
     <input type="submit"  />
 </form>     
 

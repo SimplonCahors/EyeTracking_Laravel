@@ -1,6 +1,6 @@
 <h2>Ajouter</h2>
 
-<form method="POST">
+<form method="POST" enctype="multipart/form-data"  >
 
     @csrf
 
@@ -13,8 +13,10 @@
     <label for="editeur">Editeur :</label>
     <input type="text" id="editeur" name="editeur" placeholder="Nom de l'éditeur" required/>
  
-    
-    <input type="submit" />
+    <label for="miniature">miniature :</label>
+    <input type="file" id="miniature" name="miniature" required />
+
+    <input type="submit"  />
 </form>     
 
 
