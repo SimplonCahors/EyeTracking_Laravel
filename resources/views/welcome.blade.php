@@ -17,7 +17,7 @@
     </head>
     <body>
         @include('layout.navbar')
-        @include('layout.board')
+        @include('board')
         <script type="text/javascript" src="js/app.js"></script>
     </body>
 </html>

@@ -3,7 +3,7 @@
 	display: flex;
 	justify-content: center;
 
-	.buttonArrow {
+	a.buttonArrowBoard {
 		position: fixed;
 		margin-top: 40vh;
 	}
@@ -12,15 +12,15 @@
 		width: 75vw;
 	}
 
-	#back {
+	#backBoard {
 		left: 5vw;
 	}
 
-	#next {
+	#nextBoard {
 		right: 5vw;
 	}
 }
-.buttonScroll
+.buttonScrollBoard
 {
 	top:80vh;
 	right: 5vw;
@@ -29,11 +29,21 @@
 	flex-direction: column;
 }
 
-#scrollUp {
+#scrollUpBoard {
 	padding: 3px;
 }
 
-#scrollDown {
+#scrollDownBoard {
 	padding: 3px;
 }
 
+#buttonReturnBoard {
+	position: fixed;
+	top: 15vh;
+	left: 3.5vw;
+}
+
+#buttonReturnBoard:hover {
+	background-color: rgba(0,0,0,0.1);
+	color: rgba(0,0,0,0.8);
+}
