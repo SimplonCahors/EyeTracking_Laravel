@@ -5,14 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use DB;
-class UploadController extends Controller
+class MediasController extends Controller
 {
-    /**
-     * Upload stuff
-     *
-     * @param  Request  $request
-     * @return Responsecatalogue
-     */
     public function create(Request $request)
     {
         $pathstart = $request->file('filename')->store('public');
@@ -29,10 +23,6 @@ class UploadController extends Controller
         DB::table('medias')->insert(
             array( 'med_type' => $datatype, 'med_filename' => $originalName,'med_path' => $path, 'fk_are_oid' => NULL )
         );
-
-        
-        
-
         return $path;
     }
 

@@ -17,11 +17,11 @@ Route::get('/', function () {
 
 Route::get('/catalogue', 'ComicsController@show')->name('catalogue');
 
-Route::post('/upload/save', 'UploadController@create');
+Route::post('/upload/save', 'MediasController@create');
 
 Route::get('/upload', function () {
     return view('upload');
 });
 
 
-Route::get('/medias', 'UploadController@read')->name('medias');
+Route::get('/medias', 'MediasController@read')->name('medias');
