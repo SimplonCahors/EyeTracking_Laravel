@@ -10051,7 +10051,23 @@ a:hover {
 }
 
 .buttonScroll {
-  top: 0;
+  top: 80vh;
+  right: 5vw;
   position: fixed;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#scrollUp {
+  padding: 3px;
+}
+
+#scrollDown {
+  padding: 3px;
 }
 
