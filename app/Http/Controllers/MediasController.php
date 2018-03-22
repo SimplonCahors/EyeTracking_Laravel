@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 use DB;
 class MediasController extends Controller
 {
@@ -56,8 +57,12 @@ class MediasController extends Controller
     public function delete(){
 
         $id = $_GET['id'];
+        $path = $_GET['path'];
 
         DB::table('medias')->where('med_oid', '=', $id)->delete(); 
+
+
+        Storage::delete('public/'.$path);
 
         echo 'cela a bien ete supprimer';
 

@@ -15,7 +15,7 @@ foreach ($medias as $media) {
 			<input type="text" name="id" value="{{ $media->med_oid }}">
 			<input type="submit" value="effacer">
 		</form> --}}
-		<a href="/medias/delete?id={{ $media->med_oid }}">Supprimer</a>
+		<a href="/medias/delete?id={{ $media->med_oid }}&path={{ $media->med_path }}">Supprimer</a>
 	</li>
 	@php
 
