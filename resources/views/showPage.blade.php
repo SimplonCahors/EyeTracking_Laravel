@@ -4,23 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Afficher une Page définine d'une BD</title>
 </head>
     <body>
         <p>page lisible n° : {{ $page }}</p>
-
-        {{--  devrait marcher  --}}
-        <img src="storage/images/lop.jpg"/>
-
-        <img src="storage/images/page1_comic2.jpg" alt="image en dur"/>
-        
-        {{--  @php
-        foreach ($pages as $page) {
-            @endphp
-                <img src="storage/{{ $page->pag_image }}">
-            @php
-        }
-        @endphp  --}}
+        <img src="/storage/{{ $page }}"/>
     </body>
 </html>
 
