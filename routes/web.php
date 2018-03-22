@@ -15,16 +15,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Ajouter page depuis l'id d'une BD (fk_com_oid)
 Route::get('/add/page/{idBD}', function ($idBD) {
     return view('addPage', ['idBD' => $idBD]);
 }) -> name('addPage');
 
 Route::post('/add/page/{idBD}', 'PageController@create');
 
-// Route::get('/showPage/{idPage}', 'PageController@show')->name('showPage');
 
-Route::get('/showPage/{idPage}', function ($idPage) {
-    return view('showPage', ['idPage' => $idPage]);
+// Afficher page depuis idBD >> idPage (pag_number)
+Route::get('/showPage/{idBD}/{idPage}', function ($idBD, $idPage) {
+    return view('showPage', ['idBD' => $idBD], ['idPage' => $idPage]);
 }) -> name('showPage');
 
-Route::get('/showPage/{idPage}', 'PageController@show');
+Route::get('/showPage/{idBD}/{idPage}', 'PageController@show');

@@ -14,13 +14,15 @@
         </div>
     @endif
 
-    <form method="POST">         
+    <form method="POST" enctype="multipart/form-data">         
 
     @csrf
         <input type="number" name="numeroPage" placeholder="numero de page">
-        <input type="url" name="image" placeholder="url image">
+        <!-- <input type="url" name="image" placeholder="url image"> -->
+        <input type="file" name="filename"/>
         <input type="submit" value="entrer" name="submit">
         
     </form>
+
 </body>
 </html>
