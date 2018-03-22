@@ -6,6 +6,7 @@
  */
 
 require('./board');
+require('./modifBoard');
 //console.log('ok');
 require('./legal');
 require('./bootstrap');
