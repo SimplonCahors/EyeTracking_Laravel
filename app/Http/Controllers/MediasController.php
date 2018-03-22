@@ -4,18 +4,20 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Storage;
+use Illuminate\Database\QueryException;
 use DB;
 class MediasController extends Controller
 {
     public function create(Request $request)
     {
         $dataType = $request->input('dataType');
+        $originalName = $request->file('file')->getClientOriginalName();
 
         //VALIDATION : validate method stops the code execution if conditions not fullfilled, max is in kB
+ 
         if ($dataType == 'img') {
             $validatedData = $request->validate([
-                'file' => 'required|image|max:50000'
+                'file' => 'required|image'
             ]);   
         }
         elseif ($dataType == 'video') {
@@ -27,22 +29,31 @@ class MediasController extends Controller
         elseif ($dataType == 'son') {
             // mpga == mp3 
              $validatedData = $request->validate([
-             'file' => 'required|mimes:mpga,wav,ogg,mp4|max:50000'
+             'file' => 'required|mimes:mpga,wav,ogg,mp4|max:100000'
             ]);   
          }   
 
 
-        $pathstart = $request->file('file')->store('public');
+        $pathstart = $request->file('file')->store('public/bonjour');
         $path = substr($pathstart, 7);  // fonction pour enlever le "public/" au path et pouvoir ensuite créer une image avec le bon path
 
-        $originalName = $request->file('file')->getClientOriginalName();
 
-        DB::table('medias')->insert(
-            array( 'med_type' => $dataType, 'med_filename' => $originalName,'med_path' => $path )
-        );
-        header('refresh: 3; url = /medias-upload');
+        
+        // if query is successfull (it can fail if name is not unique)
+        try{
+            DB::table('medias')->insert(
+                array( 'med_type' => $dataType, 'med_filename' => $originalName,'med_path' => $path ));
+             echo "Successfully created : ".$path;
+        }
+         catch (QueryException $e){
+            $error_code = $e->errorInfo[1];
+            if($error_code == 1062){
+                echo 'houston, we have a duplicate entry problem';
+            }
+        }
+        header('refresh: 3; url = /upload');
 
-        return $path;
+
     }
 
 
@@ -57,18 +68,14 @@ class MediasController extends Controller
     public function delete(){
 
         $id = $_GET['id'];
-        $path = $_GET['path'];
 
         DB::table('medias')->where('med_oid', '=', $id)->delete(); 
+
 
 
         Storage::delete('public/'.$path);
 
        return view('medias-delete');
 
-        
-
-
     }
 }
-
