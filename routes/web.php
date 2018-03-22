@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'ComicsController@show');
 
 Route::get('/catalogue', 'ComicsController@show')->name('catalogue');
 
@@ -30,6 +28,11 @@ Route::get('/legalmentions', function () {
 Route::get('/board', function () {
     return view('board');
 })->name('board');
+
+//Modification d'une bd//
+Route::get('/update', function () {
+    return view('update');
+})->name('update');
 
 // FROM FRONT : this route is used to show the sample board with sounds
 // Remove this line and board_mapping.blade.php

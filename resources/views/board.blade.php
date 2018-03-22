@@ -2,7 +2,7 @@
 @extends('layout.app')
 
 @section('title')
-Home
+Board
 @endsection
 
 

@@ -1,5 +1,8 @@
 // var button = document.getElementById("scrollUp");
 var screen;
+
+// Changer board dans le if() si les scrolls ne marchent plus
+
 if(document.URL.includes('board')){
 document.getElementById("scrollUpBoard").addEventListener("mouseover", function(){
 	screen = $(window).height();
@@ -19,7 +22,4 @@ document.getElementById("scrollDownBoard").addEventListener("mouseover", functio
 			behavior:'smooth' 
 		});
 });		
-
-
-
 }
