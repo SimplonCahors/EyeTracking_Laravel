@@ -6,13 +6,6 @@ use Illuminate\Http\Request;
 
 use DB;
 
-function screen($param)
-{
-    print "<pre>";
-    print_r($param);
-    print "</pre>";
-}
-
 class PageController extends Controller
 {
     public function create($idBD)
@@ -33,8 +26,6 @@ class PageController extends Controller
     public function show($idPage)
     {
         $board = DB::table('pages')->where('pag_number', $idPage)->pluck('pag_image');
-
-        //  screen($board[0]);
         return view('showPage', ['page' => $board[0]]);
     }
 }
