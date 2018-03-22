@@ -2,7 +2,7 @@
 @extends('layout.app')
 
 @section('title')
-Board
+Zone mapping
 @endsection
 
 
@@ -25,4 +25,5 @@ Board
 	
 </div>
 @endsection
+
 

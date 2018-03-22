@@ -7,6 +7,7 @@
 
 require('./update');
 require('./board');
+require('./mapping');
 //console.log('ok');
 require('./legal');
 

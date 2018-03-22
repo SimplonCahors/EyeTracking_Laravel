@@ -34,6 +34,11 @@ Route::get('/board', function () {
     return view('board');
 })->name('board');
 
+
+Route::get('/mapping', function () {
+    return view('mapping');
+})->name('mapping');
+
 //Modification d'une bd//
 Route::get('/update', function () {
     return view('update');
@@ -69,4 +74,5 @@ Route::get('/delete-bd', function () {
     return view('delete-bd');
 }) -> name('delete-bd');
 Route::post('/delete-bd', 'ComicsController@delete');
+
 
