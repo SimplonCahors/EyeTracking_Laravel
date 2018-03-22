@@ -1,6 +1,10 @@
 # EyeTracking BD
 
 ## Installation :  
+ 
+
+- Run npm install.
+- Run <b> composer install </b>.
 
 
 - Run <code> npm install </code> .
