@@ -7,7 +7,11 @@
 
 require('./update');
 require('./board');
+
+require('./modifBoard');
+
 require('./mapping');
+
 //console.log('ok');
 require('./legal');
 
