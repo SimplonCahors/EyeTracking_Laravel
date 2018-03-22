@@ -34,26 +34,23 @@ class MediasController extends Controller
          }   
 
 
-        $pathstart = $request->file('file')->store('public/bonjour');
-        $path = substr($pathstart, 7);  // fonction pour enlever le "public/" au path et pouvoir ensuite créer une image avec le bon path
-
-
-        
         // if query is successfull (it can fail if name is not unique)
         try{
+            $pathstart = $request->file('file')->store('public/bonjour');
+            $path = substr($pathstart, 7);  // fonction pour enlever le "public/" au path et pouvoir ensuite créer une image avec le bon path
             DB::table('medias')->insert(
                 array( 'med_type' => $dataType, 'med_filename' => $originalName,'med_path' => $path ));
-             echo "Successfully created : ".$path;
+
+
+            $result = "Bien ajouté";
         }
          catch (QueryException $e){
             $error_code = $e->errorInfo[1];
             if($error_code == 1062){
-                echo 'houston, we have a duplicate entry problem';
+                $result = 'Le fichier existe déjà (ou son nom est déjà pris)';
             }
         }
-        header('refresh: 3; url = /upload');
-
-
+        return view('medias-upload',['result'=> $result]);
     }
 
 
@@ -70,8 +67,6 @@ class MediasController extends Controller
         $id = $_GET['id'];
 
         DB::table('medias')->where('med_oid', '=', $id)->delete(); 
-
-
 
         Storage::delete('public/'.$path);
 
