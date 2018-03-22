@@ -11,18 +11,18 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
+//ajouter page
 Route::get('/add/page/{idBD}', function ($idBD) {
     return view('addPage', ['idBD' => $idBD]);
 }) -> name('addPage');
 
 Route::post('/add/page/{idBD}', 'PageController@create');
 
-// Route::get('/showPage/{idPage}', 'PageController@show')->name('showPage');
-
+//afficher page
 Route::get('/showPage/{idPage}', function ($idPage) {
     return view('showPage', ['idPage' => $idPage]);
 }) -> name('showPage');
