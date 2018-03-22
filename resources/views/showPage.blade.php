@@ -7,7 +7,7 @@
     <title>Affichage page</title>
 </head>
     <body>
-        <!-- $page récupéré depuis PageController -->
+        <!-- $page récupérée depuis PageController -->
         <!-- si problème, tenter un php artisan storage:link dans le terminal -->
         <img src="/storage/images/pages/{{ $page }}"/>
     </body>
