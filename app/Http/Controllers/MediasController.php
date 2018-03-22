@@ -11,23 +11,23 @@ class MediasController extends Controller
     {
         $dataType = $request->input('dataType');
 
-        //VALIDATION : validate method stops the code execution if conditions not fullfilled
+        //VALIDATION : validate method stops the code execution if conditions not fullfilled, max is in kB
         if ($dataType == 'img') {
             $validatedData = $request->validate([
-                'file' => 'required|image'
+                'file' => 'required|image|max:50000'
             ]);   
         }
-
         elseif ($dataType == 'video') {
-                $validatedData = $request->validate([
-                    'file' => 'required|mimetypes:video/x-msvideo,video/mpeg,video/quicktime'
-                ]);   
-            }
-            // mpga == mp3 
-         if ($dataType == 'son') {
+            // x-msvideo = avi
              $validatedData = $request->validate([
-                 'file' => 'required|mimes:mpga,wav,ogg,mp4'
-                ]);   
+                'file' => 'required|mimetypes:video/x-msvideo,video/mpeg,video/quicktime|max:500000'
+            ]);   
+        }
+        elseif ($dataType == 'son') {
+            // mpga == mp3 
+             $validatedData = $request->validate([
+             'file' => 'required|mimes:mpga,wav,ogg,mp4|max:50000'
+            ]);   
          }   
 
 
@@ -51,7 +51,6 @@ class MediasController extends Controller
     }
 
     public function update(){
-
     }
 
     public function delete(){
