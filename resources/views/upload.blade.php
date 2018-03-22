@@ -17,9 +17,10 @@
   <option value="video">Video</option>
 </select>
 
-<input type="file" name="file" />
+<input type="file" name="file"/>
 <input type="submit" />
 <form/>
 
-
 <a href="/medias">Retour à la page Medias</a>
+
+<div>attention : ne fonctionne pas pour les jpeg</div>
