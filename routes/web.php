@@ -32,3 +32,8 @@ Route::get('/legalmentions', function () {
 Route::get('/board', function () {
     return view('board');
 })->name('board');
+
+//a modifier//
+Route::get('/update', function () {
+    return view('update');
+})->name('update');
