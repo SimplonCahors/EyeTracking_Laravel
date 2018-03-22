@@ -1,3 +1,13 @@
+<!-- laravel manages errors automatically -->
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 
 <form method="post" action="/upload/save" enctype="multipart/form-data" >
 @csrf
@@ -7,7 +17,7 @@
   <option value="video">Video</option>
 </select>
 
-<input type="file" name="filename" />
+<input type="file" name="file" />
 <input type="submit" />
 <form/>
 

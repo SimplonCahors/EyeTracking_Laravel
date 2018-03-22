@@ -1,6 +1,9 @@
 <h2><a href="/upload"> Ajouter un media</a></h2>
 @php
 
+
+
+
 foreach ($medias as $media) {
 
 	@endphp
