@@ -9,14 +9,35 @@ class MediasController extends Controller
 {
     public function create(Request $request)
     {
-        $pathstart = $request->file('filename')->store('public');
+        $dataType = $request->input('dataType');
+
+        //VALIDATION : validate method stops the code execution if conditions not fullfilled
+        if ($dataType == 'img') {
+            $validatedData = $request->validate([
+                'file' => 'required|image'
+            ]);   
+        }
+
+        elseif ($dataType == 'video') {
+                $validatedData = $request->validate([
+                    'file' => 'required|mimetypes:video/x-msvideo,video/mpeg,video/quicktime'
+                ]);   
+            }
+            // mpga == mp3 
+         if ($dataType == 'son') {
+             $validatedData = $request->validate([
+                 'file' => 'required|mimes:mpga,wav,ogg,mp4'
+                ]);   
+         }   
+
+
+        $pathstart = $request->file('file')->store('public');
         $path = substr($pathstart, 7);  // fonction pour enlever le "public/" au path et pouvoir ensuite créer une image avec le bon path
 
-        $originalName = $request->file('filename')->getClientOriginalName();
-        $datatype = $request->input('dataType');
+        $originalName = $request->file('file')->getClientOriginalName();
 
         DB::table('medias')->insert(
-            array( 'med_type' => $datatype, 'med_filename' => $originalName,'med_path' => $path, 'fk_are_oid' => NULL )
+            array( 'med_type' => $dataType, 'med_filename' => $originalName,'med_path' => $path )
         );
         header('refresh: 3; url = /upload');
 
