@@ -32,3 +32,7 @@ Route::get('/legalmentions', function () {
 Route::get('/board', function () {
     return view('board');
 })->name('board');
+
+Route::get('/mapping', function () {
+    return view('mapping');
+})->name('mapping');

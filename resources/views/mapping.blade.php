@@ -2,7 +2,7 @@
 @extends('layout.app')
 
 @section('title')
-Home
+Zone mapping
 @endsection
 
 
@@ -25,4 +25,5 @@ Home
 	
 </div>
 @endsection
+
 
