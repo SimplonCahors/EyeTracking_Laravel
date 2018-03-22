@@ -1,5 +1,6 @@
 // var button = document.getElementById("scrollUp");
 var screen;
+if(document.title !== 'Legal mentions'){
 document.getElementById("scrollUpBoard").addEventListener("mouseover", function(){
 	screen = $(window).height();
 	window.scrollBy(
@@ -18,7 +19,4 @@ document.getElementById("scrollDownBoard").addEventListener("mouseover", functio
 			behavior:'smooth' 
 		});
 });		
-
-
-
-    
+}
