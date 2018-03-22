@@ -10,7 +10,7 @@
         <p>page lisible n° : {{ $page }}</p>
 
         {{--  devrait marcher  --}}
-        <img src="storage/{{ $page }}"/>
+        <img src="storage/images/lop.jpg"/>
 
         <img src="storage/images/page1_comic2.jpg" alt="image en dur"/>
         
