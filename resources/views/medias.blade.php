@@ -1,4 +1,4 @@
-<h2><a href="/upload"> Ajouter un media</a></h2>
+<h2><a href="/medias-upload"> Ajouter un media</a></h2>
 @php
 
 

@@ -19,8 +19,8 @@ Route::get('/catalogue', 'ComicsController@show')->name('catalogue');
 
 Route::post('/upload/save', 'MediasController@create');
 
-Route::get('/upload', function () {
-    return view('upload');
+Route::get('/medias-upload', function () {
+    return view('medias-upload');
 });
 
 

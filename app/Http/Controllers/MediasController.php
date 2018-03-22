@@ -40,7 +40,7 @@ class MediasController extends Controller
         DB::table('medias')->insert(
             array( 'med_type' => $dataType, 'med_filename' => $originalName,'med_path' => $path )
         );
-        header('refresh: 3; url = /upload');
+        header('refresh: 3; url = /medias-upload');
 
         return $path;
     }
@@ -64,9 +64,9 @@ class MediasController extends Controller
 
         Storage::delete('public/'.$path);
 
-        echo 'cela a bien ete supprimer';
+       return view('medias-delete');
 
-        header('refresh: 3; url = /medias');
+        
 
 
     }
