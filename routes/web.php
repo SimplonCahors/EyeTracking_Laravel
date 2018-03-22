@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'ComicsController@show');
 
 
 
@@ -30,10 +28,22 @@ Route::get('/legalmentions', function () {
 })->name('legalmentions');
 
 
-//FROM FRONT : this route is used to show the sample board
+// FROM FRONT : this route is used to show the sample board
+// Remove this line and board.blade.php
 Route::get('/board', function () {
     return view('board');
 })->name('board');
+
+//Modification d'une bd//
+Route::get('/update', function () {
+    return view('update');
+})->name('update');
+
+// FROM FRONT : this route is used to show the sample board with sounds
+// Remove this line and board_mapping.blade.php
+Route::get('/board_mapping', function () {
+    return view('board_mapping');
+})->name('board_mapping');
 
 Route::get('/ajouter-bd', function () {
     return view('ajouter-bd');
@@ -59,3 +69,4 @@ Route::get('/delete-bd', function () {
     return view('delete-bd');
 }) -> name('delete-bd');
 Route::post('/delete-bd', 'ComicsController@delete');
+
