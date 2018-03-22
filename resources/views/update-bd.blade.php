@@ -13,6 +13,9 @@
     <label for="auteur">Auteur :</label>
     <input type="text" id="auteur" name="auteur" value="{{$comic->com_author}}"/>
 
+     <label for="miniature">miniature :</label>
+    <input type="file" id="miniature" name="miniature" required />
+
     <input type="submit"  />
 </form>     
 
