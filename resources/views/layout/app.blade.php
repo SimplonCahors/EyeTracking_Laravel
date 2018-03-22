@@ -16,6 +16,7 @@
     <body>
         <div id="content" class="content">
         <header>
+            @include('layout/nav_auth')
             @include('layout/navbar')
         </header>
             @yield('content')
