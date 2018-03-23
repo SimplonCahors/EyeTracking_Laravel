@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Database\QueryException;
 use DB;
+
 class MediasController extends Controller
 {
     public function create(Request $request)
@@ -14,7 +15,6 @@ class MediasController extends Controller
         $originalName = $request->file('file')->getClientOriginalName();
 
         //VALIDATION : validate method stops the code execution if conditions not fullfilled, max is in kB
- 
         if ($dataType == 'img') {
             $validatedData = $request->validate([
                 'file' => 'required|image'
@@ -33,7 +33,7 @@ class MediasController extends Controller
             ]);   
          }   
 
-$result='';
+        $result='';
         // if query is successfull (it can fail if name is not unique)
         try{
             $pathstart = $request->file('file')->store('public/medias');
