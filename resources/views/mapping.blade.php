@@ -2,7 +2,7 @@
 @extends('layout.app')
 
 @section('title')
-Board
+Zone mapping
 @endsection
 
 
@@ -27,6 +27,3 @@ Board
 @endsection
 
 
-@section('additionalJavascript')
-<script src="{{ asset('/assets/js/board.js') }}"></script>
-@endsection

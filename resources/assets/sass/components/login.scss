@@ -4,6 +4,12 @@
 	color: rgba(0,0,0,0.8);
 }
 
+
+.home_connect.card {
+	margin-top: 50px;
+}
+
+
 .card-body {
 	color: rgba(0,0,0,0.8);
 	
@@ -15,11 +21,12 @@
 	input[type="date"]:focus,
 	input[type="month"]:focus,
 	input[type="time"]:focus,
-	input[type="week"]:focus,
-	input[type="number"]:focus,*/
+	input[type="week"]:focus,*/
+	input[type="number"]:focus,
 	input[type="email"]:focus,
 	/*input[type="url"]:focus,*/
 	input[type="search"]:focus,
+	input[type="file"]:focus,			
 	/*input[type="tel"]:focus,
 	input[type="color"]:focus,*/
 	.uneditable-input:focus {   
