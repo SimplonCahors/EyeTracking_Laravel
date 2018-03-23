@@ -68,10 +68,11 @@ class MediasController extends Controller
 
         $id = $_GET['id'];
         $path= $_GET['path'];
+      
 
         DB::table('medias')->where('med_oid', '=', $id)->delete(); 
 
-        Storage::delete('public/medias'.$path);
+        Storage::delete('public/'.$path);
 
         return view('medias-delete');
 
