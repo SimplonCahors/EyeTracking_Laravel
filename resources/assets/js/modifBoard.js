@@ -14,10 +14,9 @@ if (document.URL.includes('modifBoard')) {
   }
 
   // Affichage du localstorage
-  for(var i = 1; i < idLocal+1; i++){
+  for(var i = 1; i <= idLocal; ++i){
     var zone = document.createElement("canvas");
             zone.setAttribute("id", "myCanvas"+i);
-            // canvas.setAttribute("class", "myCanvasClass");
             zone.setAttribute("width", localStorage.getItem('width'+i));
             zone.setAttribute("height", localStorage.getItem('height'+i));
             zone.style.left = localStorage.getItem('left'+i);
@@ -39,6 +38,7 @@ if (document.URL.includes('modifBoard')) {
       bool = true;
       console.log(bool);
       if (document.URL.includes('modifBoard') || (document.URL.includes('mapping'))) {
+
         // Si le bouton à été cliqué
         if (bool) {
           var xa = 0;
@@ -47,12 +47,14 @@ if (document.URL.includes('modifBoard')) {
             event.preventDefault();
             xa = event.layerX;
             ya = event.layerY;
+
             // Si le bouton à été cliqué
             if (bool) {
               section.addEventListener('mousemove', draw_update);
               bool = false;
             }
           }
+
           // Fonction qui appelle la création de la zone
           function draw_update(e) {
             var xb = e.layerX;
@@ -97,7 +99,6 @@ if (document.URL.includes('modifBoard')) {
             console.log(xA, yA, xB, yB);
             var canvas = document.createElement("canvas");
             canvas.setAttribute("id", "myCanvas");
-            // canvas.setAttribute("class", "myCanvasClass");
             canvas.setAttribute("width", Math.abs(xB - xA));
             canvas.setAttribute("height", Math.abs(yB - yA));
             canvas.style.position = "absolute";
@@ -122,6 +123,7 @@ if (document.URL.includes('modifBoard')) {
 
             canvas.style.backgroundColor = "rgba(255,0,0,0.4)";
             canvas.style.border = "2px solid rgba(255,0,0,1)";
+            
             // On enlève l'ancienne zone 
             if (old) {
               section.removeChild(old);
