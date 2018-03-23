@@ -30,7 +30,7 @@ class MediasController extends Controller
        elseif ($dataType == 'son') {
             // mpga == mp3 
            $validatedData = $request->validate([
-               'file' => 'required|mimetypes:mpga,wav,audio/ogg,mp4|max:100000'
+               'file' => 'required|mimetypes:audio/mpeg,wav,audio/ogg,mp4|max:100000'
            ]);   
        }   
 
