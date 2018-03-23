@@ -15,6 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+/*
+PAGE
+*/
+
 // Ajouter page depuis l'id d'une BD (fk_com_oid)
 Route::get('/add/page/{idBD}', function ($idBD) {
     return view('addPage', ['idBD' => $idBD]);
@@ -22,15 +26,17 @@ Route::get('/add/page/{idBD}', function ($idBD) {
 
 Route::post('/add/page/{idBD}', 'PageController@create');
 
-
 // Afficher page depuis idBD >> idPage (pag_number)
 Route::get('/showPage/{idBD}/{idPage}', function ($idBD, $idPage) {
     return view('showPage', ['idBD' => $idBD], ['idPage' => $idPage]);
 }) -> name('showPage');
 
 Route::get('/showPage/{idBD}/{idPage}', 'PageController@show');
+// FIN PAGE
 
-
+/*
+COMIC
+*/
 Route::get('/catalogue', 'ComicsController@show')->name('catalogue');
 
 Auth::routes();
