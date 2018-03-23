@@ -38,8 +38,10 @@ class MediasController extends Controller
         try{
             $pathstart = $request->file('file')->store('public/medias');
             $path = substr($pathstart, 7);  // fonction pour enlever le "public/" au path et pouvoir ensuite créer une image avec le bon path
+
             DB::table('medias')->insert(
                 array( 'med_type' => $dataType, 'med_filename' => $originalName,'med_path' => $path ));
+                
             $result = "Bien ajouté";
         }
          catch (QueryException $e){
