@@ -21,6 +21,8 @@
         </header>
             @yield('content')
         </div>
+
+        @yield('additionalJavascript')
         <script src="/js/app.js"></script>
     </body>
 </html>
