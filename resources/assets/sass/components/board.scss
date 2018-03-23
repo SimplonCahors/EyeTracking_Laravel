@@ -3,21 +3,20 @@
 	display: flex;
 	justify-content: center;
 
-	a.buttonArrowBoard {
-		position: fixed;
-		margin-top: 40vh;
-	}
-
 	.boardsBD {
 		width: 75vw;
 	}
 
 	#backBoard {
 		left: 5vw;
+		position: fixed;
+		margin-top: 40vh;
 	}
 
 	#nextBoard {
 		right: 5vw;
+		position: fixed;
+		margin-top: 40vh;
 	}
 }
 .buttonScrollBoard

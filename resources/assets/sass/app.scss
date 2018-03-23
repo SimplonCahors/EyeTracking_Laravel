@@ -8,6 +8,14 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+
+
+@import'components/legalmentions';
+
 // Components
 @import "components/navbar.scss";
 @import "components/board.scss";
+@import "components/catalogue.scss";
+@import "components/update.scss";
+@import "components/login.scss";
+@import "components/modifBoard.scss";
