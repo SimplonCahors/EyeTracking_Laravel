@@ -1,0 +1,33 @@
+#appModif {
+    display: flex;
+    margin-top: 10px;
+}
+
+#imgModif {
+    display: flex;
+}
+
+#sectionModifBoard {
+    padding: 10px;
+}
+
+#buttonCreateZone {
+    margin-left: 60px;
+    margin-bottom: 10px;
+}
+
+#buttonModifZone {
+    margin-left: 60px;
+    margin-bottom: 10px;
+}
+
+#formZone {
+    display: none;
+    position: fixed;
+}
+
+.select {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: whitesmoke;
+}
+
