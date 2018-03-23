@@ -50,7 +50,7 @@ class ComicsController extends Controller
 
     public function show(){
     	$comics = DB::table('comics')->get();
-        return view('catalogue',['comics' => $comics]);
+        return view('welcome',['comics' => $comics]);
     }
 
 
@@ -61,5 +61,3 @@ class ComicsController extends Controller
         header('refresh: 3; url = delete-bd');
     }
 }
-
-

@@ -1,5 +1,5 @@
 <div id="navbar">
-	<a href="">Accueil</a>
-	<a href="">Catalogue</a>
-	<a href="">Mentions Légales</a>
+	<a href="{{ url('/') }}">Accueil</a>
+	<a href="{{ url('/catalogue') }}">Catalogue</a>
+	<a href="{{ url('/legalmentions') }}">Mentions Légales</a>
 </div>

@@ -1,6 +1,10 @@
 # EyeTracking BD
 
 ## Installation :  
+ 
+
+- Run npm install.
+- Run <b> composer install </b>.
 
 
 - Run <code> npm install </code> .
@@ -26,7 +30,13 @@ It might worked now ! If not try this :
 - <code> npm install</code>
 - <code> npm run dev </code>
 
+## To try file uploading : 
+- make sure you have the latest DB and your .env is set up correctly. 
+- run <code> php artisan storage:link </code>  
+- if your terminal says it already exists, delete the storage folder in ./public (/!\ not ./storage) and run the command again.
+
+
+
+
 ## License
-
-
 @TDB

@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'ComicsController@show');
 
 /*
 PAGE
@@ -43,6 +41,28 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+
+Route::get('/legalmentions', function () {
+    return view('legalmentions');
+})->name('legalmentions');
+
+
+// FROM FRONT : this route is used to show the sample board
+// Remove this line and board.blade.php
+Route::get('/board', function () {
+    return view('board');
+})->name('board');
+
+//Modification d'une bd//
+Route::get('/update', function () {
+    return view('update');
+})->name('update');
+
+// FROM FRONT : this route is used to show the sample board with sounds
+// Remove this line and board_mapping.blade.php
+Route::get('/board_mapping', function () {
+    return view('board_mapping');
+})->name('board_mapping');
 
 Route::get('/ajouter-bd', function () {
     return view('ajouter-bd');
