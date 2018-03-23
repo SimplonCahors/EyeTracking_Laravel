@@ -1,3 +1,4 @@
+if(document.URL.includes('modifBoard')){
 var btnCreateZone = document.getElementById("buttonCreateZone");
 var btnModifZone = document.getElementById("buttonModifZone");
 var formZone = document.getElementById("formZone");
@@ -21,3 +22,4 @@ var modifZone = btnModifZone.addEventListener("click", function opacity() {
     formZone.style.display = "none";
   }
 });
+}

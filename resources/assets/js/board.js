@@ -3,7 +3,7 @@ var screen;
 
 // Changer board dans le if() si les scrolls ne marchent plus
 
-if(document.URL.includes('board')){
+if(document.URL.includes('board') || document.URL.includes('mapping')){
 document.getElementById("scrollUpBoard").addEventListener("mouseover", function(){
 	screen = $(window).height();
 	window.scrollBy(
