@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ComicsController extends Controller
 {
@@ -13,6 +14,7 @@ class ComicsController extends Controller
         //store dans le dossier public, le fichier 'miniature'
         $originalName = $request->file('miniature')->getClientOriginalName();
         $pathstart = $request->file('miniature')->storeAs('public', $originalName);
+
         //enlève le public devant   
         $path = substr($pathstart, 7);  
 
@@ -69,8 +71,14 @@ class ComicsController extends Controller
 
     public function delete(Request $request){
         $id = $request->input('delete');
+       
+        
+
         DB::table('comics')->where('com_oid', '=', $id)->delete(); 
-        echo 'cela a bien ete supprimer';
+        Storage::delete('public/ storage');
+        return view('comics-delete');
+
+        echo 'Cela à bien été supprimer';
         header('refresh: 3; url = delete-bd');
     }
 }
