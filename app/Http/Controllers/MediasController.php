@@ -36,7 +36,7 @@ class MediasController extends Controller
 $result='';
         // if query is successfull (it can fail if name is not unique)
         try{
-            $pathstart = $request->file('file')->store('public/bonjour');
+            $pathstart = $request->file('file')->store('public/medias');
             $path = substr($pathstart, 7);  // fonction pour enlever le "public/" au path et pouvoir ensuite créer une image avec le bon path
             DB::table('medias')->insert(
                 array( 'med_type' => $dataType, 'med_filename' => $originalName,'med_path' => $path ));
@@ -66,7 +66,7 @@ $result='';
 
         DB::table('medias')->where('med_oid', '=', $id)->delete(); 
 
-        Storage::delete('public/'.$path);
+        Storage::delete('public/medias'.$path);
 
        return view('medias-delete');
 
