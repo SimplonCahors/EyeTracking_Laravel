@@ -24,13 +24,13 @@ class MediasController extends Controller
         elseif ($dataType == 'video') {
             // x-msvideo = avi
            $validatedData = $request->validate([
-            'file' => 'required|mimetypes:video/mpeg,video/mp4,video/quicktime|max:500000'
+            'file' => 'required|mimetypes:video/mpeg,video/ogg,video/mp4,video/quicktime|max:500000'
         ]);   
        }
        elseif ($dataType == 'son') {
             // mpga == mp3 
            $validatedData = $request->validate([
-               'file' => 'required|mimes:mpga,wav,ogg,mp4|max:100000'
+               'file' => 'required|mimetypes:mpga,wav,audio/ogg,mp4|max:100000'
            ]);   
        }   
 
