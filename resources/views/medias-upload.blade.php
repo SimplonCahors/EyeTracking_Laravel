@@ -28,6 +28,8 @@
 
 <a href="/medias">Retour à la page Medias</a>
 
-<!-- <div> <p> vidéo : mp4,mpeg,quicktime. </p> 
+<!--
+    <div>  On croit que :  video max 1MB, image max 10MB ? 
+          <p> vidéo : mp4,mpeg,quicktime. </p> 
 <p> image : jpeg not working </p>
 <p>son :mpga,wav,ogg,mp4</p></div> -->
