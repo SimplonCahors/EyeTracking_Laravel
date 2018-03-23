@@ -15,7 +15,7 @@ class MediasController extends Controller
         $dataType = $request->input('dataType');
         $originalName = $request->file('file')->getClientOriginalName();
 
-        //VALIDATION : validate method stops the code execution if conditions not fullfilled, max is in kB
+        //VALIDATION : validate method stops the code execution if conditions not fullfilled, and send error automatically.
         if ($dataType == 'img') {
             $validatedData = $request->validate([
                 'file' => 'required|image'
@@ -35,7 +35,7 @@ class MediasController extends Controller
        }   
 
        $result='';
-        // if query is successfull (it can fail if name is not unique)
+        // try if query is successfull (it can fail if name is not unique)
        try{
         $pathstart = $request->file('file')->store('public/medias');
             $path = substr($pathstart, 7);  // fonction pour enlever le "public/" au path et pouvoir ensuite créer une image avec le bon path
@@ -53,6 +53,7 @@ class MediasController extends Controller
                 $result = 'Le fichier existe déjà (ou son nom est déjà pris)';
             }
         }
+        
         return view('medias-upload',['result'=> $result]);
     }
 

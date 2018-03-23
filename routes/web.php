@@ -51,7 +51,7 @@ Route::post('/delete-bd', 'ComicsController@delete');
 //*******MEDIAS ********//
 // /!\ pour upload des fichiers : consulter "try file uploading" dans le read me 
 
-//permet de visualiser tout les médias
+//permet de visualiser tout les médias, d'en ajouter, et supprimer à l'unité
 Route::get('/medias', 'MediasController@read')->name('medias');
 
 //un <a> sur /medias permet d'y accéder.
@@ -59,7 +59,6 @@ Route::get('/medias-upload', function () {
     return view('medias-upload');
     
 });
-
 // est juste appellée quand on créé un nouveau média à partir de upload. n'est même pas une vue
 Route::post('/upload/save', 'MediasController@create');
 
