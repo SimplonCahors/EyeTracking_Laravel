@@ -24,7 +24,7 @@ class MediasController extends Controller
         elseif ($dataType == 'video') {
             // x-msvideo = avi
            $validatedData = $request->validate([
-            'file' => 'required|mimetypes:video/x-msvideo,video/mpeg,video/mp4,video/quicktime|max:500000'
+            'file' => 'required|mimetypes:video/mpeg,video/mp4,video/quicktime|max:500000'
         ]);   
        }
        elseif ($dataType == 'son') {
