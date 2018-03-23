@@ -49,6 +49,7 @@ Route::post('/delete-bd', 'ComicsController@delete');
 
 
 //*******MEDIAS ********//
+// /!\ pour upload des fichiers : consulter "try file uploading" dans le read me 
 
 //permet de visualiser tout les médias
 Route::get('/medias', 'MediasController@read')->name('medias');
