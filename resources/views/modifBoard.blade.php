@@ -19,7 +19,9 @@ Home
             <form>
               <div class="form-group">
                 <label for="mediaFiles">Fichier médias</label>
-                <input type="file" class="form-control" id="mediaFiles">
+                <select id="mediaFiles">
+                <option value="test">Test</option>
+                </select>
               </div>
               <div class="form-group">
                 <div class="row">
