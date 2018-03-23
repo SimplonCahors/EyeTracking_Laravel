@@ -10,18 +10,50 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Auth::routes();
 
 Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/home', 'HomeController@index')->name('home');
+
 Route::get('/catalogue', 'ComicsController@show')->name('catalogue');
 
+
+//******BD********************//
+Route::get('/ajouter-bd', function () {
+    return view('ajouter-bd');
+}) -> name('ajouter-bd');
+
+Route::post('ajouter-bd', 'ComicsController@add');
+
+Route::get('/button-update-bd', function(){
+    return view('button-update-bd');
+}) -> name('button-update-bd');
+
+
+Route::get('/update-bd/{id}', 'ComicsController@fetchUniqueBD')->name('update-bd');
+
+
+Route::get('/update-bd', function(){
+    return view('update-bd');
+}) ->name('update-bd');
+Route::post('/update-bd', 'ComicsController@update');
+
+
+Route::get('/delete-bd', function () {
+    return view('delete-bd');
+}) -> name('delete-bd');
+Route::post('/delete-bd', 'ComicsController@delete');
+
+
+//*******MEDIAS ********//
 
 //permet de visualiser tout les médias
 Route::get('/medias', 'MediasController@read')->name('medias');
 
-//un <a> sur medias permet d'y accéder.
+//un <a> sur /medias permet d'y accéder.
 Route::get('/medias-upload', function () {
     return view('medias-upload');
     

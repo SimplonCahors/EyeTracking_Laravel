@@ -23,7 +23,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `areas`
+-- Structure de la table `areas`
 --
 
 CREATE TABLE `areas` (
@@ -36,7 +36,7 @@ CREATE TABLE `areas` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `comics`
+-- Structure de la table `comics`
 --
 
 CREATE TABLE `comics` (
@@ -52,7 +52,7 @@ CREATE TABLE `comics` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `medias`
+-- Structure de la table `medias`
 --
 
 CREATE TABLE `medias` (
@@ -86,7 +86,7 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pages`
+-- Structure de la table `pages`
 --
 
 CREATE TABLE `pages` (
@@ -130,7 +130,7 @@ CREATE TABLE `roles` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Structure de la table `users`
 --
 
 CREATE TABLE `users` (
@@ -146,7 +146,7 @@ CREATE TABLE `users` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user_role`
+-- Structure de la table `user_role`
 --
 
 CREATE TABLE `user_role` (
@@ -155,25 +155,25 @@ CREATE TABLE `user_role` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Indexes for dumped tables
+-- Index pour les tables exportées
 --
 
 --
--- Indexes for table `areas`
+-- Index pour la table `areas`
 --
 ALTER TABLE `areas`
   ADD PRIMARY KEY (`are_oid`),
   ADD KEY `fk_pag_oid_idx` (`fk_pag_oid`);
 
 --
--- Indexes for table `comics`
+-- Index pour la table `comics`
 --
 ALTER TABLE `comics`
   ADD PRIMARY KEY (`com_oid`),
   ADD KEY `fk_use_oid_idx` (`fk_use_oid`);
 
 --
--- Indexes for table `medias`
+-- Index pour la table `medias`
 --
 ALTER TABLE `medias`
   ADD PRIMARY KEY (`med_oid`),
@@ -206,88 +206,108 @@ ALTER TABLE `roles`
   ADD PRIMARY KEY (`rol_oid`);
 
 --
--- Indexes for table `users`
+-- Index pour la table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `users_email_unique` (`email`);
 
 --
--- Indexes for table `user_role`
+-- Index pour la table `user_role`
 --
 ALTER TABLE `user_role`
   ADD PRIMARY KEY (`fk_use_oid`,`fk_rol_oid`),
   ADD KEY `fk_rol_oid_idx` (`fk_rol_oid`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT pour les tables exportées
 --
 
 --
--- AUTO_INCREMENT for table `areas`
+-- AUTO_INCREMENT pour la table `areas`
 --
 ALTER TABLE `areas`
   MODIFY `are_oid` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `comics`
+-- AUTO_INCREMENT pour la table `comics`
 --
 ALTER TABLE `comics`
+<<<<<<< HEAD:extraData/eye_tracking.sql
   MODIFY `com_oid` int(11) NOT NULL AUTO_INCREMENT;
+=======
+  MODIFY `com_oid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+>>>>>>> backEnd:extraData/eyetracking.sql
 --
--- AUTO_INCREMENT for table `medias`
+-- AUTO_INCREMENT pour la table `medias`
 --
 ALTER TABLE `medias`
+<<<<<<< HEAD:extraData/eye_tracking.sql
   MODIFY `med_oid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+=======
+  MODIFY `med_oid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+>>>>>>> backEnd:extraData/eyetracking.sql
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+<<<<<<< HEAD:extraData/eye_tracking.sql
+=======
 --
--- AUTO_INCREMENT for table `pages`
+-- AUTO_INCREMENT pour la table `migrations`
+--
+ALTER TABLE `migrations`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+>>>>>>> backEnd:extraData/eyetracking.sql
+--
+-- AUTO_INCREMENT pour la table `pages`
 --
 ALTER TABLE `pages`
   MODIFY `pag_oid` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `roles`
+-- AUTO_INCREMENT pour la table `roles`
 --
 ALTER TABLE `roles`
-  MODIFY `rol_oid` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `rol_oid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
+<<<<<<< HEAD:extraData/eye_tracking.sql
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+=======
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+>>>>>>> backEnd:extraData/eyetracking.sql
 --
--- Constraints for dumped tables
+-- Contraintes pour les tables exportées
 --
 
 --
--- Constraints for table `areas`
+-- Contraintes pour la table `areas`
 --
 ALTER TABLE `areas`
   ADD CONSTRAINT `fk_pag_oid` FOREIGN KEY (`fk_pag_oid`) REFERENCES `pages` (`pag_oid`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `comics`
+-- Contraintes pour la table `comics`
 --
 ALTER TABLE `comics`
   ADD CONSTRAINT `fk_use_oid` FOREIGN KEY (`fk_use_oid`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `medias`
+-- Contraintes pour la table `medias`
 --
 ALTER TABLE `medias`
   ADD CONSTRAINT `fk_are_oid` FOREIGN KEY (`fk_are_oid`) REFERENCES `areas` (`are_oid`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `pages`
+-- Contraintes pour la table `pages`
 --
 ALTER TABLE `pages`
   ADD CONSTRAINT `fk_com_oid` FOREIGN KEY (`fk_com_oid`) REFERENCES `comics` (`com_oid`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `user_role`
+-- Contraintes pour la table `user_role`
 --
 ALTER TABLE `user_role`
   ADD CONSTRAINT `fk_rol_oid` FOREIGN KEY (`fk_rol_oid`) REFERENCES `roles` (`rol_oid`) ON DELETE NO ACTION ON UPDATE NO ACTION,
