@@ -14,19 +14,20 @@
 @endphp
 
 
-
 <form method="post" action="/upload/save" enctype="multipart/form-data" >
 @csrf
-<select name="dataType">
-  <option value="img">Image</option> 
-  <option value="son" >Son</option>
-  <option value="video">Video</option>
-</select>
+    <select name="dataType">
+    <option value="img">Image</option> 
+    <option value="son" >Son</option>
+    <option value="video">Video</option>
+    </select>
 
-<input type="file" name="file"/>
-<input type="submit" />
-<form/>
+    <input type="file" name="file"/>
+    <input type="submit"/>
+</form>
 
 <a href="/medias">Retour à la page Medias</a>
 
-<div>attention : ne fonctionne pas pour les jpeg</div>
+<!-- <div> <p> vidéo : mp4,mpeg,quicktime. </p> 
+<p> image : jpeg not working </p>
+<p>son :mpga,wav,ogg,mp4</p></div> -->
