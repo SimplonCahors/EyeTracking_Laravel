@@ -23,27 +23,30 @@ class MediasController extends Controller
         }
         elseif ($dataType == 'video') {
             // x-msvideo = avi
-             $validatedData = $request->validate([
-                'file' => 'required|mimetypes:video/x-msvideo,video/mpeg,video/mp4,video/quicktime|max:500000'
-            ]);   
-        }
-        elseif ($dataType == 'son') {
+           $validatedData = $request->validate([
+            'file' => 'required|mimetypes:video/x-msvideo,video/mpeg,video/mp4,video/quicktime|max:500000'
+        ]);   
+       }
+       elseif ($dataType == 'son') {
             // mpga == mp3 
-             $validatedData = $request->validate([
-             'file' => 'required|mimes:mpga,wav,ogg,mp4|max:100000'
-            ]);   
-         }   
+           $validatedData = $request->validate([
+               'file' => 'required|mimes:mpga,wav,ogg,mp4|max:100000'
+           ]);   
+       }   
 
-        $result='';
+       $result='';
         // if query is successfull (it can fail if name is not unique)
-        try{
-            $pathstart = $request->file('file')->store('public/medias');
+       try{
+        $pathstart = $request->file('file')->store('public/medias');
             $path = substr($pathstart, 7);  // fonction pour enlever le "public/" au path et pouvoir ensuite créer une image avec le bon path
+
             DB::table('medias')->insert(
                 array( 'med_type' => $dataType, 'med_filename' => $originalName,'med_path' => $path ));
             $result = "Bien ajouté";
+
         }
-         catch (QueryException $e){
+        catch (QueryException $e){
+
             $error_code = $e->errorInfo[1];
             if($error_code == 1062){
                 $result = 'Le fichier existe déjà (ou son nom est déjà pris)';
@@ -70,7 +73,7 @@ class MediasController extends Controller
 
         Storage::delete('public/medias'.$path);
 
-       return view('medias-delete');
+        return view('medias-delete');
 
     }
 }
