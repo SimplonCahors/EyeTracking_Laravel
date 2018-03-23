@@ -10,19 +10,14 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Auth::routes();
 
 Route::get('/', 'ComicsController@show');
 
-
-// ->update(['com_title' => $request->input('auteur'), 'com_author' => ]);
-
-
+Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/catalogue', 'ComicsController@show')->name('catalogue');
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
 
 
 Route::get('/legalmentions', function () {
@@ -47,6 +42,8 @@ Route::get('/board_mapping', function () {
     return view('board_mapping');
 })->name('board_mapping');
 
+
+//******BD********************//
 Route::get('/ajouter-bd', function () {
     return view('ajouter-bd');
 }) -> name('ajouter-bd');
@@ -72,3 +69,20 @@ Route::get('/delete-bd', function () {
 }) -> name('delete-bd');
 Route::post('/delete-bd', 'ComicsController@delete');
 
+
+//*******MEDIAS ********//
+// /!\ pour upload des fichiers : consulter "try file uploading" dans le read me 
+
+//permet de visualiser tout les médias, d'en ajouter, et supprimer à l'unité
+Route::get('/medias', 'MediasController@read')->name('medias');
+
+//un <a> sur /medias permet d'y accéder.
+Route::get('/medias-upload', function () {
+    return view('medias-upload');
+    
+});
+// est juste appellée quand on créé un nouveau média à partir de upload. n'est même pas une vue
+Route::post('/upload/save', 'MediasController@create');
+
+//appellée par un bouton par media sur la page /medias
+Route::get('/medias/delete', 'MediasController@delete')->name('medias/delete');
