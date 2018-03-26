@@ -28,7 +28,7 @@ class MediasController extends Controller
         ]);   
        }
        elseif ($dataType == 'son') {
-            // mpga == mp3 
+            // mpeg == mp3 
            $validatedData = $request->validate([
                'file' => 'required|mimetypes:audio/mpeg,wav,audio/ogg,mp4|max:100000'
            ]);   
@@ -65,7 +65,8 @@ class MediasController extends Controller
 
     public function update(){
     }
-
+    
+        // Viens de media/delete
     public function delete(){
 
         $id = $_GET['id'];

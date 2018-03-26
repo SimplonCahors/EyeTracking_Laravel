@@ -16,6 +16,10 @@ class ComicsController extends Controller
         $pathstart = $request->file('miniature')->storeAs('public', $originalName);
 
         //enlève le public devant   
+
+        //store dans le dossier ./public/storage/miniatures, le fichier 'miniature'
+        $pathstart = $request->file('miniature')->store('public/miniatures');
+
         $path = substr($pathstart, 7);  
 
          
@@ -40,11 +44,11 @@ class ComicsController extends Controller
         }
 
 
-        // Récupère une Bande-Déssiner unique
-        public function fetchUniqueBD($id){
-            $comics = DB::table('comics')->where('com_oid', '=', $id)->get();    
-            return view('update-bd',['comic' => $comics [0]]);
 
+        // necéssaire pour le update
+        public function fetchUniqueBD($id){
+            $comics = DB::table('comics')->where('com_oid', '=', $id)->get(); 
+            return view('update-bd',['comic' => $comics [0]]);
         }
 
 

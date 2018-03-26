@@ -1,3 +1,12 @@
+
+@extends('layout.app')
+
+@section('title')
+Accueil
+@endsection
+
+@section('content')
+
 <!-- si le fichier n'est pas conforme/ne passe pas les validations -->
 @if ($errors->any())
     <div class="alert alert-danger">
@@ -33,3 +42,5 @@
           <p> vidéo : mp4,mpeg,quicktime. </p> 
 <p> image : jpeg not working </p>
 <p>son :mpga,wav,ogg,mp4</p></div> -->
+
+@endsection

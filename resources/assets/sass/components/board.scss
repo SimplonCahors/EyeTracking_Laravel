@@ -36,9 +36,10 @@
 	padding: 3px;
 }
 
+// bouton retour
 #buttonReturnBoard {
 	position: fixed;
-	top: 15vh;
+	top: 25vh;
 	left: 3.5vw;
 }
 
@@ -46,3 +47,10 @@
 	background-color: rgba(0,0,0,0.1);
 	color: rgba(0,0,0,0.8);
 }
+
+// select pour le choix des pages
+#pageChoice_board{
+	position: fixed;
+	top: 25vh;
+	right: 4vw;
+ } 

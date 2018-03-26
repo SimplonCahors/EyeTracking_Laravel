@@ -14,16 +14,40 @@ Auth::routes();
 
 Route::get('/', 'ComicsController@show');
 
+/*
+PAGE
+*/
+
+// Ajouter page depuis idBD (clé étrangère fk_com_oid de 'pages')
+Route::get('/add/page/{idBD}', function ($idBD) {
+    return view('addPage', ['idBD' => $idBD]);
+}) -> name('addPage');
+
+
+Route::post('/add/page/{idBD}', 'PageController@create');
+
+// Afficher page depuis idBD >> idPage (pag_number de 'pages')
+Route::get('/showPage/{idBD}/{idPage}', function ($idBD, $idPage) {
+    return view('showPage', ['idBD' => $idBD], ['idPage' => $idPage]);
+}) -> name('showPage');
+
+Route::get('/showPage/{idBD}/{idPage}', 'PageController@show');
+// FIN PAGE
+
+/*
+COMIC
+*/
+
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/catalogue', 'ComicsController@show')->name('catalogue');
+// Le controller show renvoie à la vue welcome. Donc cette vue/ le controller est à modifier
 
+Route::get('/catalogue', 'ComicsController@show')->name('catalogue');
 
 
 Route::get('/legalmentions', function () {
     return view('legalmentions');
 })->name('legalmentions');
-
 
 // FROM FRONT : this route is used to show the sample board
 // Remove this line and board.blade.php
@@ -31,10 +55,12 @@ Route::get('/board', function () {
     return view('board');
 })->name('board');
 
-//Modification d'une bd//
-Route::get('/update', function () {
-    return view('update');
-})->name('update');
+
+Route::get('/mapping', function () {
+    return view('mapping');
+})->name('mapping');
+
+
 
 // FROM FRONT : this route is used to show the sample board with sounds
 // Remove this line and board_mapping.blade.php
@@ -44,28 +70,31 @@ Route::get('/board_mapping', function () {
 
 
 //******BD********************//
+// FROM BACK : This is the form, and on submit the ::post is called
 Route::get('/ajouter-bd', function () {
     return view('ajouter-bd');
-}) -> name('ajouter-bd');
+})->name('ajouter-bd');
 
 Route::post('ajouter-bd', 'ComicsController@add');
 
+//Modification d'une bd//
+// From back: there's some html and css not reaching routes with parameters. 
+Route::get('/update-bd/{id}', 'ComicsController@fetchUniqueBD')->name('update-bd/');
 
-Route::get('/catalogue', 'ComicsController@show')->name('catalogue');
-
-Route::get('/button-update-bd', function(){
-    return view('button-update-bd');
-}) -> name('button-update-bd');
-
-
-Route::get('/update-bd/{id}', 'ComicsController@fetchUniqueBD')->name('update-bd');
-Route::post('/update-bd/{id}', 'ComicsController@update');
+Route::get('/update-bd', function () {
+    return view('update-bd');
+})->name('update-bd');
+Route::post('/update-bd', 'ComicsController@update');
 
 
+// FROM BACK : right now it's an input that then pass the comics' id  in $GET. 
+// /!\ Doesn't work if you have pages in your DB that are linked to it 
 Route::get('/delete-bd', function () {
     return view('delete-bd');
-}) -> name('delete-bd');
+})->name('delete-bd');
 Route::post('/delete-bd', 'ComicsController@delete');
+
+
 
 
 //*******MEDIAS ********//
@@ -84,3 +113,9 @@ Route::post('/upload/save', 'MediasController@create');
 
 //appellée par un bouton par media sur la page /medias
 Route::get('/medias/delete', 'MediasController@delete')->name('medias/delete');
+
+Route::get('/modifBoard', function () {
+    return view('modifBoard');
+})->name('modifBoard');
+
+
