@@ -41,7 +41,6 @@ COMIC
 Route::get('/home', 'HomeController@index')->name('home');
 
 // Le controller show renvoie à la vue welcome. Donc cette vue/ le controller est à modifier
-
 Route::get('/catalogue', 'ComicsController@show')->name('catalogue');
 
 
@@ -77,30 +76,26 @@ Route::get('/ajouter-bd', function () {
 
 Route::post('ajouter-bd', 'ComicsController@add');
 
-<<<<<<< HEAD
-
-Route::get('/catalogue', 'ComicsController@show')->name('catalogue');
-
-Route::get('/button-update-bd', function(){
+Route::get('/button-update-bd', function () {
     return view('button-update-bd');
 }) -> name('button-update-bd');
 
 
 Route::get('/update-bd/{id}', 'ComicsController@fetchUniqueBD')->name('update-bd');
 Route::post('/update-bd/{id}', 'ComicsController@update');
-=======
+
 //Modification d'une bd//
-// From back: there's some html and css not reaching routes with parameters. 
+// From back: there's some html and css not reaching routes with parameters.
 Route::get('/update-bd/{id}', 'ComicsController@fetchUniqueBD')->name('update-bd/');
 
 Route::get('/update-bd', function () {
     return view('update-bd');
 })->name('update-bd');
 Route::post('/update-bd', 'ComicsController@update');
->>>>>>> backEnd
 
-// FROM BACK : right now it's an input that then pass the comics' id  in $GET. 
-// /!\ Doesn't work if you have pages in your DB that are linked to it 
+
+// FROM BACK : right now it's an input that then pass the comics' id  in $GET.
+// /!\ Doesn't work if you have pages in your DB that are linked to it
 Route::get('/delete-bd', function () {
     return view('delete-bd');
 })->name('delete-bd');
@@ -110,7 +105,7 @@ Route::post('/delete-bd', 'ComicsController@delete');
 
 
 //*******MEDIAS ********//
-// /!\ pour upload des fichiers : consulter "try file uploading" dans le read me 
+// /!\ pour upload des fichiers : consulter "try file uploading" dans le read me
 
 //permet de visualiser tout les médias, d'en ajouter, et supprimer à l'unité
 Route::get('/medias', 'MediasController@read')->name('medias');
@@ -118,7 +113,6 @@ Route::get('/medias', 'MediasController@read')->name('medias');
 //un <a> sur /medias permet d'y accéder.
 Route::get('/medias-upload', function () {
     return view('medias-upload');
-    
 });
 // est juste appellée quand on créé un nouveau média à partir de upload. n'est même pas une vue
 Route::post('/upload/save', 'MediasController@create');
@@ -129,5 +123,3 @@ Route::get('/medias/delete', 'MediasController@delete')->name('medias/delete');
 Route::get('/modifBoard', function () {
     return view('modifBoard');
 })->name('modifBoard');
-
-
