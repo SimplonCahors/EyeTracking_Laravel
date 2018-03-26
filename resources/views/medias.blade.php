@@ -1,3 +1,10 @@
+@extends('layout.app')
+
+@section('title')
+Medias
+@endsection
+
+@section('content')
 <h2><a href="/medias-upload"> Ajouter un media</a></h2>
 <h2>Liste de tout les médias</h2>
 
@@ -29,3 +36,5 @@
 	 <a href="/medias/delete?id={{ $media->med_oid }}&path={{ $media->med_path }}">Supprimer</a>
 	</li>
 @endforeach
+
+@endsection
