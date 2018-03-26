@@ -72,6 +72,7 @@ Route::get('/modifBoard', function () {
     return view('modifBoard');
 })->name('modifBoard');
 
+//frontEnd : visuel de la liste des médias
 Route::get('/listMedias', function () {
     return view('listMedias');
 })->name('listMedias');
