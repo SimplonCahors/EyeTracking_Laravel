@@ -1,0 +1,29 @@
+.container.legal
+{
+    .card
+    {
+        margin-top: 10px;
+    }
+    .accordion
+    {
+        font-size: x-large;
+        width: 100% !important;
+        height: auto;
+        border: none !important;
+        border-color: transparent;
+        padding: 20px;
+        background-color: whitesmoke;
+        color:rgba(0,0,0,0.8);
+
+    }
+    .accordion:hover
+    {
+        color:grey;
+
+    }
+    .accordion:active,.accordion:focus
+    {
+        border: none !important;
+        border-color: transparent;
+    }
+}
