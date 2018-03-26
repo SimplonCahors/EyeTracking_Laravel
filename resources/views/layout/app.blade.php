@@ -14,15 +14,13 @@
     </head>
 
     <body>
+        <div id="content" class="content">
         <header>
             @include('layout/nav_auth')
             @include('layout/navbar')
         </header>
-        <div class="content">
             @yield('content')
         </div>
-
-        @yield('additionalJavascript')
         <script src="/js/app.js"></script>
     </body>
 </html>
