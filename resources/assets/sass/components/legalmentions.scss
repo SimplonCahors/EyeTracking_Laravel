@@ -1,3 +1,4 @@
+//mise en page texte
 .container.legal {
     .card {
         margin-top: 10px;
@@ -7,10 +8,14 @@
         text-align: justify;
         margin: 0 20px;
     }
+    
+    // couleur surlignage
     mark {
         background-color: lightgrey;
         color: black;
-      }
+    }
+
+    //mise en page des boutons
     .accordion {
         font-size: x-large;
         width: 100% !important;
