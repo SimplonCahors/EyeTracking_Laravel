@@ -10,25 +10,19 @@ class ComicsController extends Controller
 {
     public function add(Request $request)
     {
-    
+
         //store dans le dossier public, le fichier 'miniature'
         $originalName = $request->file('miniature')->getClientOriginalName();
         $pathstart = $request->file('miniature')->storeAs('public', $originalName);
 
-        //enlève le public devant   
-
-        //store dans le dossier ./public/storage/miniatures, le fichier 'miniature'
-        $pathstart = $request->file('miniature')->store('public/miniatures');
-
-        $path = substr($pathstart, 7);  
-
-         
+        //enlève le public devant
+        $path = substr($pathstart, 7);
 
         $titre = $request->input('titre');
         $auteur = $request->input('auteur');
         $editeur = $request->input('editeur');
             
-         DB::table('comics')->insert(
+        DB::table('comics')->insert(
            array('com_title' => $titre,
                'com_author' => $auteur,
                 'com_publisher' => $editeur,
@@ -36,9 +30,10 @@ class ComicsController extends Controller
                    
             );
 
-         echo 'Base de données mise à jour.';
+        echo 'Base de données mise à jour.';
 
         header('refresh: 3; url = ajouter-bd');
+
         
 
         }
@@ -51,15 +46,16 @@ class ComicsController extends Controller
             return view('update-bd',['comic' => $comics [0]]);
         }
 
-
     // Affiche les miniatures de la DB
-    public function show(){
-    	$comics = DB::table('comics')->get();
-        return view('catalogue',['comics' => $comics]);
-    }   
+    public function show()
+    {
+        $comics = DB::table('comics')->get();
+        return view('catalogue', ['comics' => $comics]);
+    }
 
     // Modifie les miniatures de la DB et du Storage
-    public function update($id, Request $request){
+    public function update($id, Request $request)
+    {
         $titre = $request->input('titre');
         $auteur = $request->input('auteur');
         $editeur = $request->input('editeur');
@@ -70,16 +66,16 @@ class ComicsController extends Controller
 
         echo 'la modif à bien été faite';
         header('refresh: 3; url = '.$id);
-
     }
 
     // Supprime les miniatures de la DB et du Storage
-    public function delete(Request $request){
+    public function delete(Request $request)
+    {
         $id = $request->input('delete');
        
         
 
-        DB::table('comics')->where('com_oid', '=', $id)->delete(); 
+        DB::table('comics')->where('com_oid', '=', $id)->delete();
         Storage::delete('public/ storage');
         return view('comics-delete');
 
