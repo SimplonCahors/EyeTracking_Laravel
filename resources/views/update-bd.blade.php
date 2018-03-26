@@ -21,24 +21,10 @@ Modifier Bd
 
      <label for="miniature">miniature :</label>
     <input type="file" id="miniature" name="miniature" required />
-    <input type="submit"  />
+
+    <input type="submit" value="Appliquer les modifications" />
 
 </form>     
-
-
-    <form>
-        <h4>Modifier une page </h4>
-
-        <label for="page">Selectionner une page</label>
-        <select id="page">
-        <option selected value="0">choisissez une page</option>
-        <option value="1">Nom/numero de la page</option>
-        <option value="2">Nom/numero de la page</option>
-        <option value="3">Nom/numero de la page</option>
-        <option value="4">Nom/numero de la page</option>        
-        </select>
-        <button>Aller à la modification de la page</button>
-    </form>
 
 </div>
 @endsection

@@ -77,18 +77,6 @@ Route::get('/ajouter-bd', function () {
 
 Route::post('ajouter-bd', 'ComicsController@add');
 
-<<<<<<< HEAD
-
-Route::get('/catalogue', 'ComicsController@show')->name('catalogue');
-
-Route::get('/button-update-bd', function(){
-    return view('button-update-bd');
-}) -> name('button-update-bd');
-
-
-Route::get('/update-bd/{id}', 'ComicsController@fetchUniqueBD')->name('update-bd');
-Route::post('/update-bd/{id}', 'ComicsController@update');
-=======
 //Modification d'une bd//
 // From back: there's some html and css not reaching routes with parameters. 
 Route::get('/update-bd/{id}', 'ComicsController@fetchUniqueBD')->name('update-bd/');
@@ -97,7 +85,6 @@ Route::get('/update-bd', function () {
     return view('update-bd');
 })->name('update-bd');
 Route::post('/update-bd', 'ComicsController@update');
->>>>>>> backEnd
 
 // FROM BACK : right now it's an input that then pass the comics' id  in $GET. 
 // /!\ Doesn't work if you have pages in your DB that are linked to it 
