@@ -35,7 +35,9 @@ class PageController extends Controller
         }
         catch (QueryException $e){ // affiche une erreur si le fichier est en doublon
             $error_code = $e->errorInfo[1];
-            if($error_code == 1062){ // 1062 est le code d'erreur pour un duplicate sur col definie en unique
+             var_dump($e->errorInfo);
+            die;
+             if($error_code == 1062){ // 1062 est le code d'erreur pour un duplicate sur col definie en unique
                 $message = "La page {$numeroPage} existe déjà";
             }
         }
