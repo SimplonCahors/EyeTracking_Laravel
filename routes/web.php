@@ -51,15 +51,8 @@ Route::get('/ajouter-bd', function () {
 
 Route::post('ajouter-bd', 'ComicsController@add');
 
-Route::get('/button-update-bd', function () {
-    return view('button-update-bd');
-})->name('button-update-bd');
-
-Route::get('/update-bd/{id}', 'ComicsController@fetchUniqueBD')->name('update-bd/');
-
-
-
 //Modification d'une bd//
+Route::get('/update-bd/{id}', 'ComicsController@fetchUniqueBD')->name('update-bd/');
 
 Route::get('/update-bd', function () {
     return view('update-bd');
