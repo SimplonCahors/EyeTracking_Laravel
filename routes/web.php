@@ -23,6 +23,7 @@ Route::get('/add/page/{idBD}', function ($idBD) {
     return view('addPage', ['idBD' => $idBD]);
 }) -> name('addPage');
 
+
 Route::post('/add/page/{idBD}', 'PageController@create');
 
 // Afficher page depuis idBD >> idPage (pag_number de 'pages')
@@ -39,6 +40,7 @@ COMIC
 Route::get('/home', 'HomeController@index')->name('home');
 
 // Le controller show renvoie à la vue welcome. Donc cette vue/ le controller est à modifier
+
 Route::get('/catalogue', 'ComicsController@show')->name('catalogue');
 
 
@@ -90,6 +92,9 @@ Route::get('/delete-bd', function () {
 })->name('delete-bd');
 Route::post('/delete-bd', 'ComicsController@delete');
 
+
+
+
 //*******MEDIAS ********//
 // /!\ pour upload des fichiers : consulter "try file uploading" dans le read me 
 
@@ -110,4 +115,5 @@ Route::get('/medias/delete', 'MediasController@delete')->name('medias/delete');
 Route::get('/modifBoard', function () {
     return view('modifBoard');
 })->name('modifBoard');
+
 
