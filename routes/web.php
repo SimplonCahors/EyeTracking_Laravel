@@ -18,7 +18,10 @@ Auth::routes();
 | ACCUEIL / LOGIN / CATALOGUE / LEGALMENTIONS
 |--------------------------------------------------------------------------
 */
+
 Route::get('/', 'ComicsController@show');
+
+Route::get('/', 'WelcomeController@last');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
@@ -57,8 +60,6 @@ Route::get('/update-bd', function () {
     return view('update-bd');
 })->name('update-bd');
 
-Route::post('/update-bd', 'ComicsController@update');
-
 Route::post('/update-bd/{id}', 'ComicsController@update');
 
 Route::get('/button-update-bd', function () {
@@ -77,7 +78,7 @@ Route::post('/delete-bd', 'ComicsController@delete');
 
 /*
 |--------------------------------------------------------------------------
-| BOARDS
+| PAGES
 |--------------------------------------------------------------------------
 */
 
