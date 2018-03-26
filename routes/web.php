@@ -17,6 +17,7 @@ Route::get('/', 'ComicsController@show');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+// Le controller show renvoie à la vue welcome. Donc cette vue/ le controller est à modifier
 Route::get('/catalogue', 'ComicsController@show')->name('catalogue');
 
 
@@ -45,6 +46,7 @@ Route::get('/board_mapping', function () {
 
 
 //******BD********************//
+// FROM BACK : This is the form, and on submit the ::post is called
 Route::get('/ajouter-bd', function () {
     return view('ajouter-bd');
 })->name('ajouter-bd');
@@ -52,6 +54,7 @@ Route::get('/ajouter-bd', function () {
 Route::post('ajouter-bd', 'ComicsController@add');
 
 //Modification d'une bd//
+// From back: there's some html and css not reaching routes with parameters. 
 Route::get('/update-bd/{id}', 'ComicsController@fetchUniqueBD')->name('update-bd/');
 
 Route::get('/update-bd', function () {
@@ -59,6 +62,8 @@ Route::get('/update-bd', function () {
 })->name('update-bd');
 Route::post('/update-bd', 'ComicsController@update');
 
+// FROM BACK : right now it's an input that then pass the comics' id  in $GET. 
+// /!\ Doesn't work if you have pages in your DB that are linked to it 
 Route::get('/delete-bd', function () {
     return view('delete-bd');
 })->name('delete-bd');
