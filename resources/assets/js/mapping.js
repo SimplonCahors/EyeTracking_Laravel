@@ -23,10 +23,9 @@ section.addEventListener('mouseup', function(event){
 	
 });
 
+// Création de la zone
 function creation (xA,yA,xB,yB) {
 	var old = document.getElementById('myCanvas');
-
-	;
 
 	// console.log(xA, yA, xB, yB);
 	var canvas = document.createElement("canvas");
@@ -36,6 +35,7 @@ function creation (xA,yA,xB,yB) {
 	canvas.setAttribute("height", Math.abs(yB-yA));
 	canvas.style.position = "absolute";
 
+	// Vérification de la position du point de départ de la zone avec la position du point se situant sous la souris
 		if(xA < xB && yA > yB){
 			canvas.style.left = (((xA-section.offsetLeft)*100)/section.offsetWidth)+"%";
 			canvas.style.top = (((yB-section.offsetTop)*100)/section.offsetHeight)+"%";
@@ -55,7 +55,9 @@ function creation (xA,yA,xB,yB) {
 		}
 
 	canvas.style.backgroundColor = "rgba(255,0,0,0.4)";
-	canvas.style.border = "2px solid rgba(255,0,0,1)";		
+	canvas.style.border = "2px solid rgba(255,0,0,1)";	
+	
+	// Retrait de l'ancienne zone pour affichage dynamique	
 		if(old){
 			section.removeChild(old);
 		}
