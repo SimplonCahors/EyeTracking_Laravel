@@ -29,7 +29,7 @@ Accueil
             <div class="read_edit_catalog">
                 
                 <!-- ICI LE IF POUR L'ADMIN + BOUTON MODIFIER -->
-                <a><button class="buttons" id="button_edit_catalog">Modifier</button></a>
+                <a  href="{{ route ('update-bd/', $comic->com_oid ) }} " class="buttons" id="button_edit_catalog">Modifier</a>
                 <a><button class="buttons">Lire</button></a>
             </div>
             </div>

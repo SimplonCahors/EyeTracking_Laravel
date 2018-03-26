@@ -38,12 +38,10 @@ class ComicsController extends Controller
 
 
         public function fetchUniqueBD($id){
-            // $comics = DB::table('comics')->where('com_oid', '=', $id)->get(); 
-            return view('update-bd');
-           // ['comic' => $comics [0]]
-            // $id = $request->input('update');
-            // DB::table('comics')
-
+            $comics = DB::table('comics')->where('com_oid', '=', $id)->get(); 
+            return view('update-bd',['comic' => $comics [0]]);
+           
+           
         }
 
 

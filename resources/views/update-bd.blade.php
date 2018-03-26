@@ -10,7 +10,7 @@ Modifier Bd
 <form method="POST">
      <h4>Mofidier les informations de la BD</h4>
     @csrf
-{{--     <label for="titre">Titre de la BD</label>
+    <label for="titre">Titre de la BD</label>
     <input type="text" id="titre" name="titre" value="{{$comic->com_title}}"/>
  
     <label for="editeur"> Nom de l'éditeur</label>
@@ -19,7 +19,7 @@ Modifier Bd
     <label for="auteur">Nom de l'auteur</label>
     <input type="text" id="auteur" name="auteur" value="{{$comic->com_author}}"/>
 
-    <input type="submit" value="Appliquer les modifications" /> --}}
+    <input type="submit" value="Appliquer les modifications" />
 </form>     
 
 
