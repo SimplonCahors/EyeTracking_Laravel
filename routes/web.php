@@ -14,16 +14,15 @@ Auth::routes();
 
 Route::get('/', 'ComicsController@show');
 
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/catalogue', 'ComicsController@show')->name('catalogue');
 
 
-
 Route::get('/legalmentions', function () {
     return view('legalmentions');
 })->name('legalmentions');
-
 
 // FROM FRONT : this route is used to show the sample board
 // Remove this line and board.blade.php
@@ -31,10 +30,12 @@ Route::get('/board', function () {
     return view('board');
 })->name('board');
 
-//Modification d'une bd//
-Route::get('/update', function () {
-    return view('update');
-})->name('update');
+
+Route::get('/mapping', function () {
+    return view('mapping');
+})->name('mapping');
+
+
 
 // FROM FRONT : this route is used to show the sample board with sounds
 // Remove this line and board_mapping.blade.php
@@ -46,28 +47,30 @@ Route::get('/board_mapping', function () {
 //******BD********************//
 Route::get('/ajouter-bd', function () {
     return view('ajouter-bd');
-}) -> name('ajouter-bd');
+})->name('ajouter-bd');
 
 Route::post('ajouter-bd', 'ComicsController@add');
 
-Route::get('/button-update-bd', function(){
+Route::get('/button-update-bd', function () {
     return view('button-update-bd');
-}) -> name('button-update-bd');
+})->name('button-update-bd');
+
+Route::get('/update-bd/{id}', 'ComicsController@fetchUniqueBD')->name('update-bd/');
 
 
-Route::get('/update-bd/{id}', 'ComicsController@fetchUniqueBD')->name('update-bd');
 
+//Modification d'une bd//
 
-Route::get('/update-bd', function(){
+Route::get('/update-bd', function () {
     return view('update-bd');
-}) ->name('update-bd');
+})->name('update-bd');
 Route::post('/update-bd', 'ComicsController@update');
-
 
 Route::get('/delete-bd', function () {
     return view('delete-bd');
-}) -> name('delete-bd');
+})->name('delete-bd');
 Route::post('/delete-bd', 'ComicsController@delete');
+
 
 
 //*******MEDIAS ********//
@@ -86,3 +89,8 @@ Route::post('/upload/save', 'MediasController@create');
 
 //appellée par un bouton par media sur la page /medias
 Route::get('/medias/delete', 'MediasController@delete')->name('medias/delete');
+
+Route::get('/modifBoard', function () {
+    return view('modifBoard');
+})->name('modifBoard');
+
