@@ -16,14 +16,6 @@ Auth::routes();
 
 /*
 |--------------------------------------------------------------------------
-<<<<<<< HEAD
-| ACCUEIL / LOGIN / CATALOGUE / LEGALMENTIONS
-|--------------------------------------------------------------------------
-*/
-
-Route::get('/', 'ComicsController@show');
-
-=======
 | [ACCUEIL] / [CONNEXION] / [CATALOGUE] / [LEGALMENTIONS]
 |--------------------------------------------------------------------------
 */
@@ -32,24 +24,17 @@ Route::get('/', 'ComicsController@show');
 Route::get('/', 'ComicsController@show');
 
 // page accueil | accès aux 3 dernières bd publiées
->>>>>>> backEnd
 Route::get('/', 'WelcomeController@last');
 
 // page connexion |
 // de Charlotte : si on pouvait renommer le chemin en "login" ce serait mieux ainsi que le controller
 Route::get('/home', 'HomeController@index')->name('home');
 
-<<<<<<< HEAD
-// Le controller show renvoie à la vue welcome. Donc cette vue/ le controller est à modifier
-Route::get('/catalogue', 'ComicsController@show')->name('catalogue');
-
-=======
 // page catalogue | Le controller show renvoie à la vue welcome.
 // donc cette vue/ le controller est à modifier
 Route::get('/catalogue', 'ComicsController@show')->name('catalogue');
 
 // page legalmentions | mentions légales
->>>>>>> backEnd
 Route::get('/legalmentions', function () {
     return view('legalmentions');
     array('com_title' => $titre,
@@ -58,21 +43,6 @@ Route::get('/legalmentions', function () {
                'com_miniature_url'=> $originalName);
 })->name('legalmentions');
 
-<<<<<<< HEAD
-// FROM FRONT : this route is used to show the sample board with sounds
-// Remove this line and board_mapping.blade.php
-Route::get('/board_mapping', function () {
-    return view('board_mapping');
-})->name('board_mapping');
-
-
-/*
-|--------------------------------------------------------------------------
-| COMICS
-|--------------------------------------------------------------------------
-*/
-
-=======
 
 /*
 |--------------------------------------------------------------------------
@@ -82,7 +52,6 @@ Route::get('/board_mapping', function () {
 
 /* ----------------[ CREATE COMICS ]---------------- */
 
->>>>>>> backEnd
 // FROM BACK : This is the form, and on submit the ::post is called
 Route::get('/ajouter-bd', function () {
     return view('ajouter-bd');
@@ -90,45 +59,31 @@ Route::get('/ajouter-bd', function () {
 
 Route::post('ajouter-bd', 'ComicsController@add');
 
-<<<<<<< HEAD
-//Modification d'une bd//
-// From back: there's some html and css not reaching routes with parameters.
-Route::get('/update-bd/{id}', 'ComicsController@fetchUniqueBD')->name('update-bd/');
-=======
 
 /* ----------------[ READ COMICS ]---------------- */
 // not done
 
 
 /* ----------------[ UPDATE COMICS ]---------------- */
->>>>>>> backEnd
 
 // de Charlotte => erreur sur cette route. Chercher à savoir à quoi elle correspond |
 Route::get('/update-bd{id}', function () {
     return view('update-bd');
 })->name('update-bd');
 
-<<<<<<< HEAD
-Route::post('/update-bd/{id}', 'ComicsController@update');
-
-=======
 // FROM BACK : there's some html and css not reaching routes with parameters.
 Route::get('/update-bd/{id}', 'ComicsController@fetchUniqueBD')->name('update-bd/');
 
 Route::post('/update-bd/{id}', 'ComicsController@update');
 
 // de Charlotte => erreur aussi sur cette route. Chercher à savoir à quoi elle correspond |
->>>>>>> backEnd
 Route::get('/button-update-bd', function () {
     return view('button-update-bd');
 }) -> name('button-update-bd');
 
 
-<<<<<<< HEAD
-=======
 /* ----------------[ DELETE COMICS ]---------------- */
 
->>>>>>> backEnd
 // FROM BACK : right now it's an input that then pass the comics' id  in $GET.
 // /!\ Doesn't work if you have pages in your DB that are linked to it
 Route::get('/delete-bd', function () {
@@ -143,39 +98,6 @@ Route::post('/delete-bd', 'ComicsController@delete');
 | PAGES
 |--------------------------------------------------------------------------
 */
-<<<<<<< HEAD
-
-
-// FROM FRONT : this route is used to show the sample board
-// Remove this line and board.blade.php
-Route::get('/board', function () {
-    return view('board');
-})->name('board');
-
-
-// Ajouter page depuis idBD (clé étrangère fk_com_oid de 'pages')
-Route::get('/add/page/{idBD}', function ($idBD) {
-    return view('addPage', ['idBD' => $idBD]);
-}) -> name('addPage');
-
-Route::post('/add/page/{idBD}', 'PageController@create');
-
-// Afficher page depuis idBD >> idPage (pag_number de 'pages')
-Route::get('/showPage/{idBD}/{idPage}', function ($idBD, $idPage) {
-    return view('showPage', ['idBD' => $idBD], ['idPage' => $idPage]);
-}) -> name('showPage');
-
-Route::get('/showPage/{idBD}/{idPage}', 'PageController@show');
-
-
-/*
-|--------------------------------------------------------------------------
-| MEDIAS
-|--------------------------------------------------------------------------
-*/
-
-// /!\ pour upload des fichiers : consulter "try file uploading" dans le read me
-=======
 
 /* ----------------[ CREATE PAGES ]---------------- */
 
@@ -183,7 +105,6 @@ Route::get('/showPage/{idBD}/{idPage}', 'PageController@show');
 Route::get('/add/page/{idBD}', function ($idBD) {
     return view('addPage', ['idBD' => $idBD]);
 }) -> name('addPage');
->>>>>>> backEnd
 
 Route::post('/add/page/{idBD}', 'PageController@create');
 
@@ -259,15 +180,6 @@ Route::get('/medias/delete', 'MediasController@delete')->name('medias/delete');
 |--------------------------------------------------------------------------
 */
 
-<<<<<<< HEAD
- Route::get('/modifBoard', function () {
-     return view('modifBoard');
- })->name('modifBoard');
-
- Route::get('/mapping', function () {
-     return view('mapping');
- })->name('mapping');
-=======
 /* ----------------[ CREATE AND UPDATE MAPPING ]---------------- */
 
  Route::get('/modifBoard', function () {
@@ -289,4 +201,3 @@ Route::get('/board_mapping', function () {
 
 /* ----------------[ DELETE MAPPING ]---------------- */
 // not done
->>>>>>> backEnd
