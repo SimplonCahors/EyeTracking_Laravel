@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Mar 21, 2018 at 01:43 PM
+-- Generation Time: Mar 23, 2018 at 02:36 PM
 -- Server version: 5.7.21-0ubuntu0.17.10.1
 -- PHP Version: 7.1.15-0ubuntu0.17.10.1
 
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `placeholder`
+-- Database: `eye_tracking`
 --
 
 -- --------------------------------------------------------
@@ -48,6 +48,13 @@ CREATE TABLE `comics` (
   `com_timestamp` varchar(45) DEFAULT NULL,
   `fk_use_oid` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `comics`
+--
+
+INSERT INTO `comics` (`com_oid`, `com_title`, `com_author`, `com_publisher`, `com_miniature_url`, `com_timestamp`, `fk_use_oid`) VALUES
+(2, 'aa', 'aa', 'aa', 'aa', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -231,12 +238,12 @@ ALTER TABLE `areas`
 -- AUTO_INCREMENT for table `comics`
 --
 ALTER TABLE `comics`
-  MODIFY `com_oid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `com_oid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `medias`
 --
 ALTER TABLE `medias`
-  MODIFY `med_oid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `med_oid` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `migrations`
 --
@@ -256,7 +263,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- Constraints for dumped tables
 --

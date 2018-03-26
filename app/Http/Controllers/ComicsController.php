@@ -82,5 +82,3 @@ class ComicsController extends Controller
         header('refresh: 3; url = delete-bd');
     }
 }
-
-
