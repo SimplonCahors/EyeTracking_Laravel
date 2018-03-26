@@ -40,7 +40,7 @@ class ComicsController extends Controller
         }
 
 
-
+        // Récupère une Bande-Déssiner unique
         public function fetchUniqueBD($id){
             $comics = DB::table('comics')->where('com_oid', '=', $id)->get();    
             return view('update-bd',['comic' => $comics [0]]);
@@ -48,13 +48,13 @@ class ComicsController extends Controller
         }
 
 
-
+    // Affiche les miniatures de la DB
     public function show(){
     	$comics = DB::table('comics')->get();
         return view('catalogue',['comics' => $comics]);
     }   
 
-
+    // Modifie les miniatures de la DB et du Storage
     public function update($id, Request $request){
         $titre = $request->input('titre');
         $auteur = $request->input('auteur');
@@ -69,6 +69,7 @@ class ComicsController extends Controller
 
     }
 
+    // Supprime les miniatures de la DB et du Storage
     public function delete(Request $request){
         $id = $request->input('delete');
        
