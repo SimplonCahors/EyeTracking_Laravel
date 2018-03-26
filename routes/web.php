@@ -71,3 +71,7 @@ Route::post('/delete-bd', 'ComicsController@delete');
 Route::get('/modifBoard', function () {
     return view('modifBoard');
 })->name('modifBoard');
+
+Route::get('/listMedias', function () {
+    return view('listMedias');
+})->name('listMedias');

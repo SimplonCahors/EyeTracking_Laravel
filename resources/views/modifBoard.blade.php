@@ -19,7 +19,9 @@ Home
             <form>
               <div class="form-group">
                 <label for="mediaFiles">Fichier médias</label>
-                <input type="file" class="form-control" id="mediaFiles">
+                <select id="mediaFiles">
+                <option value="test">Test</option>
+                </select>
               </div>
               <div class="form-group">
                 <div class="row">
@@ -43,7 +45,9 @@ Home
       
   </div>
       <div class="col-8" id="imgModif">
+      <div id="page">
         <img src="img/plancheBD.JPG" alt="planche BD">
+        </div>
       </div>
     </div>
   </section>
