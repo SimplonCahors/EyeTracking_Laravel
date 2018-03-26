@@ -17,14 +17,14 @@ Route::get('/', 'ComicsController@show');
 PAGE
 */
 
-// Ajouter page depuis l'id d'une BD (fk_com_oid)
+// Ajouter page depuis idBD (clé étrangère fk_com_oid de 'pages')
 Route::get('/add/page/{idBD}', function ($idBD) {
     return view('addPage', ['idBD' => $idBD]);
 }) -> name('addPage');
 
 Route::post('/add/page/{idBD}', 'PageController@create');
 
-// Afficher page depuis idBD >> idPage (pag_number)
+// Afficher page depuis idBD >> idPage (pag_number de 'pages')
 Route::get('/showPage/{idBD}/{idPage}', function ($idBD, $idPage) {
     return view('showPage', ['idBD' => $idBD], ['idPage' => $idPage]);
 }) -> name('showPage');
