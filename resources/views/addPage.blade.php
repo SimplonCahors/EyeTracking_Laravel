@@ -28,7 +28,7 @@
 
 <!-- Formulaire : numéro de page + upload fichier -->
     <form method="POST" enctype="multipart/form-data">         
-    @csrf
+        @csrf
         <input required type="number" min="1" name="numeroPage" placeholder="numero de page">
         <input required type="file" name="filename"/>
         <input type="submit" value="entrer" name="submit">
