@@ -12,7 +12,7 @@
 */
 Auth::routes();
 
-Route::get('/', 'ComicsController@show');
+Route::get('/', 'WelcomeController@last');
 
 /*
 PAGE
@@ -84,7 +84,7 @@ Route::get('/update-bd/{id}', 'ComicsController@fetchUniqueBD')->name('update-bd
 Route::get('/update-bd', function () {
     return view('update-bd');
 })->name('update-bd');
-Route::post('/update-bd', 'ComicsController@update');
+Route::post('/update-bd/{id}', 'ComicsController@update');
 
 // FROM BACK : right now it's an input that then pass the comics' id  in $GET. 
 // /!\ Doesn't work if you have pages in your DB that are linked to it 
