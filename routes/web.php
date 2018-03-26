@@ -27,7 +27,7 @@ Route::get('/', 'ComicsController@show');
 Route::get('/', 'WelcomeController@last');
 
 // page connexion |
-//// de Charlotte : si on pouvait renommer le chemin en "login" ce serait mieux ainsi que le controller
+// de Charlotte : si on pouvait renommer le chemin en "login" ce serait mieux ainsi que le controller
 Route::get('/home', 'HomeController@index')->name('home');
 
 // page catalogue | Le controller show renvoie à la vue welcome.
