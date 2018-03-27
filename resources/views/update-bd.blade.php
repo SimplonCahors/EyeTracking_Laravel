@@ -7,7 +7,7 @@
 @section('content')
     <div class=" container modify">
         <form method="POST">
-            <h4>Mofidier les informations de la BD</h4>
+            <h4>Modifier les informations de la BD</h4>
             @csrf
             <label for="titre">Titre de la BD</label>
             <input type="text" id="titre" name="titre" value="{{$comic->com_title}}"/>
