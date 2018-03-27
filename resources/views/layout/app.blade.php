@@ -22,5 +22,6 @@
             @yield('content')
         </div>
         <script src="/js/app.js"></script>
+        @yield('extraJS')
     </body>
 </html>
