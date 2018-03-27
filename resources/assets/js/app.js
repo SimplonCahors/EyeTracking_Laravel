@@ -14,11 +14,11 @@ require('./modifBoard');
 
 require('./mapping');
 
-//console.log('ok');
 require('./legal');
 
 require('./bootstrap');
 require('jquery');
+require('jquery-migrate');
 
 // window.Vue = require('vue');
 
