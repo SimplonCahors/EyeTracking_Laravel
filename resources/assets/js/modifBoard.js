@@ -74,7 +74,7 @@ console.log(section);
         canvas.setAttribute("width", Math.abs(xB - xA));
         canvas.setAttribute("height", Math.abs(yB - yA));
         canvas.style.position = "absolute";
-        console.log(section.offsetTop, section.offsetHeight);
+        console.log(section.offsetLeft, section.offsetTop, section.offsetHeight);
 
         // Vérification de la position du point de départ de la zone avec la position du point se situant sous la souris
         if (xA < xB && yA > yB) {

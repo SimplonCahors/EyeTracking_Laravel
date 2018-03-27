@@ -44,11 +44,11 @@ Home
         </div>
       
   </div>
-      <div class="col-8" id="imgModif">
-      <div id="page">
+   
+      <div class="col-8" id="page">
         <img src="img/plancheBD.JPG" alt="planche BD">
         </div>
-      </div>
+    
     </div>
   </section>
 </div>
