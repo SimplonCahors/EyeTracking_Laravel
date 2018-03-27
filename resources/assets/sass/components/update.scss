@@ -1,0 +1,46 @@
+.container.modify
+{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    form
+    {
+        margin-top:10vh;
+        width: 51%;
+        label
+        {
+            color:rgba(0,0,0,0.8);
+            font-size: large;
+            width: 100%;
+        }
+        input
+        {
+            width: 100%;
+            padding: 10px 0 10px 0;
+            border: 1px solid rgba(0,0,0,0.2);
+        }
+        select
+        {
+            text-align: center;
+            appearance: none;
+            width: 100%;
+            padding: 10px 0 10px 0;
+            border: 1px solid rgba(0,0,0,0.2);
+        }
+        button
+        {
+            margin:10px;
+            padding: 10px;
+            border: 1px solid rgba(0,0,0,0.2);
+            color: rgba(0,0,0,0.8);
+            background-color: whitesmoke;
+
+        }
+        button:hover
+        {
+            color:whitesmoke;
+            background-color: rgba(0,0,0,0.8)
+        }
+    }
+
+}

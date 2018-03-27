@@ -8,7 +8,15 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
-.navbar-laravel {
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
-}
+
+
+@import'components/legalmentions';
+
+// Components
+@import "components/navbar.scss";
+@import "components/board.scss";
+@import "components/catalogue.scss";
+@import "components/update.scss";
+@import "components/login.scss";
+@import "components/modifBoard.scss";
+@import "components/listMedias.scss";
