@@ -28,8 +28,6 @@ class ComicsController extends Controller
         //enlève le public devant
         $path = substr($pathstart, 7);
 
-         
-
         $titre = $request->input('titre');
         $auteur = $request->input('auteur');
         $editeur = $request->input('editeur');
@@ -46,7 +44,7 @@ class ComicsController extends Controller
 
         header('refresh: 3; url = ajouter-bd');
     }
-
+    
     // si on pouvait la renommer en function "read" ce serait mieux
     public function show()
     {
