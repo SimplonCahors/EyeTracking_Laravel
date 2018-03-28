@@ -50,7 +50,7 @@ class ComicsController extends Controller
     // si on pouvait la renommer en function "read" ce serait mieux
     public function show()
     {
-        $comics = DB::table('comics')->get();
+        $comics = DB::table('comics')->where('com_publication', '=', 1)->get();
         return view('catalogue', ['comics' => $comics]);
     }
 
