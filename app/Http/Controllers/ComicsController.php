@@ -20,7 +20,6 @@ class ComicsController extends Controller
     // si on pouvait la renommer en function "create" ce serait mieux
     public function add(Request $request)
     {
-
         //store dans le dossier public, le fichier 'miniature'
         $originalName = $request->file('miniature')->getClientOriginalName();
         $pathstart = $request->file('miniature')->storeAs('public', $originalName);
@@ -81,12 +80,11 @@ class ComicsController extends Controller
     public function delete(Request $request)
     {
         $id = $request->input('delete');
-       
-        
 
+        DB::table('pages')->where('fk_com_oid','=',$id)->delete();
         DB::table('comics')->where('com_oid', '=', $id)->delete();
-        Storage::delete('public/ storage');
-        return view('comics-delete');
+        Storage::delete('public/ storage/images/pages');
+        // return view('delete-bd');
 
         echo 'Cela à bien été supprimer';
         header('refresh: 3; url = delete-bd');
