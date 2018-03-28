@@ -14,7 +14,7 @@
 
 	@foreach ($medias as $media)
 
-	  <div class="col-s col-auto">
+	 
 		<div class="card" style="width: 18rem;">
 
 		  @if ($media->med_type == 'img')

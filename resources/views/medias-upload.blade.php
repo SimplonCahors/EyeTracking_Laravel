@@ -1,4 +1,3 @@
-
 @extends('layout.app')
 
 @section('title')
@@ -22,20 +21,31 @@ Accueil
 @php if(isset($result)) echo $result;
 @endphp
 
-
-<form method="post" action="/upload/save" enctype="multipart/form-data" >
+ <div class="container">
+  <div class="row">
+    <div class="col-sm">   
+             <div class="cadre">
+         <form method="post" action="/upload/save" enctype="multipart/form-data" >
 @csrf
-    <select name="dataType">
-    <option value="img">Image</option> 
-    <option value="son" >Son</option>
-    <option value="video">Video</option>
-    </select>
+
+  <select name="dataType">
+        <option value="img">Image</option> 
+            <option value="son" >Son</option>
+                <option value="video">Video</option>
+</select>
 
     <input type="file" name="file"/>
-    <input type="submit"/>
-</form>
 
-<a href="/medias">Retour à la page Medias</a>
+        <input type="submit"/>
+
+            <a href="/medias">Retour à la page Medias</a>
+
+        </form>  
+
+            </div> 
+        </div>
+    </div> 
+</div>  
 
 <!--
     <div>  On croit que :  video max 1MB, image max 10MB ? 
