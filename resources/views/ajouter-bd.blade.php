@@ -23,8 +23,8 @@
 
             <label for="miniature">Miniature</label>
 
-            <input type="file" id="miniature" name="miniature" required />
-            <input type="submit" value="AJOUTER" />
+            <input type="file" id="miniature" name="miniature" required value="test" placeholder="test"/>
+            <input type="submit" value="AJOUTER" id="ajouter"/>
 
         </form>
         </div>
