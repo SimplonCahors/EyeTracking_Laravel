@@ -11,11 +11,13 @@ Home
             <div class="col-4">
                 <button type="button" class="btn btn-outline-secondary" id="buttonCreateZone">Créer une zone</button>
                 <button type="button" class="btn btn-outline-secondary" id="buttonModifZone">Modifier une zone</button>
+
                   @php if(isset($result)) echo $result;
                             @endphp
                 <div class="card" id="formZone">
                     <div class="card-body">
                         <form method="post" action="/modifBoard" enctype="multipart/form-data">
+
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-12">
@@ -23,14 +25,17 @@ Home
                                     </div>
                                 </div>
                                 <div class="row">
+
                                     <div class="col-4">
                                         <input type="number" name="declanchement" class="form-control" id="tpsDeclenchement">
                                     </div>
                                     <div class="col-3"> 
+
                                         secondes
                                     </div>
                                 </div> 
                             </div>
+
 
 
                             <!-- si le fichier n'est pas conforme/ne passe pas les validations -->
@@ -55,13 +60,15 @@ Home
                             <input type="file" name="file" required/>
                             <p><input type="submit" class="btn btn-primary"
                             value="Valider"</p>
+
                         </form>
                     </div>
                 </div>
             </div>
             <div class="col-8" id="imgModif">
                 <div id="page">
-                    <img src="img/plancheBD.JPG" alt="planche BD">
+                    <img src="/img/plancheBD.JPG" alt="planche BD">
+
                 </div>
             </div>
         </div>

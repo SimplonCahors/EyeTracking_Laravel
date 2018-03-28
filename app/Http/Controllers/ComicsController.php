@@ -20,20 +20,30 @@ class ComicsController extends Controller
     // si on pouvait la renommer en function "create" ce serait mieux
     public function add(Request $request)
     {
-
+        
         //store dans le dossier public, le fichier 'miniature'
         $originalName = $request->file('miniature')->getClientOriginalName();
         $pathstart = $request->file('miniature')->storeAs('public', $originalName);
-
+        
         //enlève le public devant
         $path = substr($pathstart, 7);
-
-         
-
+        
+        
+        
         $titre = $request->input('titre');
         $auteur = $request->input('auteur');
         $editeur = $request->input('editeur');
-            
+        $comics = DB::table('comics')->get();
+        foreach($comics as $comic)
+        {
+            if( $comic->com_title === $titre && $comic->com_author === $auteur && $comic->com_publisher === $editeur )
+            {
+                echo 'Bande déssinée déjà existante';
+                header('refresh: 3; url = /comics/create');
+                die;
+            }
+        }
+        
         DB::table('comics')->insert(
            array('com_title' => $titre,
                'com_author' => $auteur,
@@ -42,15 +52,15 @@ class ComicsController extends Controller
                    
             );
 
-        echo 'Base de données mise à jour.';
+        return 
 
-        header('refresh: 3; url = ajouter-bd');
+        header('refresh: 3; url = /catalogue');
     }
 
     // si on pouvait la renommer en function "read" ce serait mieux
     public function show()
     {
-        $comics = DB::table('comics')->get();
+        $comics = DB::table('comics')->where('com_publication', '=', 1)->get();
         return view('catalogue', ['comics' => $comics]);
     }
 
@@ -61,8 +71,9 @@ class ComicsController extends Controller
         $auteur = $request->input('auteur');
         $editeur = $request->input('editeur');
         $miniature = $request->input('miniature');
+        $publication = $request->input('radio');
 
-        DB::table('comics')->where('com_oid', '=', $id)->update(['com_title' => $titre, 'com_author' => $auteur, 'com_publisher' => $editeur, 'com_miniature_url' => $miniature]);
+        DB::table('comics')->where('com_oid', '=', $id)->update(['com_title' => $titre, 'com_author' => $auteur, 'com_publisher' => $editeur, 'com_miniature_url' => $miniature, 'com_publication' => $publication]);
 
 
         echo 'la modif à bien été faite';
@@ -78,17 +89,15 @@ class ComicsController extends Controller
     }
 
     // Supprime les miniatures de la DB et du Storage
-    public function delete(Request $request)
+    public function delete(Request $request,$id)
     {
-        $id = $request->input('delete');
-       
-        
 
+        DB::table('pages')->where('fk_com_oid','=',$id)->delete();
         DB::table('comics')->where('com_oid', '=', $id)->delete();
-        Storage::delete('public/ storage');
-        return view('comics-delete');
+        Storage::delete('public/ storage/images/pages');
+        // return view('delete-bd');
 
-        echo 'Cela à bien été supprimer';
-        header('refresh: 3; url = delete-bd');
+        echo 'Bande déssinée bien supprimée';
+        header('refresh: 3; url =/catalogue');
     }
 }
