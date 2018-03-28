@@ -3,7 +3,9 @@
 @section('title')
     Accueil
 @endsection
-
+@section('extrajs')
+<script type="text/javascript" src="/js/messWelcome.js"></script>
+@endsection
 @section('content')
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
