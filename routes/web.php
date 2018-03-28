@@ -13,22 +13,13 @@
 
 Auth::routes();
 
-
 /*
 |--------------------------------------------------------------------------
 | [ACCUEIL] / [CONNEXION] / [CATALOGUE] / [LEGALMENTIONS]
 |--------------------------------------------------------------------------
 */
 
-// page accueil | Controller pour les miniatures
-Route::get('/', 'ComicsController@show');
-
 Route::get('/showPage/{idBD}/{idPage}', 'PageController@show');
-// FIN PAGE
-
-/*
-COMIC
-*/
 // page accueil | accès aux 3 dernières bd publiées
 Route::get('/', 'WelcomeController@last');
 
