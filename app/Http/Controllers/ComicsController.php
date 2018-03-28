@@ -61,7 +61,7 @@ class ComicsController extends Controller
     public function show()
     {
         $comics = DB::table('comics')->where('com_publication', '=', 1)->get();
-        $pages = DB::table('pages')->get();
+        $pages = DB::table('pages')->where('pag_number', '=', 1)->get();
         return view('catalogue', ['comics' => $comics], ['pages' => $pages]);
     }
 
@@ -95,7 +95,7 @@ class ComicsController extends Controller
 
         DB::table('pages')->where('fk_com_oid','=',$id)->delete();
         DB::table('comics')->where('com_oid', '=', $id)->delete();
-        Storage::delete('public/ storage/images/pages');
+        Storage::delete('public/storage/images/pages');
         // return view('delete-bd');
 
         echo 'Bande déssinée bien supprimée';
