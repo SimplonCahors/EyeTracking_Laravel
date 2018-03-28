@@ -1,95 +1,67 @@
-<!doctype html>
-<html lang="{{ app()->getLocale() }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layout.app')
 
-        <title>Laravel</title>
+@section('title')
+    Accueil
+@endsection
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+@section('content')
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
+    <h2 class="center_margin">Reprendre la lecture</h2>
+    <section class="containers_catalog">
 
-            .full-height {
-                height: 100vh;
-            }
+        <!-- REQUÊTE POUR AFFICHER LES BD DÉJÀ LUES CLASSÉES PAR ORDRE CROISSANT -->
+        @foreach ($comics as $comic)
+            <article class="comics_catalog">
 
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
+                <img class="img_catalog" src="/bd.jpg" alt="cover">
 
-            .position-ref {
-                position: relative;
-            }
+                <div class="infos_catalog">
+                    <ul>
+                        <li>{{$comic->com_title}}</li>
+                        <li>{{$comic->com_author}}</li>
+                        <li>{{$comic->com_publisher}}</li>
+                        <li>{{$comic->com_timestamp}}</li>
+                    </ul>
+                    <div class="read_edit_catalog">
 
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-                        <a href="{{ route('register') }}">Register</a>
-                    @endauth
-                </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
+                    <!-- ICI LE IF POUR L'ADMIN + BOUTON MODIFIER -->
+                        <a  href="{{ route ('update-bd/', $comic->com_oid ) }} "  id="button_edit_catalog"><button class="buttons">Modifier</button></a>
+                        <a><button class="buttons">Lire</button></a>
+                    </div>
                 </div>
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
-            </div>
+            </article>
+        @endforeach
+    </section>
+
+    <h2 class="center_margin">Dernières BD mises en ligne</h2>
+    <section class="containers_catalog">
+        @foreach ($comics as $comic)
+            <article class="comics_catalog">
+
+                <img class="img_catalog" src="/bd.jpg" alt="cover">
+
+                    <div class="infos_catalog">
+                        <ul>
+                            <li>{{$comic->com_title}}</li>
+                            <li>{{$comic->com_author}}</li>
+                            <li>{{$comic->com_publisher}}</li>
+                            <li>{{$comic->com_timestamp}}</li>
+                        </ul>
+                        <div class="read_edit_catalog">
+
+                        <!-- ICI LE IF POUR L'ADMIN + BOUTON MODIFIER -->
+                            <a><button class="buttons" id="button_edit_catalog">Modifier</button></a>
+                            <a><button class="buttons">Lire</button></a>
+                        </div>
+                    </div>
+
+            </article>
+        @endforeach
+    </section>  
+        <div class="nav_catalog">
+            <a><button class="buttons_catalog">Previous</button></a>
+            <a><button class="buttons_catalog">Next</button></a>
         </div>
-    </body>
-</html>
+@endsection
