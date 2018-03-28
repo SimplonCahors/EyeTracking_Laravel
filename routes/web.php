@@ -122,7 +122,7 @@ Route::get('/pages/read/{idBD}/{idPage}', function () {
 })->name('board');
 
 // FROM BACK : Afficher page depuis idBD >> idPage (pag_number de 'pages')
-Route::get('/pages/read/{idBD}/{idPage}', function ($idBD, $idPage) {
+Route::post('/pages/read/{idBD}/{idPage}', function ($idBD, $idPage) {
     return view('showPage', ['idBD' => $idBD], ['idPage' => $idPage]);
 }) -> name('showPage');
 
