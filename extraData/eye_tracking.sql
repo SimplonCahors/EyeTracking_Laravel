@@ -2,10 +2,10 @@
 -- version 4.6.6deb5
 -- https://www.phpmyadmin.net/
 --
--- Client :  localhost:3306
--- Généré le :  Lun 26 Mars 2018 à 16:25
--- Version du serveur :  5.7.21-0ubuntu0.17.10.1
--- Version de PHP :  7.1.15-0ubuntu0.17.10.1
+-- Host: localhost:3306
+-- Generation Time: Mar 27, 2018 at 04:02 PM
+-- Server version: 5.7.21-0ubuntu0.17.10.1
+-- PHP Version: 7.1.15-0ubuntu0.17.10.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -66,9 +66,9 @@ INSERT INTO `comics` (`com_oid`, `com_title`, `com_author`, `com_publisher`, `co
 
 CREATE TABLE `medias` (
   `med_oid` int(11) NOT NULL,
-  `med_type` varchar(45) CHARACTER SET latin1 DEFAULT NULL,
-  `med_filename` varchar(255) CHARACTER SET latin1 DEFAULT NULL,
-  `med_path` varchar(255) CHARACTER SET latin1 DEFAULT NULL,
+  `med_type` varchar(45) DEFAULT NULL,
+  `med_filename` varchar(255) DEFAULT NULL,
+  `med_path` varchar(450) DEFAULT NULL,
   `fk_are_oid` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -214,7 +214,12 @@ ALTER TABLE `comics`
 -- AUTO_INCREMENT pour la table `medias`
 --
 ALTER TABLE `medias`
-  MODIFY `med_oid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `med_oid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `migrations`
+--
+ALTER TABLE `migrations`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT pour la table `pages`
 --
