@@ -61,8 +61,9 @@ class ComicsController extends Controller
         $auteur = $request->input('auteur');
         $editeur = $request->input('editeur');
         $miniature = $request->input('miniature');
+        $publication = $request->input('radio');
 
-        DB::table('comics')->where('com_oid', '=', $id)->update(['com_title' => $titre, 'com_author' => $auteur, 'com_publisher' => $editeur, 'com_miniature_url' => $miniature]);
+        DB::table('comics')->where('com_oid', '=', $id)->update(['com_title' => $titre, 'com_author' => $auteur, 'com_publisher' => $editeur, 'com_miniature_url' => $miniature, 'com_publication' => $publication]);
 
 
         echo 'la modif à bien été faite';
