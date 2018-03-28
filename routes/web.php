@@ -154,7 +154,8 @@ Route::get('/medias/create', function () {
 });
 
 // est juste appellée quand on créé un nouveau média à partir de upload. N'est même pas une vue
-Route::post('/upload/save', 'MediasController@create');
+// Route::post('/upload/save', 'MediasController@create');
+Route::post('/modifBoard', 'MediasController@create');
 
 
 /* ----------------[ READ AND DELETE MEDIAS ]---------------- */
