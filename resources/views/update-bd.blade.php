@@ -23,7 +23,7 @@
             <input type="submit" />
 
         </form>
-        <!-- <a href="route{{'delete-bd/',[$comic->com_oid]}}"></a> -->
+        <a href="{{route('delete-bd/',[$comic->com_oid])}}"><button>supprimer la BD</button></a>
 
         <form>
             <h4>Modifier une page </h4>
