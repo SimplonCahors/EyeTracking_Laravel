@@ -117,7 +117,7 @@ Route::post('/pages/create/{idBD}', 'PageController@create');
 
 // FROM FRONT : this route is used to show the sample board
 // Remove this line and board.blade.php
-Route::get('/pages/read', function () {
+Route::get('/pages/read/{idBD}/{idPage}', function () {
     return view('board');
 })->name('board');
 
@@ -127,7 +127,6 @@ Route::get('/pages/read/{idBD}/{idPage}', function ($idBD, $idPage) {
 }) -> name('showPage');
 
 Route::get('/pages/read/{idBD}/{idPage}', 'PageController@show');
-
 
 /* ----------------[ UPDATE PAGES ]---------------- */
 // not done
