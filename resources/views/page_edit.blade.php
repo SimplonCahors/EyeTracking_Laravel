@@ -25,31 +25,5 @@
 @section('extraJS')
 <script src="http://davidlynch.org/projects/maphilight/jquery.maphilight.js"></script>
 
-<script>
-// 
-
-// //init the map for highlighting 
- $('.map').maphilight();
-
-
-$(document).ready(function()
-{
-  
-  $('area').each(function() {
-
-    //   console.log($(this), 'ici');
-    var data = $(this).data('maphilight');
-  
-    $(this).data('maphilight', data).trigger('alwaysOn.maphilight');   
-    
-      $(this).click(function(){
-            //    console.log($(this))
-            //    redirige vers ./area/{id}
-            });
-    });
-    
-});  
-</script>
-
-
+<script src="/js/page_edit.js"></script>
 @endsection
