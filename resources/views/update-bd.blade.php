@@ -7,7 +7,7 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 @section('content')
-
+    
     <div class=" container modify">
         <form method="POST">
             @csrf

@@ -52,9 +52,7 @@ class ComicsController extends Controller
                    
             );
 
-        return 
-
-        header('refresh: 3; url = /catalogue');
+        return redirect()->route('catalogue')->with('add','BD ajoutée');
     }
 
     // si on pouvait la renommer en function "read" ce serait mieux
@@ -94,9 +92,10 @@ class ComicsController extends Controller
         DB::table('pages')->where('fk_com_oid','=',$id)->delete();
         DB::table('comics')->where('com_oid', '=', $id)->delete();
         Storage::delete('public/ storage/images/pages');
-        // return view('delete-bd');
 
-        echo 'Bande déssinée bien supprimée';
-        header('refresh: 3; url =/catalogue');
+
+
+        return redirect()->route('catalogue')->with('delete','BD supprimée');
+        
     }
 }
