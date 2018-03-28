@@ -26,6 +26,14 @@ Route::get('/', 'ComicsController@show');
 // page accueil | accès aux 3 dernières bd publiées
 Route::get('/', 'WelcomeController@last');
 
+/**
+ * ^ COMMENT:
+ *
+ * Ici y'a 2 routes pour la page d'accueil, la permière
+ * ne sert donc à rien. A supprimer
+ */
+
+
 // page connexion |
 // de Charlotte : si on pouvait renommer le chemin en "login" ce serait mieux ainsi que le controller
 Route::get('/home', 'HomeController@index')->name('home');
@@ -42,6 +50,15 @@ Route::get('/legalmentions', function () {
                'com_publisher' => $editeur,
                'com_miniature_url'=> $originalName);
 })->name('legalmentions');
+
+/**
+ * ^ COMMENT:
+ *
+ * Les variables $titre / $auteur / $originalName ne sont pas définies
+ * Et elles ne sont pas utilisé dans la vues.
+ * Elles ne servent donc à rien
+ */
+
 
 
 /*
@@ -81,6 +98,13 @@ Route::get('/button-update-bd', function () {
     return view('button-update-bd');
 }) -> name('button-update-bd');
 
+/**
+ * ^ COMMENT:
+ *
+ * Pour savoir, regarde la vue button-update-bd et test l'url /button-update-bd
+ * Mais je pense que tu peux la virer sans souci
+ * D'autant plus que la vue n'existe pas
+ */
 
 /* ----------------[ DELETE COMICS ]---------------- */
 
