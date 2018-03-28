@@ -1,4 +1,4 @@
-if((document.URL.includes('mapping'))){
+if((document.URL.includes('pages/mapping'))){
 var section = document.getElementById('page');
 var xa=0;
 var ya=0;
