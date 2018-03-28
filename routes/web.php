@@ -67,7 +67,7 @@ Route::post('ajouter-bd', 'ComicsController@add');
 /* ----------------[ UPDATE COMICS ]---------------- */
 
 // de Charlotte => erreur sur cette route. Chercher à savoir à quoi elle correspond |
-Route::get('/update-bd{id}', function () {
+Route::get('/update-bd/{id}', function () {
     return view('update-bd');
 })->name('update-bd');
 
@@ -76,10 +76,8 @@ Route::get('/update-bd/{id}', 'ComicsController@fetchUniqueBD')->name('update-bd
 
 Route::post('/update-bd/{id}', 'ComicsController@update');
 
-// de Charlotte => erreur aussi sur cette route. Chercher à savoir à quoi elle correspond |
-Route::get('/button-update-bd', function () {
-    return view('button-update-bd');
-}) -> name('button-update-bd');
+//linking of remove a page to the comic edition
+Route::post('/update-bd/{id}', 'PageController@remove');
 
 
 /* ----------------[ DELETE COMICS ]---------------- */
@@ -126,12 +124,19 @@ Route::get('/showPage/{idBD}/{idPage}', 'PageController@show');
 
 
 /* ----------------[ UPDATE PAGES ]---------------- */
-// not done
 
+// change background image
+// change page number
+// New directive : don't do it.
 
 /* ----------------[ DELETE PAGES ]---------------- */
 // not done
+//from adrien & tristan : this view and controller associated is just to test & learn, remove all afterwards
+Route::get('/removePage/{idBD}/{idPage}', function ($idBD, $idPage) {
+    return view('removePage', ['idBD' => $idBD], ['idPage' => $idPage]);
+}) -> name('removePage');
 
+ Route::get('/removePage/{idBD}/{idPage}', 'PageController@remove');
 
 /*
 |--------------------------------------------------------------------------

@@ -7,7 +7,7 @@
 @section('content')
     <div class=" container modify">
         <form method="POST">
-            <h4>Mofidier les informations de la BD</h4>
+            <h4>Modifier les informations de la BD :</h4>
             @csrf
             <label for="titre">Titre de la BD</label>
             <input type="text" id="titre" name="titre" value="{{$comic->com_title}}"/>
@@ -23,20 +23,18 @@
             <input type="submit" />
 
         </form>
-
         <form>
-            <h4>Modifier une page </h4>
-            <label for="page">Selectionner une page</label>
+            <h4>Edition des pages existantes :</h4>
 
-            <select id="page">
-                <option selected value="0">choisissez une page</option>
-                <option value="1">Nom/numero de la page</option>
-                <option value="2">Nom/numero de la page</option>
-                <option value="3">Nom/numero de la page</option>
-                <option value="4">Nom/numero de la page</option>
-            </select>
-
-            <button>Aller à la modification de la page</button>
+            @foreach ($page as $pages)
+                <div id="div{{$pages->pag_oid}}">
+                    <img src="/storage/images/pages/{{$pages->pag_image}}" alt="">
+                    <p>page {{$pages->pag_number}}</p>
+                    <!-- change the url here to link to the real edition page -->
+                    <a class="edit" id="edit{{$pages->pag_oid}}" href="{{ url('/edit/' . $pages->pag_oid . '') }}"><input type="button" value="Editer"></a>
+                    <a class="remove" id="remove{{$pages->pag_oid}}" ><input type="button" value="Supprimer"></a>
+                </div>
+            @endforeach
         </form>
     </div>
 @endsection
