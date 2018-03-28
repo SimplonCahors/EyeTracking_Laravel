@@ -21,7 +21,16 @@
                         <p>
                             <a href="{{ url('/') }}"><button class="btn-primary">Retour à l'accueil</button></a>
                         </p>
-                        <?php header("refresh:5;url=/");?> 
+                        <?php header("refresh:5;url=/");?>
+
+                        <?php
+                            /**
+                             * ^ COMMENT:
+                             *
+                             * Pourquoi le controleur ne renvoir directement sur la bonne page après le login ?
+                             */
+                        ?>
+
                     </div>
 
                 </div>
