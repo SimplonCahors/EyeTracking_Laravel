@@ -136,7 +136,8 @@ Route::get('/comics/delete/{idBD}/{idpage}','PageController@delete')->name('dele
 
 /* ----------------[ SHOW ALL PAGES ]---------------- */
 
-Route::get('/comics/pageOrder/{idBD}','PageController@showAll') -> name('show-all/');
+//removal of this route as it is obsolete
+// Route::get('/comics/pageOrder/{idBD}','PageController@showAll') -> name('show-all/');
 
 // Route::get('/comics/pageOrder/{idBD}', 'PageController@showAll');
 
