@@ -23,6 +23,12 @@ Auth::routes();
 // page accueil | Controller pour les miniatures
 Route::get('/', 'ComicsController@show');
 
+Route::get('/showPage/{idBD}/{idPage}', 'PageController@show');
+// FIN PAGE
+
+/*
+COMIC
+*/
 // page accueil | accès aux 3 dernières bd publiées
 Route::get('/', 'WelcomeController@last');
 
@@ -67,9 +73,9 @@ Route::post('ajouter-bd', 'ComicsController@add');
 /* ----------------[ UPDATE COMICS ]---------------- */
 
 // de Charlotte => erreur sur cette route. Chercher à savoir à quoi elle correspond |
-Route::get('/update-bd{id}', function () {
-    return view('update-bd');
-})->name('update-bd');
+// Route::get('/update-bd{id}', function () {
+//     return view('update-bd');
+// })->name('update-bd');
 
 // FROM BACK : there's some html and css not reaching routes with parameters.
 Route::get('/update-bd/{id}', 'ComicsController@fetchUniqueBD')->name('update-bd/');
