@@ -73,9 +73,9 @@ Route::post('ajouter-bd', 'ComicsController@add');
 /* ----------------[ UPDATE COMICS ]---------------- */
 
 // de Charlotte => erreur sur cette route. Chercher à savoir à quoi elle correspond |
-Route::get('/update-bd{id}', function () {
-    return view('update-bd');
-})->name('update-bd');
+// Route::get('/update-bd{id}', function () {
+//     return view('update-bd');
+// })->name('update-bd');
 
 // FROM BACK : there's some html and css not reaching routes with parameters.
 Route::get('/update-bd/{id}', 'ComicsController@fetchUniqueBD')->name('update-bd/');
