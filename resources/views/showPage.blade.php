@@ -9,6 +9,8 @@
     <body>
         <!-- $page récupérée depuis PageController -->
         <!-- si problème, tenter un php artisan storage:link dans le terminal -->
-        <img src="/storage/images/pages/{{ $page }}"/>
+        @foreach($pages as $page)
+        <img src="{{ $page->pag_image }}">
+        @endforeach
     </body>
 </html>

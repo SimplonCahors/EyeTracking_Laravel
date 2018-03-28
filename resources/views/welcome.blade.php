@@ -5,7 +5,6 @@
 @endsection
 
 @section('content')
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <h2 class="center_margin">Reprendre la lecture</h2>
     <section class="containers_catalog">

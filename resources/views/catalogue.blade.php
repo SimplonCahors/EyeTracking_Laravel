@@ -4,8 +4,6 @@
 Catalogue
 @endsection
 
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
 @section('content')
 
 <!-- PARTIE ALERTE DE CONFIRMATION SUPPR ET AJOUT BD -->
