@@ -51,7 +51,17 @@ class PageController extends Controller
         // redirection sur la même page
         return redirect()->back()->with('message', $message);
     }
-
+    
+  
+    
+    public function fetchAssocZones($idPage) {
+        $pageQuery = DB::table('pages')->where('pag_oid','=', $idPage)->get();
+        $areasQuery = DB::table('areas')->where('fk_pag_oid','=', $idPage)->get();
+       
+        return view('page_edit',['pages' => $pageQuery[0], 'areas' => $areasQuery]);
+    }
+   
+    
     // de Charlotte : si on pouvait la renommer en function "read" ce serait mieux
     // Affichage d'une page
     public function show($idBD, $idPage)

@@ -20,10 +20,7 @@ Auth::routes();
 |--------------------------------------------------------------------------
 */
 // will need page id as a parameters.
-Route::get('/page/edit', function () {
-    return view('page_edit');
-})->name('/page/edit');
-
+Route::get('/page/edit/{idPage}', 'PageController@fetchAssocZones')->name('/page/edit');
 
 
 
