@@ -133,7 +133,15 @@ Route::get('/showPage/{idBD}/{idPage}', 'PageController@show');
 // not done
 
 /* ----------------[ DELETE PAGES ]---------------- */
-// not done
+
+Route::get('/comics/delete/{idBD}/{idpage}','PageController@delete')->name('deletePage');
+
+/* ----------------[ SHOW ALL PAGES ]---------------- */
+
+Route::get('/comics/pageOrder/{idBD}','PageController@showAll') -> name('show-all/');
+
+// Route::get('/comics/pageOrder/{idBD}', 'PageController@showAll');
+
 
 
 

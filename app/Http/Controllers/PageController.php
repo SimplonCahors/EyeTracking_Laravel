@@ -62,4 +62,23 @@ class PageController extends Controller
         // envoie le path pour la src de l'image à la view 'showPage'
         return view('showPage', ['page' => $pageQuery[0]]);
     }
+    //affichage de toutes les pages d'une bd pour la modification de l'ordre de celles-ci
+    public function showAll($idBD)
+    {
+        $pages = DB::table('pages')->where('fk_com_oid', $idBD)->get();
+        return view('changePageOrder', ['pages' => $pages,'idBD' => $idBD]);
+
+
+    }
+
+    //suppression d'une page de la bd
+    public function delete($idBD,$idpage)
+    {
+        DB::table('pages')->where('pag_oid', '=', $idpage)
+                          ->delete();
+
+        echo 'page bien supprimée';
+                          
+    }
+    //changement de l'ordre
 }

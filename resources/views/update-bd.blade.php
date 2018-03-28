@@ -24,6 +24,7 @@
 
         </form>
         <a href="{{route('delete-bd/',[$comic->com_oid])}}"><button>supprimer la BD</button></a>
+        <a href="{{route('show-all/',[$comic->com_oid])}}"><button>Changer l'ordre des pages</button></a>
 
         <form>
             <h4>Modifier une page </h4>
