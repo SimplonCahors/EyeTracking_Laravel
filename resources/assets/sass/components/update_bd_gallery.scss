@@ -1,0 +1,26 @@
+h5 {
+    color:#007bff;
+    margin-top: 5px;
+    padding-left:10px;
+    font-weight: 700;
+    font-size:20px;
+}
+.card-body {
+    display: flex;
+    flex: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2 2px;
+}
+.card-icon {
+    .material-icons.catalogue {
+        font-size: 30px;
+        padding-right:10px;
+    }
+}
+span {
+    color:#0872b9;
+    font-weight: 700;
+    font-size:30px;
+    padding-left:5px;
+}
