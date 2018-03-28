@@ -8,6 +8,7 @@ Catalogue
 
 @section('content')
 
+<!-- PARTIE ALERTE DE CONFIRMATION SUPPR ET AJOUT BD -->
 @if ($message = Session::get('add'))
 <div class="alert alert-success alert-dismissible" role="alert">
   {{ $message }}
