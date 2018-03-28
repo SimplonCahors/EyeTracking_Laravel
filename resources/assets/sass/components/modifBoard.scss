@@ -8,15 +8,20 @@
     padding: 10px;
 }
 
-#buttonCreateZone {
+
+.btn.btn-outline-secondary {
     margin-left: 60px;
     margin-bottom: 10px;
 }
 
-#buttonModifZone {
-    margin-left: 60px;
-    margin-bottom: 10px;
+#clearButton {
+    width:100%;
 }
+
+#boardContainer {
+    margin:auto;
+}
+
 
 #formZone {
     display: none;
