@@ -23,6 +23,12 @@ Auth::routes();
 // page accueil | Controller pour les miniatures
 Route::get('/', 'ComicsController@show');
 
+Route::get('/showPage/{idBD}/{idPage}', 'PageController@show');
+// FIN PAGE
+
+/*
+COMIC
+*/
 // page accueil | accès aux 3 dernières bd publiées
 Route::get('/', 'WelcomeController@last');
 
@@ -53,11 +59,11 @@ Route::get('/legalmentions', function () {
 /* ----------------[ CREATE COMICS ]---------------- */
 
 // FROM BACK : This is the form, and on submit the ::post is called
-Route::get('/ajouter-bd', function () {
+Route::get('/comics/create', function () {
     return view('ajouter-bd');
 })->name('ajouter-bd');
 
-Route::post('ajouter-bd', 'ComicsController@add');
+Route::post('/comics/create', 'ComicsController@add');
 
 
 /* ----------------[ READ COMICS ]---------------- */
@@ -67,14 +73,14 @@ Route::post('ajouter-bd', 'ComicsController@add');
 /* ----------------[ UPDATE COMICS ]---------------- */
 
 // de Charlotte => erreur sur cette route. Chercher à savoir à quoi elle correspond |
-Route::get('/update-bd/{id}', function () {
-    return view('update-bd');
-})->name('update-bd');
+// Route::get('/update-bd{id}', function () {
+//     return view('update-bd');
+// })->name('update-bd');
 
 // FROM BACK : there's some html and css not reaching routes with parameters.
-Route::get('/update-bd/{id}', 'ComicsController@fetchUniqueBD')->name('update-bd/');
+Route::get('/comics/update/{id}', 'ComicsController@fetchUniqueBD')->name('update-bd/');
 
-Route::post('/update-bd/{id}', 'ComicsController@update');
+Route::post('/comics/update/{id}', 'ComicsController@update');
 
 //linking of remove a page to the comic edition
 Route::post('/update-bd/{id}', 'PageController@remove');
@@ -84,11 +90,9 @@ Route::post('/update-bd/{id}', 'PageController@remove');
 
 // FROM BACK : right now it's an input that then pass the comics' id  in $GET.
 // /!\ Doesn't work if you have pages in your DB that are linked to it
-Route::get('/delete-bd', function () {
-    return view('delete-bd');
-})->name('delete-bd');
 
-Route::post('/delete-bd', 'ComicsController@delete');
+
+Route::get('/comics/delete/{id}', 'ComicsController@delete')->name('delete-bd/');
 
 
 /*
@@ -125,18 +129,16 @@ Route::get('/showPage/{idBD}/{idPage}', 'PageController@show');
 
 /* ----------------[ UPDATE PAGES ]---------------- */
 
-// change background image
-// change page number
-// New directive : don't do it.
 
 /* ----------------[ DELETE PAGES ]---------------- */
-// not done
-//from adrien & tristan : this view and controller associated is just to test & learn, remove all afterwards
-Route::get('/removePage/{idBD}/{idPage}', function ($idBD, $idPage) {
-    return view('removePage', ['idBD' => $idBD], ['idPage' => $idPage]);
-}) -> name('removePage');
 
- Route::get('/removePage/{idBD}/{idPage}', 'PageController@remove');
+Route::get('/comics/delete/{idBD}/{idpage}','PageController@delete')->name('deletePage');
+
+/* ----------------[ SHOW ALL PAGES ]---------------- */
+
+Route::get('/comics/pageOrder/{idBD}','PageController@showAll') -> name('show-all/');
+
+// Route::get('/comics/pageOrder/{idBD}', 'PageController@showAll');
 
 /*
 |--------------------------------------------------------------------------

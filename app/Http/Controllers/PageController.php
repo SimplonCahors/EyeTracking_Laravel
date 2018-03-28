@@ -23,9 +23,8 @@ class PageController extends Controller
         $numeroPage = $_POST['numeroPage'];
 
         // try-catch de la requête
-        // IMPORTANT : la colonne pag_number de la BDD doit être en paramètre UNIQUE pour empêcher les doublons de numéros
-        try {
-            // récupère le nom du fichier uploadé
+       try {
+           // récupère le nom du fichier uploadé
             $originalName = $request->file('filename')->getClientOriginalName();
             $completePath = $request->file('filename')->storeAs('public/images/pages', $originalName);
             $path = substr($completePath, 7); // retire la chaîne 'public/' du path
@@ -40,8 +39,12 @@ class PageController extends Controller
             $message = "Page {$numeroPage} ajoutée";
         } catch (QueryException $e) { // affiche une erreur si le fichier est en doublon
             $error_code = $e->errorInfo[1];
-            if ($error_code == 1062) { // 1062 est le code d'erreur pour un duplicate sur col definie en unique
+             if($error_code == 1062){ // 1062 est le code d'erreur pour un duplicate sur col definie en unique
                 $message = "La page {$numeroPage} existe déjà";
+            }
+            if($error_code == 1452){ // 1452 est le code d'erreur généré lorque l'id de la BDn'existe pas
+            
+                $message = "La BD numéro {$idBD} n'existe pas";
             }
         }
         
@@ -59,4 +62,23 @@ class PageController extends Controller
         // envoie le path pour la src de l'image à la view 'showPage'
         return view('showPage', ['page' => $pageQuery[0]]);
     }
+    //affichage de toutes les pages d'une bd pour la modification de l'ordre de celles-ci
+    public function showAll($idBD)
+    {
+        $pages = DB::table('pages')->where('fk_com_oid', $idBD)->get();
+        return view('changePageOrder', ['pages' => $pages,'idBD' => $idBD]);
+
+
+    }
+
+    //suppression d'une page de la bd
+    public function delete($idBD,$idpage)
+    {
+        DB::table('pages')->where('pag_oid', '=', $idpage)
+                          ->delete();
+
+        echo 'page bien supprimée';
+                          
+    }
+    //changement de l'ordre
 }
