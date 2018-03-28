@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  localhost:3306
--- Généré le :  Mer 28 Mars 2018 à 14:38
+-- Généré le :  Mer 28 Mars 2018 à 14:42
 -- Version du serveur :  5.7.21-0ubuntu0.17.10.1
 -- Version de PHP :  7.1.15-0ubuntu0.17.10.1
 
@@ -89,9 +89,7 @@ CREATE TABLE `medias` (
 
 INSERT INTO `medias` (`med_oid`, `med_type`, `med_filename`, `med_path`, `fk_are_oid`) VALUES
 (4, 'img', 'row_1802crop.jpg', 'medias/n1UVrct5Exg0KQReGZzB8NOqzBIkqwFsbzOetEZg.jpeg', NULL),
-(5, 'img', 'row_1802crop.jpg', 'medias/aj1x0qTmTxeLsIi3VgxVkvx5QCNQwojrGnXijgCA.jpeg', NULL),
 (6, 'img', 'maxresdefault.jpg', 'medias/vjofajrgXyv63ol0E1iWSCIlGOs6nzOCpsxRiDe2.jpeg', NULL),
-(7, 'img', 'maxresdefault.jpg', 'medias/yfpvKRC9vkd8EEdGemBi6nhcRg7nhU134CjT9aMx.jpeg', 5),
 (8, 'img', 'untitled_page.png', 'medias/DMBYnvth9K2vHBDuWHNxPQb2yt6T7igz0e5WIwNS.png', 6);
 
 -- --------------------------------------------------------
@@ -216,6 +214,7 @@ ALTER TABLE `comics`
 --
 ALTER TABLE `medias`
   ADD PRIMARY KEY (`med_oid`),
+  ADD UNIQUE KEY `med_filename` (`med_filename`),
   ADD KEY `fk_are_oid_idx` (`fk_are_oid`);
 
 --
