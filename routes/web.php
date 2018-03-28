@@ -17,9 +17,10 @@ Route::get('/', 'ComicsController@show');
 /*
 PAGE
 */
-Route::get('/page/all', function () {
-    return view('page_all');
-})->name('/page/all');
+// will need page id as a parameters.
+Route::get('/page/edit', function () {
+    return view('page_edit');
+})->name('/page/edit');
 
 
 
