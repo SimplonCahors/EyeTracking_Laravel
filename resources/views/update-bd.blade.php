@@ -24,7 +24,6 @@
             <input type="submit" />
 
         </form>
-        <!-- <a href="route{{'delete-bd/',[$comic->com_oid]}}"></a> -->
 
         <form>
             <h4>Modifier une page </h4>

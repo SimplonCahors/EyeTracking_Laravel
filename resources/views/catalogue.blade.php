@@ -26,7 +26,9 @@
                     <div class="read_edit_catalog">
                         <!-- ICI LE IF POUR L'ADMIN + BOUTON MODIFIER -->
                         <a href="{{route('update-bd/',[$comic->com_oid])}}"><button class="buttons" id="button_edit_catalog">Modifier</button></a>
-                        <a><button class="buttons">Lire</button></a>
+                        @foreach($pages as $page)
+                        <a href="{{route('showPage',[$comic->com_oid , $page->pag_number])}}"><button class="buttons">Lire</button></a>
+                        @endforeach
                     </div>
                 </div>
             </article>

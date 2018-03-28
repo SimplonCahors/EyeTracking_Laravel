@@ -57,9 +57,9 @@ class PageController extends Controller
     public function show($idBD, $idPage)
     {
         // Requête BDD pour récupérer le path de l'image stocké dans la table 'pages' (renvoie un tableau)
-        $pageQuery = DB::table('pages')->where('pag_number', $idPage)->pluck('pag_image');
+        $pages = DB::table('pages')->where([['pag_number', '=', $idPage], ['fk_com_oid', '=', $idBD]])->get();
 
         // envoie le path pour la src de l'image à la view 'showPage'
-        return view('showPage', ['page' => $pageQuery[0]]);
+        return view('showPage', ['pages' => $pages]);
     }
 }

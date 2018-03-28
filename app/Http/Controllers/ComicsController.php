@@ -50,7 +50,8 @@ class ComicsController extends Controller
     public function show()
     {
         $comics = DB::table('comics')->where('com_publication', '=', 1)->get();
-        return view('catalogue', ['comics' => $comics]);
+        $pages = DB::table('pages')->get();
+        return view('catalogue', ['comics' => $comics], ['pages' => $pages]);
     }
 
     // Modifie les miniatures de la DB et du Storage
