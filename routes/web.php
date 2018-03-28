@@ -17,6 +17,12 @@ Route::get('/', 'ComicsController@show');
 /*
 PAGE
 */
+Route::get('/page/all', function () {
+    return view('page_all');
+})->name('/page/all');
+
+
+
 
 // Ajouter page depuis idBD (clé étrangère fk_com_oid de 'pages')
 Route::get('/add/page/{idBD}', function ($idBD) {
