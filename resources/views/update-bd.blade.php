@@ -35,19 +35,89 @@
             <input type="submit" value="MODIFIER" id="modifier"/>
         </form>
 
-        <form>
-            <h4>Modifier une page </h4>
-            <label for="page">Selectionner une page</label>
 
-            <select id="page">
-                <option selected value="0">choisissez une page</option>
-                <option value="1">Nom/numero de la page</option>
-                <option value="2">Nom/numero de la page</option>
-                <option value="3">Nom/numero de la page</option>
-                <option value="4">Nom/numero de la page</option>
-            </select>
 
-            <button>Aller à la modification de la page</button>
-        </form>
+<div class="group-container">
+
+        <div id="edit-group">
+                <h4 id="edit-bd-title">modification la BD</h4>
+                <a id="mode edit-bd-icon" href=""><i class="material-icons catalogue">edit_mode</i></a>
+            </div>
+
+    <div class="container-fluid">
+
+<div class="card" >
+    <img class="card-img-top" src="http://via.placeholder.com/240x320" alt="Card image cap">
+    <div class="card-body">
+        <a href="#" class="card-link">Modifier</a><br />
+        <a href="#" class="card-link">Supprimer</a>
     </div>
+</div>
+<div class="card" >
+    <img class="card-img-top" src="http://via.placeholder.com/240x320" alt="Card image cap">
+    <div class="card-body">
+        <a href="#" class="card-link">Modifier</a><br />
+        <a href="#" class="card-link">Supprimer</a>
+    </div>
+</div>
+<div class="card" >
+    <img class="card-img-top" src="http://via.placeholder.com/240x320" alt="Card image cap">
+    <div class="card-body">
+        <a href="#" class="card-link">Modifier</a><br />
+        <a href="#" class="card-link">Supprimer</a>
+    </div>
+</div>
+<div class="card" >
+    <img class="card-img-top" src="http://via.placeholder.com/240x320" alt="Card image cap">
+    <div class="card-body">
+        <a href="#" class="card-link">Modifier</a><br />
+        <a href="#" class="card-link">Supprimer</a>
+    </div>
+</div>
+<div class="card" >
+    <img class="card-img-top" src="http://via.placeholder.com/240x320" alt="Card image cap">
+    <div class="card-body">
+        <a href="#" class="card-link">Modifier</a><br />
+        <a href="#" class="card-link">Supprimer</a>
+    </div>
+</div>
+<div class="card" >
+    <img class="card-img-top" src="http://via.placeholder.com/240x320" alt="Card image cap">
+    <div class="card-body">
+        <a href="#" class="card-link">Modifier</a><br />
+        <a href="#" class="card-link">Supprimer</a>
+    </div>
+</div>
+<div class="card" >
+    <img class="card-img-top" src="http://via.placeholder.com/240x320" alt="Card image cap">
+    <div class="card-body">
+        <a href="#" class="card-link">Modifier</a><br />
+        <a href="#" class="card-link">Supprimer</a>
+    </div>
+</div>
+<div class="card" >
+    <img class="card-img-top" src="http://via.placeholder.com/240x320" alt="Card image cap">
+    <div class="card-body">
+        <a href="#" class="card-link">Modifier</a><br />
+        <a href="#" class="card-link">Supprimer</a>
+    </div>
+</div>
+<div class="card" >
+    <img class="card-img-top" src="http://via.placeholder.com/240x320" alt="Card image cap">
+    <div class="card-body">
+        <a href="#" class="card-link">Modifier</a><br />
+        <a href="#" class="card-link">Supprimer</a>
+    </div>
+</div>
+<div class="card" >
+    <img class="card-img-top" src="http://via.placeholder.com/240x320" alt="Card image cap">
+    <div class="card-body">
+        <a href="#" class="card-link">Modifier</a><br />
+        <a href="#" class="card-link">Supprimer</a>
+    </div>
+</div>
+
+</div>
+
+
 @endsection

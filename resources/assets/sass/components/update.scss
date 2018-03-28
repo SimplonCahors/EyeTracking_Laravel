@@ -3,20 +3,44 @@
  * - la view ajouter-bd
  * [attention peuvent avoir changés de nom]
  */
-
-.container.modify
+.group-container
 {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    justify-content:space-between;
+}
 
-    #modifier, #ajouter {
+
+.container-fluid
+{
+    display: flex;
+    flex-wrap:wrap;
+    // justify-content: center;
+    width:100%;
+}
+
+.card
+{
+    width: 180px;
+    margin: 15px 10 0px 10;
+
+}
+
+// .card-img-top
+// {
+//     width: 60px;
+//     height: 80px; 
+// }
+
+ .container.modify
+ {
+
+    #modifier, #ajouter
+    {
         margin-top:20px;
-    }
-    #ajouter{
-        margin-bottom: 20px;
+
     }
     #delete-group {
+
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
@@ -27,14 +51,20 @@
         height: 120px;
         border: 1px solid #FF0000;
         padding: 8px;
+
         #delete-bd-icon {
             color: #FF0000;
         }
+
         #delete-bd-title {
             color: #FF0000;
         }
-    }
-    
+
+    }    
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     form
     {
         margin-top:10vh;
@@ -45,6 +75,7 @@
             font-size: large;
             width: 100%;
             margin: 20px 0 10px 0;
+
         }
         input
         {
@@ -53,6 +84,7 @@
             border: 1px solid rgba(0,0,0,0.2);
             text-indent:2em;
         }
+
         select
         {
             text-align: center;
