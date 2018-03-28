@@ -9,8 +9,6 @@
 @section('content')
 
     <div class=" container modify">
-    </div>
-    <div class=" container modify">
         <form method="POST">
             @csrf
 
