@@ -34,11 +34,7 @@ Route::get('/catalogue', 'ComicsController@show')->name('catalogue');
 // page legalmentions | mentions légales
 Route::get('/legalmentions', function () {
     return view('legalmentions');
-    array('com_title' => $titre,
-               'com_author' => $auteur,
-               'com_publisher' => $editeur,
-               'com_miniature_url'=> $originalName);
-})->name('legalmentions');
+  })->name('legalmentions');
 
 
 /*
@@ -63,20 +59,10 @@ Route::post('/comics/create', 'ComicsController@add');
 
 /* ----------------[ UPDATE COMICS ]---------------- */
 
-// de Charlotte => erreur sur cette route. Chercher à savoir à quoi elle correspond |
-// Route::get('/update-bd{id}', function () {
-//     return view('update-bd');
-// })->name('update-bd');
-
 // FROM BACK : there's some html and css not reaching routes with parameters.
 Route::get('/comics/update/{id}', 'ComicsController@fetchUniqueBD')->name('update-bd/');
 
 Route::post('/comics/update/{id}', 'ComicsController@update');
-
-// de Charlotte => erreur aussi sur cette route. Chercher à savoir à quoi elle correspond |
-Route::get('/button-update-bd', function () {
-    return view('button-update-bd');
-}) -> name('button-update-bd');
 
 
 /* ----------------[ DELETE COMICS ]---------------- */
