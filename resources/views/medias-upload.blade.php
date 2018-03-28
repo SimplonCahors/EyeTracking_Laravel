@@ -34,7 +34,7 @@
         <input type="submit"/>
     </form>
 
-    <a href="/medias">Retour à la page Medias</a>
+    <a href="/medias/read">Retour à la page Medias</a>
 
     <!--
         <div>  On croit que : video max 1MB, image max 10MB ?
