@@ -18,20 +18,18 @@
 
 <map id="map_object"name="planetmap">
 
-
+<!-- avec/sans media -->
  @foreach ($areas as $zone) 
+@if ( $zone-> has_media == 0 )
  <area id="{{ $zone->are_oid }}" shape="poly" coords="{{ $zone->are_coord }}" data-maphilight='{"alwaysOn": true,"strokeColor":"FE2E2E","strokeWidth":2,"fillColor":"FE2E2E","fillOpacity":0.6}' data-style= "without-media" href="" >
-      <p></p>
+@endif
+@if ( $zone-> has_media >= 1 )
+<area id="{{ $zone->are_oid }}" shape="poly" coords="{{ $zone->are_coord }}" data-maphilight='{"alwaysOn": true,"strokeColor":"0000ff","strokeWidth":2,"fillColor":"0000ff","fillOpacity":0.6}' data-style= "without-media" href="" >
+@endif
 @endforeach
 
 
 
-<!-- en rouge : avec media
-<area id="test_area" shape="poly" coords="208,221,208,202,198,199,201,191,218,176,229,155,221,132,196,117,169,131,157,158,163,172,177,164,173,180,190,185,192,199,187,201,185,222" data-maphilight='{"alwaysOn": true,"strokeColor":"FE2E2E","strokeWidth":2,"fillColor":"FE2E2E","fillOpacity":0.6}' data-style= "without-media" href="" >
-
- en bleu : sans media
-<area shape="poly"   data-maphilight='{"alwaysOn": true,"strokeColor":"0000ff","strokeWidth":2,"fillColor":"0000ff","fillOpacity":0.6}' data-style= "with-media"coords="160,225,160,250,202,300" href="" >
-<area shape="poly"   data-maphilight='{"alwaysOn": true,"strokeColor":"0000ff","strokeWidth":2,"fillColor":"0000ff","fillOpacity":0.6}' data-style= "with-media"coords="225,160,250,202,300,160" href="" > -->
 
 </map>  
     </div>

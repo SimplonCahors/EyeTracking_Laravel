@@ -57,7 +57,14 @@ class PageController extends Controller
     public function fetchAssocZones($idPage) {
         $pageQuery = DB::table('pages')->where('pag_oid','=', $idPage)->get();
         $areasQuery = DB::table('areas')->where('fk_pag_oid','=', $idPage)->get();
-       
+        //to verify if media
+      foreach ($areasQuery as $key => $value) {
+        $mediaQuery = DB::table('medias')->where('fk_are_oid','=', $value->are_oid)->get();
+
+        $areasQuery[$key]->has_media = count($mediaQuery);
+        
+      }
+     
         return view('page_edit',['pages' => $pageQuery[0], 'areas' => $areasQuery]);
     }
    
