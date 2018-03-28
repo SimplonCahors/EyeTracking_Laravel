@@ -44,17 +44,15 @@ Home
                             </div>
                             @endif
 
-                            <!-- si l'envoi dans la db est réusssi. les deux $result possibles sont modifiables dans mediascontroller ligne 45 & 50 -->
-                            
-
+                            <!-- si l'envoi dans la db est réusssi. les deux $result possibles sont modifiables dans mediascontroller ligne 45 & 50 --> 
                             @csrf
-                            <select name="dataType">
+                            <select name="dataType" required>
                                 <option value="img">Image</option> 
                                 <option value="son" >Son</option>
                                 <option value="video">Video</option>
                             </select>
 
-                            <input type="file" name="file"/>
+                            <input type="file" name="file" required/>
                             <p><input type="submit" class="btn btn-primary"
                             value="Valider"</p>
                         </form>
