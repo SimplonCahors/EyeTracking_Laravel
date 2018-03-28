@@ -56,7 +56,7 @@ class MediasController extends Controller
             }
         }
         
-        return view('medias-upload', ['result'=> $result]);
+        return view('modifBoard', ['result'=> $result]);
     }
 
 
