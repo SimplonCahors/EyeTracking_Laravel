@@ -24,7 +24,7 @@ Home
                                 </div>
                                 <div class="row">
                                     <div class="col-4">
-                                        <input type="number" class="form-control" id="tpsDeclenchement">
+                                        <input type="number" name="declanchement" class="form-control" id="tpsDeclenchement">
                                     </div>
                                     <div class="col-3"> 
                                         secondes
