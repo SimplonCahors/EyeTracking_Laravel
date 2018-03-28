@@ -106,27 +106,27 @@ Route::get('/comics/delete/{id}', 'ComicsController@delete')->name('delete-bd/')
 /* ----------------[ CREATE PAGES ]---------------- */
 
 // Ajouter page depuis idBD (clé étrangère fk_com_oid de 'pages')
-Route::get('/add/page/{idBD}', function ($idBD) {
+Route::get('/pages/create/{idBD}', function ($idBD) {
     return view('addPage', ['idBD' => $idBD]);
 }) -> name('addPage');
 
-Route::post('/add/page/{idBD}', 'PageController@create');
+Route::post('/pages/create/{idBD}', 'PageController@create');
 
 
 /* ----------------[ READ PAGES ]---------------- */
 
 // FROM FRONT : this route is used to show the sample board
 // Remove this line and board.blade.php
-Route::get('/board', function () {
+Route::get('/pages/read', function () {
     return view('board');
 })->name('board');
 
 // FROM BACK : Afficher page depuis idBD >> idPage (pag_number de 'pages')
-Route::get('/showPage/{idBD}/{idPage}', function ($idBD, $idPage) {
+Route::get('/pages/read/{idBD}/{idPage}', function ($idBD, $idPage) {
     return view('showPage', ['idBD' => $idBD], ['idPage' => $idPage]);
 }) -> name('showPage');
 
-Route::get('/showPage/{idBD}/{idPage}', 'PageController@show');
+Route::get('/pages/read/{idBD}/{idPage}', 'PageController@show');
 
 
 /* ----------------[ UPDATE PAGES ]---------------- */
@@ -149,7 +149,7 @@ Route::get('/showPage/{idBD}/{idPage}', 'PageController@show');
 /* ----------------[ CREATE MEDIAS ]---------------- */
 
 //un <a> sur /medias permet d'y accéder.
-Route::get('/medias-upload', function () {
+Route::get('/medias/create', function () {
     return view('medias-upload');
 });
 
@@ -161,12 +161,7 @@ Route::post('/upload/save', 'MediasController@create');
 
 // FROM BACK
 //permet de visualiser tout les médias, d'en ajouter, et supprimer à l'unité
-Route::get('/medias', 'MediasController@read')->name('medias');
-
-// FROM FRONT
-Route::get('/listMedias', function () {
-    return view('listMedias');
-})->name('listMedias');
+Route::get('/medias/read', 'MediasController@read')->name('medias');
 
 /* ----------------[ UPDATE MEDIAS ]---------------- */
 // not done
@@ -186,11 +181,11 @@ Route::get('/medias/delete', 'MediasController@delete')->name('medias/delete');
 
 /* ----------------[ CREATE AND UPDATE MAPPING ]---------------- */
 
- Route::get('/modifBoard', function () {
+ Route::get('/pages/edit', function () {
      return view('modifBoard');
  })->name('modifBoard');
 
- Route::get('/mapping', function () {
+ Route::get('/pages/mapping', function () {
      return view('mapping');
  })->name('mapping');
 
@@ -199,7 +194,7 @@ Route::get('/medias/delete', 'MediasController@delete')->name('medias/delete');
 
 // FROM FRONT : this route is used to show the sample board with sounds
 // Remove this line and board_mapping.blade.php
-Route::get('/board_mapping', function () {
+Route::get('/pages/mapping/test', function () {
     return view('board_mapping');
 })->name('board_mapping');
 

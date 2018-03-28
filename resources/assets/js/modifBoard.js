@@ -1,5 +1,5 @@
 // Déclaration des variables
-if (document.URL.includes('modifBoard')) {
+if (document.URL.includes('pages/edit')) {
   var btnCreateZone = document.getElementById("buttonCreateZone");
   var btnModifZone = document.getElementById("buttonModifZone");
   var formZone = document.getElementById("formZone");
@@ -29,7 +29,7 @@ if (document.URL.includes('modifBoard')) {
             section.appendChild(zone);
   }
 
-// Lors du clic sur le bouton "Créer une zone"
+// Lors du clic sur le pages/editbouton "Créer une zone"
   var createZone = btnCreateZone.addEventListener("click", function opacity() {
     if (this.click) {
       section.style.cursor = "crosshair";
@@ -38,7 +38,7 @@ if (document.URL.includes('modifBoard')) {
       btnModifZone.classList.remove("select");
       bool = true;
       console.log(bool);
-      if (document.URL.includes('modifBoard') || (document.URL.includes('mapping'))) {
+      if (document.URL.includes('pages/edit') || (document.URL.includes('mapping'))) {
         // Si le bouton à été cliqué
         if (bool) {
           var xa = 0;
