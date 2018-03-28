@@ -34,6 +34,7 @@
             <input type="file" id="miniature" name="miniature" required />
             <input type="submit" value="MODIFIER" id="modifier"/>
         </form>
+        <a href="{{route('delete-bd/',[$comic->com_oid])}}"><button>supprimer la BD</button></a>
 
         <form>
             <h4>Modifier une page </h4>

@@ -23,9 +23,8 @@ class PageController extends Controller
         $numeroPage = $_POST['numeroPage'];
 
         // try-catch de la requête
-        // IMPORTANT : la colonne pag_number de la BDD doit être en paramètre UNIQUE pour empêcher les doublons de numéros
-        try {
-            // récupère le nom du fichier uploadé
+       try {
+           // récupère le nom du fichier uploadé
             $originalName = $request->file('filename')->getClientOriginalName();
             $completePath = $request->file('filename')->storeAs('public/images/pages', $originalName);
             $path = substr($completePath, 7); // retire la chaîne 'public/' du path
@@ -40,8 +39,12 @@ class PageController extends Controller
             $message = "Page {$numeroPage} ajoutée";
         } catch (QueryException $e) { // affiche une erreur si le fichier est en doublon
             $error_code = $e->errorInfo[1];
-            if ($error_code == 1062) { // 1062 est le code d'erreur pour un duplicate sur col definie en unique
+             if($error_code == 1062){ // 1062 est le code d'erreur pour un duplicate sur col definie en unique
                 $message = "La page {$numeroPage} existe déjà";
+            }
+            if($error_code == 1452){ // 1452 est le code d'erreur généré lorque l'id de la BDn'existe pas
+            
+                $message = "La BD numéro {$idBD} n'existe pas";
             }
         }
         
