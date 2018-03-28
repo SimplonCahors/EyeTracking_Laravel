@@ -1,5 +1,6 @@
 {
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
+    "/js/modifBoard.js": "/js/modifBoard.js",
     "/js/canvasAreaDraw.js": "/js/canvasAreaDraw.js"
 }

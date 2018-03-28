@@ -30,7 +30,9 @@
             points = [];
         }
 
-        $reset = $('<button type="button" class="btn"><i class="icon-trash"></i>Очистить</button>');
+
+
+        $reset = $('<button type="button" id="clearButton" class="btn btn-outline-secondary">Effacer zone</button>');
         $canvas = $('<canvas>');
         ctx = $canvas[0].getContext('2d');
 
@@ -46,7 +48,7 @@
         }
         $canvas.css({background: 'url(' + image.src + ')'});
 
-        $(input).after('<br>', $canvas, '<br>', $reset);
+        $(input).before($reset, $canvas);
 
         reset = function () {
             points = [];
