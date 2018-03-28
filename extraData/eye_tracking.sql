@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Mar 23, 2018 at 02:36 PM
+-- Generation Time: Mar 27, 2018 at 04:02 PM
 -- Server version: 5.7.21-0ubuntu0.17.10.1
 -- PHP Version: 7.1.15-0ubuntu0.17.10.1
 
@@ -65,7 +65,7 @@ INSERT INTO `comics` (`com_oid`, `com_title`, `com_author`, `com_publisher`, `co
 CREATE TABLE `medias` (
   `med_oid` int(11) NOT NULL,
   `med_type` varchar(45) DEFAULT NULL,
-  `med_filename` varchar(45) DEFAULT NULL,
+  `med_filename` varchar(255) DEFAULT NULL,
   `med_path` varchar(450) DEFAULT NULL,
   `fk_are_oid` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -243,7 +243,7 @@ ALTER TABLE `comics`
 -- AUTO_INCREMENT for table `medias`
 --
 ALTER TABLE `medias`
-  MODIFY `med_oid` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `med_oid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `migrations`
 --
