@@ -19,6 +19,7 @@ class MediasController extends Controller
     public function create(Request $request)
     {
         $dataType = $request->input('dataType');
+        $time = $request->input('declanchement');
         $originalName = $request->file('file')->getClientOriginalName();
 
         //VALIDATION : validate method stops the code execution if conditions not fullfilled, and send error automatically.
@@ -44,8 +45,11 @@ class MediasController extends Controller
             $pathstart = $request->file('file')->store('public/medias');
             $path = substr($pathstart, 7);  // fonction pour enlever le "public/" au path et pouvoir ensuite créer une image avec le bon path
 
+            $id = DB::table('areas')->insertGetId(
+                array( 'area_trigger' => $time)
+            );
             DB::table('medias')->insert(
-                array( 'med_type' => $dataType, 'med_filename' => $originalName,'med_path' => $path )
+                array( 'med_type' => $dataType, 'med_filename' => $originalName,'med_path' => $path, 'fk_are_oid' => $id )
             );
                 
             $result = "Bien ajouté";
@@ -56,7 +60,7 @@ class MediasController extends Controller
             }
         }
         
-        return view('medias-upload', ['result'=> $result]);
+        return view('modifBoard', ['result'=> $result]);
     }
 
 

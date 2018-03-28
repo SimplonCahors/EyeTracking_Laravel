@@ -4,11 +4,23 @@
     Modifier Bd
 @endsection
 
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
 @section('content')
+
+    <div class=" container modify">
+    </div>
     <div class=" container modify">
         <form method="POST">
-            <h4>Mofidier les informations de la BD</h4>
             @csrf
+
+            <div id="delete-group">
+                <h4 id="delete-bd-title">Supprimer la BD</h4>
+                <a id="delete-bd-icon" href=""><i class="material-icons catalogue">delete_forever</i></a>
+            </div>
+
+            <h4>Modifier les informations de la BD</h4>
+
             <label for="titre">Titre de la BD</label>
             <input type="text" id="titre" name="titre" value="{{$comic->com_title}}"/>
         
@@ -24,6 +36,7 @@
             <input type="submit" />
 
         </form>
+        <a href="{{route('delete-bd/',[$comic->com_oid])}}"><button>supprimer la BD</button></a>
 
         <form>
             <h4>Modifier une page </h4>
