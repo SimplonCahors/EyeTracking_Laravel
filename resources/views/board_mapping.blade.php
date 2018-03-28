@@ -5,6 +5,14 @@
 @endsection
 
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<?php
+/**
+ * ^ COMMENT:
+ *
+ * Qu'est-ce que ça fait là ça ?
+ * Y'a que cette page qui à le droit à avoir des icones ? Tu vas le mettre sur toutes les pages avec icones ?
+ */
+?>
 
 @section('content')
     <img src="/img/plancheBD.JPG" usemap="#planchemap">
