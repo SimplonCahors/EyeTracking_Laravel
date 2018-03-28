@@ -16,7 +16,7 @@
 
             <div id="delete-group">
                 <h4 id="delete-bd-title">Supprimer la BD</h4>
-                <a id="delete-bd-icon" href=""><i class="material-icons catalogue">delete_forever</i></a>
+                <a id="delete-bd-icon" href="{{route('delete-bd/',[$comic->com_oid])}}"><i class="material-icons catalogue">delete_forever</i></a>
             </div>
 
             <h4>Modifier les informations de la BD</h4>
@@ -34,7 +34,6 @@
             <input type="file" id="miniature" name="miniature" required />
             <input type="submit" value="MODIFIER" id="modifier"/>
         </form>
-        <a href="{{route('delete-bd/',[$comic->com_oid])}}"><button>supprimer la BD</button></a>
 
         <form>
             <h4>Modifier une page </h4>
