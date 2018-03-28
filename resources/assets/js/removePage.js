@@ -1,5 +1,5 @@
 //need to change the include because the code is ugly
-if (document.URL.includes('update-bd')) {
+if (document.URL.includes('update')) {
     var buttonsRemove = document.getElementsByClassName("remove");
 
         //for each button remove created, adds an event listener
@@ -19,31 +19,42 @@ if (document.URL.includes('update-bd')) {
                 //console.log(btnRemovePage);
                 buttonsRemove[index].removeEventListener ("click", confirmationAlert, false);
             }
+
             //Then create an alert box, with a Yes/No choice
+
             var thisId = this.getAttribute('id');
             var divConfirmation = document.createElement("div");
             divConfirmation.setAttribute("id", "confirmation"+thisId);
             divConfirmation.setAttribute("class", "alert");
             divConfirmation.setAttribute("class", "alert-danger");
-            divConfirmation.innerHTML = "Etes vous sûr de supprimer la planche "+thisId+" ?";
+            divConfirmation.innerHTML = "Êtes vous sûr de supprimer la planche "+thisId+" ?";
+
+            //get the <a> from the php with the route and show it
+            var linkYesConfirmationTest = "confirm"+thisId;
+            var linkYesConfirmation = document.getElementById(linkYesConfirmationTest);
+            linkYesConfirmation.style.display = 'block';
+            linkYesConfirmation.setAttribute("class", "linkYesConfirmation");
+
+            //this button is only here for style, see class for css work
             var yesConfirmation = document.createElement("button");
-            yesConfirmation.setAttribute("href", "confirmation/"+thisId);
             yesConfirmation.innerHTML = "Oui";  
-            yesConfirmation.addEventListener ("click", confirmationYes, false);
+            yesConfirmation.setAttribute("class", "yesConfirmation");
+
+            //this button is only here for style, see class for css work
             var noConfirmation = document.createElement("button");
             noConfirmation.innerHTML = "Non";
+            noConfirmation.setAttribute("class", "noConfirmation");
 
-            noConfirmation.addEventListener ("click", confirmationNo, false);
-            divConfirmation.appendChild(yesConfirmation);
+            //link everything together and append it next to the selected board
+            linkYesConfirmation.appendChild(yesConfirmation);
+            divConfirmation.appendChild(linkYesConfirmation);
             divConfirmation.appendChild(noConfirmation);
             this.appendChild(divConfirmation);
         }
 
-        //if yes is clicked, it needs to remove the page from the database, and redirect somewhere, TBD
-        function confirmationYes() {
-        }
+        //if yes is clicked, the page is removed from the dtb and is redirected to /comics/delete/{{$comic->com_oid}}/{{$pages->pag_oid}}
+        //the link is set in the php page and recuperated in the js as we  were unable to make the route work in js 
 
-        //if no, do nothing, maybe alert the user the suppression was cancelled
-        function confirmationNo() {
-        }
+        //if no, do nothing, maybe alert the user the suppression was cancelled, TBD
+
 }

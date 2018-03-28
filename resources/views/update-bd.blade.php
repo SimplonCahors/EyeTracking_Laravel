@@ -30,6 +30,7 @@
         <form>
             <h4>Edition des pages existantes :</h4>
 
+            <!-- watch as the buttons can mess up with the <a> as they reload the page by default-->
             @foreach ($page as $pages)
                 <div id="div{{$pages->pag_oid}}" style="float:left">
                     <img src="/storage/images/pages/{{$pages->pag_image}}" alt="" style="width:200px; height:auto;">
@@ -37,6 +38,11 @@
                     <!-- change the url here to link to the real edition page -->
                     <a class="edit" id="edit{{$pages->pag_oid}}" href="{{ url('/edit/' . $pages->pag_oid . '') }}"><input type="button" value="Editer"></a>
                     <a class="remove" id="{{$pages->pag_number}}" ><input type="button" value="Supprimer"></a>
+
+
+                    <!-- Watch as some css is used here and have to be moved-->
+                    <a id="confirm{{$pages->pag_number}}" style="display:none;" href="/comics/delete/{{$comic->com_oid}}/{{$pages->pag_oid}}"></a>
+
                 </div>
             @endforeach
         </form>
