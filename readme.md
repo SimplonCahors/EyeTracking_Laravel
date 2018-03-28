@@ -30,6 +30,14 @@ It might worked now ! If not try this :
 - <code> npm install</code>
 - <code> npm run dev </code>
 
+## Problem with npm run watch : 
+If your npm run dev works, but any npm run watch won't work , try this : https://github.com/BrowserSync/browser-sync/issues/224 
+
+## Database problem :
+
+If you can't acces your database, even if your .env and everything is right, maybe laravel doesn't load your .env.
+If so, try <code> php artisan config:cache </code> 
+
 ## To try file uploading : 
 - make sure you have the latest DB and your .env is set up correctly. 
 - run <code> php artisan storage:link </code>  

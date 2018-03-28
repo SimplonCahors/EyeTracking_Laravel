@@ -1,16 +1,10 @@
 #sectionListMedia{
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+	text-align: center;
+}
+li{
+	list-style:none;
+}
 
-	#addMedia{
-		width: 200px;
-		margin-bottom: 15px;
-		margin-top: 25px;
-	}
-
-	.col-s{
-		margin-top: 20px;
-		margin-bottom: 20px;
-	}
+#addMedia{
+	margin-left:-1300px;
 }
