@@ -8,7 +8,7 @@
 
 @section('content')
 
-    <div class=" container modify">
+<div class=" container modify">
     </div>
     <div class=" container modify">
         <form method="POST">
@@ -37,6 +37,20 @@
 
         <form>
             <h4>Modifier une page </h4>
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="http://via.placeholder.com/480x640" alt="Card image cap"/>
+            <div class="card-body">
+
+            <h5 class="card-title">PAGE <span id="number">4</span></h5>
+            <div class="card-icon">
+                <a id="edit-bd-icon" href="#"><i class="material-icons catalogue card-link">mode_edit</i></a>
+                <a id="delete-bd-icon" href="#"><i class="material-icons catalogue card-link">delete_forever</i></a>
+            </div>
+    </div>
+        </form>
+
+        {{--  <form>
+            <h4>Modifier une page </h4>
             <label for="page">Selectionner une page</label>
 
             <select id="page">
@@ -48,6 +62,6 @@
             </select>
 
             <button>Aller à la modification de la page</button>
-        </form>
+        </form>  --}}
     </div>
 @endsection
