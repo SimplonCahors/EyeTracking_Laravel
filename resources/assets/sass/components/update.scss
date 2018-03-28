@@ -1,3 +1,9 @@
+/** utilisé pour :
+ * - la view update-bd
+ * - la view ajouter-bd
+ * [attention peuvent avoir changés de nom]
+ */
+
 .container.modify
 {
     display: flex;
@@ -12,6 +18,7 @@
             color:rgba(0,0,0,0.8);
             font-size: large;
             width: 100%;
+            margin: 20px 0 -10px 0;
         }
         input
         {
