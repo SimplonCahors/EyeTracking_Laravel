@@ -10,15 +10,15 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
-        <link rel="stylesheet" href="css/app.css">
+        <link rel="stylesheet" href="/css/app.css">
     </head>
 
     <body>
         <div id="content" class="content">
-        <header>
-            @include('layout/nav_auth')
-            @include('layout/navbar')
-        </header>
+            <header>
+                @include('layout/nav_auth')
+                @include('layout/navbar')
+            </header>
             @yield('content')
         </div>
         <script src="/js/app.js"></script>
