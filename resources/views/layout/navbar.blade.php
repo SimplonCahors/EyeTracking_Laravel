@@ -6,3 +6,4 @@
 	<a href="{{ url('/medias') }}">Médias</a>
 	@endif
 </div>
+
