@@ -6,12 +6,14 @@
 
 @section('content')
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<?php
     /**
      * ^ COMMENT:
      *
      * Qu'est-ce que ça fait là ça ?
      * Y'a que cette page qui à le droit à avoir des icones ? Tu vas le mettre sur toutes les pages avec icones ?
      */
+    ?>
     <h2 class="center_margin">Reprendre la lecture</h2>
     <section class="containers_catalog">
 
