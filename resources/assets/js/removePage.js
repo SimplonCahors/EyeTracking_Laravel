@@ -1,23 +1,49 @@
+//need to change the include because the code is ugly
 if (document.URL.includes('update-bd')) {
     var buttonsRemove = document.getElementsByClassName("remove");
-    
-    //console.log(btns);
 
+        //for each button remove created, adds an event listener
         for (let index = 0; index < buttonsRemove.length; index++) {
             var btnRemovePageId = buttonsRemove[index].getAttribute('id');
             var btnRemovePage = document.getElementById(btnRemovePageId);
-            //btnRemovePage.addEventListener("click", alertRemove);   
-            //var alertRemovePage = btnRemovePage.addEventListener("click", alertRemove);
-            console.log(btnRemovePage);
+            //console.log(btnRemovePage);
+            buttonsRemove[index].addEventListener ("click", confirmationAlert, false);
         }
 
-    //console.log("x");
-    
-    //console.log("z");
+        //when any button remove is clicked, a confirmation alert is created...
+        function confirmationAlert() {
+            //make a loop to remove all listeners on remove buttons, or else we can get an infinite number of alert
+            for (let index = 0; index < buttonsRemove.length; index++) {
+                var btnRemovePageId = buttonsRemove[index].getAttribute('id');
+                var btnRemovePage = document.getElementById(btnRemovePageId);
+                //console.log(btnRemovePage);
+                buttonsRemove[index].removeEventListener ("click", confirmationAlert, false);
+            }
+            //Then create an alert box, with a Yes/No choice
+            var thisId = this.getAttribute('id');
+            var divConfirmation = document.createElement("div");
+            divConfirmation.setAttribute("id", "confirmation"+thisId);
+            divConfirmation.setAttribute("class", "alert");
+            divConfirmation.setAttribute("class", "alert-danger");
+            divConfirmation.innerHTML = "Etes vous sûr de supprimer la planche "+thisId+" ?";
+            var yesConfirmation = document.createElement("button");
+            yesConfirmation.setAttribute("href", "confirmation/"+thisId);
+            yesConfirmation.innerHTML = "Oui";  
+            yesConfirmation.addEventListener ("click", confirmationYes, false);
+            var noConfirmation = document.createElement("button");
+            noConfirmation.innerHTML = "Non";
 
-    //var btnRemoveItem = document.getElementById("edit{{$pages->pag_oid}}");
+            noConfirmation.addEventListener ("click", confirmationNo, false);
+            divConfirmation.appendChild(yesConfirmation);
+            divConfirmation.appendChild(noConfirmation);
+            this.appendChild(divConfirmation);
+        }
 
-    // btnRemoveItem.addEventListener("click", function remove() {
-    //     console.log("sadfg");
-    // })
+        //if yes is clicked, it needs to remove the page from the database, and redirect somewhere, TBD
+        function confirmationYes() {
+        }
+
+        //if no, do nothing, maybe alert the user the suppression was cancelled
+        function confirmationNo() {
+        }
 }
