@@ -159,10 +159,7 @@ Route::post('/upload/save', 'MediasController@create');
 //permet de visualiser tout les médias, d'en ajouter, et supprimer à l'unité
 Route::get('/medias', 'MediasController@read')->name('medias');
 
-// FROM FRONT
-Route::get('/listMedias', function () {
-    return view('listMedias');
-})->name('listMedias');
+
 
 /* ----------------[ UPDATE MEDIAS ]---------------- */
 // not done
