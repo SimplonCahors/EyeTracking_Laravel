@@ -83,8 +83,14 @@ class ComicsController extends Controller
     // necéssaire pour le update
     public function fetchUniqueBD($id)
     {
-        $comics = DB::table('comics')->where('com_oid', '=', $id)->get();
-        return view('update-bd', ['comic' => $comics [0]]);
+        $comics = DB::table('comics')
+        ->where('com_oid', '=', $id)
+        ->get();
+        //addition of a request into pages table to get the list of boards linked with the comic
+        $pages = DB::table('pages')
+        ->where('fk_com_oid', '=', $id)
+        ->get();
+        return view('update-bd', ['comic' => $comics [0]], ['page' => $pages]);
     }
 
     // Supprime les miniatures de la DB et du Storage
