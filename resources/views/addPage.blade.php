@@ -8,6 +8,14 @@
 </head>
 <body>
 
+<?php
+    /**
+     * ^ COMMENT:
+     *
+     * Pourquoi cette page n'utilise pas le layout (layouts/app.blade.php) ?
+     */
+?>
+
 <!-- Affichage d'un message d'erreur customisé si inputs non conformes -->
     @if(session()->has('message'))
         <div class="alert alert-success">
