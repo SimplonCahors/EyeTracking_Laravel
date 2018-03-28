@@ -1,0 +1,68 @@
+section#medias-upload{
+
+    .cadre 
+    {
+        align-content: center;
+        padding: 10px;
+        margin: 100px auto;
+        border:1px solid #6B6B69;
+        height:165px;
+        width: 460px;
+        box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.75);
+        background-color: rgba(0, 0, 0, 0.1);    
+    }
+
+    select [name=dataType]
+    {
+        color: #696969;
+        background-color: white;
+        border: 2px solid #696969;
+        box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.75) inherit;
+        height:50px;
+        width: 40px;
+        border:35px solid blue;
+
+    }
+
+    input, button, optgroup,select
+    {
+        margin-right: 20px;
+        font-family: inherit;
+        font-size: inherit;
+        color: #696969;
+        background-color: white;
+        border-radius: 4px;
+        transition: all 0.3s ease-in 0s;
+        border: 2px solid #696969;
+        padding: 5px 12px 5px 12px;
+        box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.75);
+        line-height: inherit;  
+    }
+
+    input[type=submit]
+    {
+        margin-left: 170px;
+        margin-top: 40px;
+        margin-bottom: 5px;
+        text-align: center;
+        color: #696969;
+        background-color: white;
+        border-radius: 4px;
+        transition: all 0.3s ease-in 0s;
+        border: 2px solid #696969;
+        padding: 5px 12px 5px 12px;
+        box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.75);  
+    }
+
+    input[type=submit]:hover
+    {
+        background:#696969;
+        color: white;
+    }
+
+    a
+    {
+        margin-left: 137px;
+    }
+
+}
