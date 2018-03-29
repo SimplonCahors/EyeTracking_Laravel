@@ -9,6 +9,7 @@
 
 require('./update');
 require('./board');
+require('./reorder');
 
 require('./modifBoard');
 
