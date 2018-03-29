@@ -18,6 +18,9 @@ require('./mapping');
 //console.log('ok');
 require('./legal');
 
+//used for update-bd to remove a page from a comic
+require('./removePage');
+
 require('./bootstrap');
 require('jquery');
 

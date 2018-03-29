@@ -82,10 +82,8 @@ Route::get('/comics/update/{id}', 'ComicsController@fetchUniqueBD')->name('updat
 
 Route::post('/comics/update/{id}', 'ComicsController@update');
 
-// de Charlotte => erreur aussi sur cette route. Chercher à savoir à quoi elle correspond |
-Route::get('/button-update-bd', function () {
-    return view('button-update-bd');
-}) -> name('button-update-bd');
+//linking of remove a page to the comic edition
+Route::post('/update-bd/{id}', 'PageController@remove');
 
 
 /* ----------------[ DELETE COMICS ]---------------- */
@@ -130,7 +128,7 @@ Route::get('/showPage/{idBD}/{idPage}', 'PageController@show');
 
 
 /* ----------------[ UPDATE PAGES ]---------------- */
-// not done
+
 
 /* ----------------[ DELETE PAGES ]---------------- */
 
@@ -141,9 +139,6 @@ Route::get('/comics/delete/{idBD}/{idpage}','PageController@delete')->name('dele
 Route::get('/comics/pageOrder/{idBD}','PageController@showAll') -> name('show-all/');
 
 // Route::get('/comics/pageOrder/{idBD}', 'PageController@showAll');
-
-
-
 
 /*
 |--------------------------------------------------------------------------
