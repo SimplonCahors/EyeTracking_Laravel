@@ -4,111 +4,101 @@
  * [attention peuvent avoir changés de nom]
  */
 
- @import "update_bd_gallery.scss";
+@import "update_bd_gallery.scss";
 
-.group-container
-{
+.group-container {
     display: flex;
-    justify-content:space-between;
-}
-
-
-
-.container-fluid
-
-.container.modify
-
-{
-    display: flex;
-    flex-wrap:wrap;
-    // justify-content: center;
+    justify-content: space-between;
     width:100%;
+    .container-fluid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+        .card {
+            width: 180px;
+            margin: 15px 10px 0px 10px;
+            
+        }
+    }
 }
 
-.card
-{
-    width: 180px;
-    margin: 15px 10 0px 10;
-
-}
-
- .container.modify
- {
-
-    #modifier, #ajouter
-    {
-        margin-top:20px;
-
+.container.modify {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+    #modifier,
+    #ajouter {
+        margin-top: 20px;
     }
     #delete-group {
-
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
         margin-bottom: -120px;
-        // position: fixed;
         margin-left: -65%;
         width: 200px;
         height: 120px;
         border: 1px solid #FF0000;
         padding: 8px;
-
         #delete-bd-icon {
             color: #FF0000;
         }
-
         #delete-bd-title {
             color: #FF0000;
         }
-
-    }    
-
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    }
+    #edit-group {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-bottom: -120px;
+        margin-left: -5%;
+        width: 200px;
+        height: 120px;
+        border: 1px solid #007bff;
+        padding: 8px;
+        #edit-bd-icon {
+            color: #007bff;
+        }
+        #edit-bd-title {
+            color: #007bff;
+        }
+    }
     
-    form
-    {
-        margin-top:10vh;
+    form {
+        margin-top: 10vh;
         width: 51%;
-        label
-        {
-            color:rgba(0,0,0,0.8);
+        label {
+            color: rgba(0, 0, 0, 0.8);
             font-size: large;
             width: 100%;
             margin: 20px 0 10px 0;
-
         }
-        input
-        {
+        input {
             width: 100%;
             padding: 10px 0 10px 0;
-            border: 1px solid rgba(0,0,0,0.2);
-            text-indent:2em;
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            text-indent: 2em;
         }
-
-        select
-        {
+        select {
             text-align: center;
             appearance: none;
             width: 100%;
             padding: 10px 0 10px 0;
-            border: 1px solid rgba(0,0,0,0.2);
+            border: 1px solid rgba(0, 0, 0, 0.2);
         }
-        button
-        {
-            margin:10px;
+        button {
+            margin: 10px;
             padding: 10px;
-            border: 1px solid rgba(0,0,0,0.2);
-            color: rgba(0,0,0,0.8);
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            color: rgba(0, 0, 0, 0.8);
             background-color: whitesmoke;
-
         }
-        button:hover
-        {
-            color:whitesmoke;
-            background-color: rgba(0,0,0,0.8)
+        button:hover {
+            color: whitesmoke;
+            background-color: rgba(0, 0, 0, 0.8)
         }
     }
-
 }

@@ -15,7 +15,7 @@
 
         <div id="delete-group">
             <h4 id="delete-bd-title">Supprimer la BD</h4>
-            <a id="delete-bd-icon" href=""><i class="material-icons catalogue">delete_forever</i></a>
+            <a id="delete-bd-icon" href="#"><i class="material-icons catalogue">delete_forever</i></a>
         </div>
 
         <h4>Modifier les informations de la BD</h4>
@@ -35,83 +35,104 @@
     </form>
 
     <div class="group-container">
-
+        
         <div id="edit-group">
-            <h4 id="edit-bd-title">modification la BD</h4>
-            <a id="mode edit-bd-icon" href=""><i class="material-icons catalogue">edit_mode</i></a>
+            <h4 id="edit-bd-title">Modifier la BD</h4>
+            <a id="edit-bd-icon" href="#"><i class="material-icons catalogue">edit_mode</i></a>
         </div>
 
         <div class="container-fluid">
 
-            <div class="card" >
-                <img class="card-img-top" src="http://via.placeholder.com/240x320" alt="Card image cap">
+            <div class="card">
+                <img class="card-img-top" src="http://via.placeholder.com/240x320" alt="Card image bd">
                 <div class="card-body">
-                    <a href="#" class="card-link">Modifier</a><br />
-                    <a href="#" class="card-link">Supprimer</a>
+                    <h5 class="card-title">PAGE <span>4</span></h5>
+                    <div class="card-icon">
+                        <a id="edit-bd-icon" href="#"><i class="material-icons catalogue card-link">edit_mode</i></a>
+                        <a id="delete-bd-icon" href="#"><i class="material-icons catalogue card-link">delete_forever</i></a>
+                    </div>
                 </div>
             </div>
-            <div class="card" >
-                <img class="card-img-top" src="http://via.placeholder.com/240x320" alt="Card image cap">
+            <div class="card">
+                <img class="card-img-top" src="http://via.placeholder.com/240x320" alt="Card image bd">
                 <div class="card-body">
-                    <a href="#" class="card-link">Modifier</a><br />
-                    <a href="#" class="card-link">Supprimer</a>
+                    <h5 class="card-title">PAGE <span>4</span></h5>
+                    <div class="card-icon">
+                        <a id="edit-bd-icon" href="#"><i class="material-icons catalogue card-link">edit_mode</i></a>
+                        <a id="delete-bd-icon" href="#"><i class="material-icons catalogue card-link">delete_forever</i></a>
+                    </div>
                 </div>
-            </div>
-            <div class="card" >
-                <img class="card-img-top" src="http://via.placeholder.com/240x320" alt="Card image cap">
+            </div><div class="card">
+                <img class="card-img-top" src="http://via.placeholder.com/240x320" alt="Card image bd">
                 <div class="card-body">
-                    <a href="#" class="card-link">Modifier</a><br />
-                    <a href="#" class="card-link">Supprimer</a>
+                    <h5 class="card-title">PAGE <span>4</span></h5>
+                    <div class="card-icon">
+                        <a id="edit-bd-icon" href="#"><i class="material-icons catalogue card-link">edit_mode</i></a>
+                        <a id="delete-bd-icon" href="#"><i class="material-icons catalogue card-link">delete_forever</i></a>
+                    </div>
                 </div>
-            </div>
-            <div class="card" >
-                <img class="card-img-top" src="http://via.placeholder.com/240x320" alt="Card image cap">
+            </div><div class="card">
+                <img class="card-img-top" src="http://via.placeholder.com/240x320" alt="Card image bd">
                 <div class="card-body">
-                    <a href="#" class="card-link">Modifier</a><br />
-                    <a href="#" class="card-link">Supprimer</a>
-
+                    <h5 class="card-title">PAGE <span>4</span></h5>
+                    <div class="card-icon">
+                        <a id="edit-bd-icon" href="#"><i class="material-icons catalogue card-link">edit_mode</i></a>
+                        <a id="delete-bd-icon" href="#"><i class="material-icons catalogue card-link">delete_forever</i></a>
+                    </div>
                 </div>
-            </div>
-            <div class="card" >
-                <img class="card-img-top" src="http://via.placeholder.com/240x320" alt="Card image cap">
+            </div><div class="card">
+                <img class="card-img-top" src="http://via.placeholder.com/240x320" alt="Card image bd">
                 <div class="card-body">
-                    <a href="#" class="card-link">Modifier</a><br />
-                    <a href="#" class="card-link">Supprimer</a>
+                    <h5 class="card-title">PAGE <span>4</span></h5>
+                    <div class="card-icon">
+                        <a id="edit-bd-icon" href="#"><i class="material-icons catalogue card-link">edit_mode</i></a>
+                        <a id="delete-bd-icon" href="#"><i class="material-icons catalogue card-link">delete_forever</i></a>
+                    </div>
                 </div>
-            </div>
-            <div class="card" >
-                <img class="card-img-top" src="http://via.placeholder.com/240x320" alt="Card image cap">
+            </div><div class="card">
+                <img class="card-img-top" src="http://via.placeholder.com/240x320" alt="Card image bd">
                 <div class="card-body">
-                    <a href="#" class="card-link">Modifier</a><br />
-                    <a href="#" class="card-link">Supprimer</a>
+                    <h5 class="card-title">PAGE <span>4</span></h5>
+                    <div class="card-icon">
+                        <a id="edit-bd-icon" href="#"><i class="material-icons catalogue card-link">edit_mode</i></a>
+                        <a id="delete-bd-icon" href="#"><i class="material-icons catalogue card-link">delete_forever</i></a>
+                    </div>
                 </div>
-            </div>
-            <div class="card" >
-                <img class="card-img-top" src="http://via.placeholder.com/240x320" alt="Card image cap">
+            </div><div class="card">
+                <img class="card-img-top" src="http://via.placeholder.com/240x320" alt="Card image bd">
                 <div class="card-body">
-                    <a href="#" class="card-link">Modifier</a><br />
-                    <a href="#" class="card-link">Supprimer</a>
+                    <h5 class="card-title">PAGE <span>4</span></h5>
+                    <div class="card-icon">
+                        <a id="edit-bd-icon" href="#"><i class="material-icons catalogue card-link">edit_mode</i></a>
+                        <a id="delete-bd-icon" href="#"><i class="material-icons catalogue card-link">delete_forever</i></a>
+                    </div>
                 </div>
-            </div>
-            <div class="card" >
-                <img class="card-img-top" src="http://via.placeholder.com/240x320" alt="Card image cap">
+            </div><div class="card">
+                <img class="card-img-top" src="http://via.placeholder.com/240x320" alt="Card image bd">
                 <div class="card-body">
-                    <a href="#" class="card-link">Modifier</a><br />
-                    <a href="#" class="card-link">Supprimer</a>
+                    <h5 class="card-title">PAGE <span>4</span></h5>
+                    <div class="card-icon">
+                        <a id="edit-bd-icon" href="#"><i class="material-icons catalogue card-link">edit_mode</i></a>
+                        <a id="delete-bd-icon" href="#"><i class="material-icons catalogue card-link">delete_forever</i></a>
+                    </div>
                 </div>
-            </div>
-            <div class="card" >
-                <img class="card-img-top" src="http://via.placeholder.com/240x320" alt="Card image cap">
+            </div><div class="card">
+                <img class="card-img-top" src="http://via.placeholder.com/240x320" alt="Card image bd">
                 <div class="card-body">
-                    <a href="#" class="card-link">Modifier</a><br />
-                    <a href="#" class="card-link">Supprimer</a>
+                    <h5 class="card-title">PAGE <span>4</span></h5>
+                    <div class="card-icon">
+                        <a id="edit-bd-icon" href="#"><i class="material-icons catalogue card-link">edit_mode</i></a>
+                        <a id="delete-bd-icon" href="#"><i class="material-icons catalogue card-link">delete_forever</i></a>
+                    </div>
                 </div>
-            </div>
-            <div class="card" >
-                <img class="card-img-top" src="http://via.placeholder.com/240x320" alt="Card image cap">
+            </div><div class="card">
+                <img class="card-img-top" src="http://via.placeholder.com/240x320" alt="Card image bd">
                 <div class="card-body">
-                    <a href="#" class="card-link">Modifier</a><br />
-                    <a href="#" class="card-link">Supprimer</a>
+                    <h5 class="card-title">PAGE <span>4</span></h5>
+                    <div class="card-icon">
+                        <a id="edit-bd-icon" href="#"><i class="material-icons catalogue card-link">edit_mode</i></a>
+                        <a id="delete-bd-icon" href="#"><i class="material-icons catalogue card-link">delete_forever</i></a>
+                    </div>
                 </div>
             </div>
         </div>
