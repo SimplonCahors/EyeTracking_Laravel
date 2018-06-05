@@ -18,14 +18,13 @@ Auth::routes();
 | [ACCUEIL] / [CONNEXION] / [CATALOGUE] / [LEGALMENTIONS]
 |--------------------------------------------------------------------------
 */
+Route::get('/', 'HomeController@last')->name('home');
 
 Route::get('/showPage/{idBD}/{idPage}', 'PageController@show');
 // page accueil | accès aux 3 dernières bd publiées
-Route::get('/', 'WelcomeController@last');
 
-// page connexion |
-// de Charlotte : si on pouvait renommer le chemin en "login" ce serait mieux ainsi que le controller
-Route::get('/home', 'HomeController@index')->name('home');
+// De Elisa: Certaines features laravel renvoie peut être vers /home, d'autres vers /. donc si besoin : 
+//  Route::redirect('/home', '/');
 
 // page catalogue | Le controller show renvoie à la vue welcome.
 // donc cette vue/ le controller est à modifier
