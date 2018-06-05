@@ -26,7 +26,7 @@ Route::get('/showPage/{idBD}/{idPage}', 'PageController@show');
 // De Elisa: Semble inutile mais si laravel veut un /home : 
 //  Route::redirect('/home', '/');
 
-Route::get('/catalogue', 'ComicsController@show')->name('catalogue');
+Route::get('/catalog', 'ComicsController@show')->name('catalog');
 
 // page legalmentions | mentions légales
 Route::get('/legalmentions', function () {

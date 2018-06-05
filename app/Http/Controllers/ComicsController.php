@@ -52,7 +52,7 @@ class ComicsController extends Controller
                    
             );
 
-        return redirect()->route('catalogue')->with('add','BD ajoutée');
+        return redirect()->route('catalog')->with('add','BD ajoutée');
     }
 
     // si on pouvait la renommer en function "read" ce serait mieux
@@ -60,7 +60,7 @@ class ComicsController extends Controller
     {
         $comics = DB::table('comics')->where('com_publication', '=', 1)->get();
         $pages = DB::table('pages')->where('pag_number', '=', 1)->get();
-        return view('catalogue', ['comics' => $comics], ['pages' => $pages]);
+        return view('comics.catalog', ['comics' => $comics], ['pages' => $pages]);
     }
 
     // Modifie les miniatures de la DB et du Storage
@@ -98,7 +98,7 @@ class ComicsController extends Controller
 
 
 
-        return redirect()->route('catalogue')->with('delete','BD supprimée');
+        return redirect()->route('catalog')->with('delete','BD supprimée');
         
     }
 }
