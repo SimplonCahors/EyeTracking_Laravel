@@ -1,8 +1,40 @@
+/** utilisé pour :
+ * - la view update-bd
+ * - la view ajouter-bd
+ * [attention peuvent avoir changés de nom]
+ */
+
 .container.modify
 {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+
+    #modifier, #ajouter {
+        margin-top:20px;
+    }
+    #ajouter{
+        margin-bottom: 20px;
+    }
+    #delete-group {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-bottom: -120px;
+        // position: fixed;
+        margin-left: -65%;
+        width: 200px;
+        height: 120px;
+        border: 1px solid #FF0000;
+        padding: 8px;
+        #delete-bd-icon {
+            color: #FF0000;
+        }
+        #delete-bd-title {
+            color: #FF0000;
+        }
+    }
+    
     form
     {
         margin-top:10vh;
@@ -12,12 +44,14 @@
             color:rgba(0,0,0,0.8);
             font-size: large;
             width: 100%;
+            margin: 20px 0 10px 0;
         }
         input
         {
             width: 100%;
             padding: 10px 0 10px 0;
             border: 1px solid rgba(0,0,0,0.2);
+            text-indent:2em;
         }
         select
         {

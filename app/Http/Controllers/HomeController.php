@@ -31,6 +31,6 @@ class HomeController extends Controller
     // de Charlotte : à quoi correspond le nom 'index' ? ne vaut-il pas mieux login ou register ?
     public function index()
     {
-        return view('home');
+        return view('welcome');
     }
 }
