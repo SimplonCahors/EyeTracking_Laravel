@@ -18,16 +18,14 @@ Auth::routes();
 | [ACCUEIL] / [CONNEXION] / [CATALOGUE] / [LEGALMENTIONS]
 |--------------------------------------------------------------------------
 */
+// page accueil | accès aux 3 dernières bd publiées
 Route::get('/', 'HomeController@last')->name('home');
 
 Route::get('/showPage/{idBD}/{idPage}', 'PageController@show');
-// page accueil | accès aux 3 dernières bd publiées
 
-// De Elisa: Certaines features laravel renvoie peut être vers /home, d'autres vers /. donc si besoin : 
+// De Elisa: Semble inutile mais si laravel veut un /home : 
 //  Route::redirect('/home', '/');
 
-// page catalogue | Le controller show renvoie à la vue welcome.
-// donc cette vue/ le controller est à modifier
 Route::get('/catalogue', 'ComicsController@show')->name('catalogue');
 
 // page legalmentions | mentions légales
