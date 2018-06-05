@@ -67,8 +67,8 @@ Route::post('/comics/update/{id}', 'ComicsController@update');
 // FROM BACK : right now it's an input that then pass the comics' id  in $GET.
 // /!\ Doesn't work if you have pages in your DB that are linked to it
 
-
-Route::get('/comics/delete/{id}', 'ComicsController@delete')->name('delete-bd/');
+// pas de confirmation/!\
+Route::get('/comics/delete/{id}', 'ComicsController@delete')->name('comic_delete');
 
 
 /*
