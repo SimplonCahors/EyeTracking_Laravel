@@ -67,7 +67,7 @@ class MediasController extends Controller
     public function read()
     {
         $medias = DB::table('medias')->get();
-        return view('medias', ['medias' => $medias]);
+        return view('medias.read', ['medias' => $medias]);
     }
 
     public function update()

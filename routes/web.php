@@ -15,7 +15,7 @@ Auth::routes();
 
 /*
 |--------------------------------------------------------------------------
-| [ACCUEIL] / [CONNEXION] / / [LEGALMENTIONS]
+| [ACCUEIL] / [CONNEXION] / [LEGALMENTIONS]
 |--------------------------------------------------------------------------
 */
 // page accueil | accès aux 3 dernières bd publiées
@@ -107,7 +107,6 @@ Route::post('/board/read/{idBD}/{idPage}', function ($idBD, $idPage) {
 // not done
 
 
-
 /*
 |--------------------------------------------------------------------------
 | MEDIAS
@@ -116,25 +115,27 @@ Route::post('/board/read/{idBD}/{idPage}', function ($idBD, $idPage) {
 
 // /!\ pour upload des fichiers : consulter "try file uploading" dans le read me
 
-
-/* ----------------[ CREATE MEDIAS ]---------------- */
-
-//un <a> sur /medias permet d'y accéder.
-Route::get('/medias/create', function () {
-    return view('medias-upload');
-});
-
-// est juste appellée quand on créé un nouveau média à partir de upload. N'est même pas une vue
-// Route::post('/upload/save', 'MediasController@create');
-Route::post('/modifBoard', 'MediasController@create');
-
-
 /* ----------------[ READ AND DELETE MEDIAS ]---------------- */
 
 // FROM BACK
 //permet de visualiser tout les médias, d'en ajouter, et supprimer à l'unité
 
 Route::get('/medias/read', 'MediasController@read')->name('medias');
+
+//§§§§§§§§§§§§§§§§§§§§§§§§§§§§§
+
+/* ----------------[ CREATE MEDIAS ]---------------- */
+
+//un <a> sur /medias permet d'y accéder.
+Route::get('/medias/create', function () {
+    return view('medias.upload');
+})->name('medias_create');
+
+// est juste appellée quand on créé un nouveau média à partir de upload. N'est même pas une vue
+ Route::post('/medias/upload', 'MediasController@create')->name('medias_upload');
+//Route::post('/modifBoard', 'MediasController@create');
+
+
 
 
 /* ----------------[ UPDATE MEDIAS ]---------------- */
