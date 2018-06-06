@@ -15,7 +15,7 @@ Auth::routes();
 
 /*
 |--------------------------------------------------------------------------
-| [ACCUEIL] / [CONNEXION] / [CATALOGUE] / [LEGALMENTIONS]
+| [ACCUEIL] / [CONNEXION] / / [LEGALMENTIONS]
 |--------------------------------------------------------------------------
 */
 // page accueil | accès aux 3 dernières bd publiées
@@ -27,7 +27,7 @@ Route::get('/', 'HomeController@last')->name('home');
 
 // page legalmentions | mentions légales
 Route::get('/legalmentions', function () {
-    return view('legalmentions');
+    return view('others.legal_mentions');
   })->name('legalmentions');
 
 

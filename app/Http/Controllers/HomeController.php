@@ -19,6 +19,6 @@ class HomeController extends ComicsController
     public function last()
     {
         $comics = DB::table('comics')->where('com_publication', '=', 1)->get();
-        return view('home', ['comics' => $comics]);
+        return view('other.home', ['comics' => $comics]);
     }
 }
