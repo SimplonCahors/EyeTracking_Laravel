@@ -44,14 +44,15 @@
 		  <div class="card-body">
 		    <h5 class="card-title">Nom du fichier : {{ $media->med_filename }}</h5>
 		    <p class="card-text">Type de fichier : {{ $media->med_type }}</p>
-		    <a href="/medias/delete?id={{ $media->med_oid }}&path={{ $media->med_path }}" id="deleteMedia" class="btn btn-primary">Supprimer</a>
+		  <a href="{{ route('medias_delete', ['id' => $media->med_oid, 'path => $media->med_path ']) }}" 
+				id="deleteMedia" class="btn btn-primary">Supprimer</a>
+		
 		  </div>
 		</div>
-	  
+	
 
 	  @endforeach
-
-	    
+    
 
 	</div>
 

@@ -1,15 +1,13 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+// en cours de refacto. Tout ce qui est au dessus de : 
+
+//§§§§§§§§§§§§§§§§§§§§§§§§§§§§§
+//  REFACTO SEST ARRETE ICI   
+//§§§§§§§§§§§§§§§§§§§§§§§§§§§§§
+
+// a été refondu. 
+// Ce qui concerne le mapping concerne en réalité les boards -> à renommer pour board, ou p-ê faire un sous dossier mapping. 
 
 Auth::routes();
 
@@ -120,11 +118,12 @@ Route::post('/board/read/{idBD}/{idPage}', function ($idBD, $idPage) {
 // FROM BACK
 //permet de visualiser tout les médias, d'en ajouter, et supprimer à l'unité
 
+
 Route::get('/medias/read', 'MediasController@read')->name('medias');
 
-//§§§§§§§§§§§§§§§§§§§§§§§§§§§§§
 
-/* ----------------[ CREATE MEDIAS ]---------------- */
+
+/* ----------------[ CREATE / UPLOAD MEDIAS ]---------------- */
 
 //un <a> sur /medias permet d'y accéder.
 Route::get('/medias/create', function () {
@@ -133,19 +132,23 @@ Route::get('/medias/create', function () {
 
 // est juste appellée quand on créé un nouveau média à partir de upload. N'est même pas une vue
  Route::post('/medias/upload', 'MediasController@create')->name('medias_upload');
-//Route::post('/modifBoard', 'MediasController@create');
 
 
+//§§§§§§§§§§§§§§§§§§§§§§§§§§§§§
+//  REFACTO SEST ARRETE ICI   
+//§§§§§§§§§§§§§§§§§§§§§§§§§§§§§
+
+
+/* ----------------[ DELETE MEDIAS ]---------------- */
+
+//appellée par un bouton par media sur la page /medias
+Route::get('/medias/delete/{id}/{path}', 'MediasController@delete')->name('medias_delete');
 
 
 /* ----------------[ UPDATE MEDIAS ]---------------- */
 // not done
 
 
-/* ----------------[ DELETE MEDIAS ]---------------- */
-
-//appellée par un bouton par media sur la page /medias
-Route::get('/medias/delete', 'MediasController@delete')->name('medias/delete');
 
 
 /*
@@ -157,7 +160,9 @@ Route::get('/medias/delete', 'MediasController@delete')->name('medias/delete');
 /* ----------------[ CREATE AND UPDATE MAPPING ]---------------- */
 
 
-// dans modif board.js : if (document.URL.includes('pages/edit')) {
+//pb :  dans modif board.js : if (document.URL.includes('pages/edit')) 
+//pb : No link to it. 
+
  Route::get('/pages/edit', function () {
      return view('modifBoard');
  })->name('modifBoard');

@@ -74,17 +74,14 @@ class MediasController extends Controller
     {
     }
     
-    // Viens de media/delete
-    public function delete()
-    {
-        $id = $_GET['id'];
-        $path= $_GET['path'];
-      
+//     // Viens de media/delete
+//     public function delete($id, $path)
+//     {
+     
+//         DB::table('medias')->where('med_oid', '=', $id)->delete();
 
-        DB::table('medias')->where('med_oid', '=', $id)->delete();
+//         Storage::delete('public/'.$path);
 
-        Storage::delete('public/'.$path);
-
-        return view('medias-delete');
-    }
+//         return view('medias.delete');
+//     }
 }
