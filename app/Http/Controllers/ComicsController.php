@@ -60,6 +60,7 @@ class ComicsController extends Controller
     {
         $comics = DB::table('comics')->where('com_publication', '=', 1)->get();
         $pages = DB::table('pages')->where('pag_number', '=', 1)->get();
+        
         return view('comics.catalog', ['comics' => $comics], ['pages' => $pages]);
     }
 
@@ -84,7 +85,7 @@ class ComicsController extends Controller
     public function fetchUniqueBD($id)
     {
         $comics = DB::table('comics')->where('com_oid', '=', $id)->get();
-        return view('update-bd', ['comic' => $comics [0]]);
+        return view('comics.update', ['comic' => $comics [0]]);
     }
 
     // Supprime les miniatures de la DB et du Storage

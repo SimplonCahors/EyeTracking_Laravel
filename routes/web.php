@@ -23,10 +23,9 @@ Route::get('/', 'HomeController@last')->name('home');
 
 Route::get('/showPage/{idBD}/{idPage}', 'PageController@show');
 
-// De Elisa: Semble inutile mais si laravel veut un /home : 
+//From Elisa : seems useless, but if laravel wants a /home : 
 //  Route::redirect('/home', '/');
 
-Route::get('/catalog', 'ComicsController@show')->name('catalog');
 
 // page legalmentions | mentions légales
 Route::get('/legalmentions', function () {
@@ -44,20 +43,21 @@ Route::get('/legalmentions', function () {
 
 // FROM BACK : This is the form, and on submit the ::post is called
 Route::get('/comics/create', function () {
-    return view('ajouter-bd');
-})->name('ajouter-bd');
+    return view('comics.create');
+})->name('comics_create');
 
-Route::post('/comics/create', 'ComicsController@add');
+Route::post('/comics/create', 'ComicsController@add')->name('comics_create_post');
 
 
 /* ----------------[ READ COMICS ]---------------- */
-// not done
+
+Route::get('/comics/read', 'ComicsController@show')->name('catalog');
 
 
 /* ----------------[ UPDATE COMICS ]---------------- */
 
 // FROM BACK : there's some html and css not reaching routes with parameters.
-Route::get('/comics/update/{id}', 'ComicsController@fetchUniqueBD')->name('update-bd/');
+Route::get('/comics/update/{id}', 'ComicsController@fetchUniqueBD')->name('comics_update');
 
 Route::post('/comics/update/{id}', 'ComicsController@update');
 
