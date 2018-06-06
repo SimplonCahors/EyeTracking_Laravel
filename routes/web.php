@@ -71,6 +71,10 @@ Route::post('/comics/update/{id}', 'ComicsController@update');
 Route::get('/comics/delete/{id}', 'ComicsController@delete')->name('comic_delete');
 
 
+
+
+
+
 /*
 |--------------------------------------------------------------------------
 | PAGES
@@ -80,8 +84,10 @@ Route::get('/comics/delete/{id}', 'ComicsController@delete')->name('comic_delete
 /* ----------------[ CREATE PAGES ]---------------- */
 
 // Ajouter page depuis idBD (clé étrangère fk_com_oid de 'pages')
+
+// No link to this page. 
 Route::get('/pages/create/{idBD}', function ($idBD) {
-    return view('addPage', ['idBD' => $idBD]);
+    return view('boards.create', ['idBD' => $idBD]);
 }) -> name('addPage');
 
 Route::post('/pages/create/{idBD}', 'PageController@create');
@@ -91,16 +97,15 @@ Route::post('/pages/create/{idBD}', 'PageController@create');
 
 // FROM FRONT : this route is used to show the sample board
 // Remove this line and board.blade.php
-Route::get('/pages/read/{idBD}/{idPage}', function () {
-    return view('board');
-})->name('board');
+Route::get('/pages/read/{idBD}/{idPage}', 'PageController@show')->name('board');
 
 // FROM BACK : Afficher page depuis idBD >> idPage (pag_number de 'pages')
 Route::post('/pages/read/{idBD}/{idPage}', function ($idBD, $idPage) {
     return view('showPage', ['idBD' => $idBD], ['idPage' => $idPage]);
 }) -> name('showPage');
 
-Route::get('/pages/read/{idBD}/{idPage}', 'PageController@show');
+//affiche vrai image
+// Route::get('/pages/read/{idBD}/{idPage}', 'PageController@show');
 
 /* ----------------[ UPDATE PAGES ]---------------- */
 // not done
