@@ -21,8 +21,6 @@ Auth::routes();
 // page accueil | accès aux 3 dernières bd publiées
 Route::get('/', 'HomeController@last')->name('home');
 
-Route::get('/showPage/{idBD}/{idPage}', 'PageController@show');
-
 //From Elisa : seems useless, but if laravel wants a /home : 
 //  Route::redirect('/home', '/');
 
@@ -72,40 +70,35 @@ Route::get('/comics/delete/{id}', 'ComicsController@delete')->name('comic_delete
 
 
 
-
-
-
 /*
 |--------------------------------------------------------------------------
-| PAGES
+| BOARD
 |--------------------------------------------------------------------------
 */
 
-/* ----------------[ CREATE PAGES ]---------------- */
+/* ----------------[ CREATE BOARD ]---------------- */
 
 // Ajouter page depuis idBD (clé étrangère fk_com_oid de 'pages')
 
 // No link to this page. 
-Route::get('/pages/create/{idBD}', function ($idBD) {
+Route::get('/board/create/{idBD}', function ($idBD) {
     return view('boards.create', ['idBD' => $idBD]);
 }) -> name('addPage');
 
-Route::post('/pages/create/{idBD}', 'PageController@create');
+Route::post('/board/create/{idBD}', 'PageController@create');
 
 
 /* ----------------[ READ PAGES ]---------------- */
 
-// FROM FRONT : this route is used to show the sample board
-// Remove this line and board.blade.php
-Route::get('/pages/read/{idBD}/{idPage}', 'PageController@show')->name('board');
+
+Route::get('/board/read/{idBD}/{idPage}', 'PageController@show')->name('board');
 
 // FROM BACK : Afficher page depuis idBD >> idPage (pag_number de 'pages')
-Route::post('/pages/read/{idBD}/{idPage}', function ($idBD, $idPage) {
-    return view('showPage', ['idBD' => $idBD], ['idPage' => $idPage]);
-}) -> name('showPage');
+Route::post('/board/read/{idBD}/{idPage}', function ($idBD, $idPage) {
+    return view('boards.read', ['idBD' => $idBD], ['idPage' => $idPage]);
+}) -> name('board_read');
 
-//affiche vrai image
-// Route::get('/pages/read/{idBD}/{idPage}', 'PageController@show');
+
 
 /* ----------------[ UPDATE PAGES ]---------------- */
 // not done
@@ -162,6 +155,8 @@ Route::get('/medias/delete', 'MediasController@delete')->name('medias/delete');
 
 /* ----------------[ CREATE AND UPDATE MAPPING ]---------------- */
 
+
+// dans modif board.js : if (document.URL.includes('pages/edit')) {
  Route::get('/pages/edit', function () {
      return view('modifBoard');
  })->name('modifBoard');
