@@ -7,8 +7,8 @@
     <title>Affichage page</title>
 </head>
     <body>
-        <!-- $page récupérée depuis PageController -->
-        <!-- si problème, tenter un php artisan storage:link dans le terminal -->
+        <!-- $ page retrieved from PageController -->
+        <!-- if problem, try a php artisan storage: link in the terminal -->
         @foreach($pages as $page)
         <img src="{{ $page->pag_image }}">
         @endforeach

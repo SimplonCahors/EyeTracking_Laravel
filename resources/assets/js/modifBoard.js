@@ -1,4 +1,4 @@
-// Déclaration des variables
+// Variable declaration
 if (document.URL.includes('pages/edit')) {
   var btnCreateZone = document.getElementById("buttonCreateZone");
   var btnModifZone = document.getElementById("buttonModifZone");
@@ -13,7 +13,7 @@ if (document.URL.includes('pages/edit')) {
     var idLocal = localStorage.getItem('idLocal');
   }
 
-  // Affichage du localstorage
+  // localstorage display
   for(var i = 1; i < idLocal+1; i++){
     var zone = document.createElement("canvas");
             zone.setAttribute("id", "myCanvas"+i);
@@ -29,7 +29,7 @@ if (document.URL.includes('pages/edit')) {
             section.appendChild(zone);
   }
 
-// Lors du clic sur le pages/editbouton "Créer une zone"
+// When clicking on the pages / editbouton "Créer une zone"
   var createZone = btnCreateZone.addEventListener("click", function opacity() {
     if (this.click) {
       section.style.cursor = "crosshair";
@@ -39,7 +39,7 @@ if (document.URL.includes('pages/edit')) {
       bool = true;
       console.log(bool);
       if (document.URL.includes('pages/edit') || (document.URL.includes('mapping'))) {
-        // Si le bouton à été cliqué
+        // If the button was clicked
         if (bool) {
           var xa = 0;
           var ya = 0;
@@ -47,20 +47,20 @@ if (document.URL.includes('pages/edit')) {
             event.preventDefault();
             xa = event.layerX;
             ya = event.layerY;
-            // Si le bouton à été cliqué
+            // If the button was clicked
             if (bool) {
               section.addEventListener('mousemove', draw_update);
               bool = false;
             }
           }
-          // Fonction qui appelle la création de la zone
+          // Function that calls the creation of the zone
           function draw_update(e) {
             var xb = e.layerX;
             var yb = e.layerY;
             creation(xa, ya, xb, yb);
           }
 
-          // Remove des EventListener pour 
+          // Removing EventListener 
           function remove(event) {
             section.removeEventListener('mousemove', draw_update);
             section.removeEventListener('mousedown', ajout);
@@ -89,7 +89,7 @@ if (document.URL.includes('pages/edit')) {
           section.addEventListener('mousedown', ajout);
           section.addEventListener('mouseup', remove);
 
-          // Fonction de création de la zone
+          // Zone creation function
           function creation(xA, yA, xB, yB) {
             var old = document.getElementById('myCanvas');
 
@@ -109,7 +109,6 @@ if (document.URL.includes('pages/edit')) {
             else if (xA > xB && yA > yB) {
               canvas.style.left = xB + "px";
               canvas.style.top = yB + "px";
-
             }
             else if (xA > xB && yA < yB) {
               canvas.style.left = xB + "px";
@@ -122,12 +121,12 @@ if (document.URL.includes('pages/edit')) {
 
             canvas.style.backgroundColor = "rgba(255,0,0,0.4)";
             canvas.style.border = "2px solid rgba(255,0,0,1)";
-            // On enlève l'ancienne zone 
+            // We remove the old area
             if (old) {
               section.removeChild(old);
             }
 
-            // On append la zone dans l'image
+            // We append the zone in the image
             section.appendChild(canvas);
           };
         }
@@ -137,7 +136,7 @@ if (document.URL.includes('pages/edit')) {
     }
   });
 
-  // Lors du clic sur le bouton "Modifier une zone"
+  // When clicking on the "Modifier une zone" button
   var modifZone = btnModifZone.addEventListener("click", function opacity() {
     if (this.click) {
       section.style.cursor = "initial";

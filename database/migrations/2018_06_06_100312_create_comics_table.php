@@ -14,14 +14,14 @@ class CreateComicsTable extends Migration
     public function up()
     {
         Schema::create('comics', function (Blueprint $table) {
-            $table->increments('comic_id');
-            $table->timestamps();
+            $table->increments('comics_id');
             $table->string('comic_title', 100);
             $table->string('comic_author', 100);
             $table->string('comic_publisher', 100);
             $table->string('comic_miniature_url', 100);
-            $table->unsignedInteger('fk_user_id');
             $table->boolean('comic_publication');
+            $table->unsignedInteger('fk_user_id');
+            $table->timestamps();
         });
     }
 

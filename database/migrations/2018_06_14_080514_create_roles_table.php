@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAreasTable extends Migration
+class CreateRolesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CreateAreasTable extends Migration
      */
     public function up()
     {
-        Schema::create('areas', function (Blueprint $table) {
-            $table->increments('area_id');
+        Schema::create('roles', function (Blueprint $table) {
+            $table->increments('roles_id');
+            $table->string('roles_rolename');
             $table->timestamps();
-            $table->string('area_coord', 100);
-            $table->integer('area_trigger');
-            $table->unsignedInteger('fk_board_id');
         });
     }
 
@@ -29,6 +27,6 @@ class CreateAreasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('areas');
+        Schema::dropIfExists('roles');
     }
 }

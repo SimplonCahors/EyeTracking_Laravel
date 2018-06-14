@@ -9,7 +9,7 @@
     <h2 class="center_margin">Reprendre la lecture</h2>
     <section class="containers_catalog">
 
-        <!-- REQUÊTE POUR AFFICHER LES BD DÉJÀ LUES CLASSÉES PAR ORDRE CROISSANT -->
+        <!-- REQUEST TO DISPLAY THE ALREADY READED COMICS ORGANISED BY ASCENDING ORDER -->
         @foreach ($comics as $comic)
             <article class="comics_catalog">
 
@@ -24,7 +24,7 @@
                     </ul>
                     <div class="read_edit_catalog">
 
-                    <!-- ICI LE IF POUR L'ADMIN + BOUTON MODIFIER -->
+                    <!-- HERE THE IF FOR ADMIN + MODIFY BUTTON -->
                         <a  href="{{ route ('update-bd/', $comic->com_oid ) }} "  id="button_edit_catalog"><button class="buttons">Modifier</button></a>
                         <a><button class="buttons">Lire</button></a>
                     </div>
@@ -50,7 +50,7 @@
                         </ul>
                         <div class="read_edit_catalog">
 
-                        <!-- ICI LE IF POUR L'ADMIN + BOUTON MODIFIER -->
+                        <!-- HERE THE IF FOR ADMIN + MODIFY BUTTON -->
                             <a><button class="buttons" id="button_edit_catalog">Modifier</button></a>
                             <a><button class="buttons">Lire</button></a>
                         </div>
