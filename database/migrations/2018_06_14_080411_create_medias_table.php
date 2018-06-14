@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePagesTable extends Migration
+class CreateMediaTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,12 @@ class CreatePagesTable extends Migration
      */
     public function up()
     {
-        Schema::create('boards', function (Blueprint $table) {
-            $table->increments('boards_id');
-            $table->string('boards_image');
-            $table->string('boards_number');
-            $table->unsignedInteger('fk_comics');
+        Schema::create('medias', function (Blueprint $table) {
+            $table->increments('media_id');
+            $table->string('media_type');
+            $table->string('media_filename');
+            $table->string('media_path');
+            $table->unsignedInteger('fk_area');
             $table->timestamps();
         });
     }
@@ -29,6 +30,6 @@ class CreatePagesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pages');
+        Schema::dropIfExists('medias');
     }
 }
