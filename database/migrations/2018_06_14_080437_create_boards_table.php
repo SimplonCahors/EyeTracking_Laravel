@@ -17,7 +17,7 @@ class CreateBoardsTable extends Migration
             $table->increments('board_id');
             $table->string('board_image');
             $table->string('board_number');
-            $table->unsignedInteger('fk_comic');
+            $table->unsignedInteger('fk_comic_id');
             $table->timestamps();
         });
     }
