@@ -11,6 +11,7 @@
 |
 */
 
+// login
 Auth::routes();
 
 /*
@@ -20,11 +21,11 @@ Auth::routes();
 */
 
 Route::get('/showPage/{idBD}/{idPage}', 'PageController@show');
+
 // page accueil | accès aux 3 dernières bd publiées
 Route::get('/', 'WelcomeController@last');
 
 // page connexion |
-// de Charlotte : si on pouvait renommer le chemin en "login" ce serait mieux ainsi que le controller
 Route::get('/home', 'HomeController@index')->name('home');
 
 // page catalogue | Le controller show renvoie à la vue welcome.
@@ -50,7 +51,8 @@ Route::get('/comics/create', function () {
     return view('ajouter-bd');
 })->name('ajouter-bd');
 
-Route::post('/comics/create', 'ComicsController@add');
+// [!!] Old Route::post('/comics/create', 'ComicsController@add');
+Route::post('/comics/create', 'ComicsController@create');
 
 
 /* ----------------[ READ COMICS ]---------------- */
@@ -71,7 +73,8 @@ Route::post('/comics/update/{id}', 'ComicsController@update');
 // /!\ Doesn't work if you have pages in your DB that are linked to it
 
 
-Route::get('/comics/delete/{id}', 'ComicsController@delete')->name('delete-bd/');
+Route::get('/comics/delete/{id}', 'ComicsController@destroy')->name('delete-bd/');
+// Route::get('/comics/delete/{id}', 'ComicsController@delete')->name('delete-bd/');
 
 
 /*
