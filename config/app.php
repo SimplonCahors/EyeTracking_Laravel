@@ -65,8 +65,8 @@ return [
     |
     */
 
-    // CEST = Central European Summer Time
-    'timezone' => 'CEST',
+    // CEST = Central European Time
+    'timezone' => 'CET',
     // 'timezone' => 'UTC',
 
     /*
