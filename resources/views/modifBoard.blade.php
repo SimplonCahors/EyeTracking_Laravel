@@ -38,7 +38,7 @@ Home
 
 
 
-                            <!-- si le fichier n'est pas conforme/ne passe pas les validations -->
+                            <!-- if file does not comply / do not pass validations -->
                             @if ($errors->any())
                             <div class="alert alert-danger">
                                 <ul>
@@ -49,7 +49,7 @@ Home
                             </div>
                             @endif
 
-                            <!-- si l'envoi dans la db est réusssi. les deux $result possibles sont modifiables dans mediascontroller ligne 45 & 50 --> 
+                            <!-- if the sending in the db is successful. the two possible $ results are modifiable in mediascontroller line 45 & 50 --> 
                             @csrf
                             <select name="dataType" required>
                                 <option value="img">Image</option> 

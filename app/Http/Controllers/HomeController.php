@@ -2,35 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
-| Controller pour la CONNEXION | Qestion de Charlotte : est-il aussi pour l'inscription ?
+| "Acceuil" page controller
+  Show 3 last comics
 |--------------------------------------------------------------------------
 */
-// de Charlotte : si on pouvait la renommer en class "loginController" ce serait mieux | et renommer pareil le fichier controller.php
-class HomeController extends Controller
+
+
+class HomeController extends ComicsController
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
+    //permet d'avoir accès aux 3 dernières bd publiées
+    public function last()
     {
-        $this->middleware('auth');
-    }
-
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
-
-    // de Charlotte : à quoi correspond le nom 'index' ? ne vaut-il pas mieux login ou register ?
-    public function index()
-    {
-        return view('welcome');
+        $comics = DB::table('comics')->where('comic_publication', '=', 1)->get();
+        return view('others.home', ['comics' => $comics]);
     }
 }

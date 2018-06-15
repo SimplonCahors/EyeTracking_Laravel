@@ -6,8 +6,17 @@ Catalogue
 
 @section('content')
 
-<!-- PARTIE ALERTE DE CONFIRMATION SUPPR ET AJOUT BD -->
+<!-- CREATING A CONFIRMATION ALERT ADDING AND DELETING COMIC -->
 @if ($message = Session::get('add'))
+<div class="alert alert-success alert-dismissible" role="alert">
+  {{ $message }}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+</button>
+</div>
+@endif
+
+@if ($message = Session::get('update'))
 <div class="alert alert-success alert-dismissible" role="alert">
   {{ $message }}
   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -28,26 +37,30 @@ Catalogue
 
 
 <section class="containers_catalog">
-    <!-- ICI LE IF POUR L'ADMIN + BOUTON AJOUTER -->
-    <a id="ajouter_catalog" href="{{route('ajouter-bd')}}"><i class="material-icons catalogue">add_circle_outline</i></a>
+
+    <!-- HERE THE IF FOR ADMIN + ADD BUTTON -->
+    <a id="ajouter_catalog" href="{{route('comics_create')}}"><i class="material-icons catalogue">add_circle_outline</i></a>
 
 
 
-    <!-- REQUÊTE POUR AFFICHER LES BD DÉJÀ LUES CLASSÉES PAR ORDRE CROISSANT -->
+
+    <!-- REQUEST TO DISPLAY ALREADY READED COMICS ORGANISED BY ASCENDING ORDER -->
 
     @foreach ($comics as $comic)
     <article class="comics_catalog">
         <img class="img_catalog" src="/bd.jpg" alt="cover">
         <div class="infos_catalog">
             <ul>
-                <li>{{$comic->com_title}}</li>
-                <li>{{$comic->com_author}}</li>
-                <li>{{$comic->com_publisher}}</li>
-                <li>{{$comic->com_timestamp}}</li>
+                <li>{{$comic->comic_title}}</li>
+                <li>{{$comic->comic_author}}</li>
+                <li>{{$comic->comic_publisher}}</li>
+                <li>{{$comic->created_at}}</li>
             </ul>
             <div class="read_edit_catalog">
-                <!-- ICI LE IF POUR L'ADMIN + BOUTON MODIFIER -->
-                <a href="{{route('update-bd/',[$comic->com_oid])}}"><button class="buttons" id="button_edit_catalog">Modifier</button></a>
+
+                <!-- HERE THE IF FOR ADMIN + MODIFY BUTTON -->
+                <a href="{{route('comics_update',[$comic->comic_id])}}"><button class="buttons" id="button_edit_catalog">Modifier</button></a>
+
 
                 <a><button class="buttons">Lire</button></a>
             </div>

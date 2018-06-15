@@ -14,21 +14,22 @@
 
             <div id="delete-group">
                 <h4 id="delete-bd-title">Supprimer la BD</h4>
-                <a id="delete-bd-icon" href="{{route('delete-bd/',[$comic->com_oid])}}"><i class="material-icons catalogue">delete_forever</i></a>
+                <a id="delete-bd-icon" href="{{route('comic_delete',[$comic->comic_id])}}"><i class="material-icons catalogue">delete_forever</i></a>
             </div>
 
             <h4>Modifier les informations de la BD</h4>
 
             <label for="titre">Titre de la BD</label>
-            <input type="text" id="titre" name="titre" value="{{$comic->com_title}}"/>
+            <input type="text" id="titre" name="titre" value="{{$comic->comic_title}}"/>
         
             <label for="editeur"> Nom de l'éditeur</label>
-            <input type="text" id="editeur" name="editeur" value="{{$comic->com_publisher}}"/>
+            <input type="text" id="editeur" name="editeur" value="{{$comic->comic_publisher}}"/>
             
             <label for="auteur">Nom de l'auteur</label>
-            <input type="text" id="auteur" name="auteur" value="{{$comic->com_author}}"/>
+            <input type="text" id="auteur" name="auteur" value="{{$comic->comic_author}}"/>
 
             <label for="miniature">Miniature :</label>
+            <p> Miniature enregistrée : {{$comic->comic_miniature_url}} </p>
             <input type="file" id="miniature" name="miniature" />
 
             <input type="submit" />
