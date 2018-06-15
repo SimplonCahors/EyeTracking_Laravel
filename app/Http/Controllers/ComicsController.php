@@ -58,9 +58,9 @@ class ComicsController extends Controller
     // si on pouvait la renommer en function "index" ce serait mieux
     public function show()
     {
-        $comics = Comics::all()->where('com_publication',1);
+        $comics = Comics::all()->where('comic_publication',1);
 
-        // $comics = DB::table('comics')->where('com_publication', '=', 1)->get();
+        // $comics = DB::table('comics')->where('comic_publication', '=', 1)->get();
         // $pages = DB::table('pages')->where('pag_number', '=', 1)->get();
 
         return view('catalogue', ['comics' => $comics]);
@@ -76,7 +76,7 @@ class ComicsController extends Controller
         // $miniature = $request->input('miniature');
         // $publication = $request->input('radio');
 
-        DB::table('comics')->where('com_oid', '=', $id)->update(['com_title' => $titre, 'com_author' => $auteur, 'com_publisher' => $editeur, 'com_miniature_url' => $miniature, 'com_publication' => $publication]);
+        DB::table('comics')->where('com_oid', '=', $id)->update(['com_title' => $titre, 'com_author' => $auteur, 'com_publisher' => $editeur, 'com_miniature_url' => $miniature, 'comic_publication' => $publication]);
 
 
         echo 'la modif à bien été faite';

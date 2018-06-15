@@ -17,7 +17,7 @@ class WelcomeController extends ComicsController
     //permet d'avoir accès aux 3 dernières bd publiées
     public function last()
     {
-        $comics = DB::table('comics')->where('com_publication', '=', 1)->get();
+        $comics = DB::table('comics')->where('comic_publication', '=', 1)->get();
         return view('welcome', ['comics' => $comics]);
     }
 }
