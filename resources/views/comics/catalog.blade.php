@@ -28,8 +28,10 @@ Catalogue
 
 
 <section class="containers_catalog">
+
     <!-- HERE THE IF FOR ADMIN + ADD BUTTON -->
-    <a id="ajouter_catalog" href="{{route('ajouter-bd')}}"><i class="material-icons catalogue">add_circle_outline</i></a>
+    <a id="ajouter_catalog" href="{{route('comics_create')}}"><i class="material-icons catalogue">add_circle_outline</i></a>
+
 
 
 
@@ -43,11 +45,13 @@ Catalogue
                 <li>{{$comic->comic_title}}</li>
                 <li>{{$comic->comic_author}}</li>
                 <li>{{$comic->comic_publisher}}</li>
-                <li>{{$comic->comic_timestamp}}</li>
+                <li>{{$comic->created_at}}</li>
             </ul>
             <div class="read_edit_catalog">
+
                 <!-- HERE THE IF FOR ADMIN + MODIFY BUTTON -->
-                <a href="{{route('update-bd/',[$comic->comic_oid])}}"><button class="buttons" id="button_edit_catalog">Modifier</button></a>
+                <a href="{{route('comics_update',[$comic->comic_id])}}"><button class="buttons" id="button_edit_catalog">Modifier</button></a>
+
 
                 <a><button class="buttons">Lire</button></a>
             </div>

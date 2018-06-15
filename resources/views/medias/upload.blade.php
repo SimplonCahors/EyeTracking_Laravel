@@ -27,7 +27,7 @@
   <div class="row">
     <div class="col-sm">   
              <div class="cadre">
-         <form method="post" action="/upload/save" enctype="multipart/form-data" >
+         <form method="post" action="{{ route('medias_upload') }} " enctype="multipart/form-data" >
 @csrf
 
   <select name="dataType">
@@ -40,7 +40,7 @@
 
         <input type="submit"/>
 
-            <a href="/medias">Retour à la page Medias</a>
+            <a href="{{ route('medias') }}">Retour à la page Medias</a>
 
         </form>  
 

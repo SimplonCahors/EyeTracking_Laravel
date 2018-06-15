@@ -26,7 +26,7 @@ class ComicsController extends Controller
     {
         $comics = Comics::all()->where('comic_publication',1);
 
-        return view('catalogue', ['comics' => $comics]);
+        return view('comics.catalog', ['comics' => $comics]);
     }
 
     /**
@@ -67,6 +67,7 @@ class ComicsController extends Controller
             die;
 
         }
+
     }
 
     /**
@@ -88,18 +89,7 @@ class ComicsController extends Controller
      */
     public function show()
     {
-        
-    }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
     }
 
     /**
@@ -128,8 +118,9 @@ class ComicsController extends Controller
     // Récupère une Bande-Dessinée unique necéssaire pour le update
     public function fetchUniqueBD($id)
     {
-        $comics = DB::table('comics')->where('comic_oid', '=', $id)->get();
-        return view('update-bd', ['comic' => $comics [0]]);
+        $comics = DB::table('comics')->where('comic_id', '=', $id)->get();
+        return view('comics.update', ['comic' => $comics [0]]);
+
     }
 
     /**
@@ -147,6 +138,9 @@ class ComicsController extends Controller
 
         Storage::delete('public/ storage/images/pages');
 
-        return redirect()->route('catalogue')->with('delete','BD supprimée');
+
+        return redirect()->route('catalog')->with('delete','BD supprimée');
+        
+
     }
 }
