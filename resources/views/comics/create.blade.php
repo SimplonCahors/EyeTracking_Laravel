@@ -7,7 +7,7 @@
 @section('content')
     <div class="container modify">
 
-        <form method="POST" enctype="multipart/form-data"  >
+        <form method="POST" enctype="multipart/form-data" action="{{ action('ComicsController@store') }}" >
             @csrf
             <h4>Ajouter les informations de la BD</h4>
             @csrf

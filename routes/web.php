@@ -28,21 +28,19 @@ Route::get('/legalmentions', function () {
 */
 /* ----------------[ CREATE COMICS ]---------------- */
 // FROM BACK : This is the form, and on submit the ::post is called
-Route::get('/comics/create', function () {
-    return view('comics.create');
-})->name('comics_create');
-Route::post('/comics/create', 'ComicsController@add')->name('comics_create');
+Route::get('/comics/create', 'ComicsController@create')->name('comics_create');
+Route::post('/comics/store', 'ComicsController@store');
 /* ----------------[ READ COMICS ]---------------- */
 Route::get('/comics/read', 'ComicsController@index')->name('catalog');
 /* ----------------[ UPDATE COMICS ]---------------- */
 // FROM BACK : there's some html and css not reaching routes with parameters.
-Route::get('/comics/update/{id}', 'ComicsController@fetchUniqueBD')->name('comics_update');
+Route::get('/comics/update/{id}', 'ComicsController@edit')->name('comics_update');
 Route::post('/comics/update/{id}', 'ComicsController@update');
 /* ----------------[ DELETE COMICS ]---------------- */
 // FROM BACK : right now it's an input that then pass the comics' id  in $GET.
 // /!\ Doesn't work if you have pages in your DB that are linked to it
 // pas de confirmation/!\
-Route::get('/comics/delete/{id}', 'ComicsController@delete')->name('comic_delete');
+Route::get('/comics/delete/{id}', 'ComicsController@destroy')->name('comic_delete');
 /*
 |--------------------------------------------------------------------------
 | BOARD
