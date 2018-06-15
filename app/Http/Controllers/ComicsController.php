@@ -10,19 +10,34 @@ use App\Boards;
 
 /*
 |--------------------------------------------------------------------------
-| Controller pour les MINIATURES des BD
+| Controller pour les COMICS
 |--------------------------------------------------------------------------
 */
 
-// de Charlotte : si on pouvait la renommer en class "thumbnailController" ce serait mieux | et renommer pareil le fichier controller.php
+
 class ComicsController extends Controller
 {
-
-    
-    // si on pouvait la renommer en function "create" ce serait mieux
-    public function add(Request $request)
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
     {
-        
+        $comics = Comics::all()->where('comic_publication',1);
+
+        return view('catalogue', ['comics' => $comics]);
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+
+    // [!!] OLD public function "add"(Request $request)
+    public function create(Request $request)
+    {
         //store dans le dossier public, le fichier 'miniature'
         $originalName = $request->file('miniature')->getClientOriginalName();
         $pathstart = $request->file('miniature')->storeAs('public', $originalName);
@@ -31,15 +46,16 @@ class ComicsController extends Controller
         $path = substr($pathstart, 7);
         
         $comics = new Comics;
-        $comics-> com_title = request('titre');
-        $comics-> com_author = request('auteur');
-        $comics-> com_publisher = request('editeur');
+        $comics-> comic_title = request('titre');
+        $comics-> comic_author = request('auteur');
+        $comics-> comic_publisher = request('editeur');
+        $comics-> comic_miniature_url = request('miniature');
 
-        $verif_comic = Comics::all()->where('com_title',$comics-> com_title)
-                                    ->where('com_author',$comics-> com_author)
-                                    ->where('com_publisher',$comics-> com_publisher);
+        $verif_comic = Comics::all()->where('comic_title',$comics-> comic_title)
+                                    ->where('comic_author',$comics-> comic_author)
+                                    ->where('comic_publisher',$comics-> comic_publisher);
         
-        if(!$verif_comic)
+        if($verif_comic)
         {
             $comics->save();
             return redirect()->route('catalogue')->with('add','BD ajoutée');
@@ -51,22 +67,48 @@ class ComicsController extends Controller
             die;
 
         }
+    }
 
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        //
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show()
+    {
         
     }
 
-    // si on pouvait la renommer en function "index" ce serait mieux
-    public function show()
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
     {
-        $comics = Comics::all()->where('comic_publication',1);
-
-        // $comics = DB::table('comics')->where('comic_publication', '=', 1)->get();
-        // $pages = DB::table('pages')->where('pag_number', '=', 1)->get();
-
-        return view('catalogue', ['comics' => $comics]);
+        //
     }
 
-    // Modifie les miniatures de la DB et du Storage
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
     public function update($id, Request $request)
     {
         $comics = 
@@ -76,33 +118,35 @@ class ComicsController extends Controller
         // $miniature = $request->input('miniature');
         // $publication = $request->input('radio');
 
-        DB::table('comics')->where('com_oid', '=', $id)->update(['com_title' => $titre, 'com_author' => $auteur, 'com_publisher' => $editeur, 'com_miniature_url' => $miniature, 'comic_publication' => $publication]);
+        DB::table('comics')->where('comic_oid', '=', $id)->update(['comic_title' => $titre, 'comic_author' => $auteur, 'comic_publisher' => $editeur, 'comic_miniature_url' => $miniature, 'comic_publication' => $publication]);
 
 
         echo 'la modif à bien été faite';
         header('refresh: 3; url = '.$id);
     }
 
-    // Récupère une Bande-Dessinée unique
-    // necéssaire pour le update
+    // Récupère une Bande-Dessinée unique necéssaire pour le update
     public function fetchUniqueBD($id)
     {
-        $comics = DB::table('comics')->where('com_oid', '=', $id)->get();
+        $comics = DB::table('comics')->where('comic_oid', '=', $id)->get();
         return view('update-bd', ['comic' => $comics [0]]);
     }
 
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    
     // Supprime les miniatures de la DB et du Storage
-    public function delete(Request $request,$id)
+    public function destroy(Request $request, $id)
     {
-
-        DB::table('pages')->where('fk_com_oid','=',$id)->delete();
-        DB::table('comics')->where('com_oid', '=', $id)->delete();
+        DB::table('pages')->where('fk_comic_oid','=',$id)->delete();
+        DB::table('comics')->where('comic_oid', '=', $id)->delete();
 
         Storage::delete('public/ storage/images/pages');
 
-
-
         return redirect()->route('catalogue')->with('delete','BD supprimée');
-        
     }
 }

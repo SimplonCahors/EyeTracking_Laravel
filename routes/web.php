@@ -30,7 +30,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 // page catalogue | Le controller show renvoie à la vue welcome.
 // donc cette vue/ le controller est à modifier
-Route::get('/catalogue', 'ComicsController@show')->name('catalogue');
+Route::get('/catalogue', 'ComicsController@index')->name('catalogue');
 
 // page legalmentions | mentions légales
 Route::get('/legalmentions', function () {

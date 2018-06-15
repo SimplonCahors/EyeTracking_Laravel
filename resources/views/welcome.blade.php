@@ -17,15 +17,15 @@
 
                 <div class="infos_catalog">
                     <ul>
-                        <li>{{$comic->com_title}}</li>
-                        <li>{{$comic->com_author}}</li>
-                        <li>{{$comic->com_publisher}}</li>
-                        <li>{{$comic->com_timestamp}}</li>
+                        <li>{{$comic->comic_title}}</li>
+                        <li>{{$comic->comic_author}}</li>
+                        <li>{{$comic->comic_publisher}}</li>
+                        <li>{{$comic->created_at}}</li>
                     </ul>
                     <div class="read_edit_catalog">
 
                     <!-- HERE THE IF FOR ADMIN + MODIFY BUTTON -->
-                        <a  href="{{ route ('update-bd/', $comic->com_oid ) }} "  id="button_edit_catalog"><button class="buttons">Modifier</button></a>
+                        <a  href="{{ route ('update-bd/', $comic->comic_id ) }} "  id="button_edit_catalog"><button class="buttons">Modifier</button></a>
                         <a><button class="buttons">Lire</button></a>
                     </div>
                 </div>
@@ -43,10 +43,10 @@
 
                     <div class="infos_catalog">
                         <ul>
-                            <li>{{$comic->com_title}}</li>
-                            <li>{{$comic->com_author}}</li>
-                            <li>{{$comic->com_publisher}}</li>
-                            <li>{{$comic->com_timestamp}}</li>
+                            <li>{{$comic->comic_title}}</li>
+                            <li>{{$comic->comic_author}}</li>
+                            <li>{{$comic->comic_publisher}}</li>
+                            <li>{{$comic->created_at}}</li>
                         </ul>
                         <div class="read_edit_catalog">
 
