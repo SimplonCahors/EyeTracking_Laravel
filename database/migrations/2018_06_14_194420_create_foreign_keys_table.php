@@ -14,7 +14,7 @@ class CreateForeignKeysTable extends Migration
     public function up()
     {
         Schema::table('comics', function (Blueprint $table) {
-            $table->foreign('fk_user_id')->references('user_id')->on('users');
+            $table->foreign('fk_user_id')->references('id')->on('users');
         });
 
         Schema::table('areas', function (Blueprint $table) {
@@ -31,7 +31,7 @@ class CreateForeignKeysTable extends Migration
 
         Schema::table('user_roles', function (Blueprint $table) {
             $table->foreign('fk_role_id')->references('role_id')->on('roles');
-            $table->foreign('fk_user_id')->references('user_id')->on('users');
+            $table->foreign('fk_user_id')->references('id')->on('users');
         });
     }
 }
