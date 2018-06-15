@@ -21,7 +21,7 @@
         </div>
         <button type="button" class="btn btn-outline-secondary" id="buttonReturnBoard">Retour</button>
 
-        <!-- Pour la sélection des pages -->
+        <!-- For the selection of pages -->
         <form>
             <select id="pageChoice_board">
                 <option value="" selected>Pages</option>

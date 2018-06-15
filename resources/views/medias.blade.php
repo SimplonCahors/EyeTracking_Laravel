@@ -13,7 +13,7 @@
 	<h2>Liste des Médias</h2>
 	<a href="/medias-upload" id="addMedia" class="btn btn-outline-secondary">Ajouter un média</a>
 
-<!-- manque le foreach pour récupérer chaque média dans la BDD. Une seule <div col-s> sera nécessaire dans le foreach -->
+<!-- missing the foreach to retrieve each media in the DB. Only one <div col-s> will be needed in the foreach -->
 
 	<div class="row justify-content-center">
 
@@ -27,7 +27,7 @@
 		@endif
 
 		@if ($media->med_type == 'video')
-			<!-- peut être besoin de faire en fonction des types de video(attribut type="") -->
+			<!-- may need to do depending on video types (attribute type = "") -->
 			<video width="320" height="240" controls>
 				<source src="storage/{{ $media->med_path }}" >
 				Your browser does not support the video tag.

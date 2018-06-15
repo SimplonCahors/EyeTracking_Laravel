@@ -8,7 +8,7 @@
 
 <section id="medias-upload">
 
-<!-- si le fichier n'est pas conforme/ne passe pas les validations -->
+<!-- if file does not comply / do not pass validations -->
 @if ($errors->any())
     <div class="alert alert-danger">
         <ul>
@@ -19,7 +19,7 @@
     </div>
 @endif
 
-<!-- si l'envoi dans la db est réusssi. les deux $result possibles sont modifiables dans mediascontroller ligne 45 & 50 -->
+<!-- if the sending in the db is successful. the two possible $results are modifiable in mediascontroller at line 45 & 50 -->
 @php if(isset($result)) echo $result;
 @endphp
 

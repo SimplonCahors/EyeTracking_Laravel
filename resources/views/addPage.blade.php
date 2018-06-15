@@ -5,14 +5,14 @@
 @endsection
 @section('content')
 
-<!-- Affichage d'un message d'erreur customisé si inputs non conformes -->
+<!-- Display of a customized error message if non-compliant inputs -->
     @if(session()->has('message'))
         <div class="alert alert-success">
             {{ session()->get('message') }}
         </div>
     @endif
 
-<!-- Affichage des messages d'erreur renvoyés par Laravel -->
+<!-- Displaying error messages returned by Laravel -->
     @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
@@ -23,7 +23,7 @@
         </div>
     @endif
 
-<!-- Formulaire : numéro de page + upload fichier -->
+<!-- Form: page number + file upload -->
     <form method="POST" enctype="multipart/form-data">         
         @csrf
         <input required type="number" min="1" name="numeroPage" placeholder="numero de page">

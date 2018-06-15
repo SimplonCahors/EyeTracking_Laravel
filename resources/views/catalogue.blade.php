@@ -6,7 +6,7 @@ Catalogue
 
 @section('content')
 
-<!-- PARTIE ALERTE DE CONFIRMATION SUPPR ET AJOUT BD -->
+<!-- CREATING A CONFIRMATION ALERT ADDING AND DELETING COMIC -->
 @if ($message = Session::get('add'))
 <div class="alert alert-success alert-dismissible" role="alert">
   {{ $message }}
@@ -28,12 +28,12 @@ Catalogue
 
 
 <section class="containers_catalog">
-    <!-- ICI LE IF POUR L'ADMIN + BOUTON AJOUTER -->
+    <!-- HERE THE IF FOR ADMIN + ADD BUTTON -->
     <a id="ajouter_catalog" href="{{route('ajouter-bd')}}"><i class="material-icons catalogue">add_circle_outline</i></a>
 
 
 
-    <!-- REQUÊTE POUR AFFICHER LES BD DÉJÀ LUES CLASSÉES PAR ORDRE CROISSANT -->
+    <!-- REQUEST TO DISPLAY ALREADY READED COMICS ORGANISED BY ASCENDING ORDER -->
 
     @foreach ($comics as $comic)
     <article class="comics_catalog">
@@ -46,7 +46,7 @@ Catalogue
                 <li>{{$comic->com_timestamp}}</li>
             </ul>
             <div class="read_edit_catalog">
-                <!-- ICI LE IF POUR L'ADMIN + BOUTON MODIFIER -->
+                <!-- HERE THE IF FOR ADMIN + MODIFY BUTTON -->
                 <a href="{{route('update-bd/',[$comic->com_oid])}}"><button class="buttons" id="button_edit_catalog">Modifier</button></a>
 
                 <a><button class="buttons">Lire</button></a>
