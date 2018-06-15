@@ -7,6 +7,7 @@
 //§§§§§§§§§§§§§§§§§§§§§§§§§§§§§
 
 // a été refondu. 
+// Mapping est voué à être remplacé donc pas refacto pour le moment. 
 // Ce qui concerne le mapping concerne en réalité les boards -> à renommer pour board, ou p-ê faire un sous dossier mapping. 
 
 Auth::routes();
@@ -134,11 +135,6 @@ Route::get('/medias/create', function () {
  Route::post('/medias/upload', 'MediasController@create')->name('medias_upload');
 
 
-//§§§§§§§§§§§§§§§§§§§§§§§§§§§§§
-//  REFACTO SEST ARRETE ICI   
-//§§§§§§§§§§§§§§§§§§§§§§§§§§§§§
-
-
 /* ----------------[ DELETE MEDIAS ]---------------- */
 
 //appellée par un bouton par media sur la page /medias
@@ -148,6 +144,11 @@ Route::get('/medias/delete/{id}/{path}', 'MediasController@delete')->name('media
 /* ----------------[ UPDATE MEDIAS ]---------------- */
 // not done
 
+
+
+//§§§§§§§§§§§§§§§§§§§§§§§§§§§§§
+//  REFACTO SEST ARRETE ICI   
+//§§§§§§§§§§§§§§§§§§§§§§§§§§§§§
 
 
 
