@@ -74,7 +74,7 @@ class MediasController extends Controller
     {
     }
     
-//     // Viens de media/delete
+     // Viens de media/delete
     public function delete($id, $path)
     {
      

@@ -6,8 +6,10 @@
 //  REFACTO SEST ARRETE ICI   
 //§§§§§§§§§§§§§§§§§§§§§§§§§§§§§
 
-// a été refondu. 
+// a été refondu.
+ 
 // Mapping est voué à être remplacé donc pas refacto pour le moment. 
+
 // Ce qui concerne le mapping concerne en réalité les boards -> à renommer pour board, ou p-ê faire un sous dossier mapping. 
 
 Auth::routes();
