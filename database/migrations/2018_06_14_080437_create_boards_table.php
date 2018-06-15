@@ -16,7 +16,7 @@ class CreateBoardsTable extends Migration
         Schema::create('boards', function (Blueprint $table) {
             $table->increments('board_id');
             $table->string('board_image');
-            $table->string('board_number');
+            $table->integer('board_number');
             $table->unsignedInteger('fk_comic_id');
             $table->timestamps();
         });
