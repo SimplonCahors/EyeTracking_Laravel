@@ -29,7 +29,7 @@ Catalogue
 
 <section class="containers_catalog">
     <!-- ICI LE IF POUR L'ADMIN + BOUTON AJOUTER -->
-    <a id="ajouter_catalog" href="{{route('ajouter-bd')}}"><i class="material-icons catalogue">add_circle_outline</i></a>
+    <a id="ajouter_catalog" href="{{route('comics_create')}}"><i class="material-icons catalogue">add_circle_outline</i></a>
 
 
 
@@ -47,7 +47,7 @@ Catalogue
             </ul>
             <div class="read_edit_catalog">
                 <!-- ICI LE IF POUR L'ADMIN + BOUTON MODIFIER -->
-                <a href="{{route('update-bd/',[$comic->com_oid])}}"><button class="buttons" id="button_edit_catalog">Modifier</button></a>
+                <a href="{{route('comics_update',[$comic->com_oid])}}"><button class="buttons" id="button_edit_catalog">Modifier</button></a>
 
                 <a><button class="buttons">Lire</button></a>
             </div>

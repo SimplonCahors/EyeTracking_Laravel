@@ -67,24 +67,21 @@ class MediasController extends Controller
     public function read()
     {
         $medias = DB::table('medias')->get();
-        return view('medias', ['medias' => $medias]);
+        return view('medias.read', ['medias' => $medias]);
     }
 
     public function update()
     {
     }
     
-    // Viens de media/delete
-    public function delete()
+     // Viens de media/delete
+    public function delete($id, $path)
     {
-        $id = $_GET['id'];
-        $path= $_GET['path'];
-      
-
+     
         DB::table('medias')->where('med_oid', '=', $id)->delete();
 
         Storage::delete('public/'.$path);
 
-        return view('medias-delete');
+        return view('medias.delete');
     }
 }
