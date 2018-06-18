@@ -123,12 +123,12 @@ class ComicsController extends Controller
             $pathstart = request('miniature')->storeAs('public/miniatures/', $originalName);
             $path = substr($pathstart, 7);
             
-             $comic-> comic_miniature_url = '/storage/miniatures/'.$originalName;
+            $comic-> comic_miniature_url = '/storage/miniatures/'.$originalName;
         }
 
         $comic->save();
 
-         return redirect()->route('comics_index')->with('update','BD mise à jour');
+        return redirect()->route('comics_index')->with('update','BD mise à jour');
     }
 
     

@@ -21,8 +21,8 @@ class CreateForeignKeysTable extends Migration
             $table->foreign('fk_board_id')->references('board_id')->on('boards');
         });
 
-        Schema::table('medias', function (Blueprint $table) {
-            $table->foreign('fk_area_id')->references('area_id')->on('areas');
+        Schema::table('areas', function (Blueprint $table) {
+            $table->foreign('fk_media_id')->references('media_id')->on('medias');
         });
 
         Schema::table('boards', function (Blueprint $table) {

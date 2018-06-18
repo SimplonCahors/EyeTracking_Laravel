@@ -4,7 +4,7 @@
 //  REFACTO SEST ARRETE ICI   
 //§§§§§§§§§§§§§§§§§§§§§§§§§§§§§
 // a été refondu.
- 
+
 // Mapping est voué à être remplacé donc pas refacto pour le moment. 
 // Ce qui concerne le mapping concerne en réalité les boards -> à renommer pour board, ou p-ê faire un sous dossier mapping. 
 Auth::routes();
@@ -19,8 +19,8 @@ Route::get('/', 'HomeController@index')->name('home');
 //  Route::redirect('/home', '/');
 // page legalmentions | mentions légales
 Route::get('/legalmentions', function () {
-    return view('others.legal_mentions');
-  })->name('legalmentions');
+	return view('others.legal_mentions');
+})->name('legalmentions');
 /*
 |--------------------------------------------------------------------------
 | COMICS
@@ -50,14 +50,14 @@ Route::get('/comics/delete/{id}', 'ComicsController@destroy')->name('comic_delet
 // Ajouter page depuis idBD (clé étrangère fk_com_oid de 'pages')
 // No link to this page. 
 Route::get('/board/create/{idBD}', function ($idBD) {
-    return view('boards.create', ['idBD' => $idBD]);
+	return view('boards.create', ['idBD' => $idBD]);
 }) -> name('addPage');
 Route::post('/board/create/{idBD}', 'BoardsController@create');
 /* ----------------[ READ PAGES ]---------------- */
 Route::get('/board/read/{idBD}/{idPage}', 'BoardsController@show')->name('board');
 // FROM BACK : Afficher page depuis idBD >> idPage (pag_number de 'pages')
 Route::post('/board/read/{idBD}/{idPage}', function ($idBD, $idPage) {
-    return view('boards.read', ['idBD' => $idBD], ['idPage' => $idPage]);
+	return view('boards.read', ['idBD' => $idBD], ['idPage' => $idPage]);
 }) -> name('board_read');
 /* ----------------[ UPDATE PAGES ]---------------- */
 // not done
@@ -72,14 +72,14 @@ Route::post('/board/read/{idBD}/{idPage}', function ($idBD, $idPage) {
 /* ----------------[ READ AND DELETE MEDIAS ]---------------- */
 // FROM BACK
 //permet de visualiser tout les médias, d'en ajouter, et supprimer à l'unité
-Route::get('/medias/read', 'MediasController@read')->name('medias');
+Route::get('/medias/read', 'MediasController@index')->name('medias');
 /* ----------------[ CREATE / UPLOAD MEDIAS ]---------------- */
 //un <a> sur /medias permet d'y accéder.
-Route::get('/medias/create', function () {
-    return view('medias.upload');
-})->name('medias_create');
+// Route::get('/medias/create', function () {
+// 	return view('medias.create');
+// })->name('medias_create');
 // est juste appellée quand on créé un nouveau média à partir de upload. N'est même pas une vue
- Route::post('/medias/upload', 'MediasController@create')->name('medias_upload');
+Route::get('/medias/create', 'MediasController@create')->name('medias_create');
 /* ----------------[ DELETE MEDIAS ]---------------- */
 //appellée par un bouton par media sur la page /medias
 Route::get('/medias/delete/{id}/{path}', 'MediasController@delete')->name('medias_delete');
@@ -96,17 +96,17 @@ Route::get('/medias/delete/{id}/{path}', 'MediasController@delete')->name('media
 /* ----------------[ CREATE AND UPDATE MAPPING ]---------------- */
 //pb :  dans modif board.js : if (document.URL.includes('pages/edit')) 
 //pb : No link to it. 
- Route::get('/pages/edit', function () {
-     return view('modifBoard');
- })->name('modifBoard');
- Route::get('/pages/mapping', function () {
-     return view('mapping');
- })->name('mapping');
+Route::get('/pages/edit', function () {
+	return view('modifBoard');
+})->name('modifBoard');
+Route::get('/pages/mapping', function () {
+	return view('mapping');
+})->name('mapping');
 /* ----------------[ READ MAPPING ]---------------- */
 // FROM FRONT : this route is used to show the sample board with sounds
 // Remove this line and board_mapping.blade.php
 Route::get('/pages/mapping/test', function () {
-    return view('board_mapping');
+	return view('board_mapping');
 })->name('board_mapping');
 /* ----------------[ DELETE MAPPING ]---------------- */
 // not done
