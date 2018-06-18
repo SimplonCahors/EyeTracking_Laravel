@@ -71,7 +71,12 @@ class ComicsController extends Controller
         $comics-> comic_title = request('titre');
         $comics-> comic_author = request('auteur');
         $comics-> comic_publisher = request('editeur');
-        $comics-> comic_miniature_url = request('miniature');
+
+
+        $originalName = $request->file('miniature')->getClientOriginalName();
+        $pathstart = $request->file('file')->store('public/medias');
+        $path = substr($pathstart, 7);
+        $comics-> comic_miniature_url = $path.$originalName;
 
         $verif_comic = Comic::all()->where('comic_title',$comics-> comic_title)
         ->where('comic_author',$comics-> comic_author)
@@ -83,7 +88,7 @@ class ComicsController extends Controller
 
             
 
-            Storage::download(request('miniature'));
+            // Storage::download(request('miniature'));
 
             return redirect()->route('catalog')->with('add','BD ajoutée');
         }
