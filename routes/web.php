@@ -14,7 +14,7 @@ Auth::routes();
 |--------------------------------------------------------------------------
 */
 // page accueil | accès aux 3 dernières bd publiées
-Route::get('/', 'HomeController@last')->name('home');
+Route::get('/', 'HomeController@index')->name('home');
 //From Elisa : seems useless, but if laravel wants a /home : 
 //  Route::redirect('/home', '/');
 // page legalmentions | mentions légales
