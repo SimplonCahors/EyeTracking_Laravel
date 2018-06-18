@@ -67,11 +67,11 @@ class ComicsController extends Controller
         //enlève le public devant
         $path = substr($pathstart, 7);
         
-        $comics = new Comic;
-        $comics-> comic_title = request('titre');
-        $comics-> comic_author = request('auteur');
-        $comics-> comic_publisher = request('editeur');
-        $comics-> comic_miniature_url = request('miniature');
+        $mediass = new Media;
+        $medias-> comic_title = request('titre');
+        $medias-> comic_author = request('auteur');
+        $medias-> comic_publisher = request('editeur');
+        $medias-> comic_miniature_url = request('miniature');
 
         $verif_comic = Comic::all()->where('comic_title',$comics-> comic_title)
         ->where('comic_author',$comics-> comic_author)
@@ -89,7 +89,7 @@ class ComicsController extends Controller
         }
         else
         {
-            echo 'Bande déssinée déjà existante';
+            echo 'Bande dessinée déjà existante';
             header('refresh: 3; url = /comics/create');
             die;
 
@@ -114,7 +114,7 @@ class ComicsController extends Controller
      */
     public function update($id, Request $request)
     {
-       
+
 
         $comic = Comic::where('comic_id', $id)->first();
         $comic-> comic_title = request('titre');
@@ -123,14 +123,14 @@ class ComicsController extends Controller
 
         if(request('miniature')){ // met à jour que si on change la miniature
            $comic-> comic_miniature_url = request('miniature'); 
-        }
+       }
 
-        $comic->save();
+       $comic->save();
 
-        return redirect()->route('catalog')->with('update','BD mise à jour');
-    }
+       return redirect()->route('catalog')->with('update','BD mise à jour');
+   }
 
-    
+
 
     /**
      * Remove the specified resource from storage.
