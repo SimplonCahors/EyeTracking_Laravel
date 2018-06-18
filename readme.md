@@ -1,7 +1,8 @@
 # EyeTracking BD
 
 ## Installation :  
- 
+
+- Run <code> git clone git@github.com:SimplonCahors/EyeTracking_Laravel.git </code>
 - Run <code> npm install </code> .
 - Run <code> composer install </code>.
 - Copy the <b>.env.example</b> into a <b>.env</b> and add your database connection settings.
