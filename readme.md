@@ -14,6 +14,15 @@
 - Run <code>php artisan key:generate</code>.
 - Run <code> php artisan serve</code>.
 
+## Import database :
+
+- Run <code> php artisan migrate:fresh </code>.
+
+If you want default datas you can use seeds : 
+
+- Run <code> composer dump-autoload </code>.
+- Run <code> php artisan db:seed </code>
+
 
 ## Problem with npm run dev : 
 If you have th problem below : 
