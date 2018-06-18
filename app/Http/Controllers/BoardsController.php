@@ -46,11 +46,22 @@ class BoardsController extends Controller
             $path = substr($completePath, 7); // retire la chaîne 'public/' du path
 
             // envoi du path du fichier, du numéro de la page et de l'id de la bd correspondante dans la table 'pages'
-            DB::table('boards')->insert(
-                array('board_image' => $originalName,
-                'board_number' => $numeroPage,
-                'fk_comic_id' => $idBD)
-            );
+
+            $board = new Board;
+
+            $board-> board_image = $originalName;
+            $board-> board_number = $numeroPage;
+            $board-> fk_comic_id = $idBD;
+            
+            $board->save();
+
+
+
+            // DB::table('boards')->insert(
+            //     array('board_image' => $originalName,
+            //     'board_number' => $numeroPage,
+            //     'fk_comic_id' => $idBD)
+            // );
                 
             $message = "Page {$numeroPage} ajoutée";
         } catch (QueryException $e) { // affiche une erreur si le fichier est en doublon
@@ -88,10 +99,15 @@ class BoardsController extends Controller
     public function show($idBD, $idPage)
     {
         // Requête BDD pour récupérer le path de l'image stocké dans la table 'pages' (renvoie un tableau)
-        $pages = DB::table('boards')->where([['board_number', '=', $idPage], ['fk_comic_id', '=', $idBD]])->get();
+        // $pages = DB::table('boards')->where([['board_number', '=', $idPage], ['fk_comic_id', '=', $idBD]])->get();
 
         // envoie le path pour la src de l'image 
-        return view('boards.read', ['pages' => $pages]);
+        // return view('boards.index', ['pages' => $pages]);
+
+
+        $board= Board::all()->where('fk_comic_id',$idBD)->where('board_number',$idPage);
+
+        return view('boards.show', ['board' => $board]);
     }
 
     /**
