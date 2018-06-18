@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\Storage;
 use DB;
+use App\Board;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,7 +16,7 @@ use DB;
 |--------------------------------------------------------------------------
 */
 
-class PageController extends Controller
+class BoardsController extends Controller
 {
     public function create($idBD, Request $request) // Ajout d'une page
     {
