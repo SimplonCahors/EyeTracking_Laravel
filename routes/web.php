@@ -69,17 +69,12 @@ Route::post('/board/read/{idBD}/{idPage}', function ($idBD, $idPage) {
 |--------------------------------------------------------------------------
 */
 // /!\ pour upload des fichiers : consulter "try file uploading" dans le read me
-/* ----------------[ READ AND DELETE MEDIAS ]---------------- */
-// FROM BACK
-//permet de visualiser tout les médias, d'en ajouter, et supprimer à l'unité
+/* ----------------[ READ MEDIAS ]---------------- */
 Route::get('/medias/read', 'MediasController@index')->name('medias');
-/* ----------------[ CREATE / UPLOAD MEDIAS ]---------------- */
-//un <a> sur /medias permet d'y accéder.
-// Route::get('/medias/create', function () {
-// 	return view('medias.create');
-// })->name('medias_create');
-// est juste appellée quand on créé un nouveau média à partir de upload. N'est même pas une vue
+/* ----------------[ CREATE MEDIAS ]---------------- */
 Route::get('/medias/create', 'MediasController@create')->name('medias_create');
+/* ----------------[ UPLOAD MEDIAS ]---------------- */
+Route::get('/medias/store', 'MediasController@store');
 /* ----------------[ DELETE MEDIAS ]---------------- */
 //appellée par un bouton par media sur la page /medias
 Route::get('/medias/delete/{id}/{path}', 'MediasController@delete')->name('medias_delete');
