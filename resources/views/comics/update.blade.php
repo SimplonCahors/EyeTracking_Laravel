@@ -9,7 +9,7 @@
 @section('content')
     
     <div class=" container modify">
-        <form method="POST">
+        <form method="POST" enctype="multipart/form-data" action="{{ action('ComicsController@update', [$comic->comic_id]) }}">
             @csrf
 
             <div id="delete-group">

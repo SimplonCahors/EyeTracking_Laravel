@@ -25,6 +25,14 @@ Catalogue
 </div>
 @endif
 
+@if ($message = Session::get('duplicate'))
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+  {{ $message }}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+</button>
+</div>
+@endif
 
 @if ($message = Session::get('delete'))
 <div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -48,7 +56,7 @@ Catalogue
 
     @foreach ($comics as $comic)
     <article class="comics_catalog">
-        <img class="img_catalog" src="/bd.jpg" alt="cover">
+        <img class="img_catalog" src="{{$comic->comic_miniature_url}}" alt="cover">
         <div class="infos_catalog">
             <ul>
                 <li>{{$comic->comic_title}}</li>
@@ -62,7 +70,7 @@ Catalogue
                 <a href="{{route('comics_update',[$comic->comic_id])}}"><button class="buttons" id="button_edit_catalog">Modifier</button></a>
 
 
-                <a><button class="buttons">Lire</button></a>
+                <a href=""><button class="buttons">Lire</button></a>
             </div>
         </div>
     </article>
