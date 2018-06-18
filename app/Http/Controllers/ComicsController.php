@@ -74,24 +74,19 @@ class ComicsController extends Controller
 
         $comics-> comic_miniature_url = '/storage/miniatures/'.$originalName;
 
+        // verification pour éviter la duplication de comic
         $verif_comic = Comic::all()->where('comic_title',$comics-> comic_title)
         ->where('comic_author',$comics-> comic_author)
         ->where('comic_publisher',$comics-> comic_publisher);
-        
-        if($verif_comic)
-        {
+
+        if(count($verif_comic)>0){
+            return redirect()->route('catalog')->with('duplicate','BD déjà existante');
+        }else{
             $comics->save();
-
-
             return redirect()->route('catalog')->with('add','BD ajoutée');
         }
-        else
-        {
-            echo 'Bande déssinée déjà existante';
-            header('refresh: 3; url = /comics/create');
-            die;
-
-        }
+        
+        
     }
 
     
