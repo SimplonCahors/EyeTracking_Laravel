@@ -18,7 +18,22 @@ use App\Board;
 
 class BoardsController extends Controller
 {
-    public function create($idBD, Request $request) // Ajout d'une page
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {   
+        
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create($idBD, Request $request)
     {
         $validatedData = $request->validate(['filename' => 'required|image']); // Vérifie que le fichier uploadé est bien une image.
         $numeroPage = $_POST['numeroPage'];
@@ -31,11 +46,22 @@ class BoardsController extends Controller
             $path = substr($completePath, 7); // retire la chaîne 'public/' du path
 
             // envoi du path du fichier, du numéro de la page et de l'id de la bd correspondante dans la table 'pages'
-            DB::table('pages')->insert(
-                array('pag_image' => $originalName,
-                'pag_number' => $numeroPage,
-                'fk_com_oid' => $idBD)
-            );
+
+            $board = new Board;
+
+            $board-> board_image = $originalName;
+            $board-> board_number = $numeroPage;
+            $board-> fk_comic_id = $idBD;
+            
+            $board->save();
+
+
+
+            // DB::table('boards')->insert(
+            //     array('board_image' => $originalName,
+            //     'board_number' => $numeroPage,
+            //     'fk_comic_id' => $idBD)
+            // );
                 
             $message = "Page {$numeroPage} ajoutée";
         } catch (QueryException $e) { // affiche une erreur si le fichier est en doublon
@@ -53,14 +79,67 @@ class BoardsController extends Controller
         return redirect()->back()->with('message', $message);
     }
 
-    // de Charlotte : si on pouvait la renommer en function "read" ce serait mieux
-    // Affichage d'une page
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        //
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
     public function show($idBD, $idPage)
     {
         // Requête BDD pour récupérer le path de l'image stocké dans la table 'pages' (renvoie un tableau)
-        $pages = DB::table('pages')->where([['pag_number', '=', $idPage], ['fk_com_oid', '=', $idBD]])->get();
+        // $pages = DB::table('boards')->where([['board_number', '=', $idPage], ['fk_comic_id', '=', $idBD]])->get();
 
         // envoie le path pour la src de l'image 
-        return view('boards.read', ['pages' => $pages]);
+        // return view('boards.index', ['pages' => $pages]);
+
+
+        $board= Board::all()->where('fk_comic_id',$idBD)->where('board_number',$idPage);
+
+        return view('boards.show', ['board' => $board]);
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+          * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        //
     }
 }

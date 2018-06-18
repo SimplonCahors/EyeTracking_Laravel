@@ -1,18 +1,27 @@
 # EyeTracking BD
 
 ## Installation :  
- 
 
-- Run npm install.
-- Run <b> composer install </b>.
-
-
+- Run <code> git clone git@github.com:SimplonCahors/EyeTracking_Laravel.git </code>
 - Run <code> npm install </code> .
 - Run <code> composer install </code>.
-- Import the database from ./extraData.
 - Copy the <b>.env.example</b> into a <b>.env</b> and add your database connection settings.
 - Run <code>php artisan key:generate</code>.
+
+## Import database :
+
+- Run <code> php artisan migrate:fresh </code>.
+
+If you want default datas you can use seeds : 
+
+- Run <code> composer dump-autoload </code>.
+- Run <code> php artisan db:seed </code>
+
+## Launch the server :
+
 - Run <code> php artisan serve</code>.
+
+
 
 
 ## Problem with npm run dev : 

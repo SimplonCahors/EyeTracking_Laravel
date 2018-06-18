@@ -52,9 +52,9 @@ Route::get('/comics/delete/{id}', 'ComicsController@destroy')->name('comic_delet
 Route::get('/board/create/{idBD}', function ($idBD) {
 	return view('boards.create', ['idBD' => $idBD]);
 }) -> name('addPage');
-Route::post('/board/create/{idBD}', 'PageController@create');
+Route::post('/board/create/{idBD}', 'BoardsController@create');
 /* ----------------[ READ PAGES ]---------------- */
-Route::get('/board/read/{idBD}/{idPage}', 'PageController@show')->name('board');
+Route::get('/board/read/{idBD}/{idPage}', 'BoardsController@show')->name('board');
 // FROM BACK : Afficher page depuis idBD >> idPage (pag_number de 'pages')
 Route::post('/board/read/{idBD}/{idPage}', function ($idBD, $idPage) {
 	return view('boards.read', ['idBD' => $idBD], ['idPage' => $idPage]);
