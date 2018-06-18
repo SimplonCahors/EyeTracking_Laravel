@@ -26,7 +26,7 @@ class ComicsController extends Controller
     {
         $comics = Comic::all()->where('comic_publication',1);
 
-        return view('comics.catalog', ['comics' => $comics]);
+        return view('comics.index', ['comics' => $comics]);
     }
 
     /**
@@ -80,10 +80,10 @@ class ComicsController extends Controller
         ->where('comic_publisher',$comics-> comic_publisher);
 
         if(count($verif_comic)>0){
-            return redirect()->route('catalog')->with('duplicate','BD déjà existante');
+            return redirect()->route('comics_index')->with('duplicate','BD déjà existante');
         }else{
             $comics->save();
-            return redirect()->route('catalog')->with('add','BD ajoutée');
+            return redirect()->route('comics_index')->with('add','BD ajoutée');
         }
         
         
@@ -128,7 +128,7 @@ class ComicsController extends Controller
 
         $comic->save();
 
-         return redirect()->route('catalog')->with('update','BD mise à jour');
+         return redirect()->route('comics_index')->with('update','BD mise à jour');
     }
 
     
@@ -148,15 +148,15 @@ class ComicsController extends Controller
 
         $comic = Comic::where('comic_id', $id)->first();
         $path_delete = substr($comic->comic_miniature_url, 9);
-        var_dump($path_delete);
+
         Storage::delete('public/'.$path_delete);
 
 
         // Storage::delete('public/ storage/images/pages');
 
-        // Comic::where('comic_id', $id)->delete();
+        Comic::where('comic_id', $id)->delete();
 
-        // return redirect()->route('catalog')->with('delete','BD supprimée');
+        return redirect()->route('comics_index')->with('delete','BD supprimée');
         
 
     }
