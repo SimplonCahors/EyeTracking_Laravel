@@ -13,7 +13,7 @@
             <div id="page">
 
              @foreach($pages as $page)
-                 <img draggable="false" src="{{ $page->pag_image }}" alt="planche de BD"  id="img" class="boardsBD noselect">
+                 <img draggable="false" src="{{ $page->board_image }}" alt="planche de BD"  id="img" class="boardsBD noselect">
              @endforeach
        
             </div>

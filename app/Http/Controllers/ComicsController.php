@@ -26,7 +26,7 @@ class ComicsController extends Controller
     {
         $comics = Comic::all()->where('comic_publication',1);
 
-        return view('comics.catalog', ['comics' => $comics]);
+        return view('comics.index', ['comics' => $comics]);
     }
 
     /**
@@ -62,7 +62,7 @@ class ComicsController extends Controller
     {
         //store dans le dossier public, le fichier 'miniature'
         $originalName = $request->file('miniature')->getClientOriginalName();
-        $pathstart = $request->file('miniature')->storeAs('public', $originalName);
+        $pathstart = $request->file('miniature')->storeAs('public/miniatures/', $originalName);
         
         //enlève le public devant
         $path = substr($pathstart, 7);
@@ -72,33 +72,21 @@ class ComicsController extends Controller
         $comics-> comic_author = request('auteur');
         $comics-> comic_publisher = request('editeur');
 
+        $comics-> comic_miniature_url = '/storage/miniatures/'.$originalName;
 
-        $originalName = $request->file('miniature')->getClientOriginalName();
-        $pathstart = $request->file('file')->store('public/medias');
-        $path = substr($pathstart, 7);
-        $comics-> comic_miniature_url = $path.$originalName;
-
+        // verification pour éviter la duplication de comic
         $verif_comic = Comic::all()->where('comic_title',$comics-> comic_title)
         ->where('comic_author',$comics-> comic_author)
         ->where('comic_publisher',$comics-> comic_publisher);
-        
-        if($verif_comic)
-        {
+
+        if(count($verif_comic)>0){
+            return redirect()->route('comics_index')->with('duplicate','BD déjà existante');
+        }else{
             $comics->save();
-
-            
-
-            // Storage::download(request('miniature'));
-
-            return redirect()->route('catalog')->with('add','BD ajoutée');
+            return redirect()->route('comics_index')->with('add','BD ajoutée');
         }
-        else
-        {
-            echo 'Bande déssinée déjà existante';
-            header('refresh: 3; url = /comics/create');
-            die;
-
-        }
+        
+        
     }
 
     
@@ -119,7 +107,7 @@ class ComicsController extends Controller
      */
     public function update($id, Request $request)
     {
-       
+
 
         $comic = Comic::where('comic_id', $id)->first();
         $comic-> comic_title = request('titre');
@@ -127,12 +115,20 @@ class ComicsController extends Controller
         $comic-> comic_publisher = request('editeur');
 
         if(request('miniature')){ // met à jour que si on change la miniature
-           $comic-> comic_miniature_url = request('miniature'); 
+            //suppression de la miniature actuelle
+            $path_delete = substr($comic->comic_miniature_url, 9);
+            Storage::delete('public/'.$path_delete);
+            //upload de la nouvelle miniature
+            $originalName = request('miniature')->getClientOriginalName();
+            $pathstart = request('miniature')->storeAs('public/miniatures/', $originalName);
+            $path = substr($pathstart, 7);
+            
+            $comic-> comic_miniature_url = '/storage/miniatures/'.$originalName;
         }
 
         $comic->save();
 
-        return redirect()->route('catalog')->with('update','BD mise à jour');
+        return redirect()->route('comics_index')->with('update','BD mise à jour');
     }
 
     
@@ -149,11 +145,18 @@ class ComicsController extends Controller
     {
         //DB::table('pages')->where('fk_comic_oid','=',$id)->delete();
         //DB::table('comics')->where('comic_id', '=', $id)->delete();
-        //Storage::delete('public/ storage/images/pages');
+
+        $comic = Comic::where('comic_id', $id)->first();
+        $path_delete = substr($comic->comic_miniature_url, 9);
+
+        Storage::delete('public/'.$path_delete);
+
+
+        // Storage::delete('public/ storage/images/pages');
 
         Comic::where('comic_id', $id)->delete();
 
-        return redirect()->route('catalog')->with('delete','BD supprimée');
+        return redirect()->route('comics_index')->with('delete','BD supprimée');
         
 
     }

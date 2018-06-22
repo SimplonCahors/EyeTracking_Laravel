@@ -18,6 +18,7 @@ class CreateAreasTable extends Migration
             $table->string('area_coord');
             $table->integer('area_trigger');
             $table->unsignedInteger('fk_board_id');
+            $table->unsignedInteger('fk_media_id');
             $table->timestamps();
         });
     }
