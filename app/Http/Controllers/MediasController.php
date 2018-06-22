@@ -1,13 +1,9 @@
-
-     * @param  int  $id
-     * @return \<?php
+<?php
 
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\Storage;
 use App\Media;
 
@@ -33,14 +29,13 @@ class MediasController extends Controller
 	}
 
 
-   //new store method
 	public function store(Request $request)
 	{
-        //store dans le dossier public, le fichier 'miniature'
+		//stores the file in the media folder
 		$originalName = $request->file('file')->getClientOriginalName();
 		$pathstart = $request->file('file')->storeAs('public/medias/', $originalName);
 
-        //enlève le public devant
+		//removes the "public"
 		$path = substr($pathstart, 7);
 
 		$medias = new Media;
@@ -48,17 +43,43 @@ class MediasController extends Controller
 		$medias-> media_filename = $originalName;
 		$medias-> media_path = '/storage/medias/'.$originalName;
 
-        // verification pour éviter la duplication de comic
-		$verif_media = Comic::all()->where('media_type',$medias-> media_type)
+		//verifies if the media is already present
+		$verif_media = Media::all()->where('media_type',$medias-> media_type)
 		->where('media_filename',$medias-> media_filename)
 		->where('media_path',$medias-> media_path);
 
 		if(count($verif_media)>0){
-			return redirect()->route('comics_index')->with('duplicate','Erreur à la création !');
+			//media already present, abort.
+			return redirect()->route('medias')->with('duplicate','Erreur à la création.');
 		}else{
+			//success
 			$medias->save();
-			return redirect()->route('comics_index')->with('add','Media ajouté !');
+			return redirect()->route('medias')->with('add','Media correctement ajouté.');
 		}
+	}
 
+
+	public function delete(Request $request, $id)
+	{
+		
+		$media = Media::where('media_id', $id)->first();
+
+
+		$media_name = $media-> media_filename;
+
+		return redirect()->route('medias')->with('alert_delete',$media_name);
+	}
+
+	public function destroy($name, Request $request)
+	{		
+		$media = Media::where('media_filename', $name)->first();
+
+        $path_delete = substr($media->media_path, 9);
+
+        Storage::delete('public/'.$path_delete);
+
+		Media::where('media_filename', $name)->delete();
+		
+		return redirect()->route('medias')->with('add','Media correctement supprimé :'.$name);
 	}
 }

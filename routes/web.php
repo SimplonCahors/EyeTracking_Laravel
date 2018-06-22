@@ -64,9 +64,9 @@ Route::post('/board/read/{idBD}/{idPage}', function ($idBD, $idPage) {
 /* ----------------[ DELETE PAGES ]---------------- */
 // not done
 /*
-|--------------------------------------------------------------------------
+|-----------------------------------------------------------------------
 | MEDIAS
-|--------------------------------------------------------------------------
+|-----------------------------------------------------------------------
 */
 // /!\ pour upload des fichiers : consulter "try file uploading" dans le read me
 /* ----------------[ READ MEDIAS ]---------------- */
@@ -74,14 +74,16 @@ Route::get('/medias/read', 'MediasController@index')->name('medias');
 /* ----------------[ CREATE MEDIAS ]---------------- */
 Route::get('/medias/create', 'MediasController@create')->name('medias_create');
 /* ----------------[ UPLOAD MEDIAS ]---------------- */
-Route::get('/medias/store', 'MediasController@store');
+Route::post('/medias/store', 'MediasController@store')->name('medias_store');
 /* ----------------[ DELETE MEDIAS ]---------------- */
 //appellée par un bouton par media sur la page /medias
-Route::get('/medias/delete/{id}/{path}', 'MediasController@delete')->name('medias_delete');
+Route::get('/medias/delete/{id}', 'MediasController@delete')->name('medias_delete');
+/* ----------------[ DESTROY MEDIAS ]---------------- */
+Route::get('/medias/destroy/{name}', 'MediasController@destroy')->name('medias_destroy');
 /* ----------------[ UPDATE MEDIAS ]---------------- */
 // not done
 //§§§§§§§§§§§§§§§§§§§§§§§§§§§§§
-//  REFACTO SEST ARRETE ICI   
+//  END OF REFACTO  
 //§§§§§§§§§§§§§§§§§§§§§§§§§§§§§
 /*
 |--------------------------------------------------------------------------
