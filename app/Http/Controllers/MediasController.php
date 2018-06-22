@@ -38,10 +38,34 @@ class MediasController extends Controller
 		//removes the "public"
 		$path = substr($pathstart, 7);
 
+		$dataType = request('dataType');
+
+		
+				//VALIDATION : validate method stops the code execution if conditions not fullfilled, and send error automatically on the page.
+				
+				//ERROR : The validation does not prevent problems with large files.
+
+				if ($dataType == 'image') {
+					$validatedData = $request->validate([
+						'file' => 'required|image'
+					]);
+				} elseif ($dataType == 'video') {
+					// x-msvideo = avi
+					$validatedData = $request->validate([
+					'file' => 'required|mimetypes:video/mpeg,video/ogg,video/mp4,video/quicktime|max:500000'
+				]);
+				} elseif ($dataType == 'son') {
+					// mpeg == mp3
+					$validatedData = $request->validate([
+					   'file' => 'required|mimetypes:audio/mpeg,wav,audio/ogg,mp4|max:100000'
+				   ]);
+				}
+
 		$medias = new Media;
-		$medias-> media_type = request('dataType');
+		$medias-> media_type = $dataType;
 		$medias-> media_filename = $originalName;
 		$medias-> media_path = '/storage/medias/'.$originalName;
+
 
 		//verifies if the media is already present
 		$verif_media = Media::all()->where('media_type',$medias-> media_type)
