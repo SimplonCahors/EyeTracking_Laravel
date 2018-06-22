@@ -1,4 +1,6 @@
-<?php
+
+     * @param  int  $id
+     * @return \<?php
 
 namespace App\Http\Controllers;
 
