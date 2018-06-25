@@ -28,9 +28,9 @@
 }
 
 .comics_catalog{
-    display:flex;
-    flex-direction:column;
-    background:white;
+    display: flex;
+    flex-direction: column;
+    background: white;
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
     justify-content:center;
     align-items:center;
@@ -45,17 +45,22 @@
         width: 100%;
         list-style:none;
         margin:0;
-        padding:0;
+        padding:20px;
         margin-top:10px;
         margin-bottom:20px;
 
         li {
+            font-family: $hind;
             text-align:center;
         }
 
         li:nth-child(1) { // titre de la bd
+            font-family: $oswald;
             font-weight:600;
             font-size:1.2rem;
+        }
+        li:nth-child(3) { 
+            color: red;
         }
 
     }
@@ -80,11 +85,8 @@
         width: 100%;
         display: flex;
         justify-content: space-around;
-         // margin:20px 0;
+        // margin:20px 0;
     }
-
-
-
 
 }
 
@@ -109,7 +111,7 @@
 .btn-catalogue:hover{
     color: $main-color;
     background: white;
-     transition:0.5s;
+    transition:0.5s;
 }
 
 .nav_catalog{
