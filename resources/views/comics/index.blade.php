@@ -75,7 +75,7 @@ Catalogue
     @endforeach
 </section>  
 <div class="nav_catalog">
-    <a><button class="btn-catalogue">Previous</button></a>
-    <a><button class="btn-catalogue">Next</button></a>
+    <a><button class="btn-pagination">< Previous</button></a>
+    <a><button class="btn-pagination">Next ></button></a>
 </div>
 @endsection
