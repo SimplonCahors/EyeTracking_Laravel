@@ -3,20 +3,25 @@
     height: auto;
     display: flex;
     justify-content: center;
-    background-color: rgba(0, 0, 0, 0.1);
 }
 
 #navbar a {
+    font-family: $hind;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
     display: flex;
     text-decoration: none;
-    padding: 20px;
+    padding: 20px 50px;
     margin-top: auto;
     margin-bottom: auto;
     color: rgba(0, 0, 0, 0.8);
+    transition: 1s;
 }
 
 #navbar a:hover {
     text-decoration: none;
-    color: whitesmoke;
-    background-color: rgba(0, 0, 0, 0.8);
+    color: rgba(0, 0, 0, 0.5);
+    transition: 1s;
 }

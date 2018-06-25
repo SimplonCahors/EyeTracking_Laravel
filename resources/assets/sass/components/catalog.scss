@@ -1,9 +1,18 @@
 //page catalogue
+//page accueil (view home)
 
-.titres{
-    font-size:1rem;
+.page-titles{
+    margin-top: 30px;
+    text-align: center;
     padding:20px 50px;
     padding-bottom: 0;
+    h2{
+        font-family: $oswald;
+    }
+    p{
+        font-size: 30px;
+        color: $main-color;
+    }
 }
 
 .containers_catalog{
@@ -40,7 +49,7 @@
             font-weight:600;
             font-size:1.2rem;
         }
-        
+
     }
 
     .img_catalog {
@@ -48,7 +57,7 @@
         height:270px;
         object-fit:cover;
     }
-    
+
     article{
         margin-top: 50px;
         display: flex;
@@ -66,9 +75,9 @@
         margin: 20px 0;
     }
 
-    
 
-    
+
+
 }
 
 .btn-catalogue{
