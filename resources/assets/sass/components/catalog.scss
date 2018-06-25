@@ -1,5 +1,8 @@
-//page catalogue
+//page catalogue (view index)
 //page accueil (view home)
+body{
+    overflow-x: hidden;
+}
 
 .content{
     padding-bottom:30px;
@@ -129,15 +132,30 @@
 
 
 .btn-add-bd {
+    display: flex;
+    align-items: center;
     border:none;
     background:$main-color;
     padding:20px;
     color:white;
     position:absolute;
     right:0;
+    width: 300px;
+    transform: translateX(240px);
+    transition: 1s;
+    height: 63px;
+    span{
+        padding-left: 20px;
+    }
 }
 
+.btn-add-bd:hover{
+    transition: 1s;
+    text-decoration: none;
+    color: white;
+    transform: translateX(0);
 
+}
 
 div.alert{
     width: 50%;

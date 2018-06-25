@@ -5,18 +5,19 @@
  */
 
 
-require('./update');
-require('./board');
+ require('./update');
+ require('./board');
 
-require('./modifBoard');
+ require('./modifBoard');
 
-require('./mapping');
+ require('./mapping');
 
 //console.log('ok');
 require('./legal');
 
 require('./bootstrap');
 require('jquery');
+
 
 // window.Vue = require('vue');
 
