@@ -25,8 +25,8 @@
                     <div class="read_edit_catalog">
 
                     <!-- HERE THE IF FOR ADMIN + MODIFY BUTTON -->
-                        <a  href="{{ route ('update-bd/', $comic->comic_id ) }} "  id="button_edit_catalog"><button class="buttons">Modifier</button></a>
-                        <a><button class="buttons">Lire</button></a>
+                        <a  href="{{ route ('update-bd/', $comic->comic_id ) }} "  id="button_edit_catalog"><button class="btn-catalogue">Modifier</button></a>
+                        <a><button class="tn-catalogue">Lire</button></a>
                     </div>
                 </div>
 
