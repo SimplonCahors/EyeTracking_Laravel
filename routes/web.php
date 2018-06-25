@@ -32,6 +32,7 @@ Route::get('/comics/create', 'ComicsController@create')->name('comics_create');
 Route::post('/comics/store', 'ComicsController@store');
 /* ----------------[ READ COMICS ]---------------- */
 Route::get('/comics/index', 'ComicsController@index')->name('comics_index');
+Route::get('/comics/show/{id}', 'ComicsController@show')->name('comics_show');
 /* ----------------[ UPDATE COMICS ]---------------- */
 // FROM BACK : there's some html and css not reaching routes with parameters.
 Route::get('/comics/update/{id}', 'ComicsController@edit')->name('comics_update');

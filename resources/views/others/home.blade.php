@@ -15,7 +15,7 @@ Accueil
     <!-- REQUEST TO DISPLAY THE ALREADY READED COMICS ORGANISED BY ASCENDING ORDER -->
     @foreach ($comics as $comic)
     <article class="comics_catalog">
-        <a href="">
+        <a href="{{ route('comics_show', $comic->comic_id) }}">
             <img class="img_catalog" src="{{ $comic->comic_miniature_url }}" alt="cover">
         </a>
         <div class="infos_catalog">
@@ -43,7 +43,7 @@ Accueil
 <section class="containers_catalog">
     @foreach ($comics_last as $comic)
     <article class="comics_catalog">
-        <a href="">
+        <a href="{{ route('comics_show', $comic->comic_id) }}">
             <img class="img_catalog" src="{{ $comic->comic_miniature_url }}" alt="cover">
         </a>
         <div class="infos_catalog">

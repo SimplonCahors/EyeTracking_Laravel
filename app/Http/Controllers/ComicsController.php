@@ -48,9 +48,11 @@ class ComicsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function show($id)
     {
-
+     $comic = Comic::all()->where('comic_id', $id)->first();  
+     
+      return view('comics.show', ['comic' => $comic]);
     }
 
     /**
