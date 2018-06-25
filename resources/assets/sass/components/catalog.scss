@@ -1,4 +1,11 @@
 //page catalogue
+
+.titres{
+    font-size:1rem;
+    padding:20px 50px;
+    padding-bottom: 0;
+}
+
 .containers_catalog{
     margin: 0 5vw;
     display: flex;
@@ -59,21 +66,29 @@
         margin: 20px 0;
     }
 
-    .btn-catalogue{
-        background: white;
-        color: black;
-        border:1px solid $main-color;
-        padding: 10px 20px;
-        margin:0 10px;
-    }
+    
 
-    .btn-catalogue:hover{
-    color: white;
-    background: $main-color;
-    }
+    
 }
 
+.btn-catalogue{
+    background: white;
+    color: black;
+    border:1px solid $main-color;
+    padding: 10px 20px;
+    margin:0 10px;
+}
 
+.btn-catalogue:hover{
+    color: white;
+    background: $main-color;
+}
+
+.nav_catalog{
+    display:flex;
+    justify-content:center;
+    margin:30px;
+}
 
 
 #ajouter_catalog{

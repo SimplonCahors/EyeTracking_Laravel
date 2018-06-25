@@ -6,7 +6,7 @@
 
 @section('content')
 
-    <h2 class="center_margin">Reprendre la lecture</h2>
+    <h2 class="titres">Reprendre la lecture</h2>
     <section class="containers_catalog">
 
         <!-- REQUEST TO DISPLAY THE ALREADY READED COMICS ORGANISED BY ASCENDING ORDER -->
@@ -34,7 +34,7 @@
         @endforeach
     </section>
 
-    <h2 class="center_margin">Dernières BD mises en ligne</h2>
+    <h2 class="titres">Dernières BD mises en ligne</h2>
     <section class="containers_catalog">
         @foreach ($comics as $comic)
             <article class="comics_catalog">
@@ -58,8 +58,4 @@
             </article>
         @endforeach
     </section>  
-        <div class="nav_catalog">
-            <a><button class="buttons_catalog">Previous</button></a>
-            <a><button class="buttons_catalog">Next</button></a>
-        </div>
 @endsection

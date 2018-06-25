@@ -67,17 +67,15 @@ Catalogue
             <div class="read_edit_catalog">
 
                 <!-- HERE THE IF FOR ADMIN + MODIFY BUTTON -->
-                <a href="{{route('comics_update',[$comic->comic_id])}}"><button class="buttons" id="button_edit_catalog">Modifier</button></a>
-
-
-                <a href=""><button class="buttons">Lire</button></a>
+                <a  href="{{ route ('comics_update', $comic->comic_id ) }} "  id="button_edit_catalog"><button class="btn-catalogue">Modifier</button></a>
+                        <a><button class="btn-catalogue">Lire</button></a>
             </div>
         </div>
     </article>
     @endforeach
 </section>  
 <div class="nav_catalog">
-    <a><button class="buttons_catalog">Previous</button></a>
-    <a><button class="buttons_catalog">Next</button></a>
+    <a><button class="btn-catalogue">Previous</button></a>
+    <a><button class="btn-catalogue">Next</button></a>
 </div>
 @endsection
