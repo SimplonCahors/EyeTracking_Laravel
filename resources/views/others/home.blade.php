@@ -13,7 +13,7 @@ Accueil
 <section class="containers_catalog">
 
     <!-- REQUEST TO DISPLAY THE ALREADY READED COMICS ORGANISED BY ASCENDING ORDER -->
-    @foreach ($comics as $comic)
+    {{-- @foreach ($comics as $comic)
     <article class="comics_catalog">
         <a href="{{ route('comics_show', $comic->comic_id) }}">
             <img class="img_catalog" src="{{ $comic->comic_miniature_url }}" alt="cover">
@@ -24,16 +24,10 @@ Accueil
                 <li>{{$comic->comic_author}}</li>
                 <li>{{$comic->comic_publisher}}</li>
             </ul>
-           {{--  <div class="read_edit_catalog">
-
-
-                <!-- HERE THE IF FOR ADMIN + MODIFY BUTTON -->
-                <a  href="{{ route ('comics_update', $comic->comic_id ) }} "  id="button_edit_catalog"><button class="btn-catalogue">Modifier</button></a>
-            </div> --}}
         </div>
         
     </article>
-    @endforeach
+    @endforeach --}}
 </section>
 
 <section class="page-titles">
@@ -53,12 +47,6 @@ Accueil
                 <li>{{$comic->comic_publisher}}</li>
             </ul>
         </div>
-       {{--  <div class="read_edit_catalog">
-
-                <!-- HERE THE IF FOR ADMIN + MODIFY BUTTON -->
-                <a  href="{{ route ('comics_update', $comic->comic_id ) }} "  id="button_edit_catalog"><button class="btn-catalogue">Modifier</button></a>
-            </div> --}}
-            
         </article>
         @endforeach
     </section>  

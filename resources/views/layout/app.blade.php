@@ -15,6 +15,7 @@
     </head>
 
     <body>
+        @auth
         <div id="content" class="content">
             <header>
                 @include('layout/nav_auth')
@@ -22,6 +23,11 @@
             </header>
             @yield('content')
         </div>
+        @else
+                @include('auth/login')
+        @endauth
+
+
         <script src="/js/app.js"></script>
     </body>
 </html>
