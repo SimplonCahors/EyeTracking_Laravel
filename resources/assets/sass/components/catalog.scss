@@ -72,7 +72,7 @@
         width: 100%;
         display: flex;
         justify-content: space-around;
-        margin: 20px 0;
+        margin-top:20px;
     }
 
 
@@ -81,16 +81,18 @@
 }
 
 .btn-catalogue{
-    background: white;
-    color: black;
+    background: $main-color;
+    color: white;
     border:1px solid $main-color;
     padding: 10px 20px;
     margin:0 10px;
+    width: 200px;
+    cursor:pointer;
 }
 
 .btn-catalogue:hover{
-    color: white;
-    background: $main-color;
+    color: $main-color;
+    background: white;
 }
 
 .nav_catalog{
