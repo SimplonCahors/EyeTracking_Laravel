@@ -1,4 +1,5 @@
 <div id="navbar">
+	<img class="navbar-img" src="/img/et.png">
 	<a href="{{ url('/') }}">Accueil</a>
 	<a href="{{ route('comics_index') }}">Catalogue</a>
 	<a href="{{ route('medias') }}">Médias</a>
