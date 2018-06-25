@@ -41,7 +41,7 @@ Accueil
     <p>/</p>
 </section>
 <section class="containers_catalog">
-    @foreach ($comics as $comic)
+    @foreach ($comics_last as $comic)
     <article class="comics_catalog">
         <a href="">
             <img class="img_catalog" src="{{ $comic->comic_miniature_url }}" alt="cover">

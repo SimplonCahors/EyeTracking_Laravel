@@ -29,8 +29,9 @@ class HomeController extends Controller
     public function index()
     {   
         $comics = Comic::all()->where('comic_publication',1);
+        $comics_last = Comic::all()->where('comic_publication',1)->sortByDesc('created_at')->take(3);
 
-        return view('others.home', ['comics' => $comics]);
+        return view('others.home', ['comics' => $comics,'comics_last' => $comics_last]);
         // return view('welcome');
     }
 
