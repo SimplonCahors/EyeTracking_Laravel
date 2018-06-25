@@ -43,6 +43,10 @@ Catalogue
 </div>
 @endif
 
+<section class="page-titles">
+  <h2>Catalogue</h2>
+  <p>/</p>
+</section>
 
 <section class="containers_catalog">
 

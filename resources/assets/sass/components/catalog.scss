@@ -133,6 +133,7 @@ body{
 
 .btn-add-bd {
     z-index: 500;
+    top: 170px;
     display: flex;
     align-items: center;
     border:none;
@@ -143,7 +144,7 @@ body{
     right:0;
     width: 300px;
     transform: translateX(240px);
-    transition: 1s;
+    transition: 0.5s;
     height: 63px;
     span{
         padding-left: 20px;
@@ -151,7 +152,7 @@ body{
 }
 
 .btn-add-bd:hover{
-    transition: 1s;
+    transition: 0.5s;
     text-decoration: none;
     color: white;
     transform: translateX(0);
