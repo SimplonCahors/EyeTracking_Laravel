@@ -30,11 +30,12 @@
 .comics_catalog{
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     background: white;
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
     align-items:center;
     margin:20px;
-    width:200px;
+    width:250px;
     transition:0.5s;
 
     a{
@@ -44,7 +45,7 @@
         width: 100%;
         list-style:none;
         margin:0;
-        padding:20px;
+        padding:10px 20px;
         margin-top:10px;
         margin-bottom:20px;
 
@@ -59,14 +60,14 @@
             font-size:1.2rem;
         }
         li:nth-child(3) { 
-            color: red;
+            color: $main-color;
         }
 
     }
 
     .img_catalog {
-        width:200px;
-        height:270px;
+        width:250px;
+        height:338px;
         object-fit:cover;
     }
 
@@ -102,7 +103,7 @@
     border-bottom:1px solid $main-color;
     padding: 10px 20px;
     margin:0 10px;
-    width: 200px;
+    width: 250px;
     cursor:pointer;
     transition:0.5s;
 }
