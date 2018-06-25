@@ -62,14 +62,14 @@
     .btn-catalogue{
         background: white;
         color: black;
-        border:1px solid #ff9315;
+        border:1px solid $main-color;
         padding: 10px 20px;
         margin:0 10px;
     }
 
     .btn-catalogue:hover{
     color: white;
-    background: #ff9315;
+    background: $main-color;
     }
 }
 
