@@ -15,10 +15,10 @@ class DatabaseSeeder extends Seeder
             UserTableSeeder::class,
             RoleTableSeeder::class,
             UserRoleTableSeeder::class,
-            ComicTableSeeder::class,
-            BoardTableSeeder::class,
-            MediaTableSeeder::class,
-            AreaTableSeeder::class,
+            // ComicTableSeeder::class,
+            // BoardTableSeeder::class,
+            // MediaTableSeeder::class,
+            // AreaTableSeeder::class,
         ]);
     }
 }

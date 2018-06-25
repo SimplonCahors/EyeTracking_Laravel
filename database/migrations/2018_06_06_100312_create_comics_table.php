@@ -19,7 +19,7 @@ class CreateComicsTable extends Migration
             $table->string('comic_author', 100);
             $table->string('comic_publisher', 100);
             $table->string('comic_miniature_url', 100);
-            $table->boolean('comic_publication')->default(1); // à enlever quand on aura mis la publication
+            $table->boolean('comic_publication')->default(0); // à enlever quand on aura mis la publication
             $table->unsignedInteger('fk_user_id')->default(1); // user 1 selectionné par défaut
             $table->timestamps();
         });

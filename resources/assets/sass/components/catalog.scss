@@ -159,10 +159,19 @@ body{
 
 }
 
-.label-publication {
-    width: 200px;
-    margin: 0;
-    padding: 0;
+.alert-success,.alert-danger{
+    color: white;
+background-color: #ff9315;
+border:none;
+border-radius: 0;
+position: fixed;
+left: 20px;
+top: 180px;
+z-index: 300;
+}
+
+.alert-danger{
+ background-color: #e44949;
 }
 
 .unpublished{
