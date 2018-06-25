@@ -47,7 +47,7 @@ Catalogue
 <section class="containers_catalog">
 
     <!-- HERE THE IF FOR ADMIN + ADD BUTTON -->
-    <a id="ajouter_catalog" href="{{route('comics_create')}}"><i class="material-icons catalogue">add_circle_outline</i></a>
+    <a class="btn-add-bd" href="{{route('comics_create')}}">Ajouter une bande dessinée</a>
 
 
 

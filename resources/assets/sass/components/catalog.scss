@@ -125,12 +125,15 @@
     cursor:pointer;
 }
 
-#ajouter_catalog{
-    margin-top: 50px;
-    margin-left: 92%;
-    position: fixed;
-    color:rgba(0, 0, 0, 0.8);
+
+.btn-add-bd {
+    border:none;
+    background:$main-color;
+    padding:20px;
+    color:white;
 }
+
+
 
 div.alert{
     width: 50%;
