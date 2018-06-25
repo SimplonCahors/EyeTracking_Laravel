@@ -1,3 +1,12 @@
+.main-title{
+	font-family:$oswald;
+	margin: auto;
+	margin-top: auto;
+	text-align: center;
+	margin-top: 40px;
+	font-size: 5rem;
+}
+
 .card-header {
 	background-color: rgba(0,0,0,0.1);
 	border-color: rgba(0,0,0,0.1);
@@ -7,11 +16,21 @@
 
 .home_connect.card {
 	margin-top: 50px;
+	border-radius:0;
+	border:none;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+	padding:30px;
+	width: 60vw;
+	min-width:350px;
 }
 
 
 .card-body {
 	color: rgba(0,0,0,0.8);
+
+	input {
+		border-radius:0;
+	}
 	
 	textarea:focus,
 	input[type="text"]:focus,
@@ -30,9 +49,9 @@
 	/*input[type="tel"]:focus,
 	input[type="color"]:focus,*/
 	.uneditable-input:focus {   
-	  border-color: rgba(0, 0, 0, 0.1);
-	  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 1px rgba(0, 0, 0, 0.6);
-	  outline: 0 none;
+		border-color: rgba(0, 0, 0, 0.1);
+		box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 1px rgba(0, 0, 0, 0.6);
+		outline: 0 none;
 	}
 
 	.btn-primary {
@@ -45,5 +64,12 @@
 		background-color: rgba(0,0,0,0.8);
 		border-color: rgba(0,0,0,0.8);
 		color: whitesmoke;
+	}
+	.btn-login{
+		border:1px solid $main-color;
+	}
+
+	label{
+		font-family: $hind
 	}
 }
