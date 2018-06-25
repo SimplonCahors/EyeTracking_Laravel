@@ -61,6 +61,7 @@ Catalogue
       @if($comic->comic_publication === 1)
       <img class="img_catalog" src="{{$comic->comic_miniature_url}}" alt="cover">
       @else
+      <p class="message-card">Non publiée</p>
       <img class="img_catalog unpublished" src="{{$comic->comic_miniature_url}}" alt="cover">
       @endif
     </a>
