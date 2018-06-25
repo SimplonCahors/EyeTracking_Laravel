@@ -25,6 +25,7 @@ class ComicsController extends Controller
     public function index()
     {
         $comics = Comic::all()->where('comic_publication',1);
+        
 
         return view('comics.index', ['comics' => $comics]);
     }
