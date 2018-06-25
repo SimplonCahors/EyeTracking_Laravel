@@ -23,8 +23,11 @@
 /* THE TOGGLE
 ============================*/
 .material-toggle {
-  display: block;
+  // display: block;
   min-height: 40px;
+  display: flex;
+  align-items: center;
+  margin:30px;
 }
 .material-toggle input[type="checkbox"] {
   display: none;
@@ -61,12 +64,26 @@
   width: 24px;
 }
 .material-toggle > input[type="checkbox"]:checked + label::before {
-    background: inherit;
-    opacity: 0.5;
+  background: inherit;
+  opacity: 0.5;
 }
 .material-toggle > input[type="checkbox"]:checked + label::after {
-    background: inherit;
-    left: 20px;
+  background: inherit;
+  left: 20px;
 }
+
+.container.modify form label{
+  width: 50px;
+margin: 0;
+}
+
+
+.label-publication {
+    width: 200px;
+    margin: 0;
+    padding: 0;
+}
+
+
 //#ffd29e
 //$main-color

@@ -33,8 +33,13 @@ Modifier Bd
         <input type="file" id="miniature" name="miniature" />
 
         <div class="material-toggle">
+            @if($comic->comic_publication === 1)
+            <input id="publication" name="publication" type="checkbox" checked="checked" />
+            @else
             <input id="publication" name="publication" type="checkbox" />
-            <label for="publication" class="label-amber">Publication On/Off</label>
+            @endif
+            <label for="publication" class="label-amber"></label>
+            <p class="label-publication">Publication On/Off</p>
         </div>
 
         <input type="submit" />

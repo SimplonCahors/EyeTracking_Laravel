@@ -159,10 +159,13 @@ body{
 
 }
 
-div.alert{
-    width: 50%;
-    display:flex;
-    justify-content:center;
-    margin:auto;
-    margin-top:20px;
+.label-publication {
+    width: 200px;
+    margin: 0;
+    padding: 0;
+}
+
+.unpublished{
+    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(100%);
 }

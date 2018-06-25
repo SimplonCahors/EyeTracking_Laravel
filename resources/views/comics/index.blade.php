@@ -57,7 +57,11 @@ Catalogue
 
   @foreach ($comics as $comic)
   <article class="comics_catalog">
+    @if($comic->comic_publication === 1)
     <img class="img_catalog" src="{{$comic->comic_miniature_url}}" alt="cover">
+    @else
+    <img class="img_catalog unpublished" src="{{$comic->comic_miniature_url}}" alt="cover">
+    @endif
     <div class="infos_catalog">
       <ul>
         <li>{{$comic->comic_title}}</li>
