@@ -24,8 +24,8 @@ class ComicsController extends Controller
      */
     public function index()
     {
-        $comics = Comic::all()->where('comic_publication',1);
-        
+        // $comics = Comic::all()->where('comic_publication',1); // a remettre quand on aura la connexion
+        $comics = Comic::all();
 
         return view('comics.index', ['comics' => $comics]);
     }
@@ -114,6 +114,14 @@ class ComicsController extends Controller
         $comic-> comic_title = request('titre');
         $comic-> comic_author = request('auteur');
         $comic-> comic_publisher = request('editeur');
+
+        //publication
+        if (request('publication') === 'on') {
+            $comic-> comic_publication = true;
+        }else{
+            $comic-> comic_publication = false;
+        }
+        
 
         if(request('miniature')){ // met à jour que si on change la miniature
             //suppression de la miniature actuelle
