@@ -103,9 +103,12 @@ class BoardsController extends Controller
           * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($idBD,$idPage)
     {
-        //
+        $comic = Comic::all()->where('comic_id', $idBD)->first();  
+        $board = Board::all()->where('board_id',$idPage)->first();
+
+        return view('boards.show', ['comic' => $comic,'board' => $board]);
     }
 
     /**

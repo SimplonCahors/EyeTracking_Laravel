@@ -55,7 +55,8 @@ Route::get('/boards/create/{idBD}', function ($idBD) {
 }) -> name('addPage');
 Route::post('/boards/store/{idBD}', 'BoardsController@store');
 /* ----------------[ READ PAGES ]---------------- */
-Route::get('/boards/read/{idBD}/{idPage}', 'BoardsController@show')->name('board-show');
+Route::get('/boards/show/{idBD}/{idPage}', 'BoardsController@show')->name('board-show');
+Route::get('/boards/edit/{idBD}/{idPage}', 'BoardsController@edit')->name('board-edit');
 // FROM BACK : Afficher page depuis idBD >> idPage (pag_number de 'pages')
 Route::post('/boards/read/{idBD}/{idPage}', function ($idBD, $idPage) {
 	return view('boards.read', ['idBD' => $idBD], ['idPage' => $idPage]);
@@ -94,16 +95,16 @@ Route::get('/medias/destroy/{name}', 'MediasController@destroy')->name('medias_d
 /* ----------------[ CREATE AND UPDATE MAPPING ]---------------- */
 //pb :  dans modif board.js : if (document.URL.includes('pages/edit')) 
 //pb : No link to it. 
-Route::get('/pages/edit', function () {
+Route::get('/test2', function () {
 	return view('modifBoard');
 })->name('modifBoard');
-Route::get('/pages/mapping', function () {
+Route::get('/mapping', function () {
 	return view('mapping');
 })->name('mapping');
 /* ----------------[ READ MAPPING ]---------------- */
 // FROM FRONT : this route is used to show the sample board with sounds
 // Remove this line and board_mapping.blade.php
-Route::get('/pages/mapping/test', function () {
+Route::get('/test', function () {
 	return view('board_mapping');
 })->name('board_mapping');
 /* ----------------[ DELETE MAPPING ]---------------- */
