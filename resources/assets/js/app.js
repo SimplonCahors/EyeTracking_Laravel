@@ -9,7 +9,7 @@
  require('./board');
 
  require('./modifBoard');
-
+ require('./miniatureBrowse');
  require('./mapping');
 
 //console.log('ok');

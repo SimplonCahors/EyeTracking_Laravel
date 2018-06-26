@@ -1,7 +1,7 @@
 @extends('layout.app')
 
 @section('title')
-Ajouter BD
+Ajouter Bande dessinée
 @endsection
 
 @section('content')
@@ -9,22 +9,23 @@ Ajouter BD
 
     <form method="POST" enctype="multipart/form-data" action="{{ action('ComicsController@store') }}" >
         @csrf
-        <h4>Ajouter les informations de la BD</h4>
+        <section class="page-titles">
+            <h2>Ajouter une Bande Dessinée</h2>
+            <p>/</p>
+        </section>
         @csrf
-        <label for="titre">Titre de la BD</label>
+        <label for="titre">Titre de la Bande Dessinée :</label>
         <input type="text" id="titre" name="titre"  required/>
-        
-        <label for="editeur"> Nom de l'éditeur</label>
+
+        <label for="editeur"> Nom de l'éditeur :</label>
         <input type="text" id="editeur" name="editeur" required />
-        
-        <label for="auteur">Nom de l'auteur</label>
+
+        <label for="auteur">Nom de l'auteur :</label>
         <input type="text" id="auteur" name="auteur" required />
 
-
-        <label for="miniature">Miniature</label>
-
+        <label for="miniature">Miniature :</label>
         <input type="file" id="miniature" name="miniature" required value="test" placeholder="test"/>
-        <input type="submit" value="AJOUTER" id="ajouter"/>
+        <input class="btn-outline" type="submit" value="AJOUTER" id="ajouter"/>
 
     </form>
 </div>

@@ -1,14 +1,8 @@
-
-// Fonts
-@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
-
 // Variables
 @import "variables";
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
-
-
 
 @import'components/legalmentions';
 
@@ -19,11 +13,10 @@
 @import "components/catalog.scss";
 @import "components/update.scss";
 @import "components/login.scss";
-@import "components/modifBoard.scss";
 @import "components/listMedias.scss";
 @import "components/upload.scss";
 @import "components/navauth.scss";
-
+@import "components/createComic.scss";
 
 //switch 
 @import "components/switch.scss";
