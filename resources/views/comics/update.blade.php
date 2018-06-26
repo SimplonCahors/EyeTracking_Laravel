@@ -75,7 +75,11 @@ Modifier Bande dessinée
             @csrf
             <div id="form-add-board">
                 <label for="numero-board">Numéro de la planche :</label>
+                @if(count($lastpage) !== 0)
+                <input type="number" id="numero-board" name="numero-board" value="{{ $lastpage->board_number + 1 }}"/>
+                @else
                 <input type="number" id="numero-board" name="numero-board" value="1"/>
+                @endif
 
                 <label for="board-image">Image de la planche : </label>
                 <input type="file" id="board-image" name="board-image" value=""/>
