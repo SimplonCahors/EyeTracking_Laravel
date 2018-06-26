@@ -1,36 +1,37 @@
 @extends('layout.app')
 
 @section('title')
-Modifier Bd
+Modifier Bande dessinée
 @endsection
 
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 @section('content')
 
-<div class=" container modify">
+<div class="container modify">
     <form method="POST" enctype="multipart/form-data" action="{{ action('ComicsController@update', [$comic->comic_id]) }}">
         @csrf
 
-        <div id="delete-group">
-            <h4 id="delete-bd-title">Supprimer la BD</h4>
-            <a id="delete-bd-icon" href="{{route('comic_delete',[$comic->comic_id])}}"><i class="material-icons catalogue">delete_forever</i></a>
-        </div>
+        <section class="page-titles">
+            <h2>Modifier la Bande Dessinée</h2>
+            <p>/</p>
+        </section>
 
-        <h4>Modifier les informations de la BD</h4>
-
-        <label for="titre">Titre de la BD</label>
+        <label for="titre">Titre de la Bande Dessinée :</label>
         <input type="text" id="titre" name="titre" value="{{$comic->comic_title}}"/>
         
-        <label for="editeur"> Nom de l'éditeur</label>
+        <label for="editeur"> Nom de l'éditeur :</label>
         <input type="text" id="editeur" name="editeur" value="{{$comic->comic_publisher}}"/>
 
-        <label for="auteur">Nom de l'auteur</label>
+        <label for="auteur">Nom de l'auteur :</label>
         <input type="text" id="auteur" name="auteur" value="{{$comic->comic_author}}"/>
 
-        <label for="miniature">Miniature :</label>
+        <p class="label-miniature">Miniature :</p>
         <p> Miniature enregistrée : {{$comic->comic_miniature_url}} </p>
-        <input type="file" id="miniature" name="miniature" />
+        <div class="contain-miniature">
+            <label class="label-browse" for="miniature">Rechercher</label>
+            <input class="inputfile" type="file" id="miniature" name="miniature" />
+        </div>
 
         <div class="material-toggle">
             @if($comic->comic_publication === 1)
@@ -42,13 +43,16 @@ Modifier Bd
             <p class="label-publication">Publication On/Off</p>
         </div>
 
-        <input type="submit" />
+        <input class="btn-outline" type="submit" value="MODIFIER" />
+
+        <div id="delete-group">
+            <h4 id="delete-bd-title">Supprimer la Bande Dessinée</h4>
+            <a id="delete-bd-icon" href="{{route('comic_delete',[$comic->comic_id])}}"><i class="material-icons catalogue">delete_forever</i></a>
+        </div>
 
     </form>
 
-    
-
-    <form>
+  <!--   <form>
         <h4>Modifier une page </h4>
         <label for="page">Selectionner une page</label>
 
@@ -61,6 +65,6 @@ Modifier Bd
         </select>
 
         <button>Aller à la modification de la page</button>
-    </form>
+    </form> -->
 </div>
 @endsection
