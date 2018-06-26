@@ -29,68 +29,6 @@ class BoardsController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create($idBD, Request $request)
-    {
-        $validatedData = $request->validate(['filename' => 'required|image']); // Vérifie que le fichier uploadé est bien une image.
-        $numeroPage = $_POST['numeroPage'];
-
-        // try-catch de la requête
-       try {
-           // récupère le nom du fichier uploadé
-            $originalName = $request->file('filename')->getClientOriginalName();
-            $completePath = $request->file('filename')->storeAs('public/images/pages', $originalName);
-            $path = substr($completePath, 7); // retire la chaîne 'public/' du path
-
-            // envoi du path du fichier, du numéro de la page et de l'id de la bd correspondante dans la table 'pages'
-
-            $board = new Board;
-
-            $board-> board_image = $originalName;
-            $board-> board_number = $numeroPage;
-            $board-> fk_comic_id = $idBD;
-            
-            $board->save();
-
-
-
-            // DB::table('boards')->insert(
-            //     array('board_image' => $originalName,
-            //     'board_number' => $numeroPage,
-            //     'fk_comic_id' => $idBD)
-            // );
-                
-            $message = "Page {$numeroPage} ajoutée";
-        } catch (QueryException $e) { // affiche une erreur si le fichier est en doublon
-            $error_code = $e->errorInfo[1];
-             if($error_code == 1062){ // 1062 est le code d'erreur pour un duplicate sur col definie en unique
-                $message = "La page {$numeroPage} existe déjà";
-            }
-            if($error_code == 1452){ // 1452 est le code d'erreur généré lorque l'id de la BDn'existe pas
-            
-                $message = "La BD numéro {$idBD} n'existe pas";
-            }
-        }
-        
-        // redirection sur la même page
-        return redirect()->back()->with('message', $message);
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
      * Display the specified resource.
      *
      * @param  int  $id
@@ -109,6 +47,61 @@ class BoardsController extends Controller
 
         return view('boards.show', ['board' => $board]);
     }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create($idBD, Request $request)
+    {
+        
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store($idBD,Request $request)
+    {
+        $validatedData = $request->validate(['filename' => 'required|image']); // Vérifie que le fichier uploadé est bien une image.
+        $numeroPage = request('numeroPage');
+
+        // try-catch de la requête
+       try {
+           // récupère le nom du fichier uploadé
+            $originalName = $request->file('filename')->getClientOriginalName();
+            $completePath = $request->file('filename')->storeAs('public/boards/', $originalName);
+
+            // envoi du path du fichier, du numéro de la page et de l'id de la bd correspondante dans la table 'pages'
+
+            $board = new Board;
+
+            $board-> board_image = '/storage/miniatures/'.$originalName;
+            $board-> board_number = $numeroPage;
+            $board-> fk_comic_id = $idBD;
+            
+            $board->save();
+                
+            $message = "Page {$numeroPage} ajoutée";
+        } catch (QueryException $e) { // affiche une erreur si le fichier est en doublon
+            $error_code = $e->errorInfo[1];
+             if($error_code == 1062){ // 1062 est le code d'erreur pour un duplicate sur col definie en unique
+                $message = "La page {$numeroPage} existe déjà";
+            }
+            if($error_code == 1452){ // 1452 est le code d'erreur généré lorque l'id de la BDn'existe pas
+            
+                $message = "La BD numéro {$idBD} n'existe pas";
+            }
+        }
+        
+        // redirection sur la même page
+        return redirect()->back()->with('message', $message);
+    }
+
+    
 
     /**
      * Show the form for editing the specified resource.

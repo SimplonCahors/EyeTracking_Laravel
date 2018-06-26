@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Comic;
+use App\Board;
 
 
 /*
@@ -97,7 +98,9 @@ class ComicsController extends Controller
     public function edit($id)
     {
         $comic = Comic::all()->where('comic_id', $id)->first();
-        return view('comics.update', ['comic' => $comic]);
+        $boards = Board::all()->where('fk_comic_id',$id);
+
+        return view('comics.update', ['comic' => $comic,'boards' => $boards]);
 
     }
 
