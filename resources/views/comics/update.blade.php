@@ -95,9 +95,10 @@ Modifier Bande dessinée
         <div class="gallery-boards">
             @foreach($boards as $board)
                 <div class="small-card">
+                    <a href="{{ route('board-show',[$comic->comic_id, $board->board_id]) }}">
                     <img src="{{ $board->board_image }}">
                     <p>p - {{ $board->board_number }}</p>
-                    
+                    </a>
                 </div>
             @endforeach
         </div>

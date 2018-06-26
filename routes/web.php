@@ -55,7 +55,7 @@ Route::get('/boards/create/{idBD}', function ($idBD) {
 }) -> name('addPage');
 Route::post('/boards/store/{idBD}', 'BoardsController@store');
 /* ----------------[ READ PAGES ]---------------- */
-Route::get('/boards/read/{idBD}/{idPage}', 'BoardsController@show')->name('board');
+Route::get('/boards/read/{idBD}/{idPage}', 'BoardsController@show')->name('board-show');
 // FROM BACK : Afficher page depuis idBD >> idPage (pag_number de 'pages')
 Route::post('/boards/read/{idBD}/{idPage}', function ($idBD, $idPage) {
 	return view('boards.read', ['idBD' => $idBD], ['idPage' => $idPage]);
