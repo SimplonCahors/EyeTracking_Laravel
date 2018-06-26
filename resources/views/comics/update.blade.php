@@ -8,6 +8,16 @@ Modifier Bande dessinée
 
 @section('content')
 
+@if ($message = Session::get('add'))
+<div class="alert alert-success alert-dismissible" role="alert">
+  {{ $message }}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+@endif
+
+
 <div class="container modify">
     <form method="POST" enctype="multipart/form-data" action="{{ action('ComicsController@update', [$comic->comic_id]) }}">
         @csrf
@@ -53,19 +63,45 @@ Modifier Bande dessinée
     </form>
 
 
-  <!--   <form>
-        <h4>Modifier une page </h4>
-        <label for="page">Selectionner une page</label>
+    <section class="boards-index">
 
-        <select id="page">
-            <option selected value="0">choisissez une page</option>
-            <option value="1">Nom/numero de la page</option>
-            <option value="2">Nom/numero de la page</option>
-            <option value="3">Nom/numero de la page</option>
-            <option value="4">Nom/numero de la page</option>
-        </select>
+        <section class="page-titles">
+            <h2>Gestion des planches</h2>
+            <p>/</p>
+        </section>
 
-        <button>Aller à la modification de la page</button>
-    </form> -->
+        <button class="btn-outline" id="" >Ajouter une planche</button>
+        <form method="POST" enctype="multipart/form-data" action="{{ action('BoardsController@store', [$comic->comic_id]) }}">
+            @csrf
+            <div id="form-add-board">
+                <label for="numero-board">Numéro de la planche :</label>
+                @if(count($lastpage) !== 0)
+                <input type="number" id="numero-board" name="numero-board" value="{{ $lastpage->board_number + 1 }}"/>
+                @else
+                <input type="number" id="numero-board" name="numero-board" value="1"/>
+                @endif
+
+                <label for="board-image">Image de la planche : </label>
+                <input type="file" id="board-image" name="board-image" value=""/>
+            </div>
+            <input class="btn-outline" type="submit" value="AJOUTER" />
+        </form>
+
+        <section class="page-titles">
+            <h2>Liste des planches</h2>
+            <p>/</p>
+        </section>
+
+        <div class="gallery-boards">
+            @foreach($boards as $board)
+                <div class="small-card">
+                    <img src="{{ $board->board_image }}">
+                    <p>p - {{ $board->board_number }}</p>
+                    
+                </div>
+            @endforeach
+        </div>
+    </section>
+
 </div>
 @endsection

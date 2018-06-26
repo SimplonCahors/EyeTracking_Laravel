@@ -12,7 +12,7 @@
             <a href=""><img src="/img/back.svg" alt="précédent" id="backBoard"></a> 
             <div id="page">
 
-             @foreach($pages as $page)
+             @foreach($boards as $board)
                  <img draggable="false" src="{{ $page->board_image }}" alt="planche de BD"  id="img" class="boardsBD noselect">
              @endforeach
        

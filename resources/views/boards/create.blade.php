@@ -24,7 +24,7 @@
     @endif
 
 <!-- Form: page number + file upload -->
-    <form method="POST" enctype="multipart/form-data">         
+    <form method="POST" enctype="multipart/form-data" action="{{ action('BoardsController@store',1) }}">         
         @csrf
         <input required type="number" min="1" name="numeroPage" placeholder="numero de page">
         <input required type="file" name="filename"/>

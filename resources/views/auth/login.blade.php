@@ -1,10 +1,10 @@
 
-<h1 class="main-title">Eye Tracking</h1>
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="">
             <div class="home_connect card">
-                
+                <h1 class="main-title">Eye Tracking</h1>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">

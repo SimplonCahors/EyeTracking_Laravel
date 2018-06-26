@@ -50,14 +50,14 @@ Route::get('/comics/delete/{id}', 'ComicsController@destroy')->name('comic_delet
 /* ----------------[ CREATE BOARD ]---------------- */
 // Ajouter page depuis idBD (clé étrangère fk_com_oid de 'pages')
 // No link to this page. 
-Route::get('/board/create/{idBD}', function ($idBD) {
+Route::get('/boards/create/{idBD}', function ($idBD) {
 	return view('boards.create', ['idBD' => $idBD]);
 }) -> name('addPage');
-Route::post('/board/create/{idBD}', 'BoardsController@create');
+Route::post('/boards/store/{idBD}', 'BoardsController@store');
 /* ----------------[ READ PAGES ]---------------- */
-Route::get('/board/read/{idBD}/{idPage}', 'BoardsController@show')->name('board');
+Route::get('/boards/read/{idBD}/{idPage}', 'BoardsController@show')->name('board');
 // FROM BACK : Afficher page depuis idBD >> idPage (pag_number de 'pages')
-Route::post('/board/read/{idBD}/{idPage}', function ($idBD, $idPage) {
+Route::post('/boards/read/{idBD}/{idPage}', function ($idBD, $idPage) {
 	return view('boards.read', ['idBD' => $idBD], ['idPage' => $idPage]);
 }) -> name('board_read');
 /* ----------------[ UPDATE PAGES ]---------------- */
