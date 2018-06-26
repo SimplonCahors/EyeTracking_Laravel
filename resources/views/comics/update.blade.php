@@ -27,10 +27,10 @@ Modifier Bande dessinée
         <input type="text" id="auteur" name="auteur" value="{{$comic->comic_author}}"/>
 
         <p class="label-miniature">Miniature :</p>
-        <p> Miniature enregistrée : {{$comic->comic_miniature_url}} </p>
         <div class="contain-miniature">
-            <label class="label-browse" for="miniature">Rechercher</label>
+            <label class="label-browse" id="label-browse" for="miniature">Parcourir . . .</label>
             <input class="inputfile" type="file" id="miniature" name="miniature" />
+            <span id="fileuploadurl">{{$comic->comic_miniature_url}}</span>
         </div>
 
         <div class="material-toggle">

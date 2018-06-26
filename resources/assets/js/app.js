@@ -9,14 +9,14 @@
  require('./board');
 
  require('./modifBoard');
- require('./miniatureBrowse');
  require('./mapping');
 
-//console.log('ok');
-require('./legal');
+ require('./miniatureBrowse');
+ // console.log('ok');
+ require('./legal');
 
-require('./bootstrap');
-require('jquery');
+ require('./bootstrap');
+ require('jquery');
 
 
 // window.Vue = require('vue');

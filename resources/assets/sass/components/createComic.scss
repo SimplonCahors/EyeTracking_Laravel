@@ -16,14 +16,17 @@
 		.contain-miniature{
 
 			display: flex;
+			align-items: center;
 
 			label.label-browse{
+				cursor: pointer;
+				box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 				display: flex;
 				justify-content: center;
 				align-items: center;
 				width: 100px;
 				height: 50px;
-				color: black;
+				color: white;
 				font-family: $main-font;
 				font-size: 14px;
 				background: $main-color;
@@ -35,6 +38,12 @@
 				overflow: hidden;
 				position: absolute;
 				z-index: -1;
+			}
+
+
+			span{
+				color: $main-color;
+				padding:10px 0 0 20px;
 			}
 		}
 	}
