@@ -66,20 +66,20 @@ class BoardsController extends Controller
      */
     public function store($idBD,Request $request)
     {
-        $validatedData = $request->validate(['filename' => 'required|image']); // Vérifie que le fichier uploadé est bien une image.
-        $numeroPage = request('numeroPage');
+        $validatedData = $request->validate(['board-image' => 'required|image']); // Vérifie que le fichier uploadé est bien une image.
+        $numeroPage = request('numero-board');
 
         // try-catch de la requête
        try {
            // récupère le nom du fichier uploadé
-            $originalName = $request->file('filename')->getClientOriginalName();
-            $completePath = $request->file('filename')->storeAs('public/boards/', $originalName);
+            $originalName = $request->file('board-image')->getClientOriginalName();
+            $completePath = $request->file('board-image')->storeAs('public/boards/', $originalName);
 
             // envoi du path du fichier, du numéro de la page et de l'id de la bd correspondante dans la table 'pages'
 
             $board = new Board;
 
-            $board-> board_image = '/storage/miniatures/'.$originalName;
+            $board-> board_image = '/storage/boards/'.$originalName;
             $board-> board_number = $numeroPage;
             $board-> fk_comic_id = $idBD;
             
@@ -98,7 +98,7 @@ class BoardsController extends Controller
         }
         
         // redirection sur la même page
-        return redirect()->back()->with('message', $message);
+        return redirect()->back()->with('add', $message);
     }
 
     
