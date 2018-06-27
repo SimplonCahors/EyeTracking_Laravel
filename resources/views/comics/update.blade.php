@@ -13,19 +13,30 @@ Modifier Bande dessinée
   {{ $message }}
   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
     <span aria-hidden="true">&times;</span>
-  </button>
+</button>
 </div>
+
 @endif
-
-
-<div class="container modify">
-    <form method="POST" enctype="multipart/form-data" action="{{ action('ComicsController@update', [$comic->comic_id]) }}">
-        @csrf
-
+<div class="contain-header">
+    <div class="header-comic">
         <section class="page-titles">
             <h2>Modifier la Bande Dessinée</h2>
             <p>/</p>
         </section>
+
+        <ul class="nav-comic">
+            <li class="selected-tab" id="comic-infos">INFORMATIONS</li>
+            <li class="slash">/</li>
+            <li id="comic-add">AJOUTER UNE PLANCHE</li>
+            <li class="slash">/</li>
+            <li id="comic-liste">LISTE DES PLANCHES</li>
+        </ul>
+    </div>
+</div>
+
+<div class="container modify">
+    <form id="informations" method="POST" enctype="multipart/form-data" action="{{ action('ComicsController@update', [$comic->comic_id]) }}">
+        @csrf
 
         <label for="titre">Titre de la Bande Dessinée :</label>
         <input type="text" id="titre" name="titre" value="{{$comic->comic_title}}"/>
@@ -37,10 +48,10 @@ Modifier Bande dessinée
         <input type="text" id="auteur" name="auteur" value="{{$comic->comic_author}}"/>
 
         <p class="label-miniature">Miniature :</p>
-        <p> Miniature enregistrée : {{$comic->comic_miniature_url}} </p>
         <div class="contain-miniature">
-            <label class="label-browse" for="miniature">Rechercher</label>
+            <label class="label-browse" id="label-browse" for="miniature">Parcourir . . .</label>
             <input class="inputfile" type="file" id="miniature" name="miniature" />
+            <span id="fileuploadurl">{{$comic->comic_miniature_url}}</span>
         </div>
 
         <div class="material-toggle">
@@ -49,60 +60,56 @@ Modifier Bande dessinée
             @else
             <input id="publication" name="publication" type="checkbox" />
             @endif
-            <label for="publication" class="label-amber"></label>
+            <label for="publication" class="label-main-color"></label>
             <p class="label-publication">Publication On/Off</p>
         </div>
 
-        <input class="btn-outline" type="submit" value="MODIFIER" />
-
-        <div id="delete-group">
-            <h4 id="delete-bd-title">Supprimer la Bande Dessinée</h4>
-            <a id="delete-bd-icon" href="{{route('comic_delete',[$comic->comic_id])}}"><i class="material-icons catalogue">delete_forever</i></a>
-        </div>
-
+        <input class="btn-outline" type="submit" value="MODIFIER"/>
+        <a href="{{route('comic_delete',[$comic->comic_id])}}"><button class="btn-outline">SUPPRIMER LA BANDE DESSINÉE</button></a>
     </form>
 
 
-    <section class="boards-index">
+    <form class="display-none" id="add-planche" method="POST" enctype="multipart/form-data" action="{{ action('BoardsController@store', [$comic->comic_id]) }}">
+        @csrf
 
-        <section class="page-titles">
-            <h2>Gestion des planches</h2>
-            <p>/</p>
-        </section>
+        <div>
+            <label for="numero-board">Numéro de la planche :</label>
+            @if(count($lastpage) !== 0)
+            <input type="number" id="numero-board" name="numero-board" value="{{ $lastpage->board_number + 1 }}"/>
+            @else
+            <input type="number" id="numero-board" name="numero-board" value="1"/>
+            @endif
 
-        <button class="btn-outline" id="" >Ajouter une planche</button>
-        <form method="POST" enctype="multipart/form-data" action="{{ action('BoardsController@store', [$comic->comic_id]) }}">
-            @csrf
-            <div id="form-add-board">
-                <label for="numero-board">Numéro de la planche :</label>
-                @if(count($lastpage) !== 0)
-                <input type="number" id="numero-board" name="numero-board" value="{{ $lastpage->board_number + 1 }}"/>
-                @else
-                <input type="number" id="numero-board" name="numero-board" value="1"/>
-                @endif
+            <p class="label-miniature">Image de la planche :</p>
+            <div class="contain-miniature">
+                <label class="label-browse" id="label-board-image" for="board-image">Parcourir . . .</label>
+                <input class="inputfile" type="file" id="board-image" name="board-image" />
+                <span id="boarduploadurl"></span>
+            </div>        
+        </div>
+        <input class="btn-outline" type="submit" value="AJOUTER" />
+    </form>
 
-                <label for="board-image">Image de la planche : </label>
-                <input type="file" id="board-image" name="board-image" value=""/>
-            </div>
-            <input class="btn-outline" type="submit" value="AJOUTER" />
-        </form>
 
-        <section class="page-titles">
-            <h2>Liste des planches</h2>
-            <p>/</p>
-        </section>
+    <div id="liste-planches" class="gallery-boards display-none">
 
-        <div class="gallery-boards">
-            @foreach($boards as $board)
+        @foreach($boards as $board)
+        <div class="small-card">
+            <img src="{{ $board->board_image }}">
+            <p>p - {{ $board->board_number }}</p>
+
+            <div class="gallery-boards">
+                @foreach($boards as $board)
                 <div class="small-card">
                     <a href="{{ route('board-edit',[$comic->comic_id, $board->board_id]) }}">
-                    <img src="{{ $board->board_image }}">
-                    <p>p - {{ $board->board_number }}</p>
+                        <img src="{{ $board->board_image }}">
+                        <p>p - {{ $board->board_number }}</p>
                     </a>
                 </div>
+                @endforeach
+            </div>
             @endforeach
         </div>
-    </section>
 
-</div>
-@endsection
+    </div>
+    @endsection

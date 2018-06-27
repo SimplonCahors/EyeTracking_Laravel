@@ -1,0 +1,117 @@
+.contain-header{
+	font-family: $main-font;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+
+	div.header-comic{
+
+		width: 51%;
+		display: flex;
+		flex-direction: column;
+
+		ul.nav-comic{
+			padding: 0;
+			width: 100%;
+			display: flex;
+			justify-content: space-around;
+			list-style: none;
+			li{
+				font-weight: 700;
+				cursor: pointer;
+				transition: 0.5s;
+			}
+
+			li:hover{
+				color: rgba(0, 0, 0, 0.4);
+				transition: 0.5s;
+			}
+
+			.slash{
+				color: $main-color;
+			}
+		}
+	}
+}
+.container.modify{
+
+	form{
+		margin-top: 0;
+		font-family: $main-font;
+		label, p.label-miniature{
+			font-size: large;
+			width: 100%;
+			font-family: $display-font;
+		}
+
+		p.label-miniature{
+			margin: 20px 0 10px 0;
+		}
+
+		.contain-miniature{
+
+			display: flex;
+			align-items: center;
+
+			label.label-browse{
+				cursor: pointer;
+				margin: 0;
+				box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				width: 100px;
+				height: 50px;
+				color: white;
+				font-family: $main-font;
+				font-size: 14px;
+				background: $main-color;
+			}
+			.inputfile {
+				width: 0.1px;
+				height: 0.1px;
+				opacity: 0;
+				overflow: hidden;
+				position: absolute;
+				z-index: -1;
+			}
+			span{
+				color: $main-color;
+				padding:10px 0 0 20px;
+			}
+		}
+		.btn-outline{
+			border: 1px solid $main-color !important;
+			background: white;
+			color: $main-color;
+			cursor: pointer;
+			transition: 0.5s;
+		}
+
+		button.btn-outline{
+			margin: 20px 0px 0px 0px;
+			width: 100%;
+			border: 1px solid $danger-color !important;
+			background: $danger-color;
+			color: white;
+		}
+
+		button.btn-outline:hover{
+			text-decoration: none;
+			border: 1px solid $danger-color !important;
+			background: white;
+			color: $danger-color;
+		}
+
+		.btn-outline:hover{
+			border: 1px solid $main-color !important;
+			background: $main-color;
+			color: white;
+			transition: 0.5s;
+		}
+
+		#label-board-image{
+			margin-bottom: 30px;
+		}
+	}
+}
