@@ -13,7 +13,8 @@ let mix = require('laravel-mix');
 
 mix.js('resources/assets/js/app.js', 'public/js')
     .js('resources/assets/js/libraries/canvasAreaDraw.js', 'public/js')
-    .js('resources/assets/js/modifBoard.js', 'public/js')
     .js('resources/assets/js/page_edit.js', 'public/js')
+    .js('resources/assets/js/modifBoard.js', 'public/js')
+    
    .sass('resources/assets/sass/app.scss', 'public/css')
    .browserSync('localhost:8000');

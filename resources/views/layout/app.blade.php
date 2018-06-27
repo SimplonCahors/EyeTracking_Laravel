@@ -28,7 +28,7 @@
         @endauth
 
 
-<script src={{ asset('/js/app.js') }}></script>
+<script src="js/app.js"></script>
         @yield('extraJS')
     </body>
 </html>

@@ -9,6 +9,10 @@ use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\Storage;
 use DB;
 
+use App\Board;
+use App\Area; 
+use App\Media; 
+
 /*
 |--------------------------------------------------------------------------
 | Controller pour les PAGES des BD
@@ -54,19 +58,7 @@ class PageController extends Controller
     
   
     
-    public function fetchAssocZones($idPage) {
-        $pageQuery = DB::table('pages')->where('pag_oid','=', $idPage)->get();
-        $areasQuery = DB::table('areas')->where('fk_pag_oid','=', $idPage)->get();
-        //to verify if media
-      foreach ($areasQuery as $key => $value) {
-        $mediaQuery = DB::table('medias')->where('fk_are_oid','=', $value->are_oid)->get();
 
-        $areasQuery[$key]->has_media = count($mediaQuery);
-        
-      }
-     
-        return view('page_edit',['pages' => $pageQuery[0], 'areas' => $areasQuery]);
-    }
    
     
     // de Charlotte : si on pouvait la renommer en function "read" ce serait mieux

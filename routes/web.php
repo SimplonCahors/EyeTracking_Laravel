@@ -100,9 +100,7 @@ Route::get('/medias/destroy/{name}', 'MediasController@destroy')->name('medias_d
 /* ----------------[ CREATE AND UPDATE MAPPING ]---------------- */
 //pb :  dans modif board.js : if (document.URL.includes('pages/edit')) 
 //pb : No link to it. 
-Route::get('/mapping', function () {
-	return view('boards.mapping.show');
-})->name('modifBoard');
+Route::get('/mapping/{idPage}', 'AreaController@fetchAssocZones')->name('modifBoard');
 
 Route::get('/mapping/create', function () {
 	return view('boards.mapping.create');

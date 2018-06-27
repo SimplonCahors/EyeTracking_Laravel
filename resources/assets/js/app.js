@@ -7,10 +7,7 @@
 
  require('./update');
  require('./board');
-
  require('./miniatureBrowse');
- require('./mapping');
-
 require('./legal');
 require('./bootstrap');
 require('jquery');

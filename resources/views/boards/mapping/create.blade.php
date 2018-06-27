@@ -9,9 +9,7 @@ Home
     <section id="sectionModifBoard">
         <div class="row">
             <div class="col-4">
-                <button type="button" class="btn btn-outline-secondary" id="buttonCreateZone">Créer une zone</button>
-                <button type="button" class="btn btn-outline-secondary" id="buttonModifZone">Modifier une zone</button>
-
+        
                   @php if(isset($result)) echo $result;
                             @endphp
                 <div class="card" id="formZone">
@@ -69,7 +67,7 @@ Home
                 <div id="page">
                         <textarea style="display:none;" rows=3 name="coords1" class="canvas-area input-xxlarge" disabled 
                         placeholder="Shape Coordinates" 
-                        data-image-url="/img/plancheBD.JPG"></textarea>
+                        data-image-url="/img/plancheBD.JPG">298,128,238,399</textarea>
                         </div>
             </div>
         </div>
@@ -83,5 +81,6 @@ Home
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.0.1/jquery-migrate.js"></script>
 <script src="/js/canvasAreaDraw.js"></script>
-<script src="/js/modifBoard.js"></script>
+
+
 @endsection 
