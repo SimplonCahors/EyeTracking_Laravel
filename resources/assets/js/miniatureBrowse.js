@@ -1,3 +1,4 @@
+if(document.URL.includes('comics/update/')){
 //miniature pour la couverture
 var input = document.getElementById('miniature');
 var path = document.getElementById('fileuploadurl');
@@ -17,3 +18,4 @@ inputBoard.addEventListener('change', function() {
 	var newBoardPath = boardPath.replace(/C:\\fakepath\\/i, '');
 	pathBoard.innerHTML = newBoardPath;
 });
+};

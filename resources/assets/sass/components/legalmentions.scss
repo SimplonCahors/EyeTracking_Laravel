@@ -1,37 +1,7 @@
-//mise en page texte
 .container.legal {
-    .card {
-        margin-top: 10px;
-    }
-    .card-body {
-        color: black;
-        text-align: justify;
-        margin: 0 20px;
-    }
-    
-    // couleur surlignage
-    mark {
-        background-color: lightgrey;
-        color: black;
-    }
-
-    //mise en page des boutons
-    .accordion {
-        font-size: x-large;
-        width: 100% !important;
-        height: auto;
-        border: none !important;
-        border-color: transparent;
-        padding: 20px;
-        background-color: transparent;
-        color: rgba(0, 0, 0, 0.8);
-    }
-    .accordion:hover {
-        color: grey;
-    }
-    .accordion:active,
-    .accordion:focus {
-        border: none !important;
-        border-color: transparent;
-    }
+    font-family: $main-font;
+    width: 51%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
