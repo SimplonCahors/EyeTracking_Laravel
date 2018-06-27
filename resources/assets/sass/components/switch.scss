@@ -78,12 +78,13 @@
   margin: 0;
 }
 
+.container.modify form select{
+  -moz-appearance : button-arrow-down;
+  -webkit-appearance: button-arrow-down;
+}
+
 .label-publication {
   width: 200px;
   margin: 0;
   padding: 0;
 }
-
-
-//#ffd29e
-//$main-color

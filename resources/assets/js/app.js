@@ -12,6 +12,7 @@
 
  require('./miniatureBrowse');
  require('./updateComic');
+ require('./createMedia');
  // console.log('ok');
  
 
