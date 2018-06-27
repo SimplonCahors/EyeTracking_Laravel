@@ -1,12 +1,12 @@
 @extends('layout.app')
 
 @section('title')
-Accueil
+Ajouter un média
 @endsection
 
 @section('content')
 
-<section id="medias-upload">
+<div class="container modify">
 
     <!-- if file does not comply / do not pass validations -->
     @if ($errors->any())
@@ -42,39 +42,30 @@ Accueil
 </div>
 @endif
 
-<div class="container">
-  <div class="row">
-    <div class="col-sm">   
-       <div class="cadre">
-        <form method="POST" enctype="multipart/form-data" action="{{ action('MediasController@store') }}" >
-            @csrf
+<form method="POST" enctype="multipart/form-data" action="{{ action('MediasController@store') }}" >
+    @csrf
+    <section class="page-titles">
+        <h2>Ajouter un média</h2>
+        <p>/</p>
+    </section>
 
-            <select name="dataType">
-                <option value="img">Image</option> 
-                <option value="son" >Son</option>
-                <option value="video">Video</option>
-            </select>
+    <label for="mediaType">Type de fichier :</label>
+    <select id="mediaType" name="dataType">
+        <option value="img" selected disabled>Sélectionner un type de fichier</option> 
+        <option value="img">Image</option> 
+        <option value="son" >Son</option>
+        <option value="video">Video</option>
+    </select>
 
-            <input type="file" name="file"/>
+    <p class="label-miniature">Fichier :</p>
+    <div class="contain-miniature">
+        <label class="label-browse" id="label-media" for="media">Parcourir . . .</label>
+        <input class="inputfile" type="file" id="media" name="media" />
+        <span id="mediauploadurl"></span>
+    </div>
+    <input class="btn-outline" type="submit" value="AJOUTER" id="ajouter"/>
 
-            <input type="submit"/>
-
-            <a href="{{ route('medias') }}">Retour à la page Medias</a>
-
-        </form>  
-
-    </div> 
+</form>  
 </div>
-</div> 
-</div>  
-
-<!--
-    <div>  On croit que :  video max 1MB, image max 10MB ? 
-          <p> vidéo : mp4,mpeg,quicktime. </p> 
-<p> image : jpeg not working </p>
-<p>son :mpga,wav,ogg,mp4</p></div> -->
-
-
-</section>
 
 @endsection
