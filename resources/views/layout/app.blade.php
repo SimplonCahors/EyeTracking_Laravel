@@ -28,6 +28,13 @@
     @endauth
 
 
+<<<<<<< HEAD
     <script src="/js/app.js"></script>
 </body>
+=======
+
+        <script src="/js/app.js"></script>
+        @yield('extraJS')
+    </body>
+>>>>>>> beebfb79a61f6b0d0248d44fd3e1a051001d4ef2
 </html>
