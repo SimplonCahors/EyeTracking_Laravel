@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Hind|Oswald');
-
+@import url('https://fonts.googleapis.com/css?family=Hind:400,700|Oswald');
 // Body
 $body-bg: #f5f8fa;
 
@@ -10,3 +9,12 @@ $display-font: 'Oswald', sans-serif;
 $main-font: 'Hind', sans-serif;
 $main-color: #ff9315;
 $danger-color:#e44949;
+
+.display-none{
+	display: none;
+}
+
+.selected-tab{
+	color: $main-color;
+	font-size: 20px;
+}

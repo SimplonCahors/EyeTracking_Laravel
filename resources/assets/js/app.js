@@ -5,13 +5,13 @@
  */
 
 
- require('./update');
  require('./board');
 
  require('./modifBoard');
  require('./mapping');
 
  require('./miniatureBrowse');
+ require('./updateComic');
  // console.log('ok');
  require('./legal');
 

@@ -23,8 +23,13 @@ Ajouter Bande dessinée
         <label for="auteur">Nom de l'auteur :</label>
         <input type="text" id="auteur" name="auteur" required />
 
-        <label for="miniature">Miniature :</label>
-        <input type="file" id="miniature" name="miniature" required value="test" placeholder="test"/>
+        <p class="label-miniature">Miniature :</p>
+        <div class="contain-miniature">
+            <label class="label-browse" id="label-browse" for="miniature">Parcourir . . .</label>
+            <input class="inputfile" type="file" id="miniature" name="miniature" />
+            <span id="fileuploadurl"></span>
+        </div>
+
         <input class="btn-outline" type="submit" value="AJOUTER" id="ajouter"/>
 
     </form>
