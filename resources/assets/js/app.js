@@ -13,7 +13,8 @@
  require('./miniatureBrowse');
  require('./updateComic');
  // console.log('ok');
- require('./legal');
+ 
+
 
  require('./bootstrap');
  require('jquery');
