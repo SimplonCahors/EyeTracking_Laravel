@@ -15,3 +15,6 @@ npm-debug.log
 yarn-error.log
 .env
 !.env.example
+
+package-lock.json
+/IMAGES

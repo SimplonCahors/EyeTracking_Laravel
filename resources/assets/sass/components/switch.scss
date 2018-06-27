@@ -1,0 +1,88 @@
+/* YOU KNOW COLORS
+============================*/
+.label-red { background-color: #F44336; }
+.label-pink { background-color: #E91E63; }
+.label-purple { background-color: #9C27B0; }
+.label-deep-purple { background-color: #673AB7; }
+.label-indigo { background-color: #3F51B5; }
+.label-blue { background-color: #2196F3; }
+.label-light-blue { background-color: #03A9F4; }
+.label-cyan { background-color: #00BCD4; }
+.label-teal { background-color: #009688; }
+.label-green { background-color: #4CAF50; }
+.label-light-green { background-color: #8BC34A; }
+.label-lime { background-color: #CDDC39; }
+.label-yellow { background-color: #FFEB3B; }
+.label-amber { background-color: #FFC107; }
+.label-orange { background-color: #FF9800; }
+.label-deep-orange { background-color: #FF5722; }
+.label-brown { background-color: #795548; }
+.label-grey { background-color: #9E9E9E; }
+.label-blue-grey { background-color: #607D8B; }
+
+/* THE TOGGLE
+============================*/
+.material-toggle {
+  // display: block;
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  margin:30px;
+}
+.material-toggle input[type="checkbox"] {
+  display: none;
+}
+.material-toggle label {
+  cursor: pointer;
+  height: 0px;
+  position: relative; 
+  width: 40px; 
+}
+.material-toggle > label::before {
+  background: rgb(0, 0, 0);
+  box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+  content: '';
+  height: 16px;
+  margin-top: -8px;
+  position:absolute;
+  opacity: 0.3;
+  transition: all 0.4s ease-in-out;
+  width: 40px;
+}
+.material-toggle > label::after {
+  background: rgb(255, 255, 255);
+  border-radius: 16px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+  content: '';
+  height: 24px;
+  left: -4px;
+  margin-top: -8px;
+  position: absolute;
+  top: -4px;
+  transition: all 0.3s ease-in-out;
+  width: 24px;
+}
+.material-toggle > input[type="checkbox"]:checked + label::before {
+  background: inherit;
+  opacity: 0.5;
+}
+.material-toggle > input[type="checkbox"]:checked + label::after {
+  background: inherit;
+  left: 20px;
+}
+
+.container.modify form label.label-amber{
+  width: 50px;
+  margin: 0;
+}
+
+.label-publication {
+  width: 200px;
+  margin: 0;
+  padding: 0;
+}
+
+
+//#ffd29e
+//$main-color

@@ -5,97 +5,174 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use App\Comic;
+use App\Board;
+
 
 /*
 |--------------------------------------------------------------------------
-| Controller pour les MINIATURES des BD
+| Controller pour les COMICS
 |--------------------------------------------------------------------------
 */
 
-// de Charlotte : si on pouvait la renommer en class "thumbnailController" ce serait mieux | et renommer pareil le fichier controller.php
+
 class ComicsController extends Controller
 {
-
-    
-    // si on pouvait la renommer en function "create" ce serait mieux
-    public function add(Request $request)
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
     {
-        
+        // $comics = Comic::all()->where('comic_publication',1); // a remettre quand on aura la connexion
+        $comics = Comic::all();
+
+        return view('comics.index', ['comics' => $comics]);
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+
+    // [!!] OLD public function "add"(Request $request)
+    public function create(Request $request)
+    {
+        return view('comics.create') ;
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+     $comic = Comic::all()->where('comic_id', $id)->first();  
+     $boards = Board::all()->where('fk_comic_id',$id);
+      return view('comics.show', ['comic' => $comic,'boards' => $boards]);
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
         //store dans le dossier public, le fichier 'miniature'
         $originalName = $request->file('miniature')->getClientOriginalName();
-        $pathstart = $request->file('miniature')->storeAs('public', $originalName);
+        $pathstart = $request->file('miniature')->storeAs('public/miniatures/', $originalName);
         
         //enlève le public devant
         $path = substr($pathstart, 7);
         
-        
-        
-        $titre = $request->input('titre');
-        $auteur = $request->input('auteur');
-        $editeur = $request->input('editeur');
-        $comics = DB::table('comics')->get();
-        foreach($comics as $comic)
-        {
-            if( $comic->com_title === $titre && $comic->com_author === $auteur && $comic->com_publisher === $editeur )
-            {
-                echo 'Bande déssinée déjà existante';
-                header('refresh: 3; url = /comics/create');
-                die;
-            }
+        $comics = new Comic;
+        $comics-> comic_title = request('titre');
+        $comics-> comic_author = request('auteur');
+        $comics-> comic_publisher = request('editeur');
+
+        $comics-> comic_miniature_url = '/storage/miniatures/'.$originalName;
+
+        // verification pour éviter la duplication de comic
+        $verif_comic = Comic::all()->where('comic_title',$comics-> comic_title)
+        ->where('comic_author',$comics-> comic_author)
+        ->where('comic_publisher',$comics-> comic_publisher);
+
+        if(count($verif_comic)>0){
+            return redirect()->route('comics_index')->with('duplicate','BD déjà existante');
+        }else{
+            $comics->save();
+            return redirect()->route('comics_index')->with('add','BD ajoutée');
         }
         
-        DB::table('comics')->insert(
-           array('com_title' => $titre,
-               'com_author' => $auteur,
-                'com_publisher' => $editeur,
-                'com_miniature_url'=> $originalName)
-                   
-            );
-
-        return redirect()->route('catalogue')->with('add','BD ajoutée');
+        
     }
 
-    // si on pouvait la renommer en function "read" ce serait mieux
-    public function show()
+    
+    // Récupère une Bande-Dessinée unique necéssaire pour le update
+    public function edit($id)
     {
-        $comics = DB::table('comics')->get();
-        return view('catalogue', ['comics' => $comics]);
+        $comic = Comic::all()->where('comic_id', $id)->first();
+        $boards = Board::all()->where('fk_comic_id',$id);
+        $lastpage = Board::orderby('board_number', 'desc')->where('fk_comic_id',$id)->first();
+
+        return view('comics.update', ['comic' => $comic,'boards' => $boards, 'lastpage' => $lastpage]);
+
     }
 
-    // Modifie les miniatures de la DB et du Storage
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
     public function update($id, Request $request)
     {
-        $titre = $request->input('titre');
-        $auteur = $request->input('auteur');
-        $editeur = $request->input('editeur');
-        $miniature = $request->input('miniature');
-
-        DB::table('comics')->where('com_oid', '=', $id)->update(['com_title' => $titre, 'com_author' => $auteur, 'com_publisher' => $editeur, 'com_miniature_url' => $miniature]);
 
 
-        echo 'la modif à bien été faite';
-        header('refresh: 3; url = '.$id);
-    }
+        $comic = Comic::where('comic_id', $id)->first();
+        $comic-> comic_title = request('titre');
+        $comic-> comic_author = request('auteur');
+        $comic-> comic_publisher = request('editeur');
 
-    // Récupère une Bande-Dessinée unique
-    // necéssaire pour le update
-    public function fetchUniqueBD($id)
-    {
-        $comics = DB::table('comics')->where('com_oid', '=', $id)->get();
-        return view('update-bd', ['comic' => $comics [0]]);
-    }
-
-    // Supprime les miniatures de la DB et du Storage
-    public function delete(Request $request,$id)
-    {
-
-        DB::table('pages')->where('fk_com_oid','=',$id)->delete();
-        DB::table('comics')->where('com_oid', '=', $id)->delete();
-        Storage::delete('public/ storage/images/pages');
-
-
-
-        return redirect()->route('catalogue')->with('delete','BD supprimée');
+        //publication
+        if (request('publication') === 'on') {
+            $comic-> comic_publication = true;
+        }else{
+            $comic-> comic_publication = false;
+        }
         
+
+        if(request('miniature')){ // met à jour que si on change la miniature
+            //suppression de la miniature actuelle
+            $path_delete = substr($comic->comic_miniature_url, 9);
+            Storage::delete('public/'.$path_delete);
+            //upload de la nouvelle miniature
+            $originalName = request('miniature')->getClientOriginalName();
+            $pathstart = request('miniature')->storeAs('public/miniatures/', $originalName);
+            $path = substr($pathstart, 7);
+            
+            $comic-> comic_miniature_url = '/storage/miniatures/'.$originalName;
+        }
+
+        $comic->save();
+
+        return redirect()->route('comics_index')->with('update','BD mise à jour');
+    }
+
+    
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    
+    // Supprime les miniatures de la DB et du Storage
+    public function destroy(Request $request, $id)
+    {
+        //DB::table('pages')->where('fk_comic_oid','=',$id)->delete();
+        //DB::table('comics')->where('comic_id', '=', $id)->delete();
+
+        $comic = Comic::where('comic_id', $id)->first();
+        $path_delete = substr($comic->comic_miniature_url, 9);
+
+        Storage::delete('public/'.$path_delete);
+
+
+        // Storage::delete('public/ storage/images/pages');
+
+        Comic::where('comic_id', $id)->delete();
+
+        return redirect()->route('comics_index')->with('delete','BD supprimée');
+        
+
     }
 }

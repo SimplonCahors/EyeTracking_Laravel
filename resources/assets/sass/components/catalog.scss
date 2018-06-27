@@ -1,0 +1,195 @@
+//page catalogue (view index)
+//page accueil (view home)
+body{
+    overflow-x: hidden;
+}
+
+.content{
+    padding-bottom:30px;
+}
+
+.page-titles{
+    margin-top: 30px;
+    text-align: center;
+    padding:20px 50px;
+    padding-bottom: 0;
+    h2{
+        font-family: $display-font;
+    }
+    p{
+        font-size: 30px;
+        color: $main-color;
+    }
+}
+
+.containers_catalog{
+    margin: 0 5vw;
+    display: flex;
+    justify-content:center;
+    flex-wrap: wrap;
+    flex-direction:row;
+}
+
+.comics_catalog{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: white;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    align-items:center;
+    margin:20px;
+    width:250px;
+    transition:0.5s;
+
+    a{
+        text-decoration: none;
+    }
+    ul{
+        width: 100%;
+        list-style:none;
+        margin:0;
+        padding:10px 20px;
+        margin-top:10px;
+        margin-bottom:20px;
+
+        li {
+            font-family: $main-font;
+            text-align:center;
+        }
+
+        li:nth-child(1) { // titre de la bd
+            font-family: $display-font;
+            font-weight:600;
+            font-size:1.2rem;
+        }
+        li:nth-child(3) { 
+            color: $main-color;
+        }
+
+    }
+
+    .img_catalog {
+        width:250px;
+        height:338px;
+        object-fit:cover;
+    }
+
+    article{
+        margin-top: 50px;
+        display: flex;
+        width: 200px;
+        padding:0;
+        background-color:rgba(0, 0, 0, 0.8);
+        justify-content: space-between;
+    }
+
+
+    .read_edit_catalog{
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        // margin:20px 0;
+    }
+
+}
+
+.comics_catalog:hover{
+    transition:0.5s;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+.btn-catalogue{
+    background: $main-color;
+    color: white;
+    border:none;
+    border-top:1px solid $main-color;
+    border-bottom:1px solid $main-color;
+    padding: 10px 20px;
+    margin:0 10px;
+    width: 250px;
+    cursor:pointer;
+    transition:0.5s;
+}
+
+.btn-catalogue:hover{
+    color: $main-color;
+    background: white;
+    transition:0.5s;
+}
+
+.nav_catalog{
+    display:flex;
+    justify-content:center;
+    margin:30px;
+}
+
+.btn-pagination {
+    border:none;
+    background:none;
+    padding:10px 20px;
+    cursor:pointer;
+}
+
+
+.btn-add-bd {
+    z-index: 500;
+    top: 170px;
+    display: flex;
+    align-items: center;
+    border:none;
+    background:$main-color;
+    padding:20px;
+    color:white;
+    position:absolute;
+    right:0;
+    width: 300px;
+    transform: translateX(240px);
+    transition: 0.5s;
+    height: 63px;
+    span{
+        padding-left: 20px;
+    }
+}
+
+.btn-add-bd:hover{
+    transition: 0.5s;
+    text-decoration: none;
+    color: white;
+    transform: translateX(0);
+
+}
+
+.alert-success,.alert-danger{
+    color: white;
+    background-color: #ff9315;
+    border:none;
+    border-radius: 0;
+    position: fixed;
+    left: 20px;
+    top: 180px;
+    z-index: 300;
+}
+
+.alert-danger{
+ background-color: $danger-color;
+}
+
+.unpublished{
+    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(100%);
+}
+
+.message-card {
+    padding: 5px 10px;
+    margin: 0;
+    position: absolute;
+    z-index: 300;
+    background: $main-color;
+    color: white;
+    margin-top: 20px;
+    font-family: $main-font;
+}
+
+.close:hover{
+    color:white;
+}

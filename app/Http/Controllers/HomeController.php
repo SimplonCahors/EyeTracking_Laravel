@@ -3,13 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Comic;
 
-/*
-|--------------------------------------------------------------------------
-| Controller pour la CONNEXION | Qestion de Charlotte : est-il aussi pour l'inscription ?
-|--------------------------------------------------------------------------
-*/
-// de Charlotte : si on pouvait la renommer en class "loginController" ce serait mieux | et renommer pareil le fichier controller.php
 class HomeController extends Controller
 {
     /**
@@ -17,10 +12,7 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+    
 
     /**
      * Show the application dashboard.
@@ -28,9 +20,84 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    // de Charlotte : à quoi correspond le nom 'index' ? ne vaut-il pas mieux login ou register ?
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
+    {   
+        $comics = Comic::all()->where('comic_publication',1);
+        $comics_last = Comic::all()->where('comic_publication',1)->sortByDesc('created_at')->take(3);
+
+        return view('others.home', ['comics' => $comics,'comics_last' => $comics_last]);
+        // return view('welcome');
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
     {
-        return view('home');
+        //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        //
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        //
     }
 }

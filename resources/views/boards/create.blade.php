@@ -1,21 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
+@extends('layout.app')
 
-<!-- Affichage d'un message d'erreur customisé si inputs non conformes -->
+@section('title')
+    Add Page
+@endsection
+@section('content')
+
+<!-- Display of a customized error message if non-compliant inputs -->
     @if(session()->has('message'))
         <div class="alert alert-success">
             {{ session()->get('message') }}
         </div>
     @endif
 
-<!-- Affichage des messages d'erreur renvoyés par Laravel -->
+<!-- Displaying error messages returned by Laravel -->
     @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
@@ -26,13 +23,12 @@
         </div>
     @endif
 
-<!-- Formulaire : numéro de page + upload fichier -->
-    <form method="POST" enctype="multipart/form-data">         
+<!-- Form: page number + file upload -->
+    <form method="POST" enctype="multipart/form-data" action="{{ action('BoardsController@store',1) }}">         
         @csrf
         <input required type="number" min="1" name="numeroPage" placeholder="numero de page">
         <input required type="file" name="filename"/>
         <input type="submit" value="entrer" name="submit">
     </form>
 
-</body>
-</html>
+@endsection

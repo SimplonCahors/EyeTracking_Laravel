@@ -1,0 +1,56 @@
+.container.modify{
+	
+	form{
+		margin-top: 0;
+		font-family: $main-font;
+		label, p.label-miniature{
+			font-size: large;
+			width: 100%;
+			font-family: $display-font;
+		}
+
+		p.label-miniature{
+			margin: 20px 0 10px 0;
+		}
+
+		.contain-miniature{
+
+			display: flex;
+
+			label.label-browse{
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				width: 100px;
+				height: 50px;
+				color: black;
+				font-family: $main-font;
+				font-size: 14px;
+				background: $main-color;
+			}
+			.inputfile {
+				width: 0.1px;
+				height: 0.1px;
+				opacity: 0;
+				overflow: hidden;
+				position: absolute;
+				z-index: -1;
+			}
+		}
+	}
+}
+
+.btn-outline{
+	border: 1px solid $main-color !important;
+	background: none;
+	color: $main-color;
+	cursor: pointer;
+	transition: 0.5s;
+}
+
+.btn-outline:hover{
+	border: 1px solid $main-color !important;
+	background: $main-color;
+	color: white;
+	transition: 0.5s;
+}

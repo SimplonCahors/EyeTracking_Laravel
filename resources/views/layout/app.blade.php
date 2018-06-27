@@ -11,9 +11,11 @@
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
         <link rel="stylesheet" href="/css/app.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     </head>
 
     <body>
+        @auth
         <div id="content" class="content">
             <header>
                 @include('layout/nav_auth')
@@ -21,7 +23,12 @@
             </header>
             @yield('content')
         </div>
-        <script src="/js/app.js"></script>
+        @else
+                @include('auth/login')
+        @endauth
+
+
+<script src={{ asset('/js/app.js') }}></script>
         @yield('extraJS')
     </body>
 </html>

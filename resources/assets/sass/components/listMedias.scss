@@ -1,10 +1,38 @@
 #sectionListMedia{
 	text-align: center;
-}
-li{
-	list-style:none;
-}
 
-#addMedia{
-	margin-left:-1300px;
+	li{
+		list-style:none;
+	}
+
+	#addMedia{
+		margin-left: 8px;
+		margin-bottom: 10px;
+	}
+
+	.card{
+		height: 500px;
+		margin:10px 30px;
+	}
+
+	div.card-body{
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		padding-bottom: 0;
+	}
+
+	img.card-img-top{
+		height:250px;
+		object-fit:cover;
+	}
+
+	video,audio{
+		height:250px;
+		width:100%;
+		object-fit:cover;
+	}
+
+
+
 }

@@ -1,208 +1,120 @@
 <?php
+// en cours de refacto. Tout ce qui est au dessus de : 
+//§§§§§§§§§§§§§§§§§§§§§§§§§§§§§
+//  REFACTO SEST ARRETE ICI   
+//§§§§§§§§§§§§§§§§§§§§§§§§§§§§§
+// a été refondu.
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
+// Mapping est voué à être remplacé donc pas refacto pour le moment. 
+// Ce qui concerne le mapping concerne en réalité les boards -> à renommer pour board, ou p-ê faire un sous dossier mapping. 
 Auth::routes();
-
-
 /*
 |--------------------------------------------------------------------------
-| [ACCUEIL] / [CONNEXION] / [CATALOGUE] / [LEGALMENTIONS]
+| [ACCUEIL] / [CONNEXION] / [LEGALMENTIONS]
 |--------------------------------------------------------------------------
 */
-// will need page id as a parameters.
-Route::get('/page/edit/{idPage}', 'PageController@fetchAssocZones')->name('/page/edit');
 
-
-
-// page accueil | Controller pour les miniatures
-Route::get('/', 'ComicsController@show');
-
-Route::get('/showPage/{idBD}/{idPage}', 'PageController@show');
-// FIN PAGE
 
 /*
 COMIC
 */
 // page accueil | accès aux 3 dernières bd publiées
-Route::get('/', 'WelcomeController@last');
-
-// page connexion |
-// de Charlotte : si on pouvait renommer le chemin en "login" ce serait mieux ainsi que le controller
-Route::get('/home', 'HomeController@index')->name('home');
-
-// page catalogue | Le controller show renvoie à la vue welcome.
-// donc cette vue/ le controller est à modifier
-Route::get('/catalogue', 'ComicsController@show')->name('catalogue');
-
+Route::get('/', 'HomeController@index')->name('home');
+//From Elisa : seems useless, but if laravel wants a /home : 
+//  Route::redirect('/home', '/');
 // page legalmentions | mentions légales
 Route::get('/legalmentions', function () {
-    return view('legalmentions');
-    array('com_title' => $titre,
-               'com_author' => $auteur,
-               'com_publisher' => $editeur,
-               'com_miniature_url'=> $originalName);
+	return view('others.legal_mentions');
 })->name('legalmentions');
-
-
 /*
 |--------------------------------------------------------------------------
 | COMICS
 |--------------------------------------------------------------------------
 */
-
 /* ----------------[ CREATE COMICS ]---------------- */
-
 // FROM BACK : This is the form, and on submit the ::post is called
-Route::get('/comics/create', function () {
-    return view('ajouter-bd');
-})->name('ajouter-bd');
-
-Route::post('/comics/create', 'ComicsController@add');
-
-
+Route::get('/comics/create', 'ComicsController@create')->name('comics_create');
+Route::post('/comics/store', 'ComicsController@store');
 /* ----------------[ READ COMICS ]---------------- */
-// not done
-
-
+Route::get('/comics/index', 'ComicsController@index')->name('comics_index');
+Route::get('/comics/show/{id}', 'ComicsController@show')->name('comics_show');
 /* ----------------[ UPDATE COMICS ]---------------- */
-
-// de Charlotte => erreur sur cette route. Chercher à savoir à quoi elle correspond |
-// Route::get('/update-bd{id}', function () {
-//     return view('update-bd');
-// })->name('update-bd');
-
 // FROM BACK : there's some html and css not reaching routes with parameters.
-Route::get('/comics/update/{id}', 'ComicsController@fetchUniqueBD')->name('update-bd/');
-
+Route::get('/comics/update/{id}', 'ComicsController@edit')->name('comics_update');
 Route::post('/comics/update/{id}', 'ComicsController@update');
-
-// de Charlotte => erreur aussi sur cette route. Chercher à savoir à quoi elle correspond |
-Route::get('/button-update-bd', function () {
-    return view('button-update-bd');
-}) -> name('button-update-bd');
-
-
 /* ----------------[ DELETE COMICS ]---------------- */
-
 // FROM BACK : right now it's an input that then pass the comics' id  in $GET.
 // /!\ Doesn't work if you have pages in your DB that are linked to it
-
-
-Route::get('/comics/delete/{id}', 'ComicsController@delete')->name('delete-bd/');
-
-
+// pas de confirmation/!\
+Route::get('/comics/delete/{id}', 'ComicsController@destroy')->name('comic_delete');
 /*
 |--------------------------------------------------------------------------
-| PAGES
+| BOARD
 |--------------------------------------------------------------------------
 */
-
-/* ----------------[ CREATE PAGES ]---------------- */
-
+/* ----------------[ CREATE BOARD ]---------------- */
 // Ajouter page depuis idBD (clé étrangère fk_com_oid de 'pages')
-Route::get('/add/page/{idBD}', function ($idBD) {
-    return view('addPage', ['idBD' => $idBD]);
+// No link to this page. 
+Route::get('/boards/create/{idBD}', function ($idBD) {
+	return view('boards.create', ['idBD' => $idBD]);
 }) -> name('addPage');
-
-Route::post('/add/page/{idBD}', 'PageController@create');
-
-
+Route::post('/boards/store/{idBD}', 'BoardsController@store');
 /* ----------------[ READ PAGES ]---------------- */
-
-// FROM FRONT : this route is used to show the sample board
-// Remove this line and board.blade.php
-Route::get('/board', function () {
-    return view('board');
-})->name('board');
-
+Route::get('/boards/show/{idBD}/{idPage}', 'BoardsController@show')->name('board-show');
+Route::get('/boards/edit/{idBD}/{idPage}', 'BoardsController@edit')->name('board-edit');
 // FROM BACK : Afficher page depuis idBD >> idPage (pag_number de 'pages')
-Route::get('/showPage/{idBD}/{idPage}', function ($idBD, $idPage) {
-    return view('showPage', ['idBD' => $idBD], ['idPage' => $idPage]);
-}) -> name('showPage');
-
-Route::get('/showPage/{idBD}/{idPage}', 'PageController@show');
-
-
+Route::post('/boards/read/{idBD}/{idPage}', function ($idBD, $idPage) {
+	return view('boards.read', ['idBD' => $idBD], ['idPage' => $idPage]);
+}) -> name('board_read');
 /* ----------------[ UPDATE PAGES ]---------------- */
 // not done
-
 /* ----------------[ DELETE PAGES ]---------------- */
 // not done
-
-
-
 /*
-|--------------------------------------------------------------------------
+|-----------------------------------------------------------------------
 | MEDIAS
-|--------------------------------------------------------------------------
+|-----------------------------------------------------------------------
 */
-
 // /!\ pour upload des fichiers : consulter "try file uploading" dans le read me
-
-
+/* ----------------[ READ MEDIAS ]---------------- */
+Route::get('/medias/read', 'MediasController@index')->name('medias');
 /* ----------------[ CREATE MEDIAS ]---------------- */
-
-//un <a> sur /medias permet d'y accéder.
-Route::get('/medias-upload', function () {
-    return view('medias-upload');
-});
-
-// est juste appellée quand on créé un nouveau média à partir de upload. N'est même pas une vue
-Route::post('/upload/save', 'MediasController@create');
-
-
-/* ----------------[ READ AND DELETE MEDIAS ]---------------- */
-
-// FROM BACK
-//permet de visualiser tout les médias, d'en ajouter, et supprimer à l'unité
-Route::get('/medias', 'MediasController@read')->name('medias');
-
-
-
+Route::get('/medias/create', 'MediasController@create')->name('medias_create');
+/* ----------------[ UPLOAD MEDIAS ]---------------- */
+Route::post('/medias/store', 'MediasController@store')->name('medias_store');
+/* ----------------[ DELETE MEDIAS ]---------------- */
+//appellée par un bouton par media sur la page /medias
+Route::get('/medias/delete/{id}', 'MediasController@delete')->name('medias_delete');
+/* ----------------[ DESTROY MEDIAS ]---------------- */
+Route::get('/medias/destroy/{name}', 'MediasController@destroy')->name('medias_destroy');
 /* ----------------[ UPDATE MEDIAS ]---------------- */
 // not done
-
-
-/* ----------------[ DELETE MEDIAS ]---------------- */
-
-//appellée par un bouton par media sur la page /medias
-Route::get('/medias/delete', 'MediasController@delete')->name('medias/delete');
-
-
+//§§§§§§§§§§§§§§§§§§§§§§§§§§§§§
+//  END OF REFACTO  
+//§§§§§§§§§§§§§§§§§§§§§§§§§§§§§
 /*
 |--------------------------------------------------------------------------
 | MAPPING
 |--------------------------------------------------------------------------
 */
-
 /* ----------------[ CREATE AND UPDATE MAPPING ]---------------- */
+//pb :  dans modif board.js : if (document.URL.includes('pages/edit')) 
+//pb : No link to it. 
+Route::get('/mapping', function () {
+	return view('boards.mapping.show');
+})->name('modifBoard');
 
- Route::get('/modifBoard', function () {
-     return view('modifBoard');
- })->name('modifBoard');
-
- Route::get('/mapping', function () {
-     return view('mapping');
- })->name('mapping');
-
-
+Route::get('/mapping/create', function () {
+	return view('boards.mapping.create');
+})->name('mappingCreate');
+// Route::get('/mapping', function () {
+// 	return view('mapping');
+// })->name('mapping');
 /* ----------------[ READ MAPPING ]---------------- */
-
 // FROM FRONT : this route is used to show the sample board with sounds
 // Remove this line and board_mapping.blade.php
-Route::get('/board_mapping', function () {
-    return view('board_mapping');
+Route::get('/test', function () {
+	return view('page_edit');
 })->name('board_mapping');
-
 /* ----------------[ DELETE MAPPING ]---------------- */
 // not done

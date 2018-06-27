@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTestestsTable extends Migration
+class CreateRolesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class CreateTestestsTable extends Migration
      */
     public function up()
     {
-        Schema::create('testests', function (Blueprint $table) {
-            $table->increments('id');
+        Schema::create('roles', function (Blueprint $table) {
+            $table->increments('role_id');
+            $table->string('role_rolename');
             $table->timestamps();
         });
     }
@@ -26,6 +27,6 @@ class CreateTestestsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('testests');
+        Schema::dropIfExists('roles');
     }
 }
