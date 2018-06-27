@@ -108,7 +108,7 @@ class BoardsController extends Controller
         $comic = Comic::all()->where('comic_id', $idBD)->first();  
         $board = Board::all()->where('board_id',$idPage)->first();
 
-        return view('boards.show', ['comic' => $comic,'board' => $board]);
+        return view('boards.edit', ['comic' => $comic,'board' => $board]);
     }
 
     /**

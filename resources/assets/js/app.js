@@ -4,16 +4,11 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-
- require('./update');
  require('./board');
 
  require('./modifBoard');
- require('./miniatureBrowse');
  require('./mapping');
 
-//console.log('ok');
-require('./legal');
 
 require('./bootstrap');
 require('jquery');
