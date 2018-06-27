@@ -13,7 +13,7 @@
         <div class="board-view">
             <img src="{{ $board->board_image }}">
         </div>
-        
+        <a class="btn-add-bd" href="{{route('comics_create')}}"><i class="material-icons">add</i><span>Ajouter une area</span></a>
     
 @endsection
 

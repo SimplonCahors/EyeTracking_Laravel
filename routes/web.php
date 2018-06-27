@@ -96,9 +96,8 @@ Route::get('/medias/destroy/{name}', 'MediasController@destroy')->name('medias_d
 
 Route::get('/mapping/read/{idPage}', 'AreaController@fetchAssocZones')->name('modifBoard');
 
-Route::get('/mapping/create', function () {
-	return view('boards.mapping.create');
-})->name('mappingCreate');
+Route::get('/mapping/create', 'AreaController@create')->name('mapping-create');
+Route::post('/mapping/store', 'AreaController@store')->name('mappingStore');
 
 /* ----------------[ READ MAPPING ]---------------- */
 // FROM FRONT : this route is used to show the sample board with sounds
@@ -108,3 +107,7 @@ Route::get('/test', function () {
 })->name('board_mapping');
 /* ----------------[ DELETE MAPPING ]---------------- */
 // not done
+
+
+// IMPORTANT 
+// pour update une zone , on peux gérer le click sur un zone dans le fichier js mappingRead.js (ligne 15)

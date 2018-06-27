@@ -12,7 +12,7 @@ Home
         @php if(isset($result)) echo $result; @endphp
         <div class="card" id="formZone">
             <div class="card-body">
-                <form method="post" action= {{action('AreaController@Store',1)}} enctype="multipart/form-data">
+                <form method="post" action=" {{action('AreaController@store',1)}}" enctype="multipart/form-data">
                     @csrf
                     <div class="row">
                         <div class="col-4">
@@ -25,7 +25,7 @@ Home
                                 <div class="row">
 
                                     <div class="col-4">
-                                        <input type="number" name="declanchement" class="form-control" id="tpsDeclenchement">
+                                        <input type="number" name="trigger" class="form-control" id="tpsDeclenchement" value="1">
                                     </div>
                                     <div class="col-3">
 
@@ -48,29 +48,31 @@ Home
                                 <!-- if the sending in the db is successful. the two possible $ results are modifiable in mediascontroller line 45 & 50 -->
 
                                 <select name="dataType" required>
-                                    <option value="img">Image</option>
-                                    <option value="son">Son</option>
-                                    <option value="video">Video</option>
+                                    @foreach($medias as $media)
+                                    <option value="{{ $media->media_id }}">{{ $media->media_filename }}</option>
+                                    @endforeach
                                 </select>
 
-                                <input type="file" name="file" required/>
-                                <p>
-                                    <input type="submit" class="btn btn-primary" value="Valider" </p>
+
+                                
+                                <input type="submit" class="btn btn-primary" value="Valider" />
 
                             </div>
                         </div>
                         <div class="col-8" id="imgModif">
                             <div id="page">
-                                <textarea style="display:none;" rows=3 name="coords1" class="canvas-area input-xxlarge" disabled placeholder="Shape Coordinates"
-                                    data-image-url="/img/plancheBD.JPG"></textarea>
-                            </div>
-                        </div>
-                    </div>
 
-            </div>
-            </form>
-        </div>
-</div>
+                               <textarea rows=3 name="coords1" class="canvas-area input-xxlarge" 
+                               placeholder="Shape Coordinates" 
+                               data-image-url="/img/plancheBD.JPG" style="display: none;"></textarea>
+                           </div>
+                       </div>
+                   </div>
+
+               </div>
+           </form>
+       </div>
+   </div>
 
 </section>
 </div>
