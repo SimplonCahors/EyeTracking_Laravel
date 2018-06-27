@@ -3,21 +3,15 @@
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
+require('./bootstrap');
+require('jquery');
+
+require('./miniatureBrowse');
+require('./updateComic');
 
 
- require('./board');
-
- require('./modifBoard');
- require('./mapping');
-
- require('./miniatureBrowse');
- require('./updateComic');
- // console.log('ok');
- 
 
 
- require('./bootstrap');
- require('jquery');
 
 
 // window.Vue = require('vue');
