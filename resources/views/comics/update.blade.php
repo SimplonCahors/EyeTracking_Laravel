@@ -90,13 +90,8 @@ Modifier Bande dessinée
         <input class="btn-outline" type="submit" value="AJOUTER" />
     </form>
 
-
+    
     <div id="liste-planches" class="gallery-boards display-none">
-
-        @foreach($boards as $board)
-        <div class="small-card">
-            <img src="{{ $board->board_image }}">
-            <p>p - {{ $board->board_number }}</p>
 
             <div class="gallery-boards">
                 @foreach($boards as $board)
@@ -108,8 +103,8 @@ Modifier Bande dessinée
                 </div>
                 @endforeach
             </div>
-            @endforeach
-        </div>
+            
+        
 
     </div>
     @endsection
