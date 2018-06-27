@@ -93,14 +93,13 @@ Route::get('/medias/destroy/{name}', 'MediasController@destroy')->name('medias_d
 |--------------------------------------------------------------------------
 */
 /* ----------------[ CREATE AND UPDATE MAPPING ]---------------- */
-//pb :  dans modif board.js : if (document.URL.includes('pages/edit')) 
-//pb : No link to it. 
-Route::get('/test2', function () {
-	return view('modifBoard');
-})->name('modifBoard');
-Route::get('/mapping', function () {
-	return view('mapping');
-})->name('mapping');
+
+Route::get('/mapping/read/{idPage}', 'AreaController@fetchAssocZones')->name('modifBoard');
+
+Route::get('/mapping/create', function () {
+	return view('boards.mapping.create');
+})->name('mappingCreate');
+
 /* ----------------[ READ MAPPING ]---------------- */
 // FROM FRONT : this route is used to show the sample board with sounds
 // Remove this line and board_mapping.blade.php
