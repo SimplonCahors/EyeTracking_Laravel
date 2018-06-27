@@ -11,6 +11,11 @@
 		max-width:1000px;
 		// justify-content:center;
 
+		a {
+			text-decoration: none;
+			text-align:center;
+		}
+
 		.small-card {
 			display:flex;
 			align-items:center;
@@ -31,8 +36,20 @@
 				color: $main-color;
 				font-family: $main-font;
 				margin:5px;
+
 			}
 		}
 	}
 	
+}
+
+.board-view{
+	width:100vw;
+	display:flex;
+	justify-content:center;
+
+	img {
+		width:50vw;
+	}
+
 }

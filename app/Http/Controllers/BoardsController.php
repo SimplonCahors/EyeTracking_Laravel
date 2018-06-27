@@ -9,6 +9,7 @@ use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\Storage;
 use DB;
 use App\Board;
+use App\Comic;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,18 +35,12 @@ class BoardsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($idBD, $idPage)
+    public function show($idBD,$idPage)
     {
-        // Requête BDD pour récupérer le path de l'image stocké dans la table 'pages' (renvoie un tableau)
-        // $pages = DB::table('boards')->where([['board_number', '=', $idPage], ['fk_comic_id', '=', $idBD]])->get();
+        $comic = Comic::all()->where('comic_id', $idBD)->first();  
+        $board = Board::all()->where('board_id',$idPage)->first();
 
-        // envoie le path pour la src de l'image 
-        // return view('boards.index', ['pages' => $pages]);
-
-
-        $board= Board::all()->where('fk_comic_id',$idBD)->where('board_number',$idPage);
-
-        return view('boards.show', ['board' => $board]);
+        return view('boards.show', ['comic' => $comic,'board' => $board]);
     }
 
     /**
@@ -108,9 +103,12 @@ class BoardsController extends Controller
           * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($idBD,$idPage)
     {
-        //
+        $comic = Comic::all()->where('comic_id', $idBD)->first();  
+        $board = Board::all()->where('board_id',$idPage)->first();
+
+        return view('boards.show', ['comic' => $comic,'board' => $board]);
     }
 
     /**
