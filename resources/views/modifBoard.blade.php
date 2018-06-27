@@ -4,6 +4,9 @@
     Home
 @endsection
 
+@section('content')
+
+
       <div class="col-4">
         <button type="button" class="btn btn-outline-secondary" id="buttonCreateZone">Ajouter média</button> 
       
@@ -15,7 +18,7 @@
         </div>
       
     </div>
-  </section>
+  <!-- </section> -->
 </div>
 
 
