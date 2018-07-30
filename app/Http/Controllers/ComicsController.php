@@ -51,10 +51,10 @@ class ComicsController extends Controller
      */
     public function show($id)
     {
-     $comic = Comic::all()->where('comic_id', $id)->first();  
-     $boards = Board::all()->where('fk_comic_id',$id);
-      return view('comics.show', ['comic' => $comic,'boards' => $boards]);
-    }
+       $comic = Comic::all()->where('comic_id', $id)->first();  
+       $boards = Board::all()->where('fk_comic_id',$id);
+       return view('comics.show', ['comic' => $comic,'boards' => $boards]);
+   }
 
     /**
      * Store a newly created resource in storage.
@@ -75,7 +75,6 @@ class ComicsController extends Controller
         $comics-> comic_title = request('titre');
         $comics-> comic_author = request('auteur');
         $comics-> comic_publisher = request('editeur');
-
         $comics-> comic_miniature_url = '/storage/miniatures/'.$originalName;
 
         // verification pour éviter la duplication de comic

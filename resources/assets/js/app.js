@@ -10,6 +10,8 @@
  require('./miniatureBrowse');
  require('./updateComic');
  require('./createMedia');
+ require('./legal');
+
  // console.log('ok');
 
 

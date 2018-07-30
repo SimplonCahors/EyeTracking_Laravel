@@ -49,23 +49,26 @@ Ajouter un média
         <p>/</p>
     </section>
 
-    <label for="mediaType">Type de fichier :</label>
-    <select id="mediaType" name="dataType">
-        <option value="img" selected disabled>Sélectionner un type de fichier</option> 
-        <option value="img">Image</option> 
-        <option value="son" >Son</option>
-        <option value="video">Video</option>
-    </select>
+    <!-- <label for="media_filename">Titre du média :</label>
+        <input type="text" id="media_filename" name="titre"  required/>  -->
 
-    <p class="label-miniature">Fichier :</p>
-    <div class="contain-miniature">
-        <label class="label-browse" id="label-media" for="media">Parcourir . . .</label>
-        <input class="inputfile" type="file" id="media" name="media" />
-        <span id="mediauploadurl"></span>
-    </div>
-    <input class="btn-outline" type="submit" value="AJOUTER" id="ajouter"/>
+        <label for="media_type">Type de fichier :</label>
+        <select id="media_type" name="dataType">
+            <option selected disabled>Sélectionner un type de fichier</option> 
+            <option value="img">Image</option> 
+            <option value="son" >Son</option>
+            <option value="video">Video</option>
+        </select>
 
-</form>  
+        <p class="label-miniature">Fichier :</p>
+        <div class="contain-miniature">
+            <label class="label-browse" id="label-media" for="media">Parcourir . . .</label>
+            <input class="inputfile" type="file" id="media" name="media" />
+            <span id="mediauploadurl"></span>
+        </div>
+        <input class="btn-outline" type="submit" value="AJOUTER" id="ajouter"/>
+
+    </form>  
 </div>
 
 @endsection

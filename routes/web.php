@@ -76,7 +76,7 @@ Route::get('/medias/read', 'MediasController@index')->name('medias');
 /* ----------------[ CREATE MEDIAS ]---------------- */
 Route::get('/medias/create', 'MediasController@create')->name('medias_create');
 /* ----------------[ UPLOAD MEDIAS ]---------------- */
-Route::post('/medias/store', 'MediasController@store')->name('medias_store');
+Route::post('/medias/store', 'MediasController@store');
 /* ----------------[ DELETE MEDIAS ]---------------- */
 //appellée par un bouton par media sur la page /medias
 Route::get('/medias/delete/{id}', 'MediasController@delete')->name('medias_delete');

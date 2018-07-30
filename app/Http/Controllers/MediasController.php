@@ -31,9 +31,10 @@ class MediasController extends Controller
 
 	public function store(Request $request)
 	{
+
 		//stores the file in the media folder
-		$originalName = $request->file('file')->getClientOriginalName();
-		$pathstart = $request->file('file')->storeAs('public/medias/', $originalName);
+		$originalName = $request->file('media')->getClientOriginalName();
+		$pathstart = $request->file('media')->storeAs('public/medias/', $originalName);
 
 		//removes the "public"
 		$path = substr($pathstart, 7);
@@ -42,24 +43,24 @@ class MediasController extends Controller
 
 		
 				//VALIDATION : validate method stops the code execution if conditions not fullfilled, and send error automatically on the page.
-				
+
 				//ERROR : The validation does not prevent problems with large files.
 
-				if ($dataType == 'image') {
-					$validatedData = $request->validate([
-						'file' => 'required|image'
-					]);
-				} elseif ($dataType == 'video') {
+		if ($dataType == 'image') {
+			$validatedData = $request->validate([
+				'file' => 'required|image'
+			]);
+		} elseif ($dataType == 'video') {
 					// x-msvideo = avi
-					$validatedData = $request->validate([
-					'file' => 'required|mimetypes:video/mpeg,video/ogg,video/mp4,video/quicktime|max:500000'
-				]);
-				} elseif ($dataType == 'son') {
+			$validatedData = $request->validate([
+				'file' => 'required|mimetypes:video/mpeg,video/ogg,video/mp4,video/quicktime|max:500000'
+			]);
+		} elseif ($dataType == 'son') {
 					// mpeg == mp3
-					$validatedData = $request->validate([
-					   'file' => 'required|mimetypes:audio/mpeg,wav,audio/ogg,mp4|max:100000'
-				   ]);
-				}
+			$validatedData = $request->validate([
+				'file' => 'required|mimetypes:audio/mp3,audio/mpeg,wav,audio/ogg,mp4|max:100000'
+			]);
+		}
 
 		$medias = new Media;
 		$medias-> media_type = $dataType;
@@ -98,9 +99,9 @@ class MediasController extends Controller
 	{		
 		$media = Media::where('media_filename', $name)->first();
 
-        $path_delete = substr($media->media_path, 9);
+		$path_delete = substr($media->media_path, 9);
 
-        Storage::delete('public/'.$path_delete);
+		Storage::delete('public/'.$path_delete);
 
 		Media::where('media_filename', $name)->delete();
 		
