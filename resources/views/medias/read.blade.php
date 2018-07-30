@@ -73,33 +73,28 @@ Medias
 
 				@if ($media->media_type == 'video')
 				<!-- may need to do depending on video types (attribute type = "") -->
-				<video width="320" height="240" controls>
-					<source src="storage/{{ $media->media_path }}">
-						Your browser does not support the video tag.
-					</video> 
-					@endif
+				<img class="card-img-top" src="/img/video.png" alt="Miniature">
+				@endif
 
-					@if ($media->media_type == 'son')
-					<audio controls>
-						<source src="storage/{{ $media->media_path }}">
-							Your browser does not support the audio element.
-						</audio> 
-						@endif
+				@if ($media->media_type == 'son')
+				<img class="card-img-top " src="/img/sound.png" alt="Miniature">
+				@endif
 
-						<div class="card-body">
-							<h5 class="card-title">Nom du fichier : {{ $media->media_filename }}</h5>
-							<p class="card-text">Type de fichier : {{ $media->media_type }}</p>
-							<a href="{{ route('medias_delete', ['id' => $media->media_id]) }}" class="btn-catalogue">Supprimer</a>
-						</div>
-					</article>
-
-
-					@endforeach
-
-
+				<div class="card-body">
+					<p class="card-filename">Nom du fichier :</p>
+					<h5 class="card-title">{{ $media->media_filename }}</h5>
+					<p class="card-text">Type de fichier : {{ $media->media_type }}</p>
+					<a href="{{ route('medias_delete', ['id' => $media->media_id]) }}" class="btn-catalogue">Supprimer</a>
 				</div>
+			</article>
 
-			</section>
+
+			@endforeach
 
 
-			@endsection
+		</div>
+
+	</section>
+
+
+	@endsection

@@ -16,6 +16,10 @@ use App\Media;
 class MediasController extends Controller
 {
 
+	// private $image_ext = ['jpg', 'jpeg', 'png', 'gif'];
+	// private $audio_ext = ['mp3', 'ogg', 'mpga'];
+	// private $video_ext = ['mp4', 'mpeg'];
+
 	public function index(){
 
 		$medias = Media::all();
@@ -32,35 +36,37 @@ class MediasController extends Controller
 	public function store(Request $request)
 	{
 
-		//stores the file in the media folder
+	//stores the file in the media folder
 		$originalName = $request->file('media')->getClientOriginalName();
 		$pathstart = $request->file('media')->storeAs('public/medias/', $originalName);
 
-		//removes the "public"
+	//removes the "public"
 		$path = substr($pathstart, 7);
 
 		$dataType = request('dataType');
 
-		
-				//VALIDATION : validate method stops the code execution if conditions not fullfilled, and send error automatically on the page.
 
-				//ERROR : The validation does not prevent problems with large files.
+	//VALIDATION : validate method stops the code execution if conditions not fullfilled, and send error automatically on the page.
 
-		if ($dataType == 'image') {
-			$validatedData = $request->validate([
-				'file' => 'required|image'
-			]);
-		} elseif ($dataType == 'video') {
-					// x-msvideo = avi
-			$validatedData = $request->validate([
-				'file' => 'required|mimetypes:video/mpeg,video/ogg,video/mp4,video/quicktime|max:500000'
-			]);
-		} elseif ($dataType == 'son') {
-					// mpeg == mp3
-			$validatedData = $request->validate([
-				'file' => 'required|mimetypes:audio/mp3,audio/mpeg,wav,audio/ogg,mp4|max:100000'
-			]);
-		}
+	//ERROR : The validation does not prevent problems with large files.
+
+
+		//VÉRIFICATIONS À REVOIR	
+		// if ($dataType == 'image') {
+		// 	$validatedData = $request->validate([
+		// 		'file' => 'required|image'
+		// 	]);
+		// } elseif ($dataType == 'video') {
+		// 			// x-msvideo = avi
+		// 	$validatedData = $request->validate([
+		// 		'file' => 'required|mimetypes:video/mpeg,video/ogg,video/mp4,video/quicktime|max:500000'
+		// 	]);
+		// } elseif ($dataType == 'son') {
+		// 			// mpeg == mp3
+		// 	$validatedData = $request->validate([
+		// 		'file' => 'required|mimetypes:mpga,audio/mpeg,wav,audio/ogg,mp4|max:100000'
+		// 	]);
+		// }
 
 		$medias = new Media;
 		$medias-> media_type = $dataType;
@@ -86,7 +92,7 @@ class MediasController extends Controller
 
 	public function delete(Request $request, $id)
 	{
-		
+
 		$media = Media::where('media_id', $id)->first();
 
 
@@ -104,7 +110,7 @@ class MediasController extends Controller
 		Storage::delete('public/'.$path_delete);
 
 		Media::where('media_filename', $name)->delete();
-		
+
 		return redirect()->route('medias')->with('add','Media correctement supprimé :'.$name);
 	}
 }

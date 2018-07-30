@@ -4,8 +4,8 @@
  * [attention peuvent avoir changés de nom]
  */
 
-.container.modify
-{
+ .container.modify
+ {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -56,7 +56,7 @@
         select
         {
             text-align: center;
-            appearance: none;
+            // appearance: none;
             width: 100%;
             padding: 10px 0 10px 0;
             border: 1px solid rgba(0,0,0,0.2);

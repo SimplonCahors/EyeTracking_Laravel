@@ -21,6 +21,18 @@
 		flex-direction: column;
 		justify-content: space-between;
 		padding-bottom: 0;
+
+		.card-text, .card-filename{
+			font-size: 0.9em;
+		}
+		.card-filename{
+			margin-bottom: 0;
+		}
+
+		.card-title{
+			font-family: $display-font;
+			margin-bottom: 4px;
+		}
 	}
 
 	img.card-img-top{
