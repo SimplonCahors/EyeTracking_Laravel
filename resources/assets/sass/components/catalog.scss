@@ -156,7 +156,6 @@ body{
     text-decoration: none;
     color: white;
     transform: translateX(0);
-
 }
 
 .alert-success,.alert-danger{
@@ -171,7 +170,7 @@ body{
 }
 
 .alert-danger{
- background-color: $danger-color;
+   background-color: $danger-color;
 }
 
 .unpublished{

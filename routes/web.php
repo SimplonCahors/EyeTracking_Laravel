@@ -83,7 +83,7 @@ Route::get('/medias/delete/{id}', 'MediasController@delete')->name('medias_delet
 /* ----------------[ DESTROY MEDIAS ]---------------- */
 Route::get('/medias/destroy/{name}', 'MediasController@destroy')->name('medias_destroy');
 /* ----------------[ UPDATE MEDIAS ]---------------- */
-// not done
+
 //§§§§§§§§§§§§§§§§§§§§§§§§§§§§§
 //  END OF REFACTO  
 //§§§§§§§§§§§§§§§§§§§§§§§§§§§§§
