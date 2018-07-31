@@ -1,12 +1,38 @@
 .card-body.area{
 	.area-form{
 		width: 100%;
-		background: blue;
 		display: flex;
-		justify-content: space-between;
+		justify-content: center;
+		align-items: center;
+		margin-bottom: 50px;
+		
+		label{
+			margin: 0 0 10px 0;
+		}
+
+		#form-tps{
+			display: flex;
+			align-items: center;
+			p{
+				margin: 0 0 0 10px;
+			}
+			input{
+				width: 70px;
+				margin: 0;
+			}
+		}
+
 		select, input{
+			margin-left: 50px;
 			height: 47px;
 			width: 200px;
+		}
+	}
+
+	div#imgModif{
+		padding: 10px;
+		div.page{
+			margin: 0 31px 0 31px;
 		}
 	}
 }
