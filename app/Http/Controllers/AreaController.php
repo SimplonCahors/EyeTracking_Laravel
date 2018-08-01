@@ -26,7 +26,7 @@ class AreaController extends Controller
       //   $areasQuery[$key]->has_media = count($mediaQuery);
         
       // }
-     
+
         return view('boards.mapping.show',['pages' => $pageQuery[0], 'areas' => $areasQuery]);
     }
 
@@ -38,7 +38,7 @@ class AreaController extends Controller
      */
     public function index()
     {
-       
+
     }
 
     /**
@@ -74,16 +74,14 @@ class AreaController extends Controller
      */
     public function store(Request $request)
     {
-            // var_dump('coucou');
             // var_dump( request('dataType'));
-            // var_dump($request->all());
+        // var_dump($request->all());
 
-            $area = new Area;
+        $area = new Area;
         $area-> area_coord = request('coords1');
         $area-> area_trigger = request('trigger');
         $area-> fk_board_id = 1;
         $area-> fk_media_id = 1;
-
         $area->save();
 
 
@@ -121,8 +119,8 @@ class AreaController extends Controller
     // Supprime les miniatures de la DB et du Storage
     public function destroy(Request $request, $id)
     {
-        
-        
+
+
 
     }
 }
