@@ -3,13 +3,9 @@
 		width: 100%;
 		display: flex;
 		justify-content: center;
-		align-items: center;
-		margin-bottom: 50px;
+		align-items: flex-end;
+		margin: 20px 0 30px 0;
 		
-		label{
-			margin: 0 0 10px 0;
-		}
-
 		#form-tps{
 			display: flex;
 			align-items: center;
@@ -20,19 +16,31 @@
 				width: 70px;
 				margin: 0;
 			}
+			label{
+				margin: 0 10px 5px 0;
+			}
 		}
-
 		select, input{
 			margin-left: 50px;
 			height: 47px;
 			width: 200px;
 		}
+
+		input.btn-outline{
+			text-indent: 0;
+		}
+
 	}
 
 	div#imgModif{
 		padding: 10px;
 		div.page{
 			margin: 0 31px 0 31px;
+
+			#clearButton{
+				margin-bottom: 20px;
+				border-radius: 0;
+			}
 		}
 	}
 }

@@ -1,7 +1,7 @@
 @extends('layout.app')
 
 @section('title')
-Mapping
+Créer une zone
 @endsection
 
 @section('content')
@@ -13,8 +13,8 @@ Mapping
         <form class="area-form" method="post" action=" {{action('AreaController@store',1)}}" enctype="multipart/form-data">
             @csrf
             <div>
-                <label for="tpsDeclenchement">Temps de déclenchement :</label>
                 <div id="form-tps" >
+                    <label for="tpsDeclenchement">Temps de déclenchement :</label>
                     <input type="number" name="trigger" class="form-control" id="tpsDeclenchement" value="1">
                     <p>Millisecondes</p>
                 </div>

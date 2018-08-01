@@ -31,7 +31,7 @@
 
 
 
-        $reset = $('<button type="button" id="clearButton" class="btn btn-outline-secondary">Effacer zone</button>');
+        $reset = $('<button type="button" id="clearButton" class="btn btn-outline-danger">Effacer la zone</button>');
         $canvas = $('<canvas>');
         ctx = $canvas[0].getContext('2d');
 
@@ -148,7 +148,7 @@
                         points[i], points[i + 1],
                         points[i - 2], points[i - 1],
                         true
-                    );
+                        );
                     if (lineDis < 6) {
                         insertAt = i;
                     }
@@ -208,9 +208,9 @@
             var first = ptc[0], last = ptc[ptc.length - 1];
             if (first.x != last.x || first.y != last.y) ptc.push(first);
             var twicearea = 0,
-                x = 0, y = 0,
-                nptc = ptc.length,
-                p1, p2, f;
+            x = 0, y = 0,
+            nptc = ptc.length,
+            p1, p2, f;
             for (var i = 0, j = nptc - 1; i < nptc; j = i++) {
                 p1 = ptc[i];
                 p2 = ptc[j];
@@ -252,14 +252,14 @@
         }
 
         if (o && !(o = function (x, y, x0, y0, x1, y1) {
-                if (!(x1 - x0)) return {x: x0, y: y};
-                else if (!(y1 - y0)) return {x: x, y: y0};
-                var left, tg = -1 / ((y1 - y0) / (x1 - x0));
-                return {
-                    x: left = (x1 * (x * tg - y + y0) + x0 * (x * -tg + y - y1)) / (tg * (x1 - x0) + y0 - y1),
-                    y: tg * left - tg * x + y
-                };
-            }(x, y, x0, y0, x1, y1), o.x >= Math.min(x0, x1) && o.x <= Math.max(x0, x1) && o.y >= Math.min(y0, y1) && o.y <= Math.max(y0, y1))) {
+            if (!(x1 - x0)) return {x: x0, y: y};
+            else if (!(y1 - y0)) return {x: x, y: y0};
+            var left, tg = -1 / ((y1 - y0) / (x1 - x0));
+            return {
+                x: left = (x1 * (x * tg - y + y0) + x0 * (x * -tg + y - y1)) / (tg * (x1 - x0) + y0 - y1),
+                y: tg * left - tg * x + y
+            };
+        }(x, y, x0, y0, x1, y1), o.x >= Math.min(x0, x1) && o.x <= Math.max(x0, x1) && o.y >= Math.min(y0, y1) && o.y <= Math.max(y0, y1))) {
             var l1 = lineLength(x, y, x0, y0), l2 = lineLength(x, y, x1, y1);
             return l1 > l2 ? l2 : l1;
         }
